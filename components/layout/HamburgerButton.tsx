@@ -7,25 +7,25 @@ import Image from "next/image";
 interface HamburgerButtonProps {}
 
 const HamburgerButton: React.FC<HamburgerButtonProps> = () => {
-    const [visible, setVisible] = React.useState(false);
+	const [visible, setVisible] = React.useState(false);
 
-    const onClick = () => {
-        setVisible(!visible);
-        document.querySelector(".hamburger-menu")?.classList.toggle("slide");
-    };
+	const onClick = () => {
+		setVisible(!visible);
+		document.querySelector(".hamburger-menu")?.classList.toggle("slide");
+	};
 
-    return (
-        <div className="plate">
-            <Link href="/">
-                <div className="burger-home">
-                    <Image src="/logo.jpeg" id="burger-logo" alt="Logo" height={40} width={40} />
-                </div>
-            </Link>
-            <div className="burger" onClick={onClick}>
-                {visible ? <IoClose size={40} /> : <GiHamburgerMenu size={40} />}
-            </div>
-        </div>
-    );
+	return (
+		<div className="plate">
+			<Link href="/">
+				<div className="burger-home">
+					<Image src="/logo.jpeg" id="burger-logo" alt="Logo" height={40} width={40} />
+				</div>
+			</Link>
+			<div className="burger" onClick={onClick}>
+				{visible ? <IoClose size={40} /> : <GiHamburgerMenu size={40} />}
+			</div>
+		</div>
+	);
 };
 
 export default HamburgerButton;
