@@ -22,6 +22,8 @@ There are also various development dependencies which are used:
 The server can be run using the command `npm run dev`. The development server will run in the address [http://localhost:3000](http://localhost:3000). You can customize the port by manually setting the process variables while running the server.  
 For example: `PORT=6969 npm run dev` (I blame our predecessors for the choice of the port.)
 
+The server can be built for production using the command `npm run build` and the build can be run using `npm run start`. The process variables can be customized to set custom ports while starting in production. 
+
 ## Contributions  
 Similar to the original repository, we will be having two branches. The `main` branch will be responsible for development and the `prod` branch (will be made soon) will be responsible for deployment of the website.  
 All non-trivial contributions made will be to the `main` branch using pull requests. You can , however, directly make trivial edits and minor bug fixes directly on the `main` branch.  
