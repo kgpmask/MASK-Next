@@ -392,11 +392,13 @@ img.social-icon:hover {
 
 .icon {
 	color: var(--dark-red);
-	transition: color 0.3s ease-in-out;
+	margin-right: 7px;
+	transition: 0.3s ease-in-out;
 }
 
-.social-link:hover .icon {
+.social-link:hover > .icon {
 	color: var(--red);
+	transform: scale(1.166);
 }
 
 div#contact-us {

@@ -11,7 +11,7 @@ const SocialHandles: React.FC<SocialHandlesProps> = ({ title, link, Icon }) => {
 	return (
 		<Link href={link} target="_blank" title={title} className="social-link">
 			<div className="icon">
-				<Icon size={65} />
+				<Icon size={42} />
 			</div>
 		</Link>
 	);
