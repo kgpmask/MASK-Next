@@ -17,6 +17,30 @@ There are also various development dependencies which are used:
 
 > _Note: The server runs on Node.js v20. Make sure to update Node if it is not yet updated._
 
+## File Layout
+
+The file layout for the repository is pretty simple in itself. Here is the broad outlook of the same.
+
+```
+components/
+	layout/
+	(tsx component files)
+pages/
+	api/
+	_app.tsx
+	(tsx page files)
+public/
+styles/
+(some files which you don't need to mind too much about)
+```
+
+- The `components/` directory contains various React components which are used in the server. The `layout/` subdirectory includes components specifically used in the layout of the page (`components/Layout.tsx`)
+- The `pages/` directory contains the various pages which are rendered by the server. The `api/` subdirectory will be used for API routes. `_app.tsx` is the base page on which the other pages are built onto. Any file (except `index.tsx`) represents the corresponding page. For example: `about.tsx` would represent the page given by the route `/about`
+- The `public/` directory contains public assets which is used by the server as is, mostly images.
+- The `styles/` directory contain the CSS files used in the server.
+
+_Note: With more additions to the server, more changes will be added. The file layout will be updated accordingly._
+
 ## Running the server
 
 The server can be run using the command `npm run dev`. The development server will run in the address [http://localhost:3000](http://localhost:3000). You can customize the port by manually setting the process variables while running the server.  
