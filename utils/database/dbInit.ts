@@ -1,24 +1,20 @@
 import mongoose from "mongoose";
 
-declare global {
-  var mongoose: any // This must be a `var` and not a `let / const` --IDK why--
-}
 const MONGO_URL = process.env.MONGO_URL
 
 if (!MONGO_URL) throw new Error("MONGO_URL is not defined.");
 
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null }
-}
-
 const dbConnect = async () => {
-  if (cached.conn) return cached.conn;
+  const opts = {
+    connectTimeoutMS: 5000
+  }
+
   try {
-    cached.conn = await mongoose.connect(MONGO_URL, { connectTimeoutMS: 5000 });
+    const db = await mongoose.connect(MONGO_URL, opts); // insert additional checks here
+
     // insert additional checks here
-    return cached.conn;
+
+    return db;
   } catch (e) {
     throw e
   }
