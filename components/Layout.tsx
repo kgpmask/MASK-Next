@@ -7,11 +7,9 @@ import Navbar from "./layout/Navbar";
 
 interface LayoutProps {
 	children: React.ReactNode;
-	loggedIn: boolean;
-	userless: boolean;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, loggedIn, userless }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
 	const Router = useRouter();
 	const [viewportWidth, setViewportWidth] = React.useState(720);
 
@@ -38,7 +36,7 @@ const Layout: React.FC<LayoutProps> = ({ children, loggedIn, userless }) => {
 					>
 						<input autoFocus={true} />
 					</div>
-					{viewportWidth > 600 ? <Navbar currentPage={Router.route.split("/")[1]} loggedIn={loggedIn} userless={userless} /> : <HamburgerMenu currentPage={Router.route.split("/")[1]} loggedIn={loggedIn} userless={userless} />}
+					{viewportWidth > 600 ? <Navbar currentPage={Router.route.split("/")[1]} /> : <HamburgerMenu currentPage={Router.route.split("/")[1]} />}
 					<div id="pagecontent">{children}</div>
 					<Footer />
 				</div>

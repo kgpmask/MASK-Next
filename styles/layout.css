@@ -163,7 +163,7 @@ span.navbar-line {
 }
 
 .burger {
-	width: 40px;
+	width: 50px;
 	height: 40px;
 	position: absolute;
 	top: 15px;
@@ -384,6 +384,19 @@ img.social-icon {
 
 img.social-icon:hover {
 	transform: scale(1.2);
+}
+
+.social-link {
+	text-decoration: none;
+}
+
+.icon {
+	color: var(--dark-red);
+	transition: color 0.3s ease-in-out;
+}
+
+.social-link:hover .icon {
+	color: var(--red);
 }
 
 div#contact-us {
