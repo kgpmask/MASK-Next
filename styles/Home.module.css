@@ -1,20 +1,21 @@
---abyss: #060606;
---shadow-gray: #1f1f1f;
---darker-gray: #252525;
---dark-gray: #373737;
---tinted-gray: #444444;
---medium-gray: #555555;
---middle-gray: #606060;
---gray: #6d6d6d;
---ghost-gray: #777777;
---light-gray: #a9a9a9;
---off-white: #d0d0d0;
---white: #ffffff;
-
---dark-red: #8b0000;
---red: #d61f35;
---error-red: #e84e4f;
---light-pink: #f1adad;
+/* :root{
+	--abyss: #060606;
+	--shadow-gray: #1f1f1f;
+	--darker-gray: #252525;
+	--dark-gray: #373737;
+	--tinted-gray: #444444;
+	--medium-gray: #555555;
+	--middle-gray: #606060;
+	--gray: #6d6d6d;
+	--ghost-gray: #777777;
+	--light-gray: #a9a9a9;
+	--off-white: #d0d0d0;
+	--white: #ffffff;
+	
+	--dark-red: #8b0000;
+	--red: #d61f35;
+	--error-red: #e84e4f;
+	--light-pink: #f1adad;} */
 
 .mask-banner {
 	width: 80%;
