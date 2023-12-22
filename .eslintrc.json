@@ -1,11 +1,11 @@
 {
 	"extends": "next/core-web-vitals",
 	
-    "env": {
-        "browser": true,
-        "node": true,
+	"env": {
+		"browser": true,
+		"node": true,
 		"es6": true
-    },
+	},
 	
 	"parserOptions": {
 		"ecmaVersion": 2023,
@@ -41,7 +41,6 @@
 		"no-extra-bind": "warn",
 		"no-multi-spaces": "error",
 		"no-mixed-spaces-and-tabs": "error",
-		"no-unused-vars": "error",
 		"no-undef": "error",
 		"no-unreachable": "error",
 		"object-curly-newline": ["error", { "consistent": true, "multiline": true }],
@@ -60,14 +59,14 @@
 		}],
 		"space-before-blocks": ["error"],
 		"space-before-function-paren": ["error", "always"],
-		"space-in-parens": "error",
+		"space-in-parens": ["error", "always", {
+			"exceptions": ["{}"]
+		}],
 		"space-infix-ops": "error",
 		"spaced-comment": ["error", "always", {
-			"exceptions": ["*"]
+			"exceptions": ["*","-"]
 		}],
 		"yoda": ["error", "never"]
 	}
 
 }
-
-
