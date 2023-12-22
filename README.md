@@ -1,40 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# kgpmask/MASK-Next
+> _MASK's website, now in NextJS._
 
-## Getting Started
+This repository is the latest version of MASK's website, migrated to NextJS 14 to explore more frameworks while also working on improving the working conditions of the team. (Sadly, they're still stuck as slaves. There's no escape from that. At least React's neat.)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Dependencies  
+
+The repository is made using [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) v14 in TypeScript as opposed to JavaScript. Here are the major dependencies in the same:
+- `next (v14)`: The NextJS Framework which we are using for the same
+- `react (v18)` and `react-dom (v18)`: ReactJS, the frontend framework used by the same.
+- `react-icons`: For icons to be used in the website.
+
+There are also various development dependencies which are used:
+- `typescript`: Typescript support dependency. Also includes `@types/node`, `@types/react`, `@types/react-dom`
+- `eslint`: Lint configuration for clean coding.
+
+> _Note: The server runs on Node.js v20. Make sure to update Node if it is not yet updated._
+
+## File Layout
+
+The file layout for the repository is pretty simple in itself. Here is the broad outlook of the same.
+
+```
+components/
+	layout/
+	(tsx component files)
+pages/
+	api/
+	_app.tsx
+	(tsx page files)
+public/
+styles/
+(some files which you don't need to mind too much about)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- The `components/` directory contains various React components which are used in the server. The `layout/` subdirectory includes components specifically used in the layout of the page (`components/Layout.tsx`)
+- The `pages/` directory contains the various pages which are rendered by the server. The `api/` subdirectory will be used for API routes. `_app.tsx` is the base page on which the other pages are built onto. Any file (except `index.tsx`) represents the corresponding page. For example: `about.tsx` would represent the page given by the route `/about`
+- The `public/` directory contains public assets which is used by the server as is, mostly images.
+- The `styles/` directory contain the CSS files used in the server.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+_Note: With more additions to the server, more changes will be added. The file layout will be updated accordingly._
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Running the server
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The server can be run using the command `npm run dev`. The development server will run in the address [http://localhost:3000](http://localhost:3000). You can customize the port by manually setting the process variables while running the server.  
+For example: `PORT=6969 npm run dev` (I blame our predecessors for the choice of the port.)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The server can be built for production using the command `npm run build` and the build can be run using `npm run start`. The process variables can be customized to set custom ports while starting in production. 
 
-## Learn More
+## Contributions  
+Similar to the original repository, we will be having two branches. The `main` branch will be responsible for development and the `prod` branch (will be made soon) will be responsible for deployment of the website.  
+All non-trivial contributions made will be to the `main` branch using pull requests. You can , however, directly make trivial edits and minor bug fixes directly on the `main` branch.  
 
-To learn more about Next.js, take a look at the following resources:
+> _**Note:** PRs can be made to other branches in the repository as well. For instance, if you are working on the live quiz portal, socket integration and database integration (two separate features) can have their PRs to the live quiz portal's branch, which can further be merged to main._
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The `main` &#x2192; `prod` branch pull requests are the only ones allowed to be made to the `prod` branch. They will be made after a few additions are made to `main`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Rules for making a PR
+- When you make a new branch for a new feature, be sure to make a pull request. You can set it as a draft, but it is recommended you make one to track the progress easily.
+- Don't be lazy with the PR details. Make sure to add a proper title and description to the PR instead of just the base branch's name.
+- Make sure your PR is used to merge to the correct branch. We don't want a PR which is supposed to go to the live quiz portal get merged to dev.
 
-## Deploy on Vercel
+Your PR will be approved when two of the following conditions are met:
+- Your code passes all the tests (lint, mocha, everything)
+- All feedback, suggestions (and excessively redundant additions) asked by the reviewers and team head have been satisfied.
+- ~~Bribe the head with something they value~~
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> _Note: Equivalent migrations should be made to the database (in case of `main` &#x2192; `prod`.) If necessary, change the production server into a maintenance instance before migrating._
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Credits  
+### Team Head  
+- [Vidunram A R](https://github.com/Goose-Of-War)
+### Team Members  
+- [Sharanya Chakraborty](https://github.com/destryptor)
+
+> _will be added as they contribute_
