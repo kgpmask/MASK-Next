@@ -54,6 +54,7 @@ a,
 a.visited {
 	color: inherit;
 	transition: color 0.3s;
+	text-decoration: none;
 }
 
 a:hover {

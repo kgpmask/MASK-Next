@@ -9,7 +9,7 @@ interface Props {
     desc: string
 }
 
-const Card: React.FC<Props> = ({
+const LatestCard: React.FC<Props> = ({
     id,
     link, 
     title, 
@@ -17,8 +17,7 @@ const Card: React.FC<Props> = ({
 }) => {
 
   return (
-    
-    <a className={`${styles["old"]}`}  href={`/newsletters/${link}`}>
+    <a className= {`${styles["scale-up-tl"]}`} id={styles["latest"]} href={`/newsletters/${link}`} >
 				
     <div className={styles['newsletter']}>
         <img className={styles['cover']} src={`/newsletterReleases/${link}/cover.webp`}/>
@@ -31,4 +30,4 @@ const Card: React.FC<Props> = ({
   )
 }
 
-export default Card;
+export default LatestCard;
