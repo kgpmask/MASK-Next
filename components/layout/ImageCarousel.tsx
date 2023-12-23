@@ -8,7 +8,7 @@ interface Props {
   imgs: string[];
 }
 
-function Carousel({ imgs }: Props) {
+function ImageCarousel({ imgs }: Props) {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const handlePrevious = () => {
@@ -25,6 +25,10 @@ function Carousel({ imgs }: Props) {
     resetTimeout();
   };
 
+  const handleDotClick = (index: number) => {
+    setCurrentIndex(index);
+    resetTimeout();
+  };
   // Timeout settings
   const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
   const timeoutDelay = 3000; // Change image every 3 seconds
@@ -36,11 +40,9 @@ function Carousel({ imgs }: Props) {
     timeoutRef.current = setTimeout(handleNext, timeoutDelay);
   }, [handleNext]);
 
-
   useEffect(() => {
     resetTimeout();
 
-    // Cleanup function to clear the timeout when the component unmounts
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
@@ -49,9 +51,8 @@ function Carousel({ imgs }: Props) {
   }, [currentIndex, resetTimeout]);
 
   if (imgs.length === 0) {
-    return null; // or render some default content
+    return null;
   }
-
   return (
     <>
       <div className={styles['with-controls']}>
@@ -65,8 +66,8 @@ function Carousel({ imgs }: Props) {
                     src={img}
                     alt={`carousel-image-${index}`}
                     className={currentIndex === index ? styles.active : styles.inactive}
-                    width={500} // Set the width of the image
-                    height={300} // Set the height of the image
+                    width={500}
+                    height={300}
                   />
                 ))}
               </div>
@@ -81,18 +82,18 @@ function Carousel({ imgs }: Props) {
             </div>
           </div>
         </div>
-      <div className={styles["carousel-indicator"]}>
-        {imgs.map((_, index) => (
-          <div
-            key={index}
-            className={`${styles.dot} ${currentIndex === index ? styles.active : ""}`}
-          ></div>
-        ))}
+        <div className={styles["carousel-indicator"]}>
+          {imgs.map((_, index) => (
+            <div
+              key={index}
+              className={`${styles.dot} ${currentIndex === index ? styles.active : ""}`}
+              onClick={() => handleDotClick(index)} // Handle dot click
+            ></div>
+          ))}
+        </div>
       </div>
-      </div>
-
     </>
   );
 }
 
-export default Carousel;
+export default ImageCarousel;

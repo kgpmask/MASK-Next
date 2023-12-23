@@ -27,7 +27,6 @@ export default function Home() {
 		{ id: 'lzvrb4ePxdU', name: '[AMV] Mob Psycho 100' },
 		{ id: 'P0NxHvWz1ns', name: '[AMV] Cosplay Event Coverage' },
 		{ id: 'w_tkq4syNnI', name: '[AMV] Mushoku Tensei' },
-		{ id: 'w_tkq4syNnI', name: '[AMV] Mushoku Tensei' }
 	];
 	return (
 		<>

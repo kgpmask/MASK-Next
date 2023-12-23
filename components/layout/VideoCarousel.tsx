@@ -14,7 +14,6 @@ interface VideosCarouselProps {
 
 export default function VideosCarousel({ videos }: VideosCarouselProps) {
 	const [currentIndex, setCurrentIndex] = useState<number>(0);
-	const [isPlaying, setIsPlaying] = useState<boolean>(true); // Added state for video play/pause
 
 	const handlePrevious = () => {
 		setCurrentIndex((prevIndex) =>
@@ -29,6 +28,13 @@ export default function VideosCarousel({ videos }: VideosCarouselProps) {
 		);
 		resetTimeout();
 	};
+
+	const handleDotClick = (index: number) => {
+		setCurrentIndex(index);
+		resetTimeout();
+	};
+
+
 
 	// Timeout settings
 	const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
@@ -68,13 +74,14 @@ export default function VideosCarousel({ videos }: VideosCarouselProps) {
 								title={videos[currentIndex].name}
 								wrapperClass={styles['youtube-vid'] + ' yt-lite'}
 								containerElement='div'
+								webp={true}
 							/>
 						</div>
 						<button className={`${styles['control-btn']} ${styles['left-btn']}`} onClick={handlePrevious}>
-						<BiSolidChevronLeft />
+							<BiSolidChevronLeft />
 						</button>
 						<button className={`${styles['control-btn']} ${styles['right-btn']}`} onClick={handleNext}>
-						<BiSolidChevronRight />
+							<BiSolidChevronRight />
 						</button>
 					</div>
 				</div>
@@ -84,10 +91,10 @@ export default function VideosCarousel({ videos }: VideosCarouselProps) {
 					<div
 						key={index}
 						className={`${styles.dot} ${currentIndex === index ? styles.active : ''}`}
+						onClick={() => handleDotClick(index)}
 					></div>
 				))}
 			</div>
-
 		</>
 	);
 }
