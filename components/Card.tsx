@@ -9,20 +9,20 @@ interface Props {
     desc: string
 }
 
-const LatestCard: React.FC<Props> = ({
+const Card: React.FC<Props> = ({
     id,
     link, 
     title, 
     desc
 }) => {
 
-    const [Link, setLink ] = useState(`/newsletterReleases/${link}/cover.webp`);
+  const [Link, setLink ] = useState(`/newsletter-releases/${link}/cover.webp`);
   const handleError = () => 
-  setLink ('/newsletterReleases/no-cover.webp');
-
+  setLink ('/newsletter-releases/no-cover.webp');
 
   return (
-    <a className= {`${styles["scale-up-tl"]}`} id={styles["latest"]} href={`/newsletters/${link}`} >
+    
+    <a className={`${styles["old"]}`}  href={`/newsletters/${link}`}>
 				
     <div className={styles['newsletter']}>
         <img className={styles['cover']} src={Link}
@@ -36,4 +36,4 @@ const LatestCard: React.FC<Props> = ({
   )
 }
 
-export default LatestCard;
+export default Card;

@@ -2,8 +2,8 @@ import HeadContent from "@/components/HeadContent";
 import styles from '@/styles/Newsletters.module.css';
 import latestnewsletter from "./latestnewsletter";
 import newsletters from "./newsletters";
-import Card from "./Card";
-import LatestCard from "./LatestCard";
+import Card from "../../components/Card";
+import LatestCard from "../../components/LatestCard";
 
 export default function NewslettersPage () {
 
