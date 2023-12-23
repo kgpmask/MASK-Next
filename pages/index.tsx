@@ -6,9 +6,12 @@ import Policies from "@/components/layout/Policies";
 import Link from 'next/link'
 import ImageCarousel from '@/components/layout/ImageCarousel';
 import VideoCarousel from '@/components/layout/VideoCarousel';
-
+//All necessary import till here
 
 export default function Home() {
+	
+	const imgs = ["/Image-1.jpeg", "/Image-2.jpg","/Image-3.jpg","/Image-4.jpg","/Image-5.jpg"];
+
 	const recentPosts = [
 		{ link: 'https://youtu.be/VxVDJhMU6Zc', name: '[AMV] YLIA x Horimiya', type: 'youtube', hype: true, date: new Date() },
 		{ link: 'https://youtu.be/lzvrb4ePxdU', name: '[AMV] Mob Psycho 100', type: 'youtube', hype: true, date: new Date() },
@@ -20,48 +23,38 @@ export default function Home() {
 	];
 
 	const videos = [
-		"https://www.youtube.com/watch?v=HM1ld5vIqFg",
-		"https://www.youtube.com/watch?v=f4muqjlSwYI",
-		"https://www.youtube.com/watch?v=zJJGrPb8ymE",
-
+		{ id: 'VxVDJhMU6Zc', name: '[AMV] YLIA x Horimiya' },
+		{ id: 'lzvrb4ePxdU', name: '[AMV] Mob Psycho 100' },
+		{ id: 'P0NxHvWz1ns', name: '[AMV] Cosplay Event Coverage' },
+		{ id: 'w_tkq4syNnI', name: '[AMV] Mushoku Tensei' }
 	];
-	const images = [
-		"https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=600",
-		"https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-		"https://images.pexels.com/photos/773471/pexels-photo-773471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-		"https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-		"https://images.pexels.com/photos/632522/pexels-photo-632522.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-		"https://images.pexels.com/photos/777059/pexels-photo-777059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-	];
-
 	return (
 		<>
+			{/* Banner */}
 			<Banner />
 
+			{/* top container having  updates and about soc stuff */}
 			<div className={styles["flex-container"]}>
 				<Updates updates={recentPosts} />
 				<AboutStuff />
 			</div>
 			<hr className={styles["flex-break"]}></hr>
+
+			{/* bottom container having image and video carousels  */}
 			<div id={styles["bottom-container"]} className={styles["flex-conatainer"]}>
 				<div className={styles['top-container']}>
+
 					{/* Art */}
-					<div className={styles['with-controls']}>
-						<div className={styles['imgshow-container']}>
-							<ImageCarousel images={images} />
-
-						</div>
-
-					</div>
-					<div className={styles["submit-stuff"]}><Link href="/submissions"><button className={styles["submit-button"]}>Submit your content!</button></Link></div>
+					<div className={styles.container}></div>
+					<ImageCarousel imgs={imgs} />
+					{/* submit stuff button */}
+					<div className={styles["submit-stuff"]} ><Link href="/submissions"><button className={styles["submit-button"]} >Submit your content!</button></Link></div>
 				</div>
+
 				{/* Videos */}
-				<div id="vid-main" className="with-controls">
-					<div className="vidshow-container">
-					<ImageCarousel images={images} />
-					</div>
-				</div>
+				<VideoCarousel videos={videos} />
 			</div>
+			{/* policies  */}
 			<Policies />
 			<br />
 			<br />
