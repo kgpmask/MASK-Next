@@ -75,6 +75,7 @@ export default function VideosCarousel({ videos }: VideosCarouselProps) {
 								wrapperClass={styles['youtube-vid'] + ' yt-lite'}
 								containerElement='div'
 								webp={true}
+								
 							/>
 						</div>
 						<button className={`${styles['control-btn']} ${styles['left-btn']}`} onClick={handlePrevious}>
