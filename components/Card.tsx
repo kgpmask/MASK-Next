@@ -16,9 +16,9 @@ const Card: React.FC<Props> = ({
     desc
 }) => {
 
-  const [Link, setLink ] = useState(`/newsletter-releases/${link}/cover.webp`);
+  const [Link, setLink ] = useState(`/newsletterReleases/${link}/cover.webp`);
   const handleError = () => 
-  setLink ('/newsletter-releases/no-cover.webp');
+  setLink ('/newsletterReleases/no-cover.webp');
 
   return (
     
