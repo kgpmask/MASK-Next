@@ -75,14 +75,14 @@
 .dot {
   width: 15px;
   height: 15px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--dark-gray);
   border-radius: 50%;
 }
 .dot.active {
-  background-color: rgba(255, 255, 255, 1);
+  background-color: var(--off-white);
 }
 
-/*  */
+/*copy pasta from OG   */
 .with-controls {
   width: 100%;
   max-width: 600px;

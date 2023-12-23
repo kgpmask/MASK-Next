@@ -10,7 +10,7 @@ import VideoCarousel from '@/components/layout/VideoCarousel';
 
 export default function Home() {
 	
-	const imgs = ["/Image-1.jpeg", "/Image-2.jpg","/Image-3.jpg","/Image-4.jpg","/Image-5.jpg"];
+	const imgs = ["/0021.webp", "/0022.webp","/0023.webp","/0024.webp","/202307-03.webp"];//for testing purpose i am keeping images in public
 
 	const recentPosts = [
 		{ link: 'https://youtu.be/VxVDJhMU6Zc', name: '[AMV] YLIA x Horimiya', type: 'youtube', hype: true, date: new Date() },
@@ -26,6 +26,7 @@ export default function Home() {
 		{ id: 'VxVDJhMU6Zc', name: '[AMV] YLIA x Horimiya' },
 		{ id: 'lzvrb4ePxdU', name: '[AMV] Mob Psycho 100' },
 		{ id: 'P0NxHvWz1ns', name: '[AMV] Cosplay Event Coverage' },
+		{ id: 'w_tkq4syNnI', name: '[AMV] Mushoku Tensei' },
 		{ id: 'w_tkq4syNnI', name: '[AMV] Mushoku Tensei' }
 	];
 	return (
