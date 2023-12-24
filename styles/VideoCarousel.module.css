@@ -1,3 +1,4 @@
+/* styles for youtube lite embed component are in layoutCSS */
 .youtube-videos {
   display: inline-flex;
   width: 100%;
@@ -21,10 +22,12 @@
   .youtube-vid,
   .vidshow-container {
     width: 100%;
-    height: auto;
   }
   .vidshow-container {
     margin: 20px;
+  }
+  .youtube-vid {
+    aspect-ratio: 16/9;
   }
 }
 
@@ -45,19 +48,19 @@
 .control-btn {
   height: 54px;
 }
-.right-btn{
+.right-btn {
   right: 0;
   transform: translateY(-50%);
 }
-.left-btn{
+.left-btn {
   left: 0;
   transform: translateY(-50%);
 }
 
-.control-btn:hover{
-	color: var(--white);
-	background-color: red;
-	opacity: 0.7;
+.control-btn:hover {
+  color: var(--white);
+  background-color: red;
+  opacity: 0.7;
 }
 /* Indicator dots */
 .carousel-indicator {

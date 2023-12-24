@@ -38,7 +38,7 @@ const LiteYouTubeWrapper = ({
 export default function VideosCarousel({ videos }: VideosCarouselProps) {
 	const [currentIndex, setCurrentIndex] = useState<number>(0);
 	const [isPlaying, setIsPlaying] = useState<boolean>(false);
-	const [autoplay, setAutoplay] = useState<boolean>(true); // New state variable
+	const [autoplay, setAutoplay] = useState<boolean>(true);
 
 
 	// Declare timeoutRef
