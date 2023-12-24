@@ -46,13 +46,13 @@ export default function Home() {
 
 					{/* Art */}
 					<div className={styles.container}></div>
-					<ImageCarousel imgs={imgs} />
+					{/* <ImageCarousel imgs={imgs} /> */}
 					{/* submit stuff button */}
 					<div className={styles["submit-stuff"]} ><Link href="/submissions"><button className={styles["submit-button"]} >Submit your content!</button></Link></div>
 				</div>
 
 				{/* Videos */}
-				<VideoCarousel videos={videos} />
+				{/* <VideoCarousel videos={videos} /> */}
 			</div>
 			{/* policies  */}
 			<Policies />
