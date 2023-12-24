@@ -1,0 +1,59 @@
+import Description from '@/components/textpage/Description';
+import HeadContent from '@/components/HeadContent';
+import TextPage from '@/components/TextPage';
+import Image from '@/components/textpage/InnerImage';
+import Link from '@/components/textpage/InnerLink';
+import Emphasis from '@/components/textpage/Emphasis';
+
+export default function EventPage() {
+	return (
+		<>
+			<HeadContent title='' />
+			<TextPage title='' isRed>
+				<Description
+					information={{
+						Date: 'April 28, 2023',
+						Location: 'Classified',
+						Author: 'Gargi Raj'
+					}}
+				/>
+				<p>
+					Senior year exams ended, and we kicked off the ultimate bonding experience with an exciting Intra-MASK Anime Quiz.
+					The stage was set for teams to compete: Akatsuki, led by Nishkal; Straw Hats, led by Vidhu; Edgerunners, led by
+					Abhibhu; and Rent-a-Weeb, led by Arghadeep. Teams battled it out in a thrilling round robin quiz, selecting
+					questions from Easy, Medium, and Hard categories, each with different points and penalties, and 3 wildcards
+					available:
+				</p>
+				<Image src='/events/intrasoc/1.webp' alt='Image of the three wildcards' caption='Image of the three wildcards' />
+				<p>
+					Strategies emerged as teams devised prioritising Easy questions to rack up points and establish dominance. Akatsuki
+					took an early lead, but stumbled when they played the 7:3 Strike wildcard, allowing Rent-a-Weeb to surge ahead and
+					climb the points ladder. Surprises unfolded with some googly questions. Edgerunners faced utter misfortune, while
+					Straw Hats played it safe, missing out on advantageous risks taken by Rent-a-Weeb. Throughout the 12 exciting
+					rounds, teams cheered and taunted one another, creating a lively atmosphere.
+				</p>
+				<Image
+					src='/events/intrasoc/2.webp'
+					alt='Peek into the quiz'
+					caption='"Apologies for the blurry photo. As the MN Team, we had to go incognito with the no-phone-policy!"'
+				/>
+				<p>
+					In the end, Rent-a-Weeb emerged victorious, with Akatsuki, Edgerunners, and Straw Hats following closely. The event
+					captivated both anime connoisseurs and newcomers alike, smoothly executed with the clever use of a PowerPoint and
+					spreadsheet.
+				</p>
+				<p>
+					Sahil from the DNA team had handled design and drafting. Shifting between static and dynamic PowerPoint design, he
+					recalls enjoying the backstage effort that went into dynamic drafting, done over a spaced 10 hour work week.
+					Dishant, Vipin, and Aman from the Quiz Team were the brains behind the creative questions. Kudos team!
+				</p>
+			</TextPage>
+			<Link href='/events' isRed>
+				Click here
+			</Link>{' '}
+			to go back
+			<br />
+			<br />
+		</>
+	);
+}
