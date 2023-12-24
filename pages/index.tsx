@@ -1,11 +1,11 @@
 import styles from "@/styles/Home.module.css";
-import Banner from "@/components/layout/Banner";
-import AboutStuff from "@/components/layout/AboutStuff";
-import Updates from "@/components/layout/Updates";
-import Policies from "@/components/layout/Policies";
+import Banner from "@/components/home-page/Banner";
+import AboutStuff from "@/components/home-page/AboutStuff";
+import Updates from "@/components/home-page/Updates";
+import Policies from "@/components/home-page/Policies";
 import Link from 'next/link'
-import ImageCarousel from '@/components/layout/ImageCarousel';
-import VideoCarousel from '@/components/layout/VideoCarousel';
+import ImageCarousel from '@/components/home-page/ImageCarousel';
+import VideoCarousel from '@/components/home-page/VideoCarousel';
 //All necessary import till here
 
 export default function Home() {
