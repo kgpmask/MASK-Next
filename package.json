@@ -9,9 +9,9 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@types/react-icons": "^3.0.0",
 		"framer-motion": "^10.16.16",
-		"next": "14.0.4",
+		"mongoose": "^8.0.3",
+		"next": "^14.0.4",
 		"react": "^18",
 		"react-dom": "^18",
 		"react-icons": "^4.12.0",
@@ -21,7 +21,8 @@
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
-		"eslint": "^8",
+		"@types/react-icons": "^3.0.0",
+		"eslint": "^8.56.0",
 		"eslint-config-next": "14.0.4",
 		"typescript": "^5.3.3"
 	}
