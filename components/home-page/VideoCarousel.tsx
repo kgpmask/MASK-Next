@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import styles from '@/styles/VideoCarousel.module.css';
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { BiSolidChevronRight, BiSolidChevronLeft } from "react-icons/bi";
 interface Video {
 	id: string;
@@ -12,8 +12,38 @@ interface VideosCarouselProps {
 	videos: Video[];
 }
 
+// Custom LiteYouTubeWrapper component
+const LiteYouTubeWrapper = ({
+	videoId,
+	title,
+	onClick,
+}: {
+	videoId: string;
+	title: string;
+	onClick: () => void;
+}) => {
+	return (
+		<div onClick={onClick} style={{ cursor: 'pointer' }}>
+			<LiteYouTubeEmbed
+				id={videoId}
+				title={title}
+				wrapperClass={styles['youtube-vid'] + ' yt-lite'}
+				containerElement='div'
+				webp={true}
+			/>
+		</div>
+	);
+};
+
 export default function VideosCarousel({ videos }: VideosCarouselProps) {
 	const [currentIndex, setCurrentIndex] = useState<number>(0);
+	const [isPlaying, setIsPlaying] = useState<boolean>(false);
+	const [autoplay, setAutoplay] = useState<boolean>(true); // New state variable
+
+
+	// Declare timeoutRef
+	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+	const timeoutDelay = 3000; // Change video every 3 seconds
 
 	const handlePrevious = () => {
 		setCurrentIndex((prevIndex) =>
@@ -35,28 +65,34 @@ export default function VideosCarousel({ videos }: VideosCarouselProps) {
 	};
 
 
-
-	// Timeout settings
-	const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
-	const timeoutDelay = 3000; // Change video every 3 seconds
-
+	const handleLiteYouTubeEmbedClick = () => {
+		setIsPlaying(true);
+		setAutoplay(false); // Set autoplay to false when video is played manually
+		if (timeoutRef.current) {
+			clearTimeout(timeoutRef.current);
+		}
+	};
 	const resetTimeout = useCallback(() => {
 		if (timeoutRef.current) {
 			clearTimeout(timeoutRef.current);
 		}
-		timeoutRef.current = setTimeout(handleNext, timeoutDelay);
-	}, [handleNext]);
+		if (autoplay) {
+			timeoutRef.current = setTimeout(() => {
+				handleNext();
+				setIsPlaying(false);
+			}, timeoutDelay);
+		}
+	}, [handleNext, autoplay]);
 
 	useEffect(() => {
 		resetTimeout();
 
-		// Cleanup function to clear the timeout when the component unmounts
 		return () => {
 			if (timeoutRef.current) {
 				clearTimeout(timeoutRef.current);
 			}
 		};
-	}, [currentIndex, resetTimeout]);
+	}, [currentIndex, resetTimeout, autoplay]);
 
 	if (videos.length === 0) {
 		return null; // or render some default content
@@ -68,22 +104,28 @@ export default function VideosCarousel({ videos }: VideosCarouselProps) {
 				<div className={styles['vidshow-container']}>
 					<div className={styles['vidshow']}>
 						<div className={styles['youtube-videos']}>
-							<LiteYouTubeEmbed
-								key={videos[currentIndex].id}
-								id={videos[currentIndex].id}
+							<LiteYouTubeWrapper
+								videoId={videos[currentIndex].id}
 								title={videos[currentIndex].name}
-								wrapperClass={styles['youtube-vid'] + ' yt-lite'}
-								containerElement='div'
-								webp={true}
-								
+								onClick={handleLiteYouTubeEmbedClick}
 							/>
 						</div>
-						<button className={`${styles['control-btn']} ${styles['left-btn']}`} onClick={handlePrevious}>
-							<BiSolidChevronLeft />
-						</button>
-						<button className={`${styles['control-btn']} ${styles['right-btn']}`} onClick={handleNext}>
-							<BiSolidChevronRight />
-						</button>
+						{!isPlaying && (
+							<>
+								<button
+									className={`${styles['control-btn']} ${styles['left-btn']}`}
+									onClick={handlePrevious}
+								>
+									<BiSolidChevronLeft />
+								</button>
+								<button
+									className={`${styles['control-btn']} ${styles['right-btn']}`}
+									onClick={handleNext}
+								>
+									<BiSolidChevronRight />
+								</button>
+							</>
+						)}
 					</div>
 				</div>
 			</div>
@@ -91,7 +133,8 @@ export default function VideosCarousel({ videos }: VideosCarouselProps) {
 				{videos.map((_, index) => (
 					<div
 						key={index}
-						className={`${styles.dot} ${currentIndex === index ? styles.active : ''}`}
+						className={`${styles.dot} ${currentIndex === index ? styles.active : ''
+							}`}
 						onClick={() => handleDotClick(index)}
 					></div>
 				))}
