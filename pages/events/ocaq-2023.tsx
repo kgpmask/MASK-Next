@@ -24,7 +24,7 @@ export default function EventPage() {
 					excitement into the lives of students. Careful planning met with enthusiastic participation, creating an atmosphere
 					filled with energy and passion. It became an unforgettable event that left everyone buzzing with excitement!{' '}
 				</p>
-				<Image src='/assets/events/ocaq-2023/5.webp' alt='Crowd at Raman Auditorium' />
+				<Image src='/public/events/ocaq-2023/5.webp' alt='Crowd at Raman Auditorium' />
 
 				<h2> Motivation for the event: </h2>
 				<p>
@@ -56,7 +56,7 @@ export default function EventPage() {
 					crowd was transported to the world of Naruto with the enchanting{' '}
 					<a href='https://naruto.fandom.com/wiki/Blue_Bird'>&ldquo;Blue Bird&rdquo;</a> performance.{' '}
 				</p>
-				<Image src='/assets/events/ocaq-2023/3.webp' alt='Duet' />
+				<Image src='/public/events/ocaq-2023/3.webp' alt='Duet' />
 
 				<p>
 					{' '}
@@ -64,7 +64,7 @@ export default function EventPage() {
 					anime&rdquo; phase. The anticipation only grew as our anchors unveiled the upcoming rounds: challenging scenes,
 					memory quizzes, and music-based questions that promised to keep everyone on their toes.{' '}
 				</p>
-				<Image src='/assets/events/ocaq-2023/2.webp' alt='Guess the anime' caption='Can you guess the anime from the image?' />
+				<Image src='/public/events/ocaq-2023/2.webp' alt='Guess the anime' caption='Can you guess the anime from the image?' />
 
 				<p>
 					{' '}
@@ -81,7 +81,7 @@ export default function EventPage() {
 					<a href='https://studio-bolt.fandom.com/wiki/Shinzou_wo_Sasageyo'>&ldquo;Shinzou wo Sasageyo&rdquo;</a>. The room
 					pulsated with energy, as the crowd joined in, dedicating their hearts just like the brave soldiers on screen.{' '}
 				</p>
-				<Image src='/assets/events/ocaq-2023/1.webp' alt='Guitar Performance' />
+				<Image src='/public/events/ocaq-2023/1.webp' alt='Guitar Performance' />
 
 				<p>
 					{' '}
@@ -89,8 +89,8 @@ export default function EventPage() {
 					distribution ceremony! Everyone was excited to see who had won, and the winners were thrilled to receive their
 					prizes. Some people chose waifu posters, while others preferred posters with epic fight scenes.{' '}
 				</p>
-				<Image src='/assets/events/ocaq-2023/6.webp' alt='Prizes for the winners' caption='The winners with their prizes.' />
-				<Image src='/assets/events/ocaq-2023/4.webp' alt='Group Photo' caption='Yo MASK' />
+				<Image src='/public/events/ocaq-2023/6.webp' alt='Prizes for the winners' caption='The winners with their prizes.' />
+				<Image src='/public/events/ocaq-2023/4.webp' alt='Group Photo' caption='Yo MASK' />
 			</TextPage>
 			<Link href='/events' isRed>
 				Click here
