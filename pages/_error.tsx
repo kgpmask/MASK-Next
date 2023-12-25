@@ -1,17 +1,30 @@
 import { NextPage, NextPageContext } from 'next';
 
-
 interface Props {
-	statusCode?: number
+  statusCode?: number;
 }
 
 const Error: NextPage<Props> = ({ statusCode }) => {
 	return (
-		<p>
-			{statusCode
-				? `An error ${statusCode} occurred on server`
-				: 'An error occurred on client'}
-		</p>
+		<div>
+			<p>
+				{statusCode
+					? `An error occurred with the code ${statusCode}`
+					: 'Something went wrong'}
+			</p>
+			{statusCode && 
+        <h4>
+          If you think this is an error, please contact us at&nbsp;
+        	<a
+        		href="mailto:kgpmask@gmail.com"
+        		target="_blank"
+        		rel="noopener noreferrer"
+        	>
+            kgpmask@gmail.com</a>
+          .
+        </h4>
+			}
+		</div>
 	);
 };
 
