@@ -1,6 +1,6 @@
 import Member, { IMember, MemberType } from '../models/Member';
 
-export async function getMembersByTears ( year: Number ) {
+export async function getMembersByYears ( year: Number ) {
 	const result: Array<MemberType> = [];
 	// const data: Array<IMember> = await Member.find({
 	// 	record: { year: year }

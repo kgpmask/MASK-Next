@@ -33,7 +33,7 @@ export const memberSchema = new mongoose.Schema<IMember>(
 			}
 		]
 	},
-	{ collection: 'member' }
+	{ collection: 'members' }
 );
 
 const Member = mongoose.model<IMember>( 'Member', memberSchema );
