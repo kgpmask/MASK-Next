@@ -8,8 +8,13 @@ import Emphasis from '@/components/textpage/Emphasis';
 export default function EventPage() {
 	return (
 		<>
-			<HeadContent title='' />
-			<TextPage title='' isRed>
+			<HeadContent
+				title='Intra-Soc Anime Quiz Extravaganza'
+				description={
+					'The Intra-Society Anime Quiz was an EPIC showdown, and the results? Mind-blowing!\n From jaw-dropping trivia to intense battles of otaku knowledge, we witnessed friendships forged and rivalries born!'
+				}
+			/>
+			<TextPage title='Intra-Soc Anime Quiz Extravaganza' isRed>
 				<Description
 					information={{
 						Date: 'April 28, 2023',

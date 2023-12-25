@@ -5,7 +5,7 @@ import Link from '@/components/textpage/InnerLink';
 export default function TermsPage() {
 	return (
 		<>
-			<HeadContent title='Terms of Use' />
+			<HeadContent title='Terms of Use' description='Terms of Use for the MASK website' />
 			<TextPage title='Terms and Conditions'>
 				<p>Welcome to MASK!</p>
 				<br />

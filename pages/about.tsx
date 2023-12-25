@@ -10,7 +10,7 @@ export default function About() {
 		<>
 			<HeadContent
 				title='About Us'
-				description="Here's all you need to know about us, the Manga and Anime Society Kharagpur."
+				description='Here&rsquo; all you need to know about us, the Manga and Anime Society Kharagpur.'
 				keywords={['About Us', 'Our Society', 'About', 'Teams', 'History']}
 			/>
 			<TextPage title='Manga and Anime Society Kharagpur'>

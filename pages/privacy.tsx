@@ -5,7 +5,7 @@ import Link from '@/components/textpage/InnerLink';
 export default function PrivacyPage() {
 	return (
 		<>
-			<HeadContent title='Privacy Policy' />
+			<HeadContent title='Privacy Policy' description='MASK website privacy policy.' />
 			<TextPage title='Privacy Policy'>
 				<p>
 					At MASK, accessible from{' '}

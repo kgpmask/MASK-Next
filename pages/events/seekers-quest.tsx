@@ -8,8 +8,11 @@ import Emphasis from '@/components/textpage/Emphasis';
 export default function EventPage() {
 	return (
 		<>
-			<HeadContent title='' />
-			<TextPage title='' isRed>
+			<HeadContent
+				title='Anime Seekers&rsquo; Quest'
+				description='With nothing but clues, anime knowledge, friendships and wits, search around the campus for the treasure of the fans before the sun goes down. The Anime Seekers&rsquo; Quest was our first hands-on event, covering the campus with our clues and with prizes worth the search.'
+			/>
+			<TextPage title='Anime Seekers&rsquo; Quest' isRed>
 				<Description
 					information={{
 						Date: 'April 1, 2023',

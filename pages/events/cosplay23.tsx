@@ -8,7 +8,10 @@ import Emphasis from '@/components/textpage/Emphasis';
 export default function EventPage() {
 	return (
 		<>
-			<HeadContent title='' />
+			<HeadContent
+				title='Cosplay 2023 Coverage'
+				description='The memories of college life condensed over long years, come to an explosive close, with the graduating batch cosplaying as their favourite characters.'
+			/>
 			<TextPage title='' isRed>
 				<Description
 					information={{
