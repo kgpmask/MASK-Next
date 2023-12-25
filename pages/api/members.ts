@@ -8,6 +8,6 @@ export default async function handler (
 	res: NextApiResponse
 ) {
 	const _ = await dbConnect();
-	const m = await getMembersByYears( req.body.year );
+	const m = await getMembersByYears( Number( req.query.year ) );
 	res.status( 200 ).json( JSON.stringify( m ) );
 }
