@@ -1,16 +1,17 @@
-import styles from "@/styles/Home.module.css";
-import Banner from "@/components/home-page/Banner";
-import AboutStuff from "@/components/home-page/AboutStuff";
-import Updates from "@/components/home-page/Updates";
-import Policies from "@/components/home-page/Policies";
-import Link from 'next/link'
+import styles from '@/styles/Home.module.css';
+import Banner from '@/components/home-page/Banner';
+import AboutStuff from '@/components/home-page/AboutStuff';
+import Updates from '@/components/home-page/Updates';
+import Policies from '@/components/home-page/Policies';
+import Link from 'next/link';
 import ImageCarousel from '@/components/home-page/ImageCarousel';
 import VideoCarousel from '@/components/home-page/VideoCarousel';
-//All necessary import till here
+// All necessary import till here
 
-export default function Home() {
-	
-	const imgs = ["/0021.webp", "/0022.webp","/0023.webp","/0024.webp","/202307-03.webp"];//for testing purpose i am keeping images in public
+export default function Home () {
+
+	const imgs = ['/0021.webp', '/0022.webp', '/0023.webp', '/0024.webp', '/202307-03.webp'];
+	// for testing purpose i am keeping images in public
 
 	const recentPosts = [
 		{ link: 'https://youtu.be/VxVDJhMU6Zc', name: '[AMV] YLIA x Horimiya', type: 'youtube', hype: true, date: new Date() },
@@ -26,7 +27,7 @@ export default function Home() {
 		{ id: 'VxVDJhMU6Zc', name: '[AMV] YLIA x Horimiya' },
 		{ id: 'lzvrb4ePxdU', name: '[AMV] Mob Psycho 100' },
 		{ id: 'P0NxHvWz1ns', name: '[AMV] Cosplay Event Coverage' },
-		{ id: 'w_tkq4syNnI', name: '[AMV] Mushoku Tensei' },
+		{ id: 'w_tkq4syNnI', name: '[AMV] Mushoku Tensei' }
 	];
 	return (
 		<>
@@ -34,21 +35,25 @@ export default function Home() {
 			<Banner />
 
 			{/* top container having  updates and about soc stuff */}
-			<div className={styles["flex-container"]}>
+			<div className={styles['flex-container']}>
 				<Updates updates={recentPosts} />
 				<AboutStuff />
 			</div>
-			<hr className={styles["flex-break"]}></hr>
+			<hr className={styles['flex-break']}></hr>
 
 			{/* bottom container having image and video carousels  */}
-			<div id={styles["bottom-container"]} className={styles["flex-conatainer"]}>
+			<div id={styles['bottom-container']} className={styles['flex-conatainer']}>
 				<div className={styles['top-container']}>
 
 					{/* Art */}
 					<div className={styles.container}></div>
 					{/* <ImageCarousel imgs={imgs} /> */}
 					{/* submit stuff button */}
-					<div className={styles["submit-stuff"]} ><Link href="/submissions"><button className={styles["submit-button"]} >Submit your content!</button></Link></div>
+					<div className={styles['submit-stuff']} >
+						<Link href="/submissions">
+							<button className={styles['submit-button']} >Submit your content!</button>
+						</Link>
+					</div>
 				</div>
 
 				{/* Videos */}
