@@ -13,16 +13,20 @@ const Error: NextPage<Props> = ({ statusCode }) => {
 					: 'Something went wrong'}
 			</p>
 			{statusCode && 
-        <h4>
-          If you think this is an error, please contact us at&nbsp;
-        	<a
-        		href="mailto:kgpmask@gmail.com"
-        		target="_blank"
-        		rel="noopener noreferrer"
-        	>
-            kgpmask@gmail.com</a>
-          .
-        </h4>
+			<h4>
+				<i>
+			
+			If you think this is an error, please contact us at&nbsp;
+					<a
+						href="mailto:kgpmask@gmail.com"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+				kgpmask@gmail.com</a>
+			.
+			
+				</i>
+			</h4>
 			}
 		</div>
 	);
