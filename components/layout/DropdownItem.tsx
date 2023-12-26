@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 interface DropdownItemProps {
 	label: string;
@@ -8,9 +8,9 @@ interface DropdownItemProps {
 	disabled?: Boolean;
 }
 
-const DropdownItem: React.FC<DropdownItemProps> = ({ label, link, isCurrent, disabled }) => {
+const DropdownItem: React.FC<DropdownItemProps> = ( { label, link, isCurrent, disabled } ) => {
 	return (
-		<Link href={link} className={`${isCurrent ? "active-page" : ""} ${disabled ? "disabled" : ""}`}>
+		<Link href={link} className={`${isCurrent ? 'active-page' : ''} ${disabled ? 'disabled' : ''}`}>
 			{label}
 		</Link>
 	);

@@ -41,7 +41,6 @@
 		"no-extra-bind": "warn",
 		"no-multi-spaces": "error",
 		"no-mixed-spaces-and-tabs": "error",
-		"no-undef": "error",
 		"no-unreachable": "error",
 		"object-curly-newline": ["error", { "consistent": true, "multiline": true }],
 		"object-curly-spacing": ["error", "always"],
@@ -59,7 +58,7 @@
 		}],
 		"space-before-blocks": ["error"],
 		"space-before-function-paren": ["error", "always"],
-		"space-in-parens": ["error", "always", {
+		"space-in-parens": ["error", "never", {
 			"exceptions": ["{}"]
 		}],
 		"space-infix-ops": "error",

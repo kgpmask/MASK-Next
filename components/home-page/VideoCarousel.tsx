@@ -2,7 +2,7 @@
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import styles from '@/styles/VideoCarousel.module.css';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { BiSolidChevronRight, BiSolidChevronLeft } from "react-icons/bi";
+import { BiSolidChevronRight, BiSolidChevronLeft } from 'react-icons/bi';
 interface Video {
 	id: string;
 	name: string;
@@ -13,15 +13,15 @@ interface VideosCarouselProps {
 }
 
 // Custom LiteYouTubeWrapper component
-const LiteYouTubeWrapper = ({
+const LiteYouTubeWrapper = ( {
 	videoId,
 	title,
-	onClick,
+	onClick
 }: {
 	videoId: string;
 	title: string;
 	onClick: () => void;
-}) => {
+} ) => {
 	return (
 		<div onClick={onClick} style={{ cursor: 'pointer' }}>
 			<LiteYouTubeEmbed
@@ -35,7 +35,7 @@ const LiteYouTubeWrapper = ({
 	);
 };
 
-export default function VideosCarousel({ videos }: VideosCarouselProps) {
+export default function VideosCarousel ( { videos }: VideosCarouselProps) {
 	const [currentIndex, setCurrentIndex] = useState<number>(0);
 	const [isPlaying, setIsPlaying] = useState<boolean>(false);
 	const [autoplay, setAutoplay] = useState<boolean>(true);
@@ -110,7 +110,7 @@ export default function VideosCarousel({ videos }: VideosCarouselProps) {
 								onClick={handleLiteYouTubeEmbedClick}
 							/>
 						</div>
-						{!isPlaying && (
+						{!isPlaying && 
 							<>
 								<button
 									className={`${styles['control-btn']} ${styles['left-btn']}`}
@@ -125,19 +125,18 @@ export default function VideosCarousel({ videos }: VideosCarouselProps) {
 									<BiSolidChevronRight />
 								</button>
 							</>
-						)}
+						}
 					</div>
 				</div>
 			</div>
 			<div className={styles['carousel-indicator']}>
-				{videos.map((_, index) => (
+				{videos.map((_, index) => 
 					<div
 						key={index}
 						className={`${styles.dot} ${currentIndex === index ? styles.active : ''
-							}`}
+						}`}
 						onClick={() => handleDotClick(index)}
-					></div>
-				))}
+					></div>)}
 			</div>
 		</>
 	);
