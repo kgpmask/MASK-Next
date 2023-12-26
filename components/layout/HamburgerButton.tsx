@@ -5,21 +5,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const HamburgerButton: React.FC = () => {
-	const [visible, setVisible] = React.useState( false );
+	const [visible, setVisible] = React.useState(false);
 
 	const onClick = () => {
-		setVisible( !visible );
-		document.querySelector( '.hamburger-menu' )?.classList.toggle( 'slide' );
+		setVisible(!visible);
+		document.querySelector('.hamburger-menu')?.classList.toggle('slide');
+		document.querySelector('#content-wrap')?.classList.toggle('burger-open');
 	};
 
 	return (
-		<div className="plate">
+		<div className='plate'>
 			<Link href="/">
-				<div className="burger-home">
-					<Image src="/logo.jpeg" id="burger-logo" alt="Logo" height={40} width={40} />
+				<div className='burger-home'>
+					<Image src='/logo.jpeg' id='burger-logo' alt='Logo' height={40} width={40} />
 				</div>
 			</Link>
-			<div className="burger" onClick={onClick}>
+			<div className='burger' onClick={onClick}>
 				{visible ? <IoClose size={40} /> : <GiHamburgerMenu size={40} />}
 			</div>
 		</div>

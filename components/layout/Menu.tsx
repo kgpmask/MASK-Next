@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import MenuItem from './MenuItem';
 
 interface MenuProps {
@@ -8,40 +9,42 @@ interface MenuProps {
 	userless?: boolean;
 }
 
-const Menu: React.FC<MenuProps> = ({ links, currentPage, loggedIn, userless }) => {
+const Menu: React.FC<MenuProps> = ( { links, currentPage, loggedIn, userless } ) => {
 	return (
 		<>
-			{links.map( ({ name, href }, index ) => 
+			{links.map(( { name, href }, index) => 
 				<React.Fragment key={href}>
-					<MenuItem label={name} link={href} isCurrent={currentPage === href.slice( 1 )} />
+					<MenuItem label={name} link={href} isCurrent={currentPage === href.slice(1)} />
 					{index !== links.length - 1 && <hr className="minor" />}
-				</React.Fragment> )}
+				</React.Fragment>)}
 
-			<a href="/about" target="_self">
-				<div className={`lettuce${currentPage === 'about' ? ' active-page' : ''}`} id="most-bottom">
+			<Link href="/about" target="_self">
+				<div className={`lettuce ${currentPage === 'about' ? ' active-page' : ''}`} id="most-bottom">
 					Our Society
 				</div>
-			</a>
+			</Link>
 			<hr className="minor lower-border" />
 
-			<a href="/members" target="_self">
-				<div className={`lettuce${currentPage === 'members' ? ' active-page' : ''}`} id="almost-bottom">
+			<Link href="/members" target="_self">
+				<div className={`lettuce ${currentPage === 'members' ? ' active-page' : ''}`} id="almost-bottom">
 					Our Members
 				</div>
-			</a>
+			</Link>
 			<hr className="minor lower-border lower-border-upper" />
 
 			{loggedIn ? 
-				<a href="/profile" target="_self">
-					<div className={`lettuce${currentPage === 'profile' ? ' active-page' : ''}${userless ? ' disabled' : ''}`} id="top-bottom">
+				<Link href="/profile" target="_self">
+					<div className={`lettuce ${currentPage === 'profile' ? ' active-page' : ''}
+					${userless ? ' disabled' : ''}`} id="top-bottom">
 						Profile
 					</div>
-				</a> : 
-				<a href="/login" target="_self">
-					<div className={`lettuce${currentPage === 'login' ? ' active-page' : ''}${userless ? ' disabled' : ''}`} id="top-bottom">
+				</Link> : 
+				<Link href="/login" target="_self">
+					<div className={`lettuce ${currentPage === 'login' ? ' active-page' : ''}
+					${userless ? ' disabled' : ''}`} id="top-bottom">
 						Login
 					</div>
-				</a>
+				</Link>
 			}
 			<hr className="border-bottom" />
 		</>

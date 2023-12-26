@@ -1,0 +1,35 @@
+.information {
+	max-width: calc(min(500px, 70vw));
+	width: fit-content;
+	width: -moz-fit-content;
+	margin: 20px auto;
+	border: 2px solid var(--off-white);
+	border-radius: 10px;
+	padding: 8px;
+	font-size: 13px;
+}
+
+.information .heading {
+	color: var(--error-red);
+}
+
+.image-container {
+	max-width: 70vw;
+	width: 700px;
+	margin: 10px auto;
+	border: solid 2px;
+	border-radius: 10px;
+}
+
+.image-container > img {
+	max-height: 45vh;
+	width: calc(min(700px, 70vw));
+	border-radius: 10px;
+	object-fit: contain;
+}
+
+.image-container > p {
+	color: var(--error-red);
+	text-align: center;
+	margin: 5px auto;
+}

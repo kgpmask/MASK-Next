@@ -8,7 +8,7 @@ interface DropdownItemProps {
 	disabled?: Boolean;
 }
 
-const DropdownItem: React.FC<DropdownItemProps> = ({ label, link, isCurrent, disabled }) => {
+const DropdownItem: React.FC<DropdownItemProps> = ( { label, link, isCurrent, disabled } ) => {
 	return (
 		<Link href={link} className={`${isCurrent ? 'active-page' : ''} ${disabled ? 'disabled' : ''}`}>
 			{label}
