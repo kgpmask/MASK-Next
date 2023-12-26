@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 export type MemberType = {
   name: string;
@@ -21,20 +21,20 @@ export interface IMember extends mongoose.Document {
 }
 
 export const memberSchema = new mongoose.Schema<IMember>(
-  {
-    name: { type: String, required: true },
-    image: { type: String, required: true },
-    roll: { type: String, required: true },
-    records: [
-      {
-        year: { type: Number, required: true },
-        position: { type: String, required: true },
-        teams: { type: [String], required: true },
-      },
-    ],
-  },
-  { collection: "members" },
+	{
+		name: { type: String, required: true },
+		image: { type: String, required: true },
+		roll: { type: String, required: true },
+		records: [
+			{
+				year: { type: Number, required: true },
+				position: { type: String, required: true },
+				teams: { type: [String], required: true }
+			}
+		]
+	},
+	{ collection: 'members' }
 );
 
-const Member = mongoose.model<IMember>("Member", memberSchema);
+const Member = mongoose.model<IMember>('Member', memberSchema);
 export default Member;

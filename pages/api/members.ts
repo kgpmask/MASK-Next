@@ -11,23 +11,23 @@ export default async function handler (
 
 	const members: Array<MemberType> = [];
 
-	const data: Array<IMember> = await Member.find({
-		'records.year': Number( req.query.year )
-	});
+	const data: Array<IMember> = await Member.find( {
+		'records.year': Number(req.query.year)
+	} );
 
-	data.forEach( ( member ) => {
+	data.forEach((member) => {
 		const rec = member.records.find(
-			( rec ) => rec.year === Number( req.query.year )
+			(rec) => rec.year === Number(req.query.year)
 		);
-		console.log( rec );
-		if ( rec ) {
-			members.push({
+		console.log(rec);
+		if (rec) {
+			members.push( {
 				name: member.name,
 				image: member.image,
 				position: rec.position,
 				teams: rec.teams
-			});
+			} );
 		}
-	});
-	res.status( 200 ).json( JSON.stringify( members ) );
+	} );
+	res.status(200).json(JSON.stringify(members));
 }
