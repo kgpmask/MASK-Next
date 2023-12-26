@@ -63,7 +63,7 @@ export default function EventPage () {
 
 				<p>
 					After reaching Howrah, we took a bus and joined a few guys who chose to meet us directly at South City Mall. (Why
-					didn&apos;t you come with us? <span style={{ display: 'inline-block;' }}> T-T </span> ... <i>ahem</i>) After having
+					didn&apos;t you come with us? <span style={{ display: 'inline-block' }}> T-T </span> ... <i>ahem</i>) After having
 					lunch (or rather, brunch for quite a few of us), it was time to watch Suzume. Air-conditioned room, comfy seats,
 					and a cup of cold drink-what&apos;s a better way to watch a movie in a scorching summer?
 				</p>
