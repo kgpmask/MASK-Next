@@ -10,6 +10,7 @@ const HamburgerButton: React.FC = () => {
 	const onClick = () => {
 		setVisible(!visible);
 		document.querySelector(".hamburger-menu")?.classList.toggle("slide");
+		document.querySelector("#content-wrap")?.classList.toggle("burger-open");
 	};
 
 	return (
