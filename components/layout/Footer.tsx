@@ -44,8 +44,8 @@ const Footer = () => {
 			<div id="contact-us">
 				<span className="float-middle">Find us!</span>
 			</div>
-			{footerLinks.map( ({ name, href, icon }) => 
-				<SocialHandles title={name} link={href} Icon={icon} key={href} /> )}
+			{footerLinks.map(( { name, href, icon } ) => 
+				<SocialHandles title={name} link={href} Icon={icon} key={href} />)}
 		</footer>
 	);
 };

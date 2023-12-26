@@ -9,7 +9,7 @@ interface HamburgerMenuProps {
 	userless?: boolean;
 }
 
-const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ currentPage, loggedIn, userless }) => {
+const HamburgerMenu: React.FC<HamburgerMenuProps> = ( { currentPage, loggedIn, userless } ) => {
 	const links = [
 		{ name: 'Art', href: '/art' },
 		{ name: 'Newsletters', href: '/newsletters' },

@@ -8,7 +8,7 @@ interface SocialHandlesProps {
 	Icon: IconType;
 }
 
-const SocialHandles: React.FC<SocialHandlesProps> = ({ title, link, Icon }) => {
+const SocialHandles: React.FC<SocialHandlesProps> = ( { title, link, Icon } ) => {
 	return (
 		<Link href={link} target="_blank" title={title} className="social-link">
 			<div className="icon">
