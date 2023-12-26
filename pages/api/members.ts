@@ -19,7 +19,6 @@ export default async function handler (
 		const rec = member.records.find(
 			(rec) => rec.year === Number(req.query.year)
 		);
-		console.log(rec);
 		if (rec) {
 			members.push( {
 				name: member.name,
