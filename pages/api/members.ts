@@ -12,7 +12,7 @@ export default async function handler (
 	const members: Array<MemberType> = [];
 
 	const data: Array<IMember> = await Member.find({
-		'records.year': ~~Number( req.query.year )
+		'records.year': Number( req.query.year )
 	});
 
 	data.forEach( ( member ) => {
