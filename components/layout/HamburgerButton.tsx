@@ -1,15 +1,15 @@
-import React from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoClose } from "react-icons/io5";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { IoClose } from 'react-icons/io5';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const HamburgerButton: React.FC = () => {
-	const [visible, setVisible] = React.useState(false);
+	const [visible, setVisible] = React.useState( false );
 
 	const onClick = () => {
-		setVisible(!visible);
-		document.querySelector(".hamburger-menu")?.classList.toggle("slide");
+		setVisible( !visible );
+		document.querySelector( '.hamburger-menu' )?.classList.toggle( 'slide' );
 	};
 
 	return (

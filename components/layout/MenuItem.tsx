@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 interface MenuItemProps {
 	label: string;
@@ -10,7 +10,7 @@ interface MenuItemProps {
 const MenuItem: React.FC<MenuItemProps> = ({ label, link, isCurrent }) => {
 	return (
 		<Link href={link}>
-			<div className={`lettuce${isCurrent ? " active-page" : ""}`}>{label}</div>
+			<div className={`lettuce${isCurrent ? ' active-page' : ''}`}>{label}</div>
 		</Link>
 	);
 };

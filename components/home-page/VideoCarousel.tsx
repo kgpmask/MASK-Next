@@ -2,7 +2,7 @@
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import styles from '@/styles/VideoCarousel.module.css';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { BiSolidChevronRight, BiSolidChevronLeft } from "react-icons/bi";
+import { BiSolidChevronRight, BiSolidChevronLeft } from 'react-icons/bi';
 interface Video {
 	id: string;
 	name: string;
@@ -16,7 +16,7 @@ interface VideosCarouselProps {
 const LiteYouTubeWrapper = ({
 	videoId,
 	title,
-	onClick,
+	onClick
 }: {
 	videoId: string;
 	title: string;
@@ -35,66 +35,66 @@ const LiteYouTubeWrapper = ({
 	);
 };
 
-export default function VideosCarousel({ videos }: VideosCarouselProps) {
-	const [currentIndex, setCurrentIndex] = useState<number>(0);
-	const [isPlaying, setIsPlaying] = useState<boolean>(false);
-	const [autoplay, setAutoplay] = useState<boolean>(true);
+export default function VideosCarousel ({ videos }: VideosCarouselProps ) {
+	const [currentIndex, setCurrentIndex] = useState<number>( 0 );
+	const [isPlaying, setIsPlaying] = useState<boolean>( false );
+	const [autoplay, setAutoplay] = useState<boolean>( true );
 
 
 	// Declare timeoutRef
-	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+	const timeoutRef = useRef<NodeJS.Timeout | null>( null );
 	const timeoutDelay = 3000; // Change video every 3 seconds
 
 	const handlePrevious = () => {
-		setCurrentIndex((prevIndex) =>
+		setCurrentIndex( ( prevIndex ) =>
 			prevIndex - 1 < 0 ? videos.length - 1 : prevIndex - 1
 		);
 		resetTimeout();
 	};
 
 	const handleNext = () => {
-		setCurrentIndex((prevIndex) =>
+		setCurrentIndex( ( prevIndex ) =>
 			prevIndex + 1 === videos.length ? 0 : prevIndex + 1
 		);
 		resetTimeout();
 	};
 
-	const handleDotClick = (index: number) => {
-		setCurrentIndex(index);
+	const handleDotClick = ( index: number ) => {
+		setCurrentIndex( index );
 		resetTimeout();
 	};
 
 
 	const handleLiteYouTubeEmbedClick = () => {
-		setIsPlaying(true);
-		setAutoplay(false); // Set autoplay to false when video is played manually
-		if (timeoutRef.current) {
-			clearTimeout(timeoutRef.current);
+		setIsPlaying( true );
+		setAutoplay( false ); // Set autoplay to false when video is played manually
+		if ( timeoutRef.current ) {
+			clearTimeout( timeoutRef.current );
 		}
 	};
-	const resetTimeout = useCallback(() => {
-		if (timeoutRef.current) {
-			clearTimeout(timeoutRef.current);
+	const resetTimeout = useCallback( () => {
+		if ( timeoutRef.current ) {
+			clearTimeout( timeoutRef.current );
 		}
-		if (autoplay) {
-			timeoutRef.current = setTimeout(() => {
+		if ( autoplay ) {
+			timeoutRef.current = setTimeout( () => {
 				handleNext();
-				setIsPlaying(false);
-			}, timeoutDelay);
+				setIsPlaying( false );
+			}, timeoutDelay );
 		}
-	}, [handleNext, autoplay]);
+	}, [handleNext, autoplay] );
 
-	useEffect(() => {
+	useEffect( () => {
 		resetTimeout();
 
 		return () => {
-			if (timeoutRef.current) {
-				clearTimeout(timeoutRef.current);
+			if ( timeoutRef.current ) {
+				clearTimeout( timeoutRef.current );
 			}
 		};
-	}, [currentIndex, resetTimeout, autoplay]);
+	}, [currentIndex, resetTimeout, autoplay] );
 
-	if (videos.length === 0) {
+	if ( videos.length === 0 ) {
 		return null; // or render some default content
 	}
 
@@ -110,7 +110,7 @@ export default function VideosCarousel({ videos }: VideosCarouselProps) {
 								onClick={handleLiteYouTubeEmbedClick}
 							/>
 						</div>
-						{!isPlaying && (
+						{!isPlaying && 
 							<>
 								<button
 									className={`${styles['control-btn']} ${styles['left-btn']}`}
@@ -125,19 +125,18 @@ export default function VideosCarousel({ videos }: VideosCarouselProps) {
 									<BiSolidChevronRight />
 								</button>
 							</>
-						)}
+						}
 					</div>
 				</div>
 			</div>
 			<div className={styles['carousel-indicator']}>
-				{videos.map((_, index) => (
+				{videos.map( ( _, index ) => 
 					<div
 						key={index}
 						className={`${styles.dot} ${currentIndex === index ? styles.active : ''
-							}`}
-						onClick={() => handleDotClick(index)}
-					></div>
-				))}
+						}`}
+						onClick={() => handleDotClick( index )}
+					></div> )}
 			</div>
 		</>
 	);

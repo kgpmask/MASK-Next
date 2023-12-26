@@ -1,9 +1,9 @@
-import React from "react";
-import { useRouter } from "next/router";
+import React from 'react';
+import { useRouter } from 'next/router';
 
-import Footer from "./layout/Footer";
-import HamburgerMenu from "./layout/HamburgerMenu";
-import Navbar from "./layout/Navbar";
+import Footer from './layout/Footer';
+import HamburgerMenu from './layout/HamburgerMenu';
+import Navbar from './layout/Navbar';
 
 interface LayoutProps {
 	children: React.ReactNode;
@@ -11,16 +11,16 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
 	const Router = useRouter();
-	const [viewportWidth, setViewportWidth] = React.useState(720);
+	const [viewportWidth, setViewportWidth] = React.useState( 720 );
 
 	const updateViewportWidth = () => {
-		setViewportWidth(window.innerWidth);
+		setViewportWidth( window.innerWidth );
 	};
 
-	React.useEffect(() => {
+	React.useEffect( () => {
 		updateViewportWidth();
-		window.addEventListener("resize", updateViewportWidth);
-		return () => window.removeEventListener("resize", updateViewportWidth);
+		window.addEventListener( 'resize', updateViewportWidth );
+		return () => window.removeEventListener( 'resize', updateViewportWidth );
 	});
 
 	return (
@@ -31,12 +31,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 						style={{
 							maxHeight: 0,
 							maxWidth: 0,
-							overflow: "hidden",
+							overflow: 'hidden'
 						}}
 					>
 						<input autoFocus={true} />
 					</div>
-					{viewportWidth > 600 ? <Navbar currentPage={Router.route.split("/")[1]} /> : <HamburgerMenu currentPage={Router.route.split("/")[1]} />}
+					{viewportWidth > 600 ? <Navbar currentPage={Router.route.split( '/' )[1]} /> : <HamburgerMenu currentPage={Router.route.split( '/' )[1]} />}
 					<div id="pagecontent">{children}</div>
 					<Footer />
 				</div>

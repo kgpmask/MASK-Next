@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import styles from "@/styles/Home.module.css";
+import Link from "next/link";
+
 import Banner from "@/components/home-page/Banner";
 import AboutStuff from "@/components/home-page/AboutStuff";
 import Updates from "@/components/home-page/Updates";
 import Policies from "@/components/home-page/Policies";
-import Link from "next/link";
 import ImageCarousel from "@/components/home-page/ImageCarousel";
 import VideoCarousel from "@/components/home-page/VideoCarousel";
+
+import styles from "@/styles/Home.module.css";
 
 interface Post {
 	link: string;
@@ -86,11 +88,11 @@ const Home: React.FC = () => {
 			<Banner />
 
 			{/* top container having  updates and about soc stuff */}
-			<div className={styles["flex-container"]}>
+			<div className={styles['flex-container']}>
 				<Updates updates={recentPosts} />
 				<AboutStuff />
 			</div>
-			<hr className={styles["flex-break"]}></hr>
+			<hr className={styles['flex-break']}></hr>
 
 			{/* bottom container having image and video carousels  */}
 			<div id={styles["bottom-container"]} className={styles["flex-conatainer"]}>
