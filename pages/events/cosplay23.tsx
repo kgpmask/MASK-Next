@@ -12,7 +12,7 @@ export default function EventPage() {
 				title='Cosplay 2023 Coverage'
 				description='The memories of college life condensed over long years, come to an explosive close, with the graduating batch cosplaying as their favourite characters.'
 			/>
-			<TextPage title='' isRed>
+			<TextPage title='Cosplay 2023 Coverage'>
 				<Description
 					information={{
 						Date: 'April 18, 2023',
