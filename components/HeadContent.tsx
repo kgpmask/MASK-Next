@@ -10,8 +10,8 @@ interface HeadContentProps {
 	children?: React.ReactNode;
 }
 
-const HeadContent: React.FC<HeadContentProps> = ({ title, description, keywords, stylesheets, jsLinks, children }) => {
-	const metaKeywords = ['Manga', 'Anime', 'Society', 'MASK', 'IIT KGP', 'Kharagpur', 'Otakus', ...(keywords || [])];
+const HeadContent: React.FC<HeadContentProps> = ( { title, description, keywords, stylesheets, jsLinks, children } ) => {
+	const metaKeywords = ['Manga', 'Anime', 'Society', 'MASK', 'IIT KGP', 'Kharagpur', 'Otakus', ...keywords || []];
 	return (
 		<Head>
 			<title>{title || 'MASK'}</title>

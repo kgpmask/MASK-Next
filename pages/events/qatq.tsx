@@ -5,12 +5,18 @@ import Image from '@/components/textpage/InnerImage';
 import Link from '@/components/textpage/InnerLink';
 import Emphasis from '@/components/textpage/Emphasis';
 
-export default function EventPage() {
+export default function EventPage () {
 	return (
 		<>
 			<HeadContent
 				title='Quad Anime Trivia Quiz'
-				description='Anime enthusiasts from diverse fandoms recently united for an electrifying quiz event, showcasing their knowledge and competing for exclusive merch and enticing prizes. Relive the excitement of this unforgettable celebration, where fans celebrated their shared love for anime in a thrilling clash of wits and passion.'
+				description={`'Anime enthusiasts from diverse fandoms recently united for an electrifying quiz event,${
+					''
+				} showcasing their knowledge and competing$ for exclusive merch and enticing prizes. Relive the excitement${
+					''
+				} of this unforgettable celebration, where fans celebrated their shared love for anime in a${
+					''
+				} thrilling clash of wits and passion.`}
 			/>
 			<TextPage title='Quad Anime Trivia Quiz' isRed>
 				<Description

@@ -4,10 +4,10 @@ interface DescriptionProps {
 	information: Object;
 }
 
-const Description: React.FC<DescriptionProps> = ({ information }) => {
+const Description: React.FC<DescriptionProps> = ( { information } ) => {
 	return (
 		<div className={styles['information']}>
-			{Object.entries(information).map(([head, info]) => (
+			{Object.entries(information).map(([head, info]) => 
 				<span key={head}>
 					<span className={styles['heading']} key={head}>
 						{head}:
@@ -15,7 +15,7 @@ const Description: React.FC<DescriptionProps> = ({ information }) => {
 					{info}
 					<br />
 				</span>
-			))}
+			)}
 		</div>
 	);
 };

@@ -5,7 +5,7 @@ import Link from '@/components/textpage/InnerLink';
 
 import styles from '@/styles/About.module.css';
 
-export default function About() {
+export default function About () {
 	return (
 		<>
 			<HeadContent

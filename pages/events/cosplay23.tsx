@@ -5,12 +5,14 @@ import Image from '@/components/textpage/InnerImage';
 import Link from '@/components/textpage/InnerLink';
 import Emphasis from '@/components/textpage/Emphasis';
 
-export default function EventPage() {
+export default function EventPage () {
 	return (
 		<>
 			<HeadContent
 				title='Cosplay 2023 Coverage'
-				description='The memories of college life condensed over long years, come to an explosive close, with the graduating batch cosplaying as their favourite characters.'
+				description={`The memories of college life condensed over long years, come to an explosive close,${
+					''
+				} with the graduating batch cosplaying as their favourite characters.`}
 			/>
 			<TextPage title='Cosplay 2023 Coverage'>
 				<Description
@@ -19,8 +21,9 @@ export default function EventPage() {
 						Location: 'In front of Main Academic Building, IIT Kharagpur',
 						Attendance: '1000+',
 						Cosplayers: 'Over 100',
-						Costumes:
-							'A wide variety of costumes from anime, manga, video games, traditional deities/heroes, and other pop culture media',
+						Costumes: `A wide variety of costumes from anime, manga, video games,${
+							''
+						} traditional deities/heroes, and other pop culture media`,
 						Activities: 'Meet-and-Greets with cosplayers (the graduating students)',
 						Author: 'Nishkal Prakash'
 					}}
@@ -84,7 +87,8 @@ export default function EventPage() {
 					</li>
 					<li>If your character was a professor, which subject would they teach? </li>
 					<li>
-						How has watching anime influenced your college life? What&rsquo;s your favourite memory of your college years?{' '}
+						How has watching anime influenced your college life? 
+						What&rsquo;s your favourite memory of your college years?{' '}
 					</li>
 					<li>A word of advice for the KGP junta and your juniors. </li>
 					<li>If you had to give an anime title to your college life, what would it be? </li>

@@ -5,12 +5,16 @@ import Image from '@/components/textpage/InnerImage';
 import Link from '@/components/textpage/InnerLink';
 import Emphasis from '@/components/textpage/Emphasis';
 
-export default function EventPage() {
+export default function EventPage () {
 	return (
 		<>
 			<HeadContent
 				title='Anime Seekers&rsquo; Quest'
-				description='With nothing but clues, anime knowledge, friendships and wits, search around the campus for the treasure of the fans before the sun goes down. The Anime Seekers&rsquo; Quest was our first hands-on event, covering the campus with our clues and with prizes worth the search.'
+				description={`With nothing but clues, anime knowledge, friendships and wits, search around the campus${
+					''
+				} for the treasure of the fans before the sun goes down. The Anime Seekers&rsquo; Quest was our first hands-on event${
+					''
+				}, covering the campus with our clues and with prizes worth the search.`}
 			/>
 			<TextPage title='Anime Seekers&rsquo; Quest' isRed>
 				<Description

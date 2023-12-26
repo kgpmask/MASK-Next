@@ -11,7 +11,7 @@ interface InnerImageProps {
 	caption?: string;
 }
 
-const InnerImage: React.FC<InnerImageProps> = ({ src, alt, caption, containerStyle, imageStyle }) => {
+const InnerImage: React.FC<InnerImageProps> = ( { src, alt, caption, containerStyle, imageStyle } ) => {
 	return (
 		<div
 			className={styles['image-container']}

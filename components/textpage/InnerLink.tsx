@@ -10,11 +10,11 @@ interface InnerLinkProps {
 	rel?: string;
 }
 
-const InnerLink: React.FC<InnerLinkProps> = ({ isRed, isOffWhite, href, children, target, title, rel }) => {
+const InnerLink: React.FC<InnerLinkProps> = ( { isRed, isOffWhite, href, children, target, title, rel } ) => {
 	return (
 		<Link
 			href={href}
-			style={{ color: (isRed && 'var(--red)') || (isOffWhite && 'var(--off-white)') }}
+			style={{ color: isRed && 'var(--red)' || isOffWhite && 'var(--off-white)' }}
 			target={target || '_self'}
 			title={title}
 			rel={rel}

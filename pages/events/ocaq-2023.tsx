@@ -5,12 +5,14 @@ import Image from '@/components/textpage/InnerImage';
 import Link from '@/components/textpage/InnerLink';
 import Emphasis from '@/components/textpage/Emphasis';
 
-export default function EventPage() {
+export default function EventPage () {
 	return (
 		<>
 			<HeadContent
 				title='Open Campus Anime Quiz 2023'
-				description='MASK&rsquo;s Open Campus Anime Quiz was back, and it did not disappoint! The atmosphere crackled with energy as questions flew back and forth, with each answer met by cheers and groans.'
+				description={`MASK&rsquo;s Open Campus Anime Quiz was back, and it did not disappoint!${
+					''
+				} The atmosphere crackled with energy as questions flew back and forth, with each answer met by cheers and groans.`}
 			/>
 			<TextPage title='Open Campus Anime Quiz 2023' isRed>
 				<Description

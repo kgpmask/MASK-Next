@@ -7,12 +7,12 @@ interface EmphasisProps {
 	children: React.ReactNode;
 }
 
-const Emphasis: React.FC<EmphasisProps> = ({ isRed, isOffWhite, children, big, marginal, center }) => {
+const Emphasis: React.FC<EmphasisProps> = ( { isRed, isOffWhite, children, big, marginal, center } ) => {
 	return (
 		<>
 			<p
 				style={{
-					color: (isRed && 'var(--red)') || (isOffWhite && 'var(--off-white)'),
+					color: isRed && 'var(--red)' || isOffWhite && 'var(--off-white)',
 					textAlign: center && 'center',
 					fontSize: big && '118%',
 					fontStyle: 'italic',

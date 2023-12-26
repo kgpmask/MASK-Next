@@ -4,7 +4,7 @@ import TextPage from '@/components/TextPage';
 import Image from '@/components/textpage/InnerImage';
 import Link from '@/components/textpage/InnerLink';
 
-export default function EventPage() {
+export default function EventPage () {
 	return (
 		<>
 			<HeadContent title='One Piece: Gear 5 Screening' />

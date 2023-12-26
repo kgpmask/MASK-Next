@@ -2,7 +2,7 @@ import HeadContent from '@/components/HeadContent';
 import TextPage from '@/components/TextPage';
 import Link from '@/components/textpage/InnerLink';
 
-export default function TermsPage() {
+export default function TermsPage () {
 	return (
 		<>
 			<HeadContent title='Terms of Use' description='Terms of Use for the MASK website' />

@@ -5,13 +5,17 @@ import Image from '@/components/textpage/InnerImage';
 import Link from '@/components/textpage/InnerLink';
 import Emphasis from '@/components/textpage/Emphasis';
 
-export default function EventPage() {
+export default function EventPage () {
 	return (
 		<>
 			<HeadContent
 				title='Intra-Soc Anime Quiz Extravaganza'
 				description={
-					'The Intra-Society Anime Quiz was an EPIC showdown, and the results? Mind-blowing!\n From jaw-dropping trivia to intense battles of otaku knowledge, we witnessed friendships forged and rivalries born!'
+					`The Intra-Society Anime Quiz was an EPIC showdown, and the results? Mind-blowing! ${
+						'\n'
+					}From jaw-dropping trivia to intense battles of otaku knowledge,${
+						''
+					} we witnessed friendships forged and rivalries born!`
 				}
 			/>
 			<TextPage title='Intra-Soc Anime Quiz Extravaganza' isRed>
