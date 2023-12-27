@@ -5,10 +5,6 @@ interface ArtImage {
   name: string;
   link: string;
   type: string;
-//   metadata: {
-//     height: number;
-//     width: number;
-//   };
   attr: string[];
   date:string;
   hype:boolean;
@@ -16,7 +12,7 @@ interface ArtImage {
 
 const artData: ArtImage[] = [{
     "name": "Art - Tanjiro Kamado",
-    "link": "0025.webp",
+    "link": "https://picsum.photos/200/300",
     "type": "art",
     "attr": [
         "Sanjeev Raj Ganji"
@@ -26,7 +22,7 @@ const artData: ArtImage[] = [{
 },
 {
     "name": "Art - Saitama",
-    "link": "0019.webp",
+    "link": "https://picsum.photos/200/300",
     "type": "art",
     "attr": [
         "Garima Mendhe"
@@ -36,7 +32,7 @@ const artData: ArtImage[] = [{
 },
 {
     "name": "Art - Kirigakure Shinobi Massacre",
-    "link": "0012.webp",
+    "link": "https://picsum.photos/200/300",
     "type": "art",
     "attr": [
         "Arpit Das"
@@ -46,7 +42,7 @@ const artData: ArtImage[] = [{
 },
 {
     "name": "Art - Garou",
-    "link": "0008.webp",
+    "link": "https://picsum.photos/200/300",
     "type": "art",
     "attr": [
         "Pritam Mallick"
@@ -72,9 +68,6 @@ const ArtPage: React.FC = () => {
             <img
               id={`img-${index}`}
               src={`/assets/art/${img.link}`}
-              style={{
-                // height: `calc(var(--col-width)*${img.metadata.height}/${img.metadata.width})`,
-              }}
               loading="lazy"
             />
             <div className={styles.overlay}>
