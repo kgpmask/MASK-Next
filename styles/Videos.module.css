@@ -1,0 +1,26 @@
+/* videos.css */
+.link {
+    color: var(--off-white);
+  }
+  
+  .youtube-videos {
+    display: inline-flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .youtube-vid {
+    height: 300px;
+    width: 532px;
+    margin: 40px;
+    padding: 10px;
+    border: 2px solid var(--off-white);
+    border-radius: 10px;
+    background-color: var(--medium-gray);
+  }
+  
+  iframe {
+    border-radius: 5px;
+  }
+  
