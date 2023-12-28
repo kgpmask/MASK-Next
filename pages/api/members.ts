@@ -2,23 +2,18 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import dbConnect from '@/utils/database/dbInit';
 import Member, { IMember, IRecord } from '@/utils/models/Member';
 
-export type TeamType = {
-	name: string;
-	icon: string;
-};
-
 export interface YearDataType {
 	name: string;
 	roll: string;
 	image: string;
-	teams: TeamType[];
+	teams: string[];
 	position: string;
 }
 
 async function getMembersbyYear(year: number): Promise<YearDataType[]> {
+	console.log('call');
 	const data: IMember[] = await Member.find({ 'records.year': year }).sort('name').lean();
 	const yearData: YearDataType[] = [];
-	const teamsData = require('@/utils/data/teams.json');
 
 	data.forEach((member) => {
 		const rec = member.records.find((rec) => rec.year === year);
@@ -28,15 +23,8 @@ async function getMembersbyYear(year: number): Promise<YearDataType[]> {
 			yearData.push({
 				name: member.name,
 				roll: member.roll,
-				image: '../assets/members/' + member.image,
-				teams: rec.teams.map((teamID) => {
-					const team: TeamType = {
-						name: teamsData[year][teamID].name,
-						icon: teamsData[year][teamID].icon,
-					};
-					team.icon += teamID[1] === 'H' ? !(pos = 'H') || '-head' : teamID[1] === 'S' ? !(pos = 'S') || '-sub' : '';
-					return team;
-				}),
+				image: '/members/' + member.image,
+				teams: rec.teams,
 				position: pos ? (rec.position === 'Governor' ? rec.position : pos === 'H' ? 'Team Heads' : 'Team Sub-Heads') : rec.position,
 			});
 		}
@@ -63,7 +51,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	};
 
 	membersData.forEach((member) => {
-		try {
+		if (member.image.includes('blank')) return;
+		if (member.teams.find(i => i[1] === 'H') && member.position !== 'Governor') status['Team Heads'].push(member);
+		else if (member.teams.find(i => i[1] === 'S')) status['Team Sub-Heads'].push(member);
+		else try {
 			status[member.position].push(member);
 		} catch {
 			status[member.position + 's'].push(member);

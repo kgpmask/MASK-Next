@@ -36,5 +36,5 @@ export const memberSchema = new mongoose.Schema<IMember>(
 	{ collection: 'members' }
 );
 
-const Member = mongoose.model<IMember>('Member', memberSchema);
+const Member = mongoose.models.Member || mongoose.model<IMember>('Member', memberSchema);
 export default Member;
