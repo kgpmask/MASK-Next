@@ -1,4 +1,7 @@
 import React from 'react';
+import HeadContent from '@/components/HeadContent';
+import TextPage from '@/components/TextPage';
+import Link from '@/components/textpage/InnerLink';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import styles from '@/styles/Videos.module.css';

@@ -1,4 +1,7 @@
 import React from 'react';
+import HeadContent from '@/components/HeadContent';
+import TextPage from '@/components/TextPage';
+import Link from '@/components/textpage/InnerLink';
 import styles from '@/styles/Art.module.css';
 
 interface ArtImage {
