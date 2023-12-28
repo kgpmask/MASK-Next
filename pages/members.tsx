@@ -21,7 +21,6 @@ type TeamType = {
 type MemberProfile = {
   name: string;
   imageLink: string;
-  position: string;
   teams: TeamType[];
 };
 
@@ -33,7 +32,9 @@ type MemberProfile = {
 // };
 
 export default function MembersPage () {
-	const [personsRecord, setPersonsRecord] = useState<MemberProfile[]>([]);
+	const [personsRecord, setPersonsRecord] = useState<
+    Record<string, MemberProfile[]>
+  >( {} );
 	const [yearRecord, setYearRecord] = useState<Number>(2023);
 
 	useEffect(() => {
@@ -42,7 +43,17 @@ export default function MembersPage () {
 				const temp = await fetch(`/api/members?year=${yearRecord}`);
 				const data: MemberType[] = await temp.json();
 				// Start
-				const memberArray: MemberProfile[] = [];
+				const memberArray: Record<string, MemberProfile[]> = {
+					Governors: [],
+					'Team Heads': [],
+					'Team Sub-Heads': [],
+					Advisors: [],
+					'Research Associate': [],
+					Executives: [],
+					Associates: [],
+					Freshers: [],
+					'Former Members': []
+				};
 				data.forEach((person) => {
 					const teamsArray: TeamType[] = [];
 					person.teams.forEach((team) => {
@@ -56,10 +67,9 @@ export default function MembersPage () {
 							teamIcon: team[0]
 						} );
 					} );
-					memberArray.push( {
+					memberArray[person.position].push( {
 						name: person.name,
 						imageLink: person.image,
-						position: person.position,
 						teams: teamsArray
 					} );
 				} );
@@ -70,8 +80,7 @@ export default function MembersPage () {
 			}
 		};
 		fetchData();
-	}, [yearRecord]);
-
+	} );
 	console.log(personsRecord);
 
 	const records = {
