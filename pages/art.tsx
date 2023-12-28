@@ -10,67 +10,227 @@ interface ArtImage {
   hype:boolean;
 }
 
-const artData: ArtImage[] = [{
+const getRandomImageURL = () => {
+  const randomWidth = Math.floor(Math.random() * 400) + 200; // Random width between 200 and 600
+  const randomHeight = Math.floor(Math.random() * 400) + 200; // Random height between 200 and 600
+  return `https://picsum.photos/${randomWidth}/${randomHeight}`;
+};
+
+const artData: ArtImage[] = [
+  {
     "name": "Art - Tanjiro Kamado",
-    "link": "https://picsum.photos/200/300",
+    "link": getRandomImageURL(),
     "type": "art",
-    "attr": [
-        "Sanjeev Raj Ganji"
-    ],
+    "attr": ["Sanjeev Raj Ganji"],
     "date": "2021-08-29T18:30:00.000Z",
     "hype": true
-},
-{
+  },
+  {
     "name": "Art - Saitama",
-    "link": "https://picsum.photos/200/300",
+    "link": getRandomImageURL(),
     "type": "art",
-    "attr": [
-        "Garima Mendhe"
-    ],
+    "attr": ["Garima Mendhe"],
     "date": "2021-08-13T18:30:00.000Z",
     "hype": true
-},
-{
+  },
+  {
     "name": "Art - Kirigakure Shinobi Massacre",
-    "link": "https://picsum.photos/200/300",
+    "link": getRandomImageURL(),
     "type": "art",
-    "attr": [
-        "Arpit Das"
-    ],
+    "attr": ["Arpit Das"],
     "date": "2020-05-12T18:30:00.000Z",
     "hype": true
-},
-{
+  },
+  {
     "name": "Art - Garou",
-    "link": "https://picsum.photos/200/300",
+    "link": getRandomImageURL(),
     "type": "art",
-    "attr": [
-        "Pritam Mallick"
-    ],
+    "attr": ["Pritam Mallick"],
     "date": "2019-10-28T00:00:00.000Z",
     "hype": true
-}
+  },
+  {
+    "name": "Art - Tanjiro Kamado",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Sanjeev Raj Ganji"],
+    "date": "2021-08-29T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Saitama",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Garima Mendhe"],
+    "date": "2021-08-13T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Kirigakure Shinobi Massacre",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Arpit Das"],
+    "date": "2020-05-12T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Garou",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Pritam Mallick"],
+    "date": "2019-10-28T00:00:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Tanjiro Kamado",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Sanjeev Raj Ganji"],
+    "date": "2021-08-29T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Saitama",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Garima Mendhe"],
+    "date": "2021-08-13T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Kirigakure Shinobi Massacre",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Arpit Das"],
+    "date": "2020-05-12T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Garou",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Pritam Mallick"],
+    "date": "2019-10-28T00:00:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Tanjiro Kamado",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Sanjeev Raj Ganji"],
+    "date": "2021-08-29T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Saitama",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Garima Mendhe"],
+    "date": "2021-08-13T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Kirigakure Shinobi Massacre",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Arpit Das"],
+    "date": "2020-05-12T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Garou",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Pritam Mallick"],
+    "date": "2019-10-28T00:00:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Tanjiro Kamado",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Sanjeev Raj Ganji"],
+    "date": "2021-08-29T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Saitama",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Garima Mendhe"],
+    "date": "2021-08-13T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Kirigakure Shinobi Massacre",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Arpit Das"],
+    "date": "2020-05-12T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Garou",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Pritam Mallick"],
+    "date": "2019-10-28T00:00:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Tanjiro Kamado",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Sanjeev Raj Ganji"],
+    "date": "2021-08-29T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Saitama",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Garima Mendhe"],
+    "date": "2021-08-13T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Kirigakure Shinobi Massacre",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Arpit Das"],
+    "date": "2020-05-12T18:30:00.000Z",
+    "hype": true
+  },
+  {
+    "name": "Art - Garou",
+    "link": getRandomImageURL(),
+    "type": "art",
+    "attr": ["Pritam Mallick"],
+    "date": "2019-10-28T00:00:00.000Z",
+    "hype": true
+  },
 ];
 
 const ArtPage: React.FC = () => {
   return (
     <div>
-      <div className={styles.text}>
+      <div className={styles['text']}>
         Check out our content on here or on{' '}
-        <a href="https://www.instagram.com/maskiitkgp" className={styles.link} target="_blank">
+        <a href="https://www.instagram.com/maskiitkgp" className={styles['link']} target="_blank">
           Instagram
         </a>
         !
       </div>
-      <section id="photos" className={styles.photos}>
+      <section id="photos" className={styles['photos']}>
         {artData.map((img, index) => (
-          <div className={styles.imgContainer} key={index}>
+          <div className={styles['imgContainer']} key={index}>
             <img
               id={`img-${index}`}
-              src={`/assets/art/${img.link}`}
+              src={img.link}
               loading="lazy"
+              alt={img.name}
             />
-            <div className={styles.overlay}>
+            <div className={styles['overlay']}>
               <h1>{img.name.replace('Art - ', '')}</h1>
               <h3>{img.attr.join(', ')}</h3>
             </div>
