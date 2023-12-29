@@ -47,6 +47,12 @@
 .teamlist {
   margin-top: 10px;
   align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.teamlist div {
+	margin: 2px;
 }
 #unloaded {
   margin-top: 10%;
