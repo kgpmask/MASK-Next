@@ -11,7 +11,6 @@ export interface YearDataType {
 }
 
 async function getMembersbyYear(year: number): Promise<YearDataType[]> {
-	console.log('call');
 	const data: IMember[] = await Member.find({ 'records.year': year }).sort('name').lean();
 	const yearData: YearDataType[] = [];
 
@@ -36,7 +35,7 @@ async function getMembersbyYear(year: number): Promise<YearDataType[]> {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	await dbConnect();
 
-	const yearName = Number(req.query.year);
+	const yearName = Number(req.query.year?.slice(0, 4));
 	const membersData: YearDataType[] = await getMembersbyYear(yearName);
 	const status: { [key: string]: YearDataType[] } = {
 		Governors: [],
@@ -52,13 +51,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 	membersData.forEach((member) => {
 		if (member.image.includes('blank')) return;
-		if (member.teams.find(i => i[1] === 'H') && member.position !== 'Governor') status['Team Heads'].push(member);
-		else if (member.teams.find(i => i[1] === 'S')) status['Team Sub-Heads'].push(member);
-		else try {
-			status[member.position].push(member);
-		} catch {
-			status[member.position + 's'].push(member);
-		}
+		if (member.teams.find((i) => i[1] === 'H') && member.position !== 'Governor') status['Team Heads'].push(member);
+		else if (member.teams.find((i) => i[1] === 'S')) status['Team Sub-Heads'].push(member);
+		else
+			try {
+				status[member.position].push(member);
+			} catch {
+				status[member.position + 's'].push(member);
+			}
 	});
 
 	const membersObj = Object.entries(status);

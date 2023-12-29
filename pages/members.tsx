@@ -1,10 +1,11 @@
+import { useEffect, useState } from 'react';
+import iconMap from '@/utils/data/teamIconMap';
+import { IconType } from 'react-icons';
+import Link from 'next/link';
+
 import HeadContent from '@/components/HeadContent';
 import styles from '@/styles/Members.module.css';
 import Member from '@/components/Member';
-import { YearDataType } from './api/members';
-import { use, useEffect, useState } from 'react';
-import iconMap from '@/utils/data/teamIconMap';
-import { IconType } from 'react-icons';
 
 type TeamType = {
 	teamColor: string;
@@ -22,6 +23,9 @@ export default function MembersPage() {
 	const [hasLoaded, setHasLoaded] = useState(false);
 	const [personsRecord, setPersonsRecord] = useState<Record<string, MemberProfile[]>>({});
 	const [yearRecord, setYearRecord] = useState<number>(2023);
+	const [membersTitle, setMembersTitle] = useState<string>('Our Members');
+	const [prev, setPrev] = useState<string | undefined>(undefined);
+	const [next, setNext] = useState<string | undefined>(undefined);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -41,15 +45,14 @@ export default function MembersPage() {
 					'Former Members': [],
 				};
 
-				data.membersObj?.forEach(([position, members]) => {
-					console.log(position);
-					members.forEach((person) => {
-						const teamsArray: TeamType[] = person.teams.map((team) => ({
+				data.membersObj?.forEach(([position, members]: [string, any[]]) => {
+					members.forEach((person: any) => {
+						const teamsArray: TeamType[] = person.teams.map((team: string) => ({
 							teamColor: team[1] === 'H' ? 'yellow' : team[1] === 'S' ? 'green' : 'white',
 							teamIcon: iconMap[yearRecord][team[0]]?.icon,
-							teamTitle: iconMap[yearRecord][team[0]]?.name
+							teamTitle: iconMap[yearRecord][team[0]]?.name,
 						}));
-						
+
 						memberArray[position].push({
 							name: person.name,
 							imageLink: person.image,
@@ -57,8 +60,11 @@ export default function MembersPage() {
 						});
 					});
 				});
-				console.log(memberArray);
+
 				setPersonsRecord(memberArray);
+				setMembersTitle(data.membersTitle);
+				setPrev(data.prev);
+				setNext(data.next);
 				setHasLoaded(true);
 			} catch (e) {
 				console.log(e);
@@ -72,7 +78,7 @@ export default function MembersPage() {
 		<>
 			<HeadContent title="Our Members" />
 			<div id="loaded" style={{ display: hasLoaded ? '' : 'none' }}>
-				<h1>Our Members</h1>
+				<h1>{membersTitle}</h1>
 				{Object.entries(personsRecord).map(
 					([position, members]) =>
 						Boolean(members.length) && (
@@ -83,16 +89,26 @@ export default function MembersPage() {
 								<div className={styles['yearbox']}>
 									<div className={styles['list']}>
 										{members.map(({ name, imageLink, teams }: MemberProfile) => (
-											<Member key={imageLink} name={name} image={imageLink} teams={[]} />
+											<Member key={imageLink} name={name} image={imageLink} teams={teams} />
 										))}
 									</div>
 								</div>
 							</div>
 						)
 				)}
-				{/* Add the buttons for prev and next here */}
+				<div>
+					{prev && (
+						<Link href={`/members/${prev}`}>
+							<button className={styles['year-button']}>{prev}</button>
+						</Link>
+					)}
+					{next && (
+						<Link href={`/members/${next}`}>
+							<button className={styles['year-button']}>{next}</button>
+						</Link>
+					)}
+				</div>
 			</div>
-			{/* Include the loading screen component here */}
 		</>
 	);
 }
