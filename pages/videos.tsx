@@ -1,5 +1,7 @@
 import React from 'react';
 import HeadContent from '@/components/HeadContent';
+import TextPage from '@/components/TextPage';
+import Link from '@/components/textpage/InnerLink';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import styles from '@/styles/Videos.module.css';
@@ -56,11 +58,20 @@ const Videos: React.FC<Props> = ({ videos = [] }) => {
   return (
     <>
       <HeadContent title='Videos' description="Experience the thrill of captivating AMVs created by our talented team at Manga and Anime Society Kharagpur [MASK]. Immerse yourself in a world of dynamic video editing, mesmerizing soundtracks, and breathtaking visuals." />
+      <TextPage title='Videos'>
+				<p>
+        Check out our video content here or on {' '}
+					<Link href='https://www.youtube.com/@maskiitkgp'>
+            Youtube
+					</Link>
+					!
+				</p>
+			</TextPage>
       <div className={styles['youtube-videos']}>
         {displayedVideos.map((video, index) => (
           <div className={styles['youtube-vid']} key={index}>
             <LiteYouTubeEmbed
-              id={video.link.split('v=')[1]} // Extract video ID from the YouTube link
+              id={video.link.split('v=')[1]}
               title={video.name}
               wrapperClass={styles['lite-yt-embed']}
             />

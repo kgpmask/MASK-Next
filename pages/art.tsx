@@ -1,5 +1,7 @@
 import React from 'react';
 import HeadContent from '@/components/HeadContent';
+import TextPage from '@/components/TextPage';
+import Link from '@/components/textpage/InnerLink';
 import styles from '@/styles/Art.module.css';
 
 interface ArtImage {
@@ -216,14 +218,15 @@ const ArtPage: React.FC = () => {
   return (
     <>
       <HeadContent title='Art' description='View some amazing artwork created by our DNA team. From traditional to digital to even unconvential, we have it all.' />
-      'View some amazing artwork created by our DNA team. From traditional to digital to even unconvential, we have it all.'
-      <div className={styles['text']}>
-        Check out our content on here or on{' '}
-        <a href="https://www.instagram.com/maskiitkgp" className={styles['link']} target="_blank">
-          Instagram
-        </a>
-        !
-      </div>
+      <TextPage title='Art'>
+				<p>
+          Check out our content on here or on{' '}
+					<Link href='https://www.instagram.com/maskiitkgp'>
+            Instagram
+					</Link>
+					!
+				</p>
+			</TextPage>
       <section id="photos" className={styles['photos']}>
         {artData.map((img, index) => (
           <div className={styles['imgContainer']} key={index}>
