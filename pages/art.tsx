@@ -1,7 +1,5 @@
 import React from 'react';
 import HeadContent from '@/components/HeadContent';
-import TextPage from '@/components/TextPage';
-import Link from '@/components/textpage/InnerLink';
 import styles from '@/styles/Art.module.css';
 
 interface ArtImage {
@@ -9,8 +7,8 @@ interface ArtImage {
   link: string;
   type: string;
   attr: string[];
-  date:string;
-  hype:boolean;
+  date: string;
+  hype: boolean;
 }
 
 const getRandomImageURL = () => {
@@ -216,7 +214,9 @@ const artData: ArtImage[] = [
 
 const ArtPage: React.FC = () => {
   return (
-    <div>
+    <>
+      <HeadContent title='Art' description='View some amazing artwork created by our DNA team. From traditional to digital to even unconvential, we have it all.' />
+      'View some amazing artwork created by our DNA team. From traditional to digital to even unconvential, we have it all.'
       <div className={styles['text']}>
         Check out our content on here or on{' '}
         <a href="https://www.instagram.com/maskiitkgp" className={styles['link']} target="_blank">
@@ -240,7 +240,7 @@ const ArtPage: React.FC = () => {
           </div>
         ))}
       </section>
-    </div>
+    </>
   );
 };
 
