@@ -2,9 +2,10 @@
     color: var(--off-white);
   }
 
-  .insta-promotion{
+  .insta-promotion {
     text-align: center;
   }
+
   .photos {
     padding: 2em 8em;
     column-count: 3;
