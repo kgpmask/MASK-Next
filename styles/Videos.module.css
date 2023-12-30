@@ -3,8 +3,12 @@
 }
 
 .link {
-  color: var(--off-white);
+  color: var(--red);
   height: fit-content;
+}
+
+.youtube-promotion{
+  text-align: center;
 }
 
 .youtube-videos {

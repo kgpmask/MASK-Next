@@ -219,9 +219,9 @@ const ArtPage: React.FC = () => {
     <>
       <HeadContent title='Art' description='View some amazing artwork created by our DNA team. From traditional to digital to even unconvential, we have it all.' />
       <TextPage title='Art'>
-				<p>
+				<p className={styles['insta-promotion']}>
           Check out our content on here or on{' '}
-					<Link href='https://www.instagram.com/maskiitkgp'>
+					<Link  isRed href='https://www.instagram.com/maskiitkgp'>
             Instagram
 					</Link>
 					!
