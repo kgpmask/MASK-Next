@@ -1,0 +1,67 @@
+  .link {
+    color: var(--off-white);
+  }
+
+  .insta-promotion {
+    text-align: center;
+  }
+
+  .photos {
+    padding: 2em 8em;
+    column-count: 3;
+    column-gap: 0px;
+  }
+
+  .imgContainer {
+    position: relative;
+    width: 100%;
+  }
+
+  .overlay {
+    transition: 0.5s ease;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+  }
+
+  .imgContainer:hover .overlay {
+    opacity: 1;
+  }
+
+  .imgContainer:hover {
+    transition: 1s ease;
+    background-color: var(--abyss);
+  }
+
+  .imgContainer img {
+    transition: 0.5s ease;
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    transform: scale(0.94);
+    z-index: 1;
+    position: relative;
+  }
+
+  .imgContainer:hover img {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  @media (max-width: 768px) {
+    .photos {
+      column-count: 2;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .photos {
+      padding: 2em;
+      column-count: 1;
+    }
+  }
