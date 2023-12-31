@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { IconType } from "react-icons";
+import Link from 'next/link';
+import { IconType } from 'react-icons';
 
 interface SocialHandlesProps {
 	title?: string;
