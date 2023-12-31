@@ -73,7 +73,7 @@ const Home: React.FC = () => {
 					} )
 				);
 
-				setImgs(data.art.map((artItem: artItem) => '/' + artItem.link));
+				setImgs(data.art.map((artItem: artItem) => '/art/' + artItem.link));
 			} catch (error) {
 				console.error(error);
 			}
