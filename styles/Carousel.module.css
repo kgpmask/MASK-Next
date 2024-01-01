@@ -1,0 +1,173 @@
+/* Common styles for both Image and Video Carousels */
+
+.carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .carousel-controls button {
+    position: absolute;
+    top: 50%;
+    font-size: 22px;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 16px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .left-btn {
+    left: 0;
+  }
+  
+  .right-btn {
+    right: 0;
+  }
+  
+  .carousel-controls button:hover {
+    background-color: rgba(0, 0, 0, 1);
+  }
+  
+  .carousel-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 16px 0;
+  }
+  
+  .dot {
+    width: 15px;
+    height: 15px;
+    background-color: var(--dark-gray);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: var(--off-white);
+  }
+  
+  /* Image Carousel specific styles */
+  
+  .carousel-images {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .carousel-images img {
+    border-radius: 10px;
+    width: 100%;
+    height: 40vh;
+    transition: opacity 0.3s ease;
+  }
+  
+  .carousel-images img.inactive {
+    display: none;
+  }
+  
+  .carousel-images img.active {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  /* Video Carousel specific styles */
+  
+  .youtube-videos {
+    display: inline-flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: hidden;
+  }
+  
+  .youtube-vid {
+    max-height: 365px;
+    max-width: 565px;
+    width: 100vh;
+    height: 100vw;
+    border-radius: 10px;
+    background-color: var(--medium-gray);
+    transition: transform 0.5s ease;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .youtube-vid,
+    .vidshow-container {
+      width: 100%;
+    }
+    .vidshow-container {
+      margin: 20px;
+    }
+    .youtube-vid {
+      aspect-ratio: 16/9;
+    }
+  }
+  
+  /* Carousel controls for Videos Carousel */
+  .control-btn {
+    position: absolute;
+    top: 50%;
+    background-color: rgb(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Adjust the height of the buttons */
+  .control-btn {
+    height: 54px;
+  }
+  
+  /* Indicator dots for Videos Carousel */
+  .carousel-indicator {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  /* Copy-pasted styles for both Image and Video Carousels */
+  .with-controls {
+    width: 100%;
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .vidshow-container {
+    overflow: hidden;
+    max-height: 500px;
+    max-width: 565px;
+    width: 100%;
+    border: 2px solid var(--gray);
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  
+  .vidshow {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+    width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
