@@ -97,7 +97,7 @@ export default function MembersPage() {
 						)
 				)}
 				<div>
-					{prev && (
+					{/* prev && (
 						<Link href={`/members/${prev}`}>
 							<button className={styles['year-button']}>{prev}</button>
 						</Link>
@@ -106,7 +106,7 @@ export default function MembersPage() {
 						<Link href={`/members/${next}`}>
 							<button className={styles['year-button']}>{next}</button>
 						</Link>
-					)}
+					) */}
 				</div>
 			</div>
 		</>
