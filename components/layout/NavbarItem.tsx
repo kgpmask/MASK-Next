@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import React from 'react';
+
 
 interface NavbarItemProps {
 	label: string;
@@ -6,7 +8,7 @@ interface NavbarItemProps {
 	isCurrent?: Boolean;
 }
 
-const NavbarItem: React.FC<NavbarItemProps> = ({ label, link, isCurrent }) => {
+const NavbarItem: React.FC<NavbarItemProps> = ( { label, link, isCurrent } ) => {
 	return (
 		<Link href={link} className={isCurrent ? 'active-page' : ''}>
 			{label}

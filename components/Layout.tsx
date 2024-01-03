@@ -9,7 +9,7 @@ interface LayoutProps {
 	children: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ( { children } ) => {
 	const Router = useRouter();
 	const [viewportWidth, setViewportWidth] = React.useState( 720 );
 
@@ -19,9 +19,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
 	React.useEffect( () => {
 		updateViewportWidth();
-		window.addEventListener( 'resize', updateViewportWidth );
-		return () => window.removeEventListener( 'resize', updateViewportWidth );
-	});
+		window.addEventListener('resize', updateViewportWidth);
+		return () => window.removeEventListener('resize', updateViewportWidth);
+	} );
 
 	return (
 		<>
@@ -36,7 +36,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 					>
 						<input autoFocus={true} />
 					</div>
-					{viewportWidth > 600 ? <Navbar currentPage={Router.route.split( '/' )[1]} /> : <HamburgerMenu currentPage={Router.route.split( '/' )[1]} />}
+					{viewportWidth > 600 ?
+						<Navbar currentPage={Router.route.split('/')[1]} /> :
+						<HamburgerMenu currentPage={Router.route.split('/')[1]} />
+					}
 					<div id="pagecontent">{children}</div>
 					<Footer />
 				</div>

@@ -11,7 +11,7 @@ interface NavbarProps {
 	userless?: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ currentPage, loggedIn, userless }) => {
+const Navbar: React.FC<NavbarProps> = ( { currentPage, loggedIn, userless } ) => {
 	const navLinks = [
 		{ name: 'Art', href: '/art' },
 		{ name: 'Videos', href: '/videos' },
@@ -43,11 +43,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, loggedIn, userless }) => {
 					</li>
 					<span className="navbar-line">&nbsp;</span>
 					<div className="navbar-container">
-						{navLinks.map( ({ name, href }) => 
-							<li key={href.slice( 1 )}>
-								<NavbarItem label={name} link={href} isCurrent={currentPage === href.slice( 1 )} />
-							</li>
-						)}
+						{navLinks.map(( { name, href } ) => 
+							<li key={href.slice(1)}>
+								<NavbarItem label={name} link={href} isCurrent={currentPage === href.slice(1)} />
+							</li>)}
 					</div>
 					<Dropdown links={dropdownLinks} loggedIn={loggedIn} currentPage={currentPage} userless={userless} />
 				</ul>

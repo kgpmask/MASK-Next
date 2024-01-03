@@ -7,7 +7,7 @@ interface MenuItemProps {
 	isCurrent?: boolean;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ label, link, isCurrent }) => {
+const MenuItem: React.FC<MenuItemProps> = ( { label, link, isCurrent } ) => {
 	return (
 		<Link href={link}>
 			<div className={`lettuce${isCurrent ? ' active-page' : ''}`}>{label}</div>
