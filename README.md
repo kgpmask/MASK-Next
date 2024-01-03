@@ -76,6 +76,7 @@ Your PR will be approved when two of the following conditions are met:
 - [Animesh Raj](https://github.com/wildcraft958)
 - [Jai Sachdev](https://github.com/SachdevJai)
 - [Jeffrey Samuel](https://github.com/Signor-Koala)
+- [Sahil Patel](https://github.com/Symbiot01)
 - [Sharanya Chakraborty](https://github.com/destryptor)
 
 > _will be added as they contribute_
