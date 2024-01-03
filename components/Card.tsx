@@ -10,9 +10,9 @@ interface Props {
   desc: string;
 }
 
-const Card: React.FC<Props> = ({ id, link, title, desc }) => {
-	const [Link, setLink] = useState( `/newsletterReleases/${link}/cover.webp` );
-	const handleError = () => setLink( '/newsletterReleases/no-cover.webp' );
+const Card: React.FC<Props> = ( { id, link, title, desc } ) => {
+	const [Link, setLink] = useState(`/newsletterReleases/${link}/cover.webp`);
+	const handleError = () => setLink('/newsletterReleases/no-cover.webp');
 
 	return (
 		<a className={`${styles['old']}`} href={`/newsletters/${link}`}>

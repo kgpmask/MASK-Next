@@ -29,14 +29,14 @@ const Videos: React.FC<Props> = () => {
 				const data = await res.json();
 
 				setVidPosts(
-					data.vids.map((post: Video) => ({
+					data.vids.map((post: Video) => ( {
 						name: post.name,
 						link: post.link,
 						type: post.type,
 						attr: post.attr,
 						date: post.date,
-						hype: post.hype,
-					}))
+						hype: post.hype
+					} ))
 				);
 			} catch (err) {
 				console.error(err);
@@ -64,11 +64,11 @@ const Videos: React.FC<Props> = () => {
 				</p>
 			</TextPage>
 			<div className={styles['youtube-videos']}>
-				{vidPosts.map((video, index) => (
+				{vidPosts.map((video, index) => 
 					<div className={styles['youtube-vid']} key={index}>
 						<LiteYouTubeEmbed id={video.link.split('v=')[1]} title={video.name} wrapperClass={styles['lite-yt-embed']} />
 					</div>
-				))}
+				)}
 			</div>
 		</>
 	);

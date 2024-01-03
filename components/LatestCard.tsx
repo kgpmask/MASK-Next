@@ -10,16 +10,16 @@ interface Props {
     desc: string
 }
 
-const LatestCard: React.FC<Props> = ({
+const LatestCard: React.FC<Props> = ( {
 	id,
 	link, 
 	title, 
 	desc
-}) => {
+} ) => {
 
-	const [Link, setLink] = useState( `/newsletterReleases/${link}/cover.webp` );
+	const [Link, setLink] = useState(`/newsletterReleases/${link}/cover.webp`);
 	const handleError = () => 
-		setLink ( '/newsletterReleases/no-cover.webp' );
+		setLink ('/newsletterReleases/no-cover.webp');
 
 
 	return (

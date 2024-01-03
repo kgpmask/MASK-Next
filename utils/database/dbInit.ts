@@ -10,10 +10,10 @@ const dbConnect = async () => {
 	};
 
 	try {
-		const db = await mongoose.connect( MONGO_URL, opts ); // insert additional checks here
+		const db = await mongoose.connect(MONGO_URL, opts); // insert additional checks here
 
 		return db;
-	} catch ( e ) {
+	} catch (e) {
 		throw e;
 	}
 };

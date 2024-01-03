@@ -14,7 +14,7 @@ const Menu: React.FC<MenuProps> = ( { links, currentPage, loggedIn, userless } )
 		<>
 			{links.map(( { name, href }, index) => 
 				<React.Fragment key={href}>
-					<MenuItem label={name} link={href} isCurrent={currentPage === href.slice( 1 )} />
+					<MenuItem label={name} link={href} isCurrent={currentPage === href.slice(1)} />
 					{index !== links.length - 1 && <hr className="minor" />}
 				</React.Fragment>)}
 

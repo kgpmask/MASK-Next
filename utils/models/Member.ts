@@ -29,9 +29,9 @@ export const memberSchema = new mongoose.Schema<IMember>(
 			{
 				year: { type: Number, required: true },
 				position: { type: String, required: true },
-				teams: { type: [String], required: true },
-			},
-		],
+				teams: { type: [String], required: true }
+			}
+		]
 	},
 	{ collection: 'members' }
 );

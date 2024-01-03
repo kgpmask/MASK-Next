@@ -23,14 +23,14 @@ const ArtPage: React.FC = () => {
 				const data = await res.json();
 
 				setArtPosts(
-					data.art.map((post: ArtImage) => ({
+					data.art.map((post: ArtImage) => ( {
 						name: post.name,
 						link: '/art/' + post.link,
 						type: post.type,
 						attr: post.attr,
 						date: post.date,
-						hype: post.hype,
-					}))
+						hype: post.hype
+					} ))
 				);
 			} catch (err) {
 				console.error(err);
@@ -57,7 +57,7 @@ const ArtPage: React.FC = () => {
 				</p>
 			</TextPage>
 			<section id='photos' className={styles['photos']}>
-				{artPosts.map((img, index) => (
+				{artPosts.map((img, index) => 
 					<div className={styles['imgContainer']} key={index}>
 						<img
 							id={`img-${index}`}
@@ -73,7 +73,7 @@ const ArtPage: React.FC = () => {
 							<h3>{img.attr.join(', ')}</h3>
 						</div>
 					</div>
-				))}
+				)}
 			</section>
 		</>
 	);
