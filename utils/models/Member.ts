@@ -1,23 +1,23 @@
 import mongoose from 'mongoose';
 
 export type MemberType = {
-	name: string;
-	image: string;
-	position: string;
-	teams: string[];
+  name: string;
+  image: string;
+  position: string;
+  teams: string[];
 };
 
 export interface IRecord {
-	year: number;
-	position: string;
-	teams: string[];
+  year: number;
+  position: string;
+  teams: string[];
 }
 
 export interface IMember extends mongoose.Document {
-	name: string;
-	image: string;
-	roll: string;
-	records: IRecord[];
+  name: string;
+  image: string;
+  roll: string;
+  records: IRecord[];
 }
 
 export const memberSchema = new mongoose.Schema<IMember>(
@@ -29,12 +29,13 @@ export const memberSchema = new mongoose.Schema<IMember>(
 			{
 				year: { type: Number, required: true },
 				position: { type: String, required: true },
-				teams: { type: [String], required: true },
-			},
-		],
+				teams: { type: [String], required: true }
+			}
+		]
 	},
 	{ collection: 'members' }
 );
 
-const Member = mongoose.models.Member || mongoose.model<IMember>('Member', memberSchema);
+const Member =
+  mongoose.models.Member || mongoose.model<IMember>('Member', memberSchema);
 export default Member;

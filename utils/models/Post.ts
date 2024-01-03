@@ -1,28 +1,28 @@
-import mongoose, { Document, Schema, Model } from "mongoose";
+import mongoose, { Document, Schema, Model } from 'mongoose';
 
 interface Metadata {
-	height?: number;
-	width?: number;
+  height?: number;
+  width?: number;
 }
 
 interface PostAttributes {
-	name: string;
-	link?: string;
-	type: string;
-	attr?: string[];
-	date: Date;
-	page?: string;
-	hype?: boolean;
-	metadata?: Metadata;
+  name: string;
+  link?: string;
+  type: string;
+  attr?: string[];
+  date: Date;
+  page?: string;
+  hype?: boolean;
+  metadata?: Metadata;
 }
 
 export interface PostDocument extends Document, PostAttributes {
-	recent?: boolean;
+  recent?: boolean;
 }
 
 interface PostModel extends Model<PostDocument> {}
 
-const postSchema = new Schema<PostDocument>({
+const postSchema = new Schema<PostDocument>( {
 	name: { type: String, required: true },
 	link: { type: String },
 	type: { type: String, required: true },
@@ -33,13 +33,15 @@ const postSchema = new Schema<PostDocument>({
 	metadata: {
 		type: {
 			height: Number,
-			width: Number,
-		},
-	},
-});
+			width: Number
+		}
+	}
+} );
 
-postSchema.set("collection", "posts");
+postSchema.set('collection', 'posts');
 
-const PostModel: PostModel = mongoose.models.Post || mongoose.model<PostDocument, PostModel>("Post", postSchema);
+const PostModel: PostModel =
+  mongoose.models.Post ||
+  mongoose.model<PostDocument, PostModel>('Post', postSchema);
 
 export default PostModel;

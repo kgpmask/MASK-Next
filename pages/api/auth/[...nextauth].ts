@@ -1,11 +1,7 @@
-import NextAuth from 'next-auth/next';
-import { NextAuthOptions } from 'next-auth';
+import dbConnect from '@/utils/database/dbInit';
+import User from '@/utils/models/User';
+import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
-import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
-import { MongoClient } from 'mongodb';
-
-const client = new MongoClient(process.env.MONGO_URL as string);
-const clientPromise = client.connect();
 
 export default NextAuth( {
 	providers: [
@@ -14,5 +10,24 @@ export default NextAuth( {
 			clientSecret: process.env.GOOGLE_SECRET as string
 		} )
 	],
-	adapter: MongoDBAdapter(clientPromise)
+	callbacks: {
+		async signIn ( { user, account } ) {
+			if (account?.provider === 'google') {
+				const { name, email } = user;
+				try {
+					await dbConnect();
+					const userExists = await User.findOne( { email } );
+
+					if (!userExists) {
+						// TODO: Create user api path
+					}
+				} catch (error) {
+					console.log(error);
+				}
+			} else {
+				console.log('INTRUSION DETECTED!!1!');
+			}
+			return true;
+		}
+	}
 } );
