@@ -1,23 +1,23 @@
 import mongoose, { Document, Schema, Model } from 'mongoose';
 
 interface Metadata {
-  height?: number;
-  width?: number;
+	height?: number;
+	width?: number;
 }
 
 interface PostAttributes {
-  name: string;
-  link?: string;
-  type: string;
-  attr?: string[];
-  date: Date;
-  page?: string;
-  hype?: boolean;
-  metadata?: Metadata;
+	name: string;
+	link?: string;
+	type: string;
+	attr?: string[];
+	date: Date;
+ 	page?: string;
+	hype?: boolean;
+	metadata?: Metadata;
 }
 
 export interface PostDocument extends Document, PostAttributes {
-  recent?: boolean;
+	recent?: boolean;
 }
 
 interface PostModel extends Model<PostDocument> {}
