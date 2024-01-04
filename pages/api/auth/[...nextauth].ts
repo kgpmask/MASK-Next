@@ -19,7 +19,7 @@ export default NextAuth( {
 					const userExists = await User.findOne( { email } );
 
 					if (!userExists) {
-						// TODO: Create user api path
+						fetch(`/api/addUser?username=${name}&email=${email}`);
 					}
 				} catch (error) {
 					console.log(error);

@@ -1,23 +1,23 @@
 import mongoose from 'mongoose';
 
 export type MemberType = {
-  name: string;
-  image: string;
-  position: string;
-  teams: string[];
+	name: string;
+	image: string;
+	position: string;
+	teams: string[];
 };
 
 export interface IRecord {
-  year: number;
-  position: string;
-  teams: string[];
+	year: number;
+	position: string;
+	teams: string[];
 }
 
 export interface IMember extends mongoose.Document {
-  name: string;
-  image: string;
-  roll: string;
-  records: IRecord[];
+	name: string;
+	image: string;
+	roll: string;
+	records: IRecord[];
 }
 
 export const memberSchema = new mongoose.Schema<IMember>(
