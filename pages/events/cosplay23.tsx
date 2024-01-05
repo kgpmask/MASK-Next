@@ -10,9 +10,7 @@ export default function EventPage () {
 		<>
 			<HeadContent
 				title='Cosplay 2023 Coverage'
-				description={`The memories of college life condensed over long years, come to an explosive close,${
-					''
-				} with the graduating batch cosplaying as their favourite characters.`}
+				description='The memories of college life condensed over long years, come to an explosive close, with the graduating batch cosplaying as their favourite characters.'
 			/>
 			<TextPage title='Cosplay 2023 Coverage'>
 				<Description
@@ -21,9 +19,7 @@ export default function EventPage () {
 						Location: 'In front of Main Academic Building, IIT Kharagpur',
 						Attendance: '1000+',
 						Cosplayers: 'Over 100',
-						Costumes: `A wide variety of costumes from anime, manga, video games,${
-							''
-						} traditional deities/heroes, and other pop culture media`,
+						Costumes: 'A wide variety of costumes from anime, manga, video games, traditional deities/heroes, and other pop culture media',
 						Activities: 'Meet-and-Greets with cosplayers (the graduating students)',
 						Author: 'Nishkal Prakash'
 					}}
