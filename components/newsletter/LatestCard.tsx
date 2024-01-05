@@ -1,17 +1,13 @@
-
-
 import React, { useState } from 'react';
 import styles from '@/styles/Newsletters.module.css';
 
 interface Props {
-    id: number;
     link: string,
     title: string,
     desc: string
 }
 
 const LatestCard: React.FC<Props> = ( {
-	id,
 	link, 
 	title, 
 	desc

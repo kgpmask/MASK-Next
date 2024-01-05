@@ -1,10 +1,9 @@
 import HeadContent from '@/components/HeadContent';
 import styles from '@/styles/Newsletters.module.css';
-import latestnewsletter from './latestnewsletter';
-import newsletters from './newsletters';
+import newsletters from '@/utils/data/newsletters';
 import React from 'react';
-import Card from '../../components/Card';
-import LatestCard from '../../components/LatestCard';
+import Card from '@/components/newsletter/Card';
+import LatestCard from '@/components/newsletter/LatestCard';
 
 export default function NewslettersPage () {
 	return (
@@ -15,11 +14,10 @@ export default function NewslettersPage () {
 				<h1 id={styles['heading']}>Newsletters</h1>
 
 				<div className={styles['wrapper']}>
-					{latestnewsletter.map((item, i) => {
+					{newsletters.slice(0, 1).map((item, i) => {
 						return (
 							<LatestCard
 								key={i}
-								id={item.id}
 								title={item.title}
 								desc={item.desc}
 								link={item.link}
@@ -27,11 +25,10 @@ export default function NewslettersPage () {
 						);
 					} )}
 
-					{newsletters.map((item, i) => {
+					{newsletters.slice(1).map((item, i) => {
 						return (
 							<Card
 								key={i}
-								id={item.id}
 								title={item.title}
 								desc={item.desc}
 								link={item.link}

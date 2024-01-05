@@ -1,16 +1,13 @@
-
-
 import React, { useState } from 'react';
 import styles from '@/styles/Newsletters.module.css';
 
 interface Props {
-  id: number;
   link: string;
   title: string;
   desc: string;
 }
 
-const Card: React.FC<Props> = ( { id, link, title, desc } ) => {
+const Card: React.FC<Props> = ( { link, title, desc } ) => {
 	const [Link, setLink] = useState(`/newsletterReleases/${link}/cover.webp`);
 	const handleError = () => setLink('/newsletterReleases/no-cover.webp');
 
