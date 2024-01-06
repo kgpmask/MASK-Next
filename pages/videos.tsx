@@ -59,9 +59,9 @@ const Videos: React.FC<Props> = () => {
          Manga and Anime Society Kharagpur [MASK]. Immerse yourself in a world of dynamic video editing,
           mesmerizing soundtracks, and breathtaking visuals.'
 			/>
-			{!isLoaded ? (
+			{!isLoaded ? 
 				<Loading />
-			) : (
+				: 
 				<>
 					<TextPage title='Videos'>
 						<p className={styles['youtube-promotion']}>
@@ -73,14 +73,18 @@ const Videos: React.FC<Props> = () => {
 						</p>
 					</TextPage>
 					<div className={styles['youtube-videos']}>
-						{vidPosts.map((video, index) => (
+						{vidPosts.map((video, index) => 
 							<div className={styles['youtube-vid']} key={index}>
-								<LiteYouTubeEmbed id={video.link.split('v=')[1]} title={video.name} wrapperClass={styles['lite-yt-embed']} />
+								<LiteYouTubeEmbed 
+									id={video.link.split('v=')[1]} 
+									title={video.name} 
+									wrapperClass={styles['lite-yt-embed']} 
+								/>
 							</div>
-						))}
+						)}
 					</div>
 				</>
-			)}
+			}
 		</>
 	);
 };

@@ -52,9 +52,9 @@ const ArtPage: React.FC = () => {
 				description='View some amazing artwork created by our DNA team.
        From traditional to digital to even unconvential, we have it all.'
 			/>
-			{!isLoaded ? (
+			{!isLoaded ? 
 				<Loading />
-			) : (
+				: 
 				<>
 					<TextPage title='Art'>
 						<p className={styles['insta-promotion']}>
@@ -66,7 +66,7 @@ const ArtPage: React.FC = () => {
 						</p>
 					</TextPage>
 					<section id='photos' className={styles['photos']}>
-						{artPosts.map((img, index) => (
+						{artPosts.map((img, index) => 
 							<div className={styles['imgContainer']} key={index}>
 								<img
 									id={`img-${index}`}
@@ -82,10 +82,10 @@ const ArtPage: React.FC = () => {
 									<h3>{img.attr.join(', ')}</h3>
 								</div>
 							</div>
-						))}
+						)}
 					</section>
 				</>
-			)}
+			}
 		</>
 	);
 };
