@@ -4,7 +4,7 @@ const Loading: React.FC = () => {
 	const containerStyle: React.CSSProperties = {
 		display: 'flex',
 		justifyContent: 'center',
-		alignItems: 'center',
+		alignItems: 'center'
 	};
 	return (
 		<div style={containerStyle}>

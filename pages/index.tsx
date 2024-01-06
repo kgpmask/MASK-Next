@@ -54,13 +54,13 @@ const Home: React.FC = () => {
 				const data = await res.json();
 
 				setRecentPosts(
-					data.posts.map((post: postItem) => ({
+					data.posts.map((post: postItem) => ( {
 						name: post.name,
 						link: post.link,
 						type: post.type,
 						date: post.date ? new Date(post.date) : undefined,
-						hype: post.hype,
-					}))
+						hype: post.hype
+					} ))
 				);
 
 				setVideos(
@@ -70,9 +70,9 @@ const Home: React.FC = () => {
 
 						return {
 							id: videoId,
-							name: vidItem.name,
+							name: vidItem.name
 						};
-					})
+					} )
 				);
 
 				setImgs(data.art.map((artItem: artItem) => '/art/' + artItem.link));
@@ -89,9 +89,9 @@ const Home: React.FC = () => {
 
 	return (
 		<>
-			{!isLoaded ? (
+			{!isLoaded ? 
 				<Loading />
-			) : (
+				:
 				<>
 					{/* Banner */}
 					<Banner />
@@ -126,7 +126,7 @@ const Home: React.FC = () => {
 					<br />
 					<div></div>
 				</>
-			)}
+			}
 		</>
 	);
 };

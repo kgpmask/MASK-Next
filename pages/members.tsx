@@ -20,9 +20,9 @@ type MemberProfile = {
 	teams: TeamType[];
 };
 
-export default function MembersPage() {
+export default function MembersPage () {
 	const [hasLoaded, setHasLoaded] = useState(false);
-	const [personsRecord, setPersonsRecord] = useState<Record<string, MemberProfile[]>>({});
+	const [personsRecord, setPersonsRecord] = useState<Record<string, MemberProfile[]>>( {} );
 	const [yearRecord, setYearRecord] = useState<number>(2023);
 	const [membersTitle, setMembersTitle] = useState<string>('Our Members');
 	// const [prev, setPrev] = useState<string | undefined>(undefined);
@@ -43,24 +43,24 @@ export default function MembersPage() {
 					Executives: [],
 					Associates: [],
 					Freshers: [],
-					'Former Members': [],
+					'Former Members': []
 				};
 
 				data.membersObj?.forEach(([position, members]: [string, any[]]) => {
 					members.forEach((person: any) => {
-						const teamsArray: TeamType[] = person.teams.map((team: string) => ({
+						const teamsArray: TeamType[] = person.teams.map((team: string) => ( {
 							teamColor: team[1] === 'H' ? 'yellow' : team[1] === 'S' ? 'green' : 'white',
 							teamIcon: iconMap[yearRecord][team[0]]?.icon,
-							teamTitle: iconMap[yearRecord][team[0]]?.name,
-						}));
+							teamTitle: iconMap[yearRecord][team[0]]?.name
+						} ));
 
-						memberArray[position].push({
+						memberArray[position].push( {
 							name: person.name,
 							imageLink: person.image,
-							teams: teamsArray,
-						});
-					});
-				});
+							teams: teamsArray
+						} );
+					} );
+				} );
 
 				setPersonsRecord(memberArray);
 				setMembersTitle(data.membersTitle);
@@ -79,9 +79,9 @@ export default function MembersPage() {
 	return (
 		<>
 			<HeadContent title='Our Members' />
-			{!hasLoaded ? (
+			{!hasLoaded ? 
 				<Loading />
-			) : (
+				:
 				<>
 					<div className={styles['year-selector']}>
 						{['2023-24', '2022-23', '2021-22', '2020-21'].map((yearString) => {
@@ -101,26 +101,26 @@ export default function MembersPage() {
 									{yearString}
 								</button>
 							);
-						})}
+						} )}
 					</div>
 					<div id='loaded' style={{ display: hasLoaded ? '' : 'none' }}>
 						<h1>{membersTitle}</h1>
 						{Object.entries(personsRecord).map(
 							([position, members]) =>
-								Boolean(members.length) && (
+								Boolean(members.length) && 
 									<div className={styles['status']} key={position}>
 										<h2>
 											<u>{position}</u>
 										</h2>
 										<div className={styles['yearbox']}>
 											<div className={styles['list']}>
-												{members.map(({ name, imageLink, teams }: MemberProfile) => (
+												{members.map(( { name, imageLink, teams }: MemberProfile) => 
 													<Member key={imageLink} name={name} image={imageLink} teams={teams} />
-												))}
+												)}
 											</div>
 										</div>
 									</div>
-								)
+								
 						)}
 						<div>
 							{/* prev && (
@@ -136,7 +136,7 @@ export default function MembersPage() {
 						</div>
 					</div>
 				</>
-			)}
+			}
 		</>
 	);
 }
