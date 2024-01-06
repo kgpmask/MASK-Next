@@ -27,7 +27,6 @@ async function getMembersbyYear (year: number): Promise<YearDataType[]> {
 				position: pos ?
 					rec.position === 'Governor' ? rec.position : pos === 'H' ? 'Team Heads' : 'Team Sub-Heads' :
 					rec.position
-
 			} );
 		}
 	} );

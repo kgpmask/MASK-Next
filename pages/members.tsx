@@ -81,7 +81,7 @@ export default function MembersPage () {
 			<HeadContent title='Our Members' />
 			{!hasLoaded ? 
 				<Loading />
-				: 
+				:
 				<>
 					<div className={styles['year-selector']}>
 						{['2023-24', '2022-23', '2021-22', '2020-21'].map((yearString) => {

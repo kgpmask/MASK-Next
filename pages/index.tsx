@@ -91,7 +91,7 @@ const Home: React.FC = () => {
 		<>
 			{!isLoaded ? 
 				<Loading />
-				: 
+				:
 				<>
 					{/* Banner */}
 					<Banner />

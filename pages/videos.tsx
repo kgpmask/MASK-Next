@@ -75,10 +75,10 @@ const Videos: React.FC<Props> = () => {
 					<div className={styles['youtube-videos']}>
 						{vidPosts.map((video, index) => 
 							<div className={styles['youtube-vid']} key={index}>
-								<LiteYouTubeEmbed 
+								<LiteYouTubeEmbed
 									id={video.link.split('v=')[1]} 
 									title={video.name} 
-									wrapperClass={styles['lite-yt-embed']} 
+									wrapperClass={styles['lite-yt-embed']}
 								/>
 							</div>
 						)}
