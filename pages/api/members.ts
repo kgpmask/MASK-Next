@@ -24,9 +24,9 @@ async function getMembersbyYear (year: number): Promise<YearDataType[]> {
 				roll: member.roll,
 				image: '/members/' + member.image,
 				teams: rec.teams,
-				position: pos ? rec.position === 'Governor' 
-					? rec.position : pos === 'H' 
-						? 'Team Heads' : 'Team Sub-Heads' : rec.position
+				position: pos ?
+					rec.position === 'Governor' ? rec.position : pos === 'H' ? 'Team Heads' : 'Team Sub-Heads' :
+					rec.position
 			} );
 		}
 	} );
