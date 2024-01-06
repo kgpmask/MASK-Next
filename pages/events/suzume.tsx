@@ -10,15 +10,7 @@ export default function EventPage () {
 		<>
 			<HeadContent
 				title='Suzume no Tojimari Trip'
-				description={
-					`How far would you go to watch a movie with the gang? Answer: At least Kolkata.${
-						'\n'
-					}To watch the new Makoto Shinkai movie, Suzume no Tojimari, we went to South City Mall.${
-						''
-					} From toto races, early sunday morning trains, bus rides full of jokes, and a wonderful${
-						''
-					} cinematic experience, this trip was our last big thing for this semester.`
-				}
+				description={`How far would you go to watch a movie with the gang? Answer: At least Kolkata.${'\n'}To watch the new Makoto Shinkai movie, Suzume no Tojimari, we went to South City Mall. From toto races, early sunday morning trains, bus rides full of jokes, and a wonderful cinematic experience, this trip was our last big thing for this semester.`}
 			/>
 			<TextPage title='Suzume no Tojimari Trip' isRed>
 				<Description
