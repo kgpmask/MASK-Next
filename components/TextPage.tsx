@@ -4,7 +4,7 @@ interface TextPageProps {
 	children: React.ReactNode;
 }
 
-const TextPage: React.FC<TextPageProps> = ({ title, isRed, children }) => {
+const TextPage: React.FC<TextPageProps> = ( { title, isRed, children } ) => {
 	return (
 		<>
 			{title && <h1 style={{ color: isRed ? 'var(--error-red)' : undefined }}>{title}</h1>}
