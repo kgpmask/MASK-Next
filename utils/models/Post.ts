@@ -11,7 +11,7 @@ interface PostAttributes {
 	type: string;
 	attr?: string[];
 	date: Date;
- 	page?: string;
+	page?: string;
 	hype?: boolean;
 	metadata?: Metadata;
 }
