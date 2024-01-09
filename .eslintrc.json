@@ -66,5 +66,13 @@
 			"exceptions": ["*","-"]
 		}],
 		"yoda": ["error", "never"]
-	}
+	},
+
+	"overrides": [{
+		"files": [ "./pages/*.tsx", "./pages/**/*.tsx" ],
+		"rules": {
+			"max-len": 0
+		}
+	}]
+
 }
