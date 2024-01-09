@@ -29,12 +29,13 @@ export const memberSchema = new mongoose.Schema<IMember>(
 			{
 				year: { type: Number, required: true },
 				position: { type: String, required: true },
-				teams: { type: [String], required: true },
-			},
-		],
+				teams: { type: [String], required: true }
+			}
+		]
 	},
 	{ collection: 'members' }
 );
 
-const Member = mongoose.models.Member || mongoose.model<IMember>('Member', memberSchema);
+const Member =
+  mongoose.models.Member || mongoose.model<IMember>('Member', memberSchema);
 export default Member;
