@@ -9,10 +9,12 @@ export default async function handler (
 	await dbConnect();
 
 	try {
-		const username = req.query.username;
+		const _id = req.query.id;
+		const name = req.query.name;
 		const email = req.query.email;
 		const newUser = await User.create( {
-			username,
+			_id,
+			name,
 			email
 		} );
 		return res.status(201).json( { success: true, data: newUser } );

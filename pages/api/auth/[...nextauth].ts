@@ -13,13 +13,13 @@ export default NextAuth( {
 	callbacks: {
 		async signIn ( { user, account } ) {
 			if (account?.provider === 'google') {
-				const { name, email } = user;
+				const { id, name, email } = user;
 				try {
 					await dbConnect();
-					const userExists = await User.findOne( { email } );
+					const userExists = await User.findById(id);
 
 					if (!userExists) {
-						fetch(`/api/addUser?username=${name}&email=${email}`);
+						fetch(`/api/addUser?id=${id}&name=${name}&email=${email}`);
 					}
 				} catch (error) {
 					console.log(error);
