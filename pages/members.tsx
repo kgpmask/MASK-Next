@@ -4,6 +4,7 @@ import { IconType } from 'react-icons';
 import Link from 'next/link';
 
 import HeadContent from '@/components/HeadContent';
+import Loading from '@/components/Loading';
 import styles from '@/styles/Members.module.css';
 import Member from '@/components/Member';
 
@@ -19,13 +20,13 @@ type MemberProfile = {
 	teams: TeamType[];
 };
 
-export default function MembersPage() {
+export default function MembersPage () {
 	const [hasLoaded, setHasLoaded] = useState(false);
-	const [personsRecord, setPersonsRecord] = useState<Record<string, MemberProfile[]>>({});
+	const [personsRecord, setPersonsRecord] = useState<Record<string, MemberProfile[]>>( {} );
 	const [yearRecord, setYearRecord] = useState<number>(2023);
 	const [membersTitle, setMembersTitle] = useState<string>('Our Members');
-	const [prev, setPrev] = useState<string | undefined>(undefined);
-	const [next, setNext] = useState<string | undefined>(undefined);
+	// const [prev, setPrev] = useState<string | undefined>(undefined);
+	// const [next, setNext] = useState<string | undefined>(undefined);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -42,32 +43,33 @@ export default function MembersPage() {
 					Executives: [],
 					Associates: [],
 					Freshers: [],
-					'Former Members': [],
+					'Former Members': []
 				};
 
 				data.membersObj?.forEach(([position, members]: [string, any[]]) => {
 					members.forEach((person: any) => {
-						const teamsArray: TeamType[] = person.teams.map((team: string) => ({
+						const teamsArray: TeamType[] = person.teams.map((team: string) => ( {
 							teamColor: team[1] === 'H' ? 'yellow' : team[1] === 'S' ? 'green' : 'white',
 							teamIcon: iconMap[yearRecord][team[0]]?.icon,
-							teamTitle: iconMap[yearRecord][team[0]]?.name,
-						}));
+							teamTitle: iconMap[yearRecord][team[0]]?.name
+						} ));
 
-						memberArray[position].push({
+						memberArray[position].push( {
 							name: person.name,
 							imageLink: person.image,
-							teams: teamsArray,
-						});
-					});
-				});
+							teams: teamsArray
+						} );
+					} );
+				} );
 
 				setPersonsRecord(memberArray);
 				setMembersTitle(data.membersTitle);
-				setPrev(data.prev);
-				setNext(data.next);
+				// setPrev(data.prev);
+				// setNext(data.next);
 				setHasLoaded(true);
 			} catch (e) {
 				console.log(e);
+				setHasLoaded(true);
 			}
 		};
 
@@ -76,39 +78,65 @@ export default function MembersPage() {
 
 	return (
 		<>
-			<HeadContent title="Our Members" />
-			<div id="loaded" style={{ display: hasLoaded ? '' : 'none' }}>
-				<h1>{membersTitle}</h1>
-				{Object.entries(personsRecord).map(
-					([position, members]) =>
-						Boolean(members.length) && (
-							<div className={styles['status']} key={position}>
-								<h2>
-									<u>{position}</u>
-								</h2>
-								<div className={styles['yearbox']}>
-									<div className={styles['list']}>
-										{members.map(({ name, imageLink, teams }: MemberProfile) => (
-											<Member key={imageLink} name={name} image={imageLink} teams={teams} />
-										))}
+			<HeadContent title='Our Members' />
+			{!hasLoaded ? 
+				<Loading />
+				: 
+				<>
+					<div className={styles['year-selector']}>
+						{['2023-24', '2022-23', '2021-22', '2020-21'].map((yearString) => {
+							const year = parseInt(yearString.substring(0, 4), 10);
+
+							return (
+								<button
+									key={yearString}
+									className={styles['year-button']}
+									onClick={() => {
+										if (year !== yearRecord) {
+											setYearRecord(year);
+											setHasLoaded(false);
+										}
+									}}
+								>
+									{yearString}
+								</button>
+							);
+						} )}
+					</div>
+					<div id='loaded' style={{ display: hasLoaded ? '' : 'none' }}>
+						<h1>{membersTitle}</h1>
+						{Object.entries(personsRecord).map(
+							([position, members]) =>
+								Boolean(members.length) && 
+									<div className={styles['status']} key={position}>
+										<h2>
+											<u>{position}</u>
+										</h2>
+										<div className={styles['yearbox']}>
+											<div className={styles['list']}>
+												{members.map(( { name, imageLink, teams }: MemberProfile) => 
+													<Member key={imageLink} name={name} image={imageLink} teams={teams} />
+												)}
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
-						)
-				)}
-				<div>
-					{/* prev && (
-						<Link href={`/members/${prev}`}>
-							<button className={styles['year-button']}>{prev}</button>
-						</Link>
-					)}
-					{next && (
-						<Link href={`/members/${next}`}>
-							<button className={styles['year-button']}>{next}</button>
-						</Link>
-					) */}
-				</div>
-			</div>
+								
+						)}
+						<div>
+							{/* prev && (
+								<Link href={`/members/${prev}`}>
+									<button className={styles['year-button']}>{prev}</button>
+								</Link>
+								)}
+							{next && (
+								<Link href={`/members/${next}`}>
+									<button className={styles['year-button']}>{next}</button>
+								</Link>
+							) */}
+						</div>
+					</div>
+				</>
+			}
 		</>
 	);
 }

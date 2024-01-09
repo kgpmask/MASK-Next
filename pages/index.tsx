@@ -7,6 +7,7 @@ import Updates from '@/components/home-page/Updates';
 import Policies from '@/components/home-page/Policies';
 import ImageCarousel from '@/components/home-page/ImageCarousel';
 import VideoCarousel from '@/components/home-page/VideoCarousel';
+import Loading from '@/components/Loading';
 
 import styles from '@/styles/Home.module.css';
 
@@ -44,6 +45,7 @@ const Home: React.FC = () => {
 	const [recentPosts, setRecentPosts] = useState<Post[]>([]);
 	const [videos, setVideos] = useState<Video[]>([]);
 	const [imgs, setImgs] = useState<string[]>([]);
+	const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -74,8 +76,11 @@ const Home: React.FC = () => {
 				);
 
 				setImgs(data.art.map((artItem: artItem) => '/art/' + artItem.link));
+
+				setIsLoaded(true);
 			} catch (error) {
 				console.error(error);
+				setIsLoaded(true);
 			}
 		};
 
@@ -84,38 +89,44 @@ const Home: React.FC = () => {
 
 	return (
 		<>
-			{/* Banner */}
-			<Banner />
+			{!isLoaded ? 
+				<Loading />
+				: 
+				<>
+					{/* Banner */}
+					<Banner />
 
-			{/* top container having  updates and about soc stuff */}
-			<div className={styles['flex-container']}>
-				<Updates updates={recentPosts} />
-				<AboutStuff />
-			</div>
-			<hr className={styles['flex-break']}></hr>
-
-			{/* bottom container having image and video carousels  */}
-			<div id={styles['bottom-container']} className={styles['flex-conatainer']}>
-				<div className={styles['top-container']}>
-					{/* Art */}
-					<div className={styles.container}></div>
-					{/* <ImageCarousel imgs={imgs} /> */}
-					{/* submit stuff button */}
-					<div className={styles['submit-stuff']}>
-						<Link href="/submissions">
-							<button className={styles['submit-button']}>Submit your content!</button>
-						</Link>
+					{/* top container having  updates and about soc stuff */}
+					<div className={styles['flex-container']}>
+						<Updates updates={recentPosts} />
+						<AboutStuff />
 					</div>
-				</div>
+					<hr className={styles['flex-break']}></hr>
 
-				{/* Videos */}
-				{/* <VideoCarousel videos={videos} /> */}
-			</div>
-			{/* policies  */}
-			<Policies />
-			<br />
-			<br />
-			<div></div>
+					{/* bottom container having image and video carousels  */}
+					<div id={styles['bottom-container']} className={styles['flex-conatainer']}>
+						<div className={styles['top-container']}>
+							{/* Art */}
+							<div className={styles.container}></div>
+							{/* <ImageCarousel imgs={imgs} /> */}
+							{/* submit stuff button */}
+							<div className={styles['submit-stuff']}>
+								<Link href='/submissions'>
+									<button className={styles['submit-button']}>Submit your content!</button>
+								</Link>
+							</div>
+						</div>
+
+						{/* Videos */}
+						{/* <VideoCarousel videos={videos} /> */}
+					</div>
+					{/* policies  */}
+					<Policies />
+					<br />
+					<br />
+					<div></div>
+				</>
+			}
 		</>
 	);
 };

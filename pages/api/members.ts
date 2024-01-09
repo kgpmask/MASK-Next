@@ -10,8 +10,8 @@ export interface YearDataType {
 	position: string;
 }
 
-async function getMembersbyYear(year: number): Promise<YearDataType[]> {
-	const data: IMember[] = await Member.find({ 'records.year': year }).sort('name').lean();
+async function getMembersbyYear (year: number): Promise<YearDataType[]> {
+	const data: IMember[] = await Member.find( { 'records.year': year } ).sort('name').lean();
 	const yearData: YearDataType[] = [];
 
 	data.forEach((member) => {
@@ -19,20 +19,22 @@ async function getMembersbyYear(year: number): Promise<YearDataType[]> {
 		let pos: string | undefined;
 
 		if (rec) {
-			yearData.push({
+			yearData.push( {
 				name: member.name,
 				roll: member.roll,
 				image: '/members/' + member.image,
 				teams: rec.teams,
-				position: pos ? (rec.position === 'Governor' ? rec.position : pos === 'H' ? 'Team Heads' : 'Team Sub-Heads') : rec.position,
-			});
+				position: pos ?
+					rec.position === 'Governor' ? rec.position : pos === 'H' ? 'Team Heads' : 'Team Sub-Heads' :
+					rec.position
+			} );
 		}
-	});
+	} );
 
 	return yearData;
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler (req: NextApiRequest, res: NextApiResponse) {
 	await dbConnect();
 
 	const yearName = Number(req.query.year?.slice(0, 4));
@@ -46,7 +48,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		Executives: [],
 		Associates: [],
 		Freshers: [],
-		'Former Members': [],
+		'Former Members': []
 	};
 
 	membersData.forEach((member) => {
@@ -59,15 +61,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			} catch {
 				status[member.position + 's'].push(member);
 			}
-	});
+	} );
 
 	const membersObj = Object.entries(status);
-	const membersTitle = `Members: ${yearName}-${(yearName % 100) + 1}`;
+	const membersTitle = `Members: ${yearName}-${yearName % 100 + 1}`;
 
-	res.status(200).json({
+	res.status(200).json( {
 		membersObj,
 		membersTitle,
 		prev: yearName - 1 >= 2020 ? `${yearName - 1}-${yearName % 100}` : undefined,
-		next: yearName + 1 <= 2023 ? `${yearName + 1}-${(yearName % 100) + 2}` : undefined,
-	});
+		next: yearName + 1 <= 2023 ? `${yearName + 1}-${yearName % 100 + 2}` : undefined
+	} );
 }
