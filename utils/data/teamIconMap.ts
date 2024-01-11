@@ -1,7 +1,17 @@
 import { IconType } from 'react-icons';
-import { GiThink, GiLaptop, GiMusicalNotes, GiPaintBrush, GiPencil, GiTv } from 'react-icons/gi';
+import {
+	GiThink,
+	GiLaptop,
+	GiMusicalNotes,
+	GiPaintBrush,
+	GiPencil,
+	GiTv
+} from 'react-icons/gi';
 
-type IconMapType = Record<string, Record<string, { name: string; icon: IconType }>>;
+type IconMapType = Record<
+  string,
+  Record<string, { name: string; icon: IconType }>
+>;
 
 const iconMap: IconMapType = {
 	2020: {

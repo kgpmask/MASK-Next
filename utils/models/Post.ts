@@ -40,6 +40,8 @@ const postSchema = new Schema<PostDocument>( {
 
 postSchema.set('collection', 'posts');
 
-const PostModel: PostModel = mongoose.models.Post || mongoose.model<PostDocument, PostModel>('Post', postSchema);
+const PostModel: PostModel =
+  mongoose.models.Post ||
+  mongoose.model<PostDocument, PostModel>('Post', postSchema);
 
 export default PostModel;
