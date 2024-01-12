@@ -9,13 +9,11 @@ export default async function handler (
 	await dbConnect();
 
 	try {
-		const _id = req.query.id;
-		const name = req.query.name;
-		const email = req.query.email;
 		const newUser = await User.create( {
-			_id,
-			name,
-			email
+			_id: req.query.id,
+			name: req.query.name,
+			email: req.query.email,
+			permissions: []
 		} );
 		return res.status(201).json( { success: true, data: newUser } );
 	} catch (error) {
