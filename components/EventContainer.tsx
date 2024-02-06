@@ -1,5 +1,6 @@
 import React from 'react';
 import TextPage from './TextPage';
+import styles from '../styles/Events.module.css'
 interface EventProps {
 	title: string;
 	date: string;
@@ -10,14 +11,14 @@ interface EventProps {
 }
 
 const EventContainer: React.FC<EventProps> = ( { title, date, venue, author, description, link } ) => {
-	return <TextPage>
-		<div className="event-container">
+	return <>
+		<div className={styles['event-container']}>
 			<a href={`/events/${ link}`} title={ title }>
-				<div className='image-container'>
-					<img src={`/assets/events/${ link }.jpg`} alt={ title} />
+				<div className={styles['image-container']}>
+					<img src={`/events/${ link }.jpg`} alt={ title} />
 				</div>
 			</a>
-			<div className="details">
+			<div className={styles['details']}>
 				<h2> <a href={`/events/${ link}`} title={ title }>{ title } </a></h2>
 				<p>
 					<span> Date: </span> { date } <br/>
@@ -29,7 +30,7 @@ const EventContainer: React.FC<EventProps> = ( { title, date, venue, author, des
 				<a href={`/events/${ link}`} title={ title }> Read More... </a>
 			</div>
 		</div>
-	</TextPage>;
+	</>; 
 };
 
 export default EventContainer;
