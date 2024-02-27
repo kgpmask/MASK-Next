@@ -28,6 +28,21 @@
 	width: 50vw;
     font-size: 1.04em;
 }
+#events {
+  max-width: 800px; 
+  margin: 0 auto;
+}
+
+.event-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.event-left,
+.event-right {
+  width: calc(50% - 10px); 
+}
 .details > h2 > a
 {
 	text-decoration: none;
