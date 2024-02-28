@@ -1,6 +1,6 @@
 import React from 'react';
 import TextPage from './TextPage';
-import styles from '../styles/Events.module.css'
+import styles from '../styles/Events.module.css';
 interface EventProps {
 	title: string;
 	date: string;
