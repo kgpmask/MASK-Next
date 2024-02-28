@@ -68,23 +68,18 @@ export default function EventPage () {
 			<div id="events">
 				<h1>Events</h1>
 				{events.map((e, index) =>
-					<div key={index} className={index % 2 === 0 ? 'event-left' : 'event-right'}
+					<EventContainer key={index}
+						title={e.title}
+						date={e.date}
+						venue={e.venue}
+						author={e.author}
+						description={e.description}
+						link={e.link}
 						style={{
-							flexDirection: index % 2 === 0 ? 'row' : 'row-reverse'
-						}}>
-						<EventContainer
-							title={e.title}
-							date={e.date}
-							venue={e.venue}
-							author={e.author}
-							description={e.description}
-							link={e.link}
-						/>
-              
-              
-					</div>
-				)
-				}
+							flexDirection: index % 2 === 0 ? 'row-reverse' : 'row'
+						}}
+					/>
+				)}
 			</div>
 		</>
 	);

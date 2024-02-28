@@ -1,6 +1,6 @@
-import React from 'react';
-import TextPage from './TextPage';
+import React, { CSSProperties } from 'react';
 import styles from '../styles/Events.module.css';
+
 interface EventProps {
 	title: string;
 	date: string;
@@ -8,11 +8,12 @@ interface EventProps {
 	author: string;
 	description: string;
 	link: string;
+	style?: CSSProperties
 }
 
-const EventContainer: React.FC<EventProps> = ( { title, date, venue, author, description, link } ) => {
+const EventContainer: React.FC<EventProps> = ( { title, date, venue, author, description, link, style } ) => {
 	return <>
-		<div className={styles['event-container']}>
+		<div className={styles['event-container']} style={ style }>
 			<a href={`/events/${ link}`} title={ title }>
 				<div className={styles['image-container']}>
 					<img src={`/events/${ link }.jpg`} alt={ title} />
