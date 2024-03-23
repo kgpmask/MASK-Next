@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-// import styles from '@/styles/ImageCarousel.module.css';
+import styles from '@/styles/ImageCarousel.module.css';
 import Carousel from '@/components/home-page/Carousels';
 
 interface ImageCarouselProps {
@@ -21,6 +21,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ( { imgs } ) => {
 					alt={`carousel-image-${index}`}
 					width={500}
 					height={300}
+					style={styles}
 				/>
 			)}
 		</Carousel>

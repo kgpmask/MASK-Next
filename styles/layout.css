@@ -439,6 +439,11 @@ span.float-middle {
   display: inline-flex;
 }
 
+.center-carousel {
+  display: flex;
+  justify-content: center;
+}
+
 /************************************/
 /* css for youtube lite embed this doesnt contain wrapper styles */
 .yt-lite {

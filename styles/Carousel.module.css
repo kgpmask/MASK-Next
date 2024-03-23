@@ -25,6 +25,7 @@
   cursor: pointer;
   position: absolute; 
   z-index: 1; 
+  border-radius: 10px;
 
 }
 .carouselButton:hover {
@@ -56,12 +57,12 @@
 
 /* for differnt images, you can change the width and height of the images in the carouselItem img and carouselItemActive img classes */
 /* also if passed item is not an image u can set styles for it after this */
-.carouselItem img,
+/* .carouselItem img,
 .carouselItemActive img {
   width: 500px;
   height: 500px;
   object-fit: cover;
-}
+} */
 
 
 /* dots styles */

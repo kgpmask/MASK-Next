@@ -2,7 +2,7 @@
 .youtube-videos {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  /* width: 100%; */
   overflow-x: auto;
   overflow-y: hidden;
   position: absolute;
@@ -11,10 +11,10 @@
 
 .youtube-vid {
   flex: 0 0 auto;
-  max-height: 365px;
-  max-width: 565px;
+  max-height: 100%;
+  max-width: 100%;
   width: 100vh;
-  height: 100vw;
+  /* height: 100vw; */
   border-radius: 10px;
   background-color: var(--medium-gray);
   transition: transform 0.5s ease; /* Add smooth transition for video changes */

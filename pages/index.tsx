@@ -11,33 +11,33 @@ import VideoCarousel from '@/components/home-page/VideoCarousel';
 import styles from '@/styles/Home.module.css';
 
 interface Post {
-	link: string;
-	name: string;
-	type: string;
-	hype: boolean;
-	date: Date;
+  link: string;
+  name: string;
+  type: string;
+  hype: boolean;
+  date: Date;
 }
 
 interface Video {
-	id: string;
-	name: string;
+  id: string;
+  name: string;
 }
 
 interface postItem {
-	name: string;
-	link: string;
-	type: string;
-	date?: Date;
-	hype: boolean;
+  name: string;
+  link: string;
+  type: string;
+  date?: Date;
+  hype: boolean;
 }
 
 interface artItem {
-	link: string;
+  link: string;
 }
 
 interface vidItem {
-	link: string;
-	name: string;
+  link: string;
+  name: string;
 }
 
 const Home: React.FC = () => {
@@ -95,22 +95,29 @@ const Home: React.FC = () => {
 			<hr className={styles['flex-break']}></hr>
 
 			{/* bottom container having image and video carousels  */}
-			<div id={styles['bottom-container']} className={styles['flex-conatainer']}>
+			<div
+				id={styles['bottom-container']}
+				className={styles['flex-conatainer']}
+			>
 				<div className={styles['top-container']}>
 					{/* Art */}
 					<div className={styles.container}></div>
-					
+
 					<ImageCarousel imgs={imgs} />
 					{/* submit stuff button */}
 					<div className={styles['submit-stuff']}>
 						<Link href="/submissions">
-							<button className={styles['submit-button']}>Submit your content!</button>
+							<button className={styles['submit-button']}>
+                Submit your content!
+							</button>
 						</Link>
 					</div>
 				</div>
 
 				{/* Videos */}
-				<VideoCarousel videos={videos} />
+				<div className={styles['with-controls']} id="vid-main">
+					<VideoCarousel videos={videos} />
+				</div>
 			</div>
 			{/* policies  */}
 			<Policies />
