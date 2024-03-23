@@ -18,7 +18,7 @@ const VideosCarousel: React.FC<VideosCarouselProps> = ( { videos } ) => {
 	}
 
 	return (
-		<Carousel>
+		<Carousel height={540} width={720}>
 			{videos.map((video, index) => 
 				<LiteYouTubeEmbed
 					key={index}

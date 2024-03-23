@@ -13,7 +13,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ( { imgs } ) => {
 	}
 
 	return (
-		<Carousel>
+		<Carousel height={540} width={720}>
 			{imgs.map((img, index) => 
 				<Image
 					key={index}
