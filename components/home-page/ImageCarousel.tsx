@@ -20,8 +20,8 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ( { imgs } ) => {
 					src={img}
 					alt={`carousel-image-${index}`}
 					width={500}
-					height={300}
-					style={styles}
+					height={500}
+					style={{ transform: 'translateX(22.5%)', objectFit: 'cover' }}
 				/>
 			)}
 		</Carousel>

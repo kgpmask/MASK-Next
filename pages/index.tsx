@@ -11,46 +11,46 @@ import VideoCarousel from '@/components/home-page/VideoCarousel';
 import styles from '@/styles/Home.module.css';
 
 interface Post {
-  link: string;
-  name: string;
-  type: string;
-  hype: boolean;
-  date: Date;
+	link: string;
+	name: string;
+	type: string;
+	hype: boolean;
+	date: Date;
 }
 
 interface Video {
-  id: string;
-  name: string;
+	id: string;
+	name: string;
 }
 
 interface postItem {
-  name: string;
-  link: string;
-  type: string;
-  date?: Date;
-  hype: boolean;
+	name: string;
+	link: string;
+	type: string;
+	date?: Date;
+	hype: boolean;
 }
 
 interface artItem {
-  link: string;
+	link: string;
 }
 
 interface vidItem {
-  link: string;
-  name: string;
+	link: string;
+	name: string;
 }
 
 const Home: React.FC = () => {
 	const [recentPosts, setRecentPosts] = useState<Post[]>([]);
 	const [videos, setVideos] = useState<Video[]>([]);
 	const [imgs, setImgs] = useState<string[]>([]);
-
+	
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const res = await fetch('/api/home');
 				const data = await res.json();
-
+				
 				setRecentPosts(
 					data.posts.map((post: postItem) => ( {
 						name: post.name,
@@ -60,7 +60,7 @@ const Home: React.FC = () => {
 						hype: post.hype
 					} ))
 				);
-
+					
 				setVideos(
 					data.vids.map((vidItem: vidItem) => {
 						const url = new URL(vidItem.link);
@@ -115,7 +115,7 @@ const Home: React.FC = () => {
 				</div>
 
 				{/* Videos */}
-				<div className={styles['with-controls']} id="vid-main">
+				<div className={styles['carousel-center']} id="vid-main">
 					<VideoCarousel videos={videos} />
 				</div>
 			</div>

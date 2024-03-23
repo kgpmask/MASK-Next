@@ -186,6 +186,10 @@
 .submit-button:hover {
 	background-color: var(--middle-gray);
 }
+.carousel-center {
+	display: flex;
+	justify-content: center;
+}
 
 @media (max-width: 800px) {
 	.flex-container {

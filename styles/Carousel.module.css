@@ -10,6 +10,28 @@
   border-radius: 10px;
   filter: blur(0.5px);
 }
+@media (max-width: 600px) {
+  .carouselContainer {
+    flex-direction: column;
+    margin: 20px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .carouselContainer {
+    flex-direction: row;
+    margin: 20px;
+
+  }
+}
+
+@media (min-width: 1025px) {
+  .carouselContainer {
+    flex-direction: row;
+    margin: 20px;
+
+  }
+}
 
 .carouselButton {
   background-color: black; 
@@ -45,7 +67,7 @@
   display: none;
   position: absolute;
   /* temporary fix for centering the image  */
-  transform: translateX(22.5%);
+  /* transform: translateX(22.5%); */
   /* these two were creating issue */
   /* width: 100%; */
   /* height: 100%; */
@@ -57,12 +79,12 @@
 
 /* for differnt images, you can change the width and height of the images in the carouselItem img and carouselItemActive img classes */
 /* also if passed item is not an image u can set styles for it after this */
-/* .carouselItem img,
+.carouselItem img,
 .carouselItemActive img {
   width: 500px;
   height: 500px;
   object-fit: cover;
-} */
+} 
 
 
 /* dots styles */
@@ -84,4 +106,10 @@
 
 .dotActive {
   background-color: black;
+}
+@media (max-width: 600px) {
+  .dot {
+    height: 5px;
+    width: 5px; /* Make dots smaller on small screens */
+  }
 }
