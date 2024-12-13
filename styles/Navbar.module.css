@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@400;500;600;700&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+    --black: #000000;
+    --textwhite: #FFFFFF;
+    --red: #E43332;
+}
+
+.navbarFull {
+    background-color: var(--black);
+    height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbarFull ul {
+    list-style-type: none;
+    background-color: var(--black);
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.navbarContainer {
+    display: flex;
+    flex-grow: 1;
+}
+
+.link {
+    font-family: Cabin;
+    font-size: 16px;
+    line-height: 19.44px;
+    display: block;
+    padding: 14px 16px;
+    text-align: center;
+    color: var(--textwhite);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+
+.link::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: var(--red);
+    width: 0%;
+    transition: width 0.3s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.link:hover::after {
+    width: 50%;
+}
+
+.active::after {
+    width: 50%;
+}
+
+.aboutus {
+    align-items: center;
+    justify-content: center;
+    background-color: var(--red);
+    width: 143px;
+    height: 38px;
+    gap: 0px;
+    border-radius: 27px;
+    display: flex;
+    margin-left: auto;
+    margin-right: 120px;
+}
+
+.aboutus a {
+    font-size: 16px;
+    line-height: 19.44px;
+    text-align: center;
+    color: var(--textwhite);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbarLogo {
+    width: 48px;
+    height: 48px;
+    margin-left: 120px;
+    border-radius: 25px;
+}
+
+.logo {
+    padding: 0px 16px;
+    vertical-align: middle;
+}
