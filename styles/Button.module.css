@@ -1,0 +1,54 @@
+.button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+  }
+  
+  .button-red {
+    background-color: #e63946;
+    color: #fff;
+  }
+  
+  .button-red:hover {
+    background-color: #d62839;
+    transform: scale(1.05);
+  }
+  
+  .button-red:active {
+    transform: scale(0.95);
+  }
+  
+  .button-blue {
+    background-color: #1d3557;
+    color: #fff;
+  }
+  
+  .button-blue:hover {
+    background-color: #457b9d;
+    transform: scale(1.05);
+  }
+  
+  .button-blue:active {
+    transform: scale(0.95);
+  }
+  
+  .button-green {
+    background-color: #2a9d8f;
+    color: #fff;
+  }
+  
+  .button-green:hover {
+    background-color: #21867a;
+    transform: scale(1.05);
+  }
+  
+  .button-green:active {
+    transform: scale(0.95);
+  }
+  

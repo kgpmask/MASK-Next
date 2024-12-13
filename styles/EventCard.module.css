@@ -1,0 +1,78 @@
+/* Wrapper for the entire card */
+.eventCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 320px;
+    margin: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .eventCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Wrapper for the image */
+  .imageWrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .eventImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  /* Wrapper for the content */
+  .contentWrapper {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  /* Title styling */
+  .eventTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  /* Meta information styling */
+  .eventMeta {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .eventMeta strong {
+    font-weight: 600;
+    color: #000;
+  }
+  
+  /* Description text */
+  .eventDescription {
+    font-size: 1rem;
+    color: #666;
+    margin: 10px 0 20px;
+    line-height: 1.5;
+    text-align: justify;
+  }
+  
+  /* Responsive design */
+  @media screen and (max-width: 768px) {
+    .eventCard {
+      width: 90%;
+      margin: 15px auto;
+    }
+  }
+  
