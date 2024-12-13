@@ -17,7 +17,7 @@ import Button from './Button';
 export default function EventCard({ event }) { 
   return (
     <div className={styles.eventCard}>
-        <Image src = {event.image} alt = {event.title} width = {512} height = {286} className = {styles.imageWrapper}/>
+        <Image src = {event.image} alt = {event.title} width = {512} height = {286} className = {styles.imageWrapper} layout = "intrinsic"/>
         <div className = {styles.contentWrapper}>
           <div className = {styles.textWrapper}>
             <h3 className = {styles.eventTitle}>{event.title}</h3>
