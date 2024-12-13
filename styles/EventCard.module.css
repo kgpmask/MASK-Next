@@ -1,78 +1,121 @@
 /* Wrapper for the entire card */
 .eventCard {
-    display: flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  width: 100%;
+  max-width: 80%;
+  margin: 20px auto; /* Center align the card */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 3rem;
+  height: auto;
+}
+
+.eventCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Wrapper for the image */
+.imageWrapper {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 3rem;
+  aspect-ratio: 512/286;
+}
+
+.eventImage {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  align-self: center;
+}
+
+/* Wrapper for the content */
+.contentWrapper {
+  flex: 2;
+  padding: 0 3rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Title styling */
+.eventTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #dfdfdf;
+  margin: 10px 0;
+  text-align: justify;
+}
+
+/* Meta information styling */
+.eventMeta {
+  font-size: 0.9rem;
+  color: #aaa;
+  padding: 1rem 0;
+}
+
+.eventMeta strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Description text */
+.eventDescription {
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .eventCard {
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 320px;
-    margin: 20px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 90%;
+    margin: 15px auto;
+    padding: 2rem;
   }
-  
-  .eventCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Wrapper for the image */
+
   .imageWrapper {
     width: 100%;
-    overflow: hidden;
+    padding-right: 0;
+    margin-bottom: 2rem;
   }
-  
+
   .eventImage {
-    display: block;
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: auto; /* Ensure image doesn't disappear */
+    object-fit: contain;
   }
-  
-  /* Wrapper for the content */
+
   .contentWrapper {
-    padding: 15px;
-    text-align: left;
+    width: 100%;
+    padding: 0;
   }
-  
-  /* Title styling */
+
   .eventTitle {
     font-size: 1.5rem;
-    font-weight: 700;
-    color: #333;
-    margin: 10px 0;
-    text-align: center;
   }
-  
-  /* Meta information styling */
-  .eventMeta {
-    font-size: 0.9rem;
-    color: #555;
-    margin: 5px 0;
-  }
-  
-  .eventMeta strong {
-    font-weight: 600;
-    color: #000;
-  }
-  
-  /* Description text */
+
   .eventDescription {
-    font-size: 1rem;
-    color: #666;
-    margin: 10px 0 20px;
-    line-height: 1.5;
-    text-align: justify;
+    font-size: 0.9rem;
   }
-  
-  /* Responsive design */
-  @media screen and (max-width: 768px) {
-    .eventCard {
-      width: 90%;
-      margin: 15px auto;
-    }
-  }
-  
+}

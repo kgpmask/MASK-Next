@@ -1,54 +1,35 @@
 .button {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  width: 196px;
+  text-align: justify;
+}
+
+.primary {
+  background-color: #e43332;
+  color: #fff;
+}
+
+.primary:hover {
+  background-color: #e43332;
+}
+
+.secondary {
+  background-color: #2d3748;
+  color: #fff;
+}
+
+.secondary:hover {
+  background-color: #1a202c;
+}
+
+@media screen and (max-width: 768px) {
+  .button {
+    width: 125px;
   }
-  
-  .button-red {
-    background-color: #e63946;
-    color: #fff;
-  }
-  
-  .button-red:hover {
-    background-color: #d62839;
-    transform: scale(1.05);
-  }
-  
-  .button-red:active {
-    transform: scale(0.95);
-  }
-  
-  .button-blue {
-    background-color: #1d3557;
-    color: #fff;
-  }
-  
-  .button-blue:hover {
-    background-color: #457b9d;
-    transform: scale(1.05);
-  }
-  
-  .button-blue:active {
-    transform: scale(0.95);
-  }
-  
-  .button-green {
-    background-color: #2a9d8f;
-    color: #fff;
-  }
-  
-  .button-green:hover {
-    background-color: #21867a;
-    transform: scale(1.05);
-  }
-  
-  .button-green:active {
-    transform: scale(0.95);
-  }
-  
+}
