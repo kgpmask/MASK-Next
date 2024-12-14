@@ -1,2 +1,82 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@400;500;600;700&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
 
+:root {
+
+    --black: #000000;
+    --textwhite: #FFFFFF;
+    --red: #E43332;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px 80px;
+    background-color: var(--red);
+    height: 140px;
+    align-items: center;
+    font-family: 'Cabin';
+    color: var(--textwhite);
+    gap: 10px;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+}
+
+.links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: var(--textwhite);
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.socialIcons img {
+    width: 40px;
+    height: 40px;
+}
+
+.socialIcons img:hover {
+    transform: scale(1.1);
+    transition: transform 0.1s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+  .footer {
+      flex-direction: row;
+      justify-content: space-between;
+      height: auto;
+  }
+
+  .links {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .footer > div:nth-child(2) {
+      display: none; 
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+  }
+
+  .links {
+      display: none;
+  }
+
+  .footer > div:nth-child(2){
+      display: none;
+  }
+}

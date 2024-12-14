@@ -46,7 +46,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className={styles.aboutus}>
+        {/* <div className={styles.aboutus}>
           <a
             href="/about"
             className={`${active === "/about" ? styles.active : ""}`}
@@ -57,7 +57,7 @@ const Navbar = () => {
           >
             About Us
           </a>
-        </div>
+        </div> */}
       </ul>
     </nav>
   );
