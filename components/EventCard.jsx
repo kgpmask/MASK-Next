@@ -30,7 +30,7 @@ export default function EventCard({ event }) {
               {event.description}
             </p>
           </div>
-          <Button text = "Learn More" color = "primary" onClick = {() => alert('Learn more clicked!')}/>
+          <Button text = "Learn More" color = "primary" url = "/" />
         </div>
     </div>
   );

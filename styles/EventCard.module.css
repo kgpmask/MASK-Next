@@ -11,7 +11,7 @@
   max-width: 80%;
   margin: 20px auto;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  padding: 3rem;
+  gap: 2rem;
   height: auto;
 }
 
@@ -25,7 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 3rem;
+  width : fit-content;
 }
 
 .eventImage {
@@ -35,11 +35,13 @@
 
 .contentWrapper {
   flex: 2;
-  padding: 0 3rem;
+  padding: 1rem;
+  padding-left: 1rem;
   text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: 1rem;
 }
 
 .eventTitle {
@@ -80,26 +82,31 @@
     flex-direction: column;
     width: 90%;
     margin: 15px auto;
-    padding: 2rem;
+    padding-top: 0;
+    padding-left: 0; 
+    padding-right: 0;
+    padding-bottom: 1rem;
+    border-radius: 20px;
   }
 
   .imageWrapper {
     padding-right: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   .eventImage {
     width: 100%;
-    height: auto; /* Ensure image scales properly */
+    height: auto; 
   }
 
   .contentWrapper {
     width: 100%;
-    padding: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .eventTitle {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .eventDescription {
