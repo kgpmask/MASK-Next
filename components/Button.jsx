@@ -11,9 +11,13 @@ const Button = ({ text, color, icon: Icon, url }) => {
       router.push(url); // Route to the specified URL
     }
   };
+  const buttonStyles = {
+    backgroundColor: color,
+    color: color === '#fff' ? '#333' : '#fff',
+  }
 
   return (
-    <button className={styles.button} style={{ color }} onClick={handleClick}>
+    <button className={styles.button} style = { buttonStyles } onClick={handleClick}>
       <div className={styles.contentWrapper}>
         {/* Render custom icon or default arrow */}
 

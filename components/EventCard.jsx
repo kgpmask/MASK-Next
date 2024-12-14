@@ -35,7 +35,7 @@ export default function EventCard({ event }) {
               {event.description}
             </p>
           </div>
-          <Button text="Learn More" url="/" color = "e43332"/>
+          <Button text="Learn More" url="/" color = "#e43332"/>
         </div>
     </div>
   );
