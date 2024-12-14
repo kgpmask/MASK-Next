@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 4vh;
-    min-width: 30vh;
+    max-width: 400px;
 }
 
 .title {
@@ -24,15 +24,24 @@
 
 .button {
     background-color: var(--maskred);
-    width: fit-content;
+    width: 15vh;
     padding: 10px;
     margin: 2vh;
     border-radius: 100px;
 }
 
-.image {
-    margin: auto;
-    width: 90%;
-    height: auto;
-    max-width: 558px;
+@media screen and (max-width: 500px) {
+    .title {
+        font-size: 30px;
+        margin: 10px;
+    }
+
+    .para {
+        margin: 5px;
+    }
+
+    .image {
+        width: 100%;
+        max-width: 558px;
+    }
 }
