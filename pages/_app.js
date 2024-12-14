@@ -1,5 +1,13 @@
-import "@/styles/globals.css";
+import React from "react";
+import "@/styles/globals.css"; 
+import ArtCardGallery from "@/components/ArtCard";  
 
-export default function App({ Component, pageProps }) {
-	return <Component {...pageProps} />;
+function App({ Component, pageProps }) {
+  return (
+    <>
+		< ArtCardGallery />	
+    </>
+  );
 }
+
+export default App;
