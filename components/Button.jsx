@@ -12,12 +12,30 @@ const Button = ({ text, color, icon: Icon, url }) => {
     }
   };
   const buttonStyles = {
-    backgroundColor: color,
-    color: color === '#fff' ? '#333' : '#fff',
+    'red' : {
+      backgroundColor: '#e43332',
+      color: '#fff',
+    }, 
+    'black' : {
+      backgroundColor: '#000',
+      color: '#fff',
+    }, 
+    'trans-white' : {
+      backgroundColor: 'transparent',
+      color: '#fff',
+      border: '1px solid #fff',
+    }, 
+    'trans-black' : {
+      backgroundColor: 'transparent',
+      color: '#000',
+      border: '1px solid #000',
+    }
   }
 
+  const style = buttonStyles[color] || buttonStyles['red'];
+
   return (
-    <button className={styles.button} style = { buttonStyles } onClick={handleClick}>
+    <button className={styles.button} style = { style } onClick={handleClick}>
       <div className={styles.contentWrapper}>
         {/* Render custom icon or default arrow */}
 
