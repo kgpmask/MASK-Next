@@ -1,0 +1,51 @@
+/* Button.module.css */
+
+.button {
+    padding-top: 12px; 
+    padding-bottom: 12px; 
+    padding-left: 1rem; 
+    padding-right: 1rem;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    gap: 8px; /* Added spacing for icon and text */
+    width: fit-content;
+    border: none; /* Ensure no default border */
+  }
+  
+  .contentWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .buttonIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px; /* Ensure icon scales appropriately */
+    margin-left: 5px;
+    margin-right: -5px;
+  }
+  
+  .buttonText {
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .button {
+      width: auto; /* Adjusted for dynamic sizing */
+      padding: 10px;
+    }
+  }
