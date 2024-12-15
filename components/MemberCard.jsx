@@ -7,7 +7,7 @@ const MemberCard = ({profilePicture, name, teams, position}) => {
 	const teamRoleText = (teamStr, position) => {
 		let ans = "";
 		if (teamStr.length > 3) return "";
-
+		
 		const teamDict = {
 			"a" : "AMV",
 			"d" : "Design and Arts",
@@ -21,25 +21,24 @@ const MemberCard = ({profilePicture, name, teams, position}) => {
 			"H" : "Head"
 		};
 
-		teamDict.forEach((value, key) => {
-			if (teamStr.includes(key)) ans.concat(value)
+		Object.entries(teamDict).forEach(([key, value]) => {
+			if (teamStr.includes(key)) ans += (value);
 		});
 
-		ans.concat(" ");
+		ans += (" ");
 		
 		let isPosIncluded = 1;
 		
-		posDict.forEach((value, key) => {
+		Object.entries(posDict).forEach(([key, value]) => {
 			if (teamStr.includes(key)) {
-				ans.concat(value);
-				flag = 0;
+				ans += (value);
+				isPosIncluded = 0;
 			}
 		})
 
 		if (isPosIncluded){
-			ans.concat(position)
+			ans += (position)
 		}
-
 		return ans;
 	}
 
@@ -53,23 +52,25 @@ const MemberCard = ({profilePicture, name, teams, position}) => {
 		//Comparison for position.
 		
 		teams.sort(comp);
-
-		
+		// console.log(teamRoleText(teams[0]), position);	
+		return teamRoleText(teams[0], position);
 	}
 
 	return (
 		<>
-		<div className="profile-pic">
-			<img src={profilePicture} alt={name} />
-		</div>
-		<div className="info-container">
-			<div className="member-name">
-				<h2>{name}</h2>
+		<div className={style["member-container"]}>
+			<div className={style["profile-pic"]}>
+				<img src={profilePicture} alt={name} />
 			</div>
-			<div className="member-position">
-				{roleText(teams, position)}
+			<div className={style["info-container"]}>
+				<div className={style["member-name"]}>
+					<h2>{name}</h2>
+				</div>
+				<div className={style["member-position"]}>
+					<h3>{roleText(teams, position)}</h3>
+				</div>
+				<div className={style["team-list"]}></div>
 			</div>
-			<div className="team-list"></div>
 		</div>
 		</>
 	);

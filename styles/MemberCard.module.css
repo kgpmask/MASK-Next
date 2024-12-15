@@ -1,0 +1,25 @@
+.member-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+}
+
+.info-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #E43332;
+    max-width: 8em;
+}
+
+.member-name h2{
+    font-size: 1.0em;
+    font-weight: 600;
+    color: whitesmoke;
+}
+
+.member-position{
+    font-size: 1.0em;
+    font-weight: 600;
+    color: whitesmoke;
+}
+
