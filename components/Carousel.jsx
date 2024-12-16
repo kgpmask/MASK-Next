@@ -17,7 +17,7 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
     function modifiedSplice(current) {
         let show = [];
         for(let i = current; i < current+numPerPage; i++) {
-            show.push(data[i])
+            show.push(data[i%data.length])
         }
         return show
     }
