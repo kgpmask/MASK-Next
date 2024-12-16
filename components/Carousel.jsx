@@ -23,25 +23,32 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
     }
 	return (
         <main className={style["main"]}>
-            <Image
-                src={'/leftarrow.svg'}
-                alt="left arrow"
-                width={30}
-                height={30}
-                className={style["arrow"]}
-                onClick={movePrev}
-            />
-            {modifiedSplice(selected).map(cardData => (
-                <Template dataObj={cardData} key={cardData}/>
-            ))}
-            <Image
-                src={'/rightarrow.svg'}
-                alt="left arrow"
-                width={30}
-                height={30}
-                className={style["arrow"]}
-                onClick={moveNext}
-            />
+            <div className={style["carousel"]}>
+                <Image
+                    src={'/leftarrow.svg'}
+                    alt="left arrow"
+                    width={30}
+                    height={30}
+                    className={style["arrow"]}
+                    onClick={movePrev}
+                />
+                {modifiedSplice(selected).map(cardData => (
+                    <Template dataObj={cardData} key={cardData}/>
+                ))}
+                <Image
+                    src={'/rightarrow.svg'}
+                    alt="left arrow"
+                    width={30}
+                    height={30}
+                    className={style["arrow"]}
+                    onClick={moveNext}
+                />
+            </div>
+            {showNavigator && <div className={style["navigator-bar"]}>
+                {Array(data.length).keys().map(num => (
+                    num!=selected?<div className={style["navigator-circle"]} key={num}></div>:<div className={style["selected"]} key={num}></div>
+                ))}
+            </div>}
         </main>
 	);
 };
