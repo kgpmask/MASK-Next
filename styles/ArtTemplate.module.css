@@ -1,0 +1,30 @@
+.main {
+    /* display: flex; */
+    margin: 10px;
+    position: relative;
+    width: 328px;
+    height: 351px;
+    display: flex;
+    align-items: end;
+}
+
+.image {
+    width: 328px;
+    height: 351px;
+    object-fit: none;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.desc {
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+    padding: 10px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 700;
+}
