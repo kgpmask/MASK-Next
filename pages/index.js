@@ -21,7 +21,7 @@ export default function Home() {
 			<div>
 				<Example text={"heelo"} />
 				<MemberCard 
-				profilePicture={null}
+				profilePicture={"@/public/next.svg"}
 				name={"Manideep Dalli"}
 				teams={["nS","w","q"]}
 				position={"Associate"}/>
