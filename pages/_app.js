@@ -1,11 +1,11 @@
 import React from "react";
 import "@/styles/globals.css"; 
-import ArtCardGallery from "@/components/ArtCard";  
+import NewsletterCardGallery from "@/components/NewsletterCard";  
 
 function App({ Component, pageProps }) {
   return (
     <>
-		< ArtCardGallery />	
+		< NewsletterCardGallery />	
     </>
   );
 }

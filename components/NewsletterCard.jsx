@@ -20,8 +20,8 @@ const NewsletterCardGallery = () => {
     <div className={styles.container}>
       <NewsletterCard
         image="https://via.placeholder.com/350x250.png?text=Event+1"
-        title="Event 1"
-        description="This is a description for Event 1."
+        title="March 2024 Issue"
+        description="The March Edition of the issue is all about action anime! Get to know about different..."
       />
       <NewsletterCard
         image="https://via.placeholder.com/350x250.png?text=Event+2"
