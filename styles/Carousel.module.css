@@ -1,3 +1,17 @@
 .main {
-    
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow {
+    background-color: rgba(31, 31, 31, 0.82);
+    margin: 10px;
+}
+
+@media screen and (max-width: 500px) {
+    .arrow {
+        display: none;
+    }
 }

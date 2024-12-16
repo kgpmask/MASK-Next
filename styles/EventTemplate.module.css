@@ -41,7 +41,9 @@
     }
 
     .image {
+        margin: 2vh;
         width: 100%;
         max-width: 558px;
+        height: 300px;
     }
 }
