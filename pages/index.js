@@ -19,9 +19,9 @@ export default function Home() {
 	return (
 		<>
 			<div>
-				<Example text={"heelo"} />
+				<Example text={"helo everynyan"} />
 				<MemberCard 
-				profilePicture={"@/public/next.svg"}
+				profilePicture={"Pikachu_(Super_Smash_Bros._Brawl).webp"}
 				name={"Manideep Dalli"}
 				teams={["nS","w","q"]}
 				position={"Associate"}/>

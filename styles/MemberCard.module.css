@@ -28,6 +28,13 @@
     align-content: left;
 }
 
+.profile-pic > img{
+    align-self: center;
+    justify-self: center;
+    height: 100%;
+    width: 100%;
+}
+
 .member-name h2{
     font-size: 0.9em;
     font-weight: 600;
@@ -36,7 +43,6 @@
 
 .member-position h3{
     font-size: 0.6em;
-    font-weight: 500;
     color: whitesmoke;
     text-align: left;
 }
