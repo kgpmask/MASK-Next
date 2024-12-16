@@ -1,8 +1,8 @@
-import React, { Component, useState } from "react";
+import React, { Component, useContext, useEffect} from "react";
 import style from "@/styles/EventTemplate.module.css"
 import Image from "next/image";
 
-// takes in data object
+// takes in data objectz
 const EventTemplate = ({ dataObj }) => {
 	return (
         <main className={style["main"]}>
