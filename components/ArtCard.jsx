@@ -19,9 +19,9 @@ const ArtCardGallery = () => {
   return (
     <div className={styles.container}>
       <ArtCard
-        image="https://via.placeholder.com/350x250.png?text=Event+1"
-        title="Event 1"
-        description="This is a description for Event 1."
+        image="/temporary_image.png"
+        title="Bidoof"
+        description="Ajayendra Kumar."
       />
       <ArtCard
         image="https://via.placeholder.com/350x250.png?text=Event+2"
@@ -29,9 +29,9 @@ const ArtCardGallery = () => {
         description="This is a description for Event 2."
       />
       <ArtCard
-        image="https://via.placeholder.com/350x250.png?text=Event+3"
-        title="Event 3"
-        description="This is a description for Event 3."
+        image="/temporary_image.png"
+        title="Bidoof"
+        description="Ajayendra Kumar."
       />
     </div>
   );

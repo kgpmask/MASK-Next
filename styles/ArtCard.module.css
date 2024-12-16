@@ -1,12 +1,20 @@
 .card {
   position: relative;
-  width: 325px;
-  height: 350px;
+  width: 90%;
+  max-width: 325px;
+  height: auto;
+  aspect-ratio: 325 / 350;
   border-radius: 12px;
-  overflow: hidden; 
+  overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .imagecontainer {
@@ -26,9 +34,9 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100px;
+  height: 25%;
   background: rgba(0, 0, 0, 0.7);
-  border-bottom-left-radius: 12px; 
+  border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -36,18 +44,18 @@
   align-items: flex-start;
   padding-left: 15px;
   color: white;
-  opacity: 0; 
+  opacity: 0;
   transform: translateY(100%);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .card:hover .hovercontent {
-  opacity: 1; 
-  transform: translateY(0); 
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: bold;
   margin: 0;
 }
@@ -55,4 +63,42 @@
 .subtitle {
   font-size: 1rem;
   margin-top: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 80%;
+    max-width: 275px;
+  }
+
+  .hovercontent {
+    height: 30%;
+  }
+
+  .title {
+    font-size: 1.125rem;
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    width: 95%;
+    max-width: 250px;
+  }
+
+  .hovercontent {
+    height: 35%;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+  }
 }
