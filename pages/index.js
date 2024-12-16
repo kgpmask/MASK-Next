@@ -19,8 +19,27 @@ const geistMono = Geist_Mono({
 export default function Home() {
 	let eventData = [
 		{
+			id: 0,
 			url: "/hunt.png",
 			title: "Treasure Hunt",
+			content: [
+				"Lorem Ipsum dor amet consecutive let adjusrgeinst, olutpat torquent netus est augue. Commodo risus vel adipiscing, est convallis nostra. Class fringilla etiam dis tellus suscipit adipiscing fusce curabitur. Proin pellentesque nascetur consectetur convallis, varius quisque. Fermentum ac libero et maximus primis litora massa orci. Fames auctor maecenas",
+				"Sagittis himenaeos magna parturient himenaeos dictumst ligula. Amet maximus per diam tempor, egestas ullamcorper. Etiam penatibus urna nulla praesent volutpat hac. Morbi "
+			]
+		},
+		{
+			id: 1,
+			url: "/hunt.png",
+			title: "Open Campus Anime Quiz",
+			content: [
+				"Lorem Ipsum dor amet consecutive let adjusrgeinst, olutpat torquent netus est augue. Commodo risus vel adipiscing, est convallis nostra. Class fringilla etiam dis tellus suscipit adipiscing fusce curabitur. Proin pellentesque nascetur consectetur convallis, varius quisque. Fermentum ac libero et maximus primis litora massa orci. Fames auctor maecenas",
+				"Sagittis himenaeos magna parturient himenaeos dictumst ligula. Amet maximus per diam tempor, egestas ullamcorper. Etiam penatibus urna nulla praesent volutpat hac. Morbi "
+			]
+		},
+		{
+			id: 2,
+			url: "/hunt.png",
+			title: "Movie Screening",
 			content: [
 				"Lorem Ipsum dor amet consecutive let adjusrgeinst, olutpat torquent netus est augue. Commodo risus vel adipiscing, est convallis nostra. Class fringilla etiam dis tellus suscipit adipiscing fusce curabitur. Proin pellentesque nascetur consectetur convallis, varius quisque. Fermentum ac libero et maximus primis litora massa orci. Fames auctor maecenas",
 				"Sagittis himenaeos magna parturient himenaeos dictumst ligula. Amet maximus per diam tempor, egestas ullamcorper. Etiam penatibus urna nulla praesent volutpat hac. Morbi "
@@ -29,8 +48,9 @@ export default function Home() {
 	]
 	return (
 		<div>
-			Hello
-			<Carousel Template={EventTemplate} showNavigator={false} numPerPage={1} discrete={false} data={eventData}></Carousel>
+			<div className={styles["event-carousel"]}>
+				<Carousel Template={EventTemplate} showNavigator={false} numPerPage={1} discrete={false} data={eventData} />
+			</div>
 		</div>
 	);
 }
