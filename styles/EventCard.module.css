@@ -1,4 +1,5 @@
 .eventCard {
+  font-family: 'Cabin', sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -85,13 +86,12 @@
     padding-top: 0;
     padding-left: 0; 
     padding-right: 0;
-    padding-bottom: 1rem;
     border-radius: 20px;
+    
   }
 
   .imageWrapper {
     padding-right: 0;
-    margin-bottom: 1rem;
   }
 
   .eventImage {
@@ -103,11 +103,11 @@
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
-    margin-bottom: 1rem;
   }
 
   .eventTitle {
     font-size: 2rem;
+    margin-top: -2rem;
   }
 
   .eventDescription {

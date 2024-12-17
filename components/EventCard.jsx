@@ -35,7 +35,7 @@ export default function EventCard({ event }) {
               {event.description}
             </p>
           </div>
-          <Button text="Read More" url="/" type = "black" icon = "null" />
+          <Button text="Read More" url="/" type = "black" />
         </div>
     </div>
   );
