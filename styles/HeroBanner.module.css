@@ -25,3 +25,18 @@
     flex-wrap: wrap;
     width: 579px;
 }
+
+@media screen and (max-width: 768px) {
+    .heroBanner {
+        padding: 1rem;
+    }
+
+    .heroTitle {
+        font-size: 1.5rem;
+    }
+
+    .heroText {
+        width: 100%;
+    }
+    
+}
