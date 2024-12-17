@@ -3,7 +3,7 @@ import { FiArrowRight } from 'react-icons/fi'; // Import right arrow icon
 import styles from '../styles/Button.module.css';
 import { useRouter } from 'next/router';
 
-const Button = ({ text, color, icon: Icon, url }) => {
+const Button = ({ text, color = 'red', icon: Icon, url }) => {
   const router = useRouter();
 
   const handleClick = () => {
@@ -11,36 +11,34 @@ const Button = ({ text, color, icon: Icon, url }) => {
       router.push(url); // Route to the specified URL
     }
   };
+
   const buttonStyles = {
-    'red' : {
+    red: {
       backgroundColor: '#e43332',
       color: '#fff',
-    }, 
-    'black' : {
-      backgroundColor: '#000',
+    },
+    black: {
+      backgroundColor: '#000000',
       color: '#fff',
-    }, 
-    'trans-white' : {
+    },
+    'trans-white': {
       backgroundColor: 'transparent',
       color: '#fff',
       border: '1px solid #fff',
-    }, 
-    'trans-black' : {
+    },
+    'trans-black': {
       backgroundColor: 'transparent',
       color: '#000',
       border: '1px solid #000',
-    }
-  }
+    },
+  };
 
-  const style = buttonStyles[color] || buttonStyles['red'];
+  const style = buttonStyles[color?.toLowerCase()] || buttonStyles['red'];
 
   return (
-    <button className={styles.button} style = { style } onClick={handleClick}>
+    <button className={styles.button} style={style} onClick={handleClick}>
       <div className={styles.contentWrapper}>
-        {/* Render custom icon or default arrow */}
-
         <span className={styles.buttonText}>{text}</span>
-
         {Icon ? (
           <span className={styles.buttonIcon}><Icon /></span>
         ) : (

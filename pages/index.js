@@ -1,8 +1,7 @@
 import React from "react";
-import Image from "next/image";
 import EventCard from "../components/EventCard";
 import styles from "../styles/Home.module.css";
-
+import HeroBanner from "@/components/HeroBanner";
 export default function Home() {
 	const sampleEvents = [
 		{
@@ -35,10 +34,16 @@ export default function Home() {
 	  ];
 
 	return (
-		<div className={styles.eventsContainer}>
-		{sampleEvents.map((event, index) => (
-			<EventCard key={index} event={event} />
-		))}
-    	</div>
+		<div className = {styles.container}>
+			<div className={styles.eventsContainer}>
+			{sampleEvents.map((event, index) => (
+				<EventCard key={index} event={event} />
+			))}
+			</div>
+
+			<div>
+				<HeroBanner heroTitle="Check out our Talented Artists" heroContent = "We feature a diverse range of work from talented artists within our society. From traditional  to digital art, each piece reflects unique creativity and vision. " buttonContent = "Check out our content on Instagram" />
+			</div>
+		</div>
 	);
 }
