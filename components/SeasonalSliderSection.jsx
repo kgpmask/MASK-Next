@@ -1,6 +1,8 @@
 "use client";
 
+import {Button, Img, Text, Heading, Slider, ChipView} from "../OtherComponents";
 import React, { Fragment, useRef, useState } from "react";
+
 
 export default function SeasonalSliderSection() {
     const [sliderState, setSliderState] = useState(0);
@@ -15,7 +17,16 @@ export default function SeasonalSliderSection() {
 
     return (
         <>
-            <chipview
+        <div className="flex justify-center items-center px-14 md:px-5">
+            <div className="mx-auto flex w-full max-w-[1204px] flex-col items-center gap-3.5">
+                    <Heading 
+                    size="headigmd"
+                    as="h2"
+                    className="ml-[86px] self-start text-[24px] font-bold text-white-a700 md:ml-0 md:text-[22px]"
+                    >
+                        2023
+                    </Heading>
+            <chipView
             options={chipOptions1}
             setOptions={setChipOptions1}
             values={selectedChipOptions1}
@@ -36,7 +47,7 @@ export default function SeasonalSliderSection() {
                         )} 
                     </Fragment>
                 )}  
-            </chipview>
+            </chipView>
             <div className="">
                 <Button
                 onclick={() => {
@@ -89,6 +100,8 @@ export default function SeasonalSliderSection() {
                         </Fragment>
                     ))}
                     />
+                    </div>
+                    </div>
                     <Button
                     shape="square"
                     onclick={() => {
