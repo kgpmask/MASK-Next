@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "@/styles/VideoCard.module.css";
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/youtube';
 
 export default function VideoCard({ url }) {
     return (
