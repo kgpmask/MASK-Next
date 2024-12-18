@@ -1,0 +1,34 @@
+.filterContainer {
+    margin-bottom: 1.5rem;
+  }
+  
+  .year {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem; /* Space between the year and chips */
+  }
+  
+  .chipContainer {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; /* Allow chips to wrap on smaller screens */
+  }
+  
+  .chip {
+    padding: 0.5rem 1rem;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .selectedChip {
+    background-color: #444;
+    color: #fff;
+    border-color: #444;
+  }
+  
