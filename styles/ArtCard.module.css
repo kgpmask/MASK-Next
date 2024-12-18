@@ -4,17 +4,11 @@
   max-width: 325px;
   height: auto;
   aspect-ratio: 325 / 350;
-  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 0 auto;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .imagecontainer {
@@ -36,8 +30,6 @@
   right: 0;
   height: 25%;
   background: rgba(0, 0, 0, 0.7);
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
