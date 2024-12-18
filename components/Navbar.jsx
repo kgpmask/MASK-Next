@@ -54,7 +54,6 @@ const Navbar = () => {
               <div className={styles.dropdownContent}>
                 <a href="/aboutus/about">Our Society</a>
                 <a href="/aboutus/members">Our Members</a>
-                <a href="/aboutus/login">Login</a>
               </div>
             </div>
           </div>
@@ -80,8 +79,6 @@ const Navbar = () => {
             ))}
         </div>
         <div className={styles.menuBottom}>
-            <a href="/aboutus/login" className={styles.menuLink}>
-            Login</a>
             <a href="/aboutus/members" className={styles.menuLink}>Our Members</a>
             <a href="/aboutus/about" className={styles.menuLink}>Our Society</a>
         </div>

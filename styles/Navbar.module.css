@@ -17,8 +17,7 @@
     height: 92px;
     display: flex;
     align-items: center;
-    padding: 0 20px;
-    /* position: relative;  */ 
+    padding: 0 110px;
     z-index: 2;
     overflow: visible; 
 }
@@ -55,7 +54,7 @@
     height: 2px;
     background: var(--red);
     width: 0%;
-    transition: width 0.5s ease-in-out;
+    transition: width 0.3s ease-in-out;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -91,7 +90,7 @@
 .dropdownContent {
     display: none; 
     position: absolute;
-    right: 0; 
+    right: 85; 
     background-color: var(--black);
     min-width: 160px;
     border-radius: 5px; 
@@ -99,7 +98,6 @@
     overflow-y: auto; 
     overflow-x: hidden; 
     box-sizing: border-box; 
-    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .dropdown:hover .dropdownContent,
@@ -216,12 +214,15 @@
   
 
   
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .but {
         display: none;
     }
     .navbarContainer {
         display: none;
+    }
+    .navbarFull{
+        padding: 0px 30px;
     }
     .navbarFull ul{
         display: flex;
