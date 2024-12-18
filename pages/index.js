@@ -43,6 +43,26 @@ export default function Home() {
 						<li>Save and see your changes instantly.</li>
 					</ol>
 					<VideoCard url='https://www.youtube.com/watch?v=iERYAx3iipw' />
+					<VideoCard url='https://www.youtube.com/watch?v=YhVlV_dMoxg' />
+					<VideoCard url='https://youtu.be/D2rnH9XqwvA' />
+					<VideoCard url='https://www.youtube.com/watch?v=YhVlV_dMoxg' />
+					<VideoCard url='https://www.youtube.com/watch?v=iERYAx3iipw' />
+					<VideoCard url='https://www.youtube.com/watch?v=YhVlV_dMoxg' />
+					<VideoCard url='https://www.youtube.com/watch?v=iERYAx3iipw' />
+					<VideoCard url='https://www.youtube.com/watch?v=YhVlV_dMoxg' />
+					<VideoCard url='https://www.youtube.com/watch?v=iERYAx3iipw' />
+					<VideoCard url='https://www.youtube.com/watch?v=YhVlV_dMoxg' />
+					<VideoCard url='https://www.youtube.com/watch?v=iERYAx3iipw' />
+					<VideoCard url='https://www.youtube.com/watch?v=YhVlV_dMoxg' />
+					<VideoCard url='https://www.youtube.com/watch?v=iERYAx3iipw' />
+					<VideoCard url='https://www.youtube.com/watch?v=YhVlV_dMoxg' />
+					<VideoCard url='https://www.youtube.com/watch?v=iERYAx3iipw' />
+					<VideoCard url='https://www.youtube.com/watch?v=YhVlV_dMoxg' />
+					<VideoCard url='https://www.youtube.com/watch?v=iERYAx3iipw' />
+					<VideoCard url='https://www.youtube.com/watch?v=YhVlV_dMoxg' />
+					<VideoCard url='https://www.youtube.com/watch?v=iERYAx3iipw' />
+					<VideoCard url='https://www.youtube.com/watch?v=YhVlV_dMoxg' />
+					<VideoCard url='https://www.youtube.com/watch?v=iERYAx3iipw' />
 					<div className={styles.ctas}>
 						<a
 							className={styles.primary}
