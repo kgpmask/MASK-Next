@@ -6,13 +6,13 @@
     font-size: 2rem;
     font-weight: bold;
     color: #333;
-    margin-bottom: 0.5rem; /* Space between the year and chips */
+    margin-bottom: 0.5rem; 
   }
   
   .chipContainer {
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap; /* Allow chips to wrap on smaller screens */
+    flex-wrap: wrap; 
   }
   
   .chip {

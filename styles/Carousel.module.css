@@ -42,16 +42,25 @@
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    background-color: transparent;
     border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    z-index: 10;
   }
   
   .leftButton {
-    left: -50px;
+    left: 10px;
   }
   
   .rightButton {
-    right: -50px;
+    right: 10px;
   }
   
+  .navButton img {
+    width: 20px; 
+    height: 20px;
+  }
