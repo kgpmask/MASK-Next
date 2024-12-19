@@ -1,61 +1,277 @@
 [
     {
       "id": 1,
-      "src": "/assets/artworks/202401-Winter-01.webp",
-      "year": "2024",
-      "season": "Winter"
+      "src": "/assets/artworks/202303-spring-01.webp",
+      "year": "2023",
+      "season": "spring"
     },
     {
       "id": 2,
-      "src": "/assets/artworks/202402-winter-02.webp",
-      "year": "2024",
-      "season": "Winter"
+      "src": "/assets/artworks/202303-spring-02.webp",
+      "year": "2023",
+      "season": "spring"
     },
     {
       "id": 3,
+      "src": "/assets/artworks/202303-spring-03.webp",
+      "year": "2023",
+      "season": "spring"
+    },
+    {
+      "id": 4,
+      "src": "/assets/artworks/202304-spring-01.webp",
+      "year": "2023",
+      "season": "spring"
+    },
+    {
+      "id": 5,
+      "src": "/assets/artworks/202305-spring-01.webp",
+      "year": "2023",
+      "season": "spring"
+    },
+    {
+      "id": 6,
+      "src": "/assets/artworks/202305-spring-02.webp",
+      "year": "2023",
+      "season": "spring"
+    },
+    {
+      "id": 7,
+      "src": "/assets/artworks/202305-spring-03.webp",
+      "year": "2023",
+      "season": "spring"
+    },
+    {
+      "id": 8,
+      "src": "/assets/artworks/202305-spring-04.webp",
+      "year": "2023",
+      "season": "spring"
+    },
+    {
+      "id": 9,
+      "src": "/assets/artworks/202307-summer-01.webp",
+      "year": "2023",
+      "season": "summer"
+    },
+    {
+      "id": 10,
+      "src": "/assets/artworks/202307-summer-02.webp",
+      "year": "2023",
+      "season": "summer"
+    },
+    {
+      "id": 11,
+      "src": "/assets/artworks/202307-summer-03.webp",
+      "year": "2023",
+      "season": "summer"
+    },
+    {
+      "id": 12,
+      "src": "/assets/artworks/202308-summer-01.webp",
+      "year": "2023",
+      "season": "summer"
+    },
+    {
+      "id": 13,
+      "src": "/assets/artworks/202308-Summer-02.webp",
+      "year": "2023",
+      "season": "Summer"
+    },
+    {
+      "id": 14,
+      "src": "/assets/artworks/202308-Summer-03.webp",
+      "year": "2023",
+      "season": "Summer"
+    },
+    {
+      "id": 15,
+      "src": "/assets/artworks/202309-fall-01.webp",
+      "year": "2023",
+      "season": "fall"
+    },
+    {
+      "id": 16,
+      "src": "/assets/artworks/202401-winter-01.webp",
+      "year": "2024",
+      "season": "winter"
+    },
+    {
+      "id": 17,
+      "src": "/assets/artworks/202402-winter-01.webp",
+      "year": "2024",
+      "season": "winter"
+    },
+    {
+      "id": 18,
       "src": "/assets/artworks/202402-winter-02.webp",
       "year": "2024",
       "season": "winter"
     },
     {
-      "id": 4,
+      "id": 19,
+      "src": "/assets/artworks/202402-winter-03.webp",
+      "year": "2024",
+      "season": "winter"
+    },
+    {
+      "id": 20,
       "src": "/assets/artworks/202403-spring-01.webp",
       "year": "2024",
       "season": "spring"
     },
     {
-      "id": 5,
+      "id": 21,
       "src": "/assets/artworks/202403-spring-02.webp",
       "year": "2024",
       "season": "spring"
     },
     {
-      "id": 6,
+      "id": 22,
       "src": "/assets/artworks/202403-spring-03.webp",
       "year": "2024",
       "season": "spring"
     },
     {
-      "id": 7,
+      "id": 23,
+      "src": "/assets/artworks/202403-spring-04.webp",
+      "year": "2024",
+      "season": "spring"
+    },
+    {
+      "id": 24,
+      "src": "/assets/artworks/202404-spring-01.webp",
+      "year": "2024",
+      "season": "spring"
+    },
+    {
+      "id": 25,
+      "src": "/assets/artworks/202404-spring-02.webp",
+      "year": "2024",
+      "season": "spring"
+    },
+    {
+      "id": 26,
+      "src": "/assets/artworks/202405-spring-01.webp",
+      "year": "2024",
+      "season": "spring"
+    },
+    {
+      "id": 27,
+      "src": "/assets/artworks/202406-Summer-01.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 28,
       "src": "/assets/artworks/202407-Summer-01.webp",
       "year": "2024",
       "season": "Summer"
     },
     {
-      "id": 8,
+      "id": 29,
       "src": "/assets/artworks/202407-Summer-02.webp",
       "year": "2024",
       "season": "Summer"
     },
     {
-      "id": 9,
+      "id": 30,
       "src": "/assets/artworks/202407-Summer-03.webp",
       "year": "2024",
       "season": "Summer"
     },
     {
-      "id": 10,
+      "id": 31,
       "src": "/assets/artworks/202407-Summer-04.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 32,
+      "src": "/assets/artworks/202407-Summer-05.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 33,
+      "src": "/assets/artworks/202407-Summer-06.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 34,
+      "src": "/assets/artworks/202407-Summer-07.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 35,
+      "src": "/assets/artworks/202407-Summer-08.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 36,
+      "src": "/assets/artworks/202407-Summer-09.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 37,
+      "src": "/assets/artworks/202407-Summer-10.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 38,
+      "src": "/assets/artworks/202407-Summer-11.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 39,
+      "src": "/assets/artworks/202407-Summer-12.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 40,
+      "src": "/assets/artworks/202407-Summer-13.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 41,
+      "src": "/assets/artworks/202407-Summer-14.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 42,
+      "src": "/assets/artworks/202407-Summer-15.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 43,
+      "src": "/assets/artworks/202407-Summer-16.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 44,
+      "src": "/assets/artworks/202407-Summer-17.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 45,
+      "src": "/assets/artworks/202407-Summer-18.webp",
+      "year": "2024",
+      "season": "Summer"
+    },
+    {
+      "id": 46,
+      "src": "/assets/artworks/202407-Summer-19.webp",
       "year": "2024",
       "season": "Summer"
     }

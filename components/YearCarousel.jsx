@@ -5,14 +5,16 @@ import artworks from "../data/artworks.json";
 import styles from "../styles/YearCarousel.module.css";
 
 export default function YearCarousel({ year }) {
-  const [selectedSeason, setSelectedSeason] = useState("Winter");
+  const [selectedSeason, setSelectedSeason] = useState("winter");
 
   const filteredArtworks = artworks.filter(
     (art) => art.year === year && art.season === selectedSeason
   );
 
   // Fill blank slides if fewer than 3 images
-  const carouselItems = [...filteredArtworks, ...Array(3 - filteredArtworks.length).fill(null)];
+  const fillCount = Math.max(3 - filteredArtworks.length, 0); // Ensure non-negative length
+const carouselItems = [...filteredArtworks, ...Array(fillCount).fill(null)];
+
 
   return (
     <div className={styles.yearCarousel}>

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../styles/SeasonFilter.module.css";
 
 export default function SeasonFilter({ year, selectedSeason, setSelectedSeason }) {
-  const seasons = ["Winter", "Spring", "Summer", "Fall"];
+  const seasons = ["winter", "spring", "summer", "fall"];
 
   return (
     <div className={styles.filterContainer}>
