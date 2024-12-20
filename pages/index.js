@@ -25,6 +25,16 @@ export default function Home() {
 				name={"Manideep Dalli"}
 				teams={["nS","w","q"]}
 				position={"Associate"}/>
+				<MemberCard 
+				profilePicture={"Dishant_pfp.webp"}
+				name={"Dishant Bothra"}
+				teams={["qH","w"]}
+				position={"Executive"}/>
+				<MemberCard 
+				profilePicture={"Pikachu_(Super_Smash_Bros._Brawl).webp"}
+				name={"Manideep Dalli"}
+				teams={["nS","w","q"]}
+				position={"Associate"}/>
 			</div>
 
 			
