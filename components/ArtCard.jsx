@@ -15,26 +15,28 @@ const ArtCard = ({ image, title, description }) => {
   );
 };
 
-const ArtCardGallery = () => {
-  return (
-    <div className={styles.container}>
-      <ArtCard
-        image="/temporary_image.png"
-        title="Bidoof"
-        description="Ajayendra Kumar."
-      />
-      <ArtCard
-        image="https://via.placeholder.com/350x250.png?text=Event+2"
-        title="Event 2"
-        description="This is a description for Event 2."
-      />
-      <ArtCard
-        image="/temporary_image.png"
-        title="Bidoof"
-        description="Ajayendra Kumar."
-      />
-    </div>
-  );
-};
+export default ArtCard;
 
-export default ArtCardGallery;
+// const ArtCardGallery = () => {
+//   return (
+//     <div className={styles.container}>
+//       <ArtCard
+//         image="/temporary_image.png"
+//         title="Bidoof"
+//         description="Ajayendra Kumar."
+//       />
+//       <ArtCard
+//         image="https://via.placeholder.com/350x250.png?text=Event+2"
+//         title="Event 2"
+//         description="This is a description for Event 2."
+//       />
+//       <ArtCard
+//         image="/temporary_image.png"
+//         title="Bidoof"
+//         description="Ajayendra Kumar."
+//       />
+//     </div>
+//   );
+// };
+
+// export default ArtCardGallery;
