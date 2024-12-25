@@ -5,58 +5,60 @@
   justify-content: space-between;
   align-items: stretch;
   background-color: #1e1e1e;
-  border-radius: 10px;
+  border-radius: clamp(10px, 1vw, 20px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  width: 100%;
-  max-width: 80%;
-  margin: 20px auto;
+  width: 80%;
+  max-width: 1400px;
+  margin: 2vh auto;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  gap: 2rem;
-  height: auto;
+  gap: 2vw;
+  min-height: 30vh;
 }
 
 .eventCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px rgba(5, 5, 5, 0.15);
 }
 
 .imageWrapper {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  width : fit-content;
+  width: 45%;
+  min-width: 300px;
+  height: 100%;
 }
 
 .eventImage {
-  border-radius: 10px;
-  object-fit: cover; /* Optional for fine-tuning */
+  width: 100%;
+  height: 100%;
+  border-radius: clamp(8px, 1vw, 15px);
+  object-fit: cover;
 }
 
 .contentWrapper {
-  flex: 2;
-  padding: 1rem;
-  padding-left: 1rem;
+  flex: 1;
+  padding: clamp(1rem, 2vw, 2.5rem);
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-bottom: 1rem;
+  justify-content: space-between;
+  gap: 2vh;
 }
 
 .eventTitle {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
   font-weight: 700;
   color: #dfdfdf;
-  margin: 10px 0;
-  text-align: justify;
+  margin: 1vh 0;
+  text-align: left;
 }
 
 .eventMeta {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1vw, 1rem);
   color: #aaa;
-  padding: 1rem 0;
+  padding: 1vh 0;
 }
 
 .eventMeta strong {
@@ -65,7 +67,7 @@
 }
 
 .eventDescription {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
   color: #ffffff;
   line-height: 1.5;
 }
@@ -73,11 +75,10 @@
 .textWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-bottom: 1rem;
+  gap: 1vh;
 }
 
-/* Responsive design */
+
 @media screen and (max-width: 768px) {
   .eventCard {
     flex-direction: column;
@@ -92,6 +93,8 @@
 
   .imageWrapper {
     padding-right: 0;
+    padding-bottom: 1rem;
+    width: 100%;
   }
 
   .eventImage {
