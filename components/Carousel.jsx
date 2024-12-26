@@ -32,9 +32,14 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
                     className={style["arrow"]}
                     onClick={movePrev}
                 />
-                {modifiedSplice(selected).map(cardData => (
+                {!discrete?
+                    modifiedSplice(selected).map(cardData => (
                     <Template dataObj={cardData} key={cardData}/>
-                ))}
+                    )):
+                    <div className="card-container">
+                        cardData
+                    </div>
+                }
                 <Image
                     src={'/rightarrow.svg'}
                     alt="left arrow"
