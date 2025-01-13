@@ -53,11 +53,11 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
                     onClick={moveNext}
                 />
             </div>
-            {/* {showNavigator && <div className={style["navigator"]}>
+            {showNavigator && <div className={style["navigator"]}>
                 {Array(data.length).keys().map(num => (
-                    num!=selected?<div className={style["navigator-circle"]} key={num}></div>:<div className={style["selected"]} key={num}></div>
+                    num!=currentElement?<div className={style["navigator-circle"]} key={num}></div>:<div className={style["selected"]} key={num}></div>
                 ))}
-            </div>} */}
+            </div>}
         </main>
 	);
 };
