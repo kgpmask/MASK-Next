@@ -4,26 +4,19 @@ import Image from "next/image";
 
 // takes in parameters, Template , showNavigator, numPerPage, discrete
 const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
-    const [ selected, setSelected ] = useState(0);
+    const sliderRef = useState(null)
     function moveNext() {
-        setSelected((selected+1)%data.length)
+        console.log(sliderRef)
+        const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
+        sliderRef.current.scrollBy({ left: itemWidth, behavior: "smooth" })
     }
     function movePrev() {
-        setSelected(selected => {
-            if(selected == 0) return data.length-1
-            else return selected-1
-        })
-    }
-    function modifiedSplice(current) {
-        let show = [];
-        for(let i = current; i < current+numPerPage; i++) {
-            show.push(data[i%data.length])
-        }
-        return show
+        const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
+        sliderRef.current.scrollBy({ left: -itemWidth, behavior: "smooth" })
     }
 	return (
         <main className={style["main"]}>
-            <div className={style["carousel"]}>
+            <div className={style["carousel-container"]}>
                 <Image
                     src={'/leftarrow.svg'}
                     alt="left arrow"
@@ -32,14 +25,11 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
                     className={style["arrow"]}
                     onClick={movePrev}
                 />
-                {!discrete?
-                    modifiedSplice(selected).map(cardData => (
-                    <Template dataObj={cardData} key={cardData}/>
-                    )):
-                    <div className="card-container">
-                        cardData
-                    </div>
-                }
+                <div className={style["slider"]} ref={sliderRef}>
+                    {data.map(dataObj => (
+                        <div className={style["element-wrapper"]}><Template dataObj={dataObj} /></div>
+                    ))}
+                </div>
                 <Image
                     src={'/rightarrow.svg'}
                     alt="left arrow"
@@ -49,11 +39,11 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
                     onClick={moveNext}
                 />
             </div>
-            {showNavigator && <div className={style["navigator-bar"]}>
+            {/* {showNavigator && <div className={style["navigator"]}>
                 {Array(data.length).keys().map(num => (
                     num!=selected?<div className={style["navigator-circle"]} key={num}></div>:<div className={style["selected"]} key={num}></div>
                 ))}
-            </div>}
+            </div>} */}
         </main>
 	);
 };

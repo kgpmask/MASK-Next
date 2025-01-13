@@ -1,8 +1,17 @@
-.carousel {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
+@media screen and (max-width: 1000px) {
+    .element {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        flex-grow: 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .arrow {
+        display: none;
+    }
 }
 
 .main {
@@ -16,7 +25,7 @@
     margin: 10px;
 }
 
-.navigator-bar {
+.navigator {
     display: flex;
 }
 
@@ -36,8 +45,30 @@
     margin: 10px;
 }
 
-@media screen and (max-width: 500px) {
-    .arrow {
-        display: none;
-    }
+.carousel-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    overflow: hidden;
+    width: 100vw;
+    max-width: 1000px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.slider {
+    display: flex;
+    overflow-x: hidden;
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.element-wrapper {
+    flex: 0 0 calc((100% - (16px * 2)));
+    scroll-snap-align: start;
+    height: fit-content;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 16px;
 }

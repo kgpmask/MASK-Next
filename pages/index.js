@@ -6,6 +6,7 @@ import Example from "@/components/Example";
 import Carousel from "@/components/Carousel";
 import EventTemplate from "@/components/EventTemplate";
 import ArtTemplate from "@/components/ArtTemplate";
+import EventCarousel from "@/components/EventCarousel";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -53,11 +54,8 @@ export default function Home() {
 		{url:'/bidoof.png', artName: "bidoof", artist: "Ankan Chakraborthy"},
 	]
 	return (
-		<div>
-			<div className={styles["event-carousel"]}>
-				<Carousel Template={EventTemplate} showNavigator={true} numPerPage={1} discrete={false} data={eventData} />
-			</div>
-			<Carousel Template={ArtTemplate} showNavigator={false} numPerPage={3} discrete={false} data={artData} />
+		<div className={styles["event-carousel"]}>
+			<Carousel Template={EventTemplate} showNavigator={true} numPerPage={1} discrete={false} data={eventData} />
 		</div>
 	);
 }

@@ -5,7 +5,7 @@ import Image from "next/image";
 // takes in data objectz
 const EventTemplate = ({ dataObj }) => {
 	return (
-        <main className={style["main"]}>
+        <div className={style["element"]}>
             <Image
                 src={dataObj.url}
                 width={558}
@@ -20,7 +20,7 @@ const EventTemplate = ({ dataObj }) => {
                 ))}
                 <div className={style["button"]}>Read More &rarr;</div>
             </div>
-        </main>
+        </div>
 	);
 };
 
