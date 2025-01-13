@@ -7,26 +7,34 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
     const [ currentElement, setCurrentElement ] = useState(0)
     const sliderRef = useRef(null)
     function moveNext() {
-        setCurrentElement(cur => cur+1);
         const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
-        if(currentElement == data.length-1) {
+        if(currentElement >= data.length-1) {
             setCurrentElement(0);
             sliderRef.current.scrollBy({ left: -itemWidth*(data.length-1), behavior: "smooth" })
         }
         else {
+            setCurrentElement(currentElement+1);
             sliderRef.current.scrollBy({ left: itemWidth, behavior: "smooth" })
         }
+        console.log(currentElement)
     }
     function movePrev() {
-        setCurrentElement(cur => cur-1)
         const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
         if(currentElement <= 0) {
             setCurrentElement(data.length - 1)
             sliderRef.current.scrollBy({ left: itemWidth*(data.length-1), behavior: "smooth" })
         }
         else {
+            setCurrentElement(currentElement-1)
             sliderRef.current.scrollBy({ left: -itemWidth, behavior: "smooth" })
         }
+        console.log(currentElement)
+    }
+    function moveHere(targetNum) {
+        const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
+        const shiftCount = targetNum - currentElement;
+        sliderRef.current.scrollBy({ left: itemWidth*shiftCount, behavior: "smooth" })
+        setCurrentElement(targetNum)
     }
 	return (
         <main className={style["main"]}>
@@ -41,7 +49,7 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
                 />
                 <div className={style["slider"]} ref={sliderRef}>
                     {data.map(dataObj => (
-                        <div className={style["element-wrapper"]}><Template dataObj={dataObj} /></div>
+                        <div className={style["element-wrapper"]} key={dataObj.id}><Template dataObj={dataObj} key={dataObj.id}/></div>
                     ))}
                 </div>
                 <Image
@@ -55,7 +63,9 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
             </div>
             {showNavigator && <div className={style["navigator"]}>
                 {Array(data.length).keys().map(num => (
-                    num!=currentElement?<div className={style["navigator-circle"]} key={num}></div>:<div className={style["selected"]} key={num}></div>
+                    num!=currentElement ? 
+                    <div className={style["navigator-circle"]} key={num} onClick={() => moveHere(num)}></div> :
+                    <div className={style["selected"]} key={num}></div>
                 ))}
             </div>}
         </main>
