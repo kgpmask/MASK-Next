@@ -1,18 +1,32 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useEffect, useRef, useState } from "react";
 import style from "@/styles/Carousel.module.css"
 import Image from "next/image";
 
 // takes in parameters, Template , showNavigator, numPerPage, discrete
 const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
-    const sliderRef = useState(null)
+    const [ currentElement, setCurrentElement ] = useState(0)
+    const sliderRef = useRef(null)
     function moveNext() {
-        console.log(sliderRef)
+        setCurrentElement(cur => cur+1);
         const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
-        sliderRef.current.scrollBy({ left: itemWidth, behavior: "smooth" })
+        if(currentElement == data.length-1) {
+            setCurrentElement(0);
+            sliderRef.current.scrollBy({ left: -itemWidth*(data.length-1), behavior: "smooth" })
+        }
+        else {
+            sliderRef.current.scrollBy({ left: itemWidth, behavior: "smooth" })
+        }
     }
     function movePrev() {
+        setCurrentElement(cur => cur-1)
         const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
-        sliderRef.current.scrollBy({ left: -itemWidth, behavior: "smooth" })
+        if(currentElement <= 0) {
+            setCurrentElement(data.length - 1)
+            sliderRef.current.scrollBy({ left: itemWidth*(data.length-1), behavior: "smooth" })
+        }
+        else {
+            sliderRef.current.scrollBy({ left: -itemWidth, behavior: "smooth" })
+        }
     }
 	return (
         <main className={style["main"]}>
