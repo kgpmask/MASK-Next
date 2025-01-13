@@ -46,6 +46,33 @@ export default function Home() {
 				"Lorem Ipsum dor amet consecutive let adjusrgeinst, olutpat torquent netus est augue. Commodo risus vel adipiscing, est convallis nostra. Class fringilla etiam dis tellus suscipit adipiscing fusce curabitur. Proin pellentesque nascetur consectetur convallis, varius quisque. Fermentum ac libero et maximus primis litora massa orci. Fames auctor maecenas",
 				"Sagittis himenaeos magna parturient himenaeos dictumst ligula. Amet maximus per diam tempor, egestas ullamcorper. Etiam penatibus urna nulla praesent volutpat hac. Morbi "
 			]
+		},
+		{
+			id: 4,
+			url: "/hunt.png",
+			title: "Treasure Hunt2",
+			content: [
+				"Lorem Ipsum dor amet consecutive let adjusrgeinst, olutpat torquent netus est augue. Commodo risus vel adipiscing, est convallis nostra. Class fringilla etiam dis tellus suscipit adipiscing fusce curabitur. Proin pellentesque nascetur consectetur convallis, varius quisque. Fermentum ac libero et maximus primis litora massa orci. Fames auctor maecenas",
+				"Sagittis himenaeos magna parturient himenaeos dictumst ligula. Amet maximus per diam tempor, egestas ullamcorper. Etiam penatibus urna nulla praesent volutpat hac. Morbi "
+			]
+		},
+		{
+			id: 5,
+			url: "/hunt.png",
+			title: "OCAQ2",
+			content: [
+				"Lorem Ipsum dor amet consecutive let adjusrgeinst, olutpat torquent netus est augue. Commodo risus vel adipiscing, est convallis nostra. Class fringilla etiam dis tellus suscipit adipiscing fusce curabitur. Proin pellentesque nascetur consectetur convallis, varius quisque. Fermentum ac libero et maximus primis litora massa orci. Fames auctor maecenas",
+				"Sagittis himenaeos magna parturient himenaeos dictumst ligula. Amet maximus per diam tempor, egestas ullamcorper. Etiam penatibus urna nulla praesent volutpat hac. Morbi "
+			]
+		},
+		{
+			id: 6,
+			url: "/hunt.png",
+			title: "Art Competition2",
+			content: [
+				"Lorem Ipsum dor amet consecutive let adjusrgeinst, olutpat torquent netus est augue. Commodo risus vel adipiscing, est convallis nostra. Class fringilla etiam dis tellus suscipit adipiscing fusce curabitur. Proin pellentesque nascetur consectetur convallis, varius quisque. Fermentum ac libero et maximus primis litora massa orci. Fames auctor maecenas",
+				"Sagittis himenaeos magna parturient himenaeos dictumst ligula. Amet maximus per diam tempor, egestas ullamcorper. Etiam penatibus urna nulla praesent volutpat hac. Morbi "
+			]
 		}
 	]
 	let artData = [
