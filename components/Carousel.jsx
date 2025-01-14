@@ -8,7 +8,7 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data, maxWidt
     const sliderRef = useRef(null)
     function moveNext() {
         const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
-        if(currentElement >= data.length-1) {
+        if(currentElement+numPerPage > data.length-1) {
             setCurrentElement(0);
             sliderRef.current.scrollBy({ left: -itemWidth*(data.length-1), behavior: "smooth" })
         }
