@@ -1,0 +1,22 @@
+.player-wrapper {
+    position: relative;
+    width: 516px;
+    height: 299px;
+    background-color: #1E1E1E;
+    border-radius: 5px;
+
+}
+
+.react-player {
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@media (max-width: 600px) {
+    .player-wrapper {
+        width: 85vw;
+        height: 50vw;
+    }
+}
