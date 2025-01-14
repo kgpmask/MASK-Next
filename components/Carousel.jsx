@@ -3,7 +3,7 @@ import style from "@/styles/Carousel.module.css"
 import Image from "next/image";
 
 // takes in parameters, Template , showNavigator, numPerPage, discrete
-const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
+const Carousel = ({ Template, showNavigator, numPerPage, discrete, data, maxWidth }) => {
     const [ currentElement, setCurrentElement ] = useState(0)
     const sliderRef = useRef(null)
     function moveNext() {
@@ -38,7 +38,7 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
     }
 	return (
         <main className={style["main"]}>
-            <div className={style["carousel-container"]}>
+            <div className={style["carousel-container"]} style={{maxWidth: maxWidth}}>
                 <Image
                     src={'/leftarrow.svg'}
                     alt="left arrow"
@@ -49,7 +49,15 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
                 />
                 <div className={style["slider"]} ref={sliderRef}>
                     {data.map(dataObj => (
+                        <div>
+                        <style jsx> {`
+                            .element-wrapper {
+                                flex: 0 0 calc((100% - (16px * 2))/${numPerPage});
+                            }
+                        `}
+                        </style>
                         <div className={style["element-wrapper"]} key={dataObj.id}><Template dataObj={dataObj} key={dataObj.id}/></div>
+                        </div>
                     ))}
                 </div>
                 <Image

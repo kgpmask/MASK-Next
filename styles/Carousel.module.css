@@ -65,7 +65,7 @@
 }
 
 .element-wrapper {
-    flex: 0 0 calc((100% - (16px * 2)));
+    /* flex: 0 0 calc((100% - (16px * 2))/3); */
     scroll-snap-align: start;
     height: fit-content;
     display: flex;
