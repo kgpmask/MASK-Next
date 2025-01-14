@@ -79,10 +79,21 @@ export default function Home() {
 		{url:'/bidoof.png', artName: "bidoof", artist: "Ankan Chakraborthy"},
 		{url:'/bidoof.png', artName: "bidoof", artist: "Ankan Chakraborthy"},
 		{url:'/bidoof.png', artName: "bidoof", artist: "Ankan Chakraborthy"},
+		{url:'/bidoof.png', artName: "bidoof", artist: "Ankan Chakraborthy"},
+		{url:'/bidoof.png', artName: "bidoof", artist: "Ankan Chakraborthy"},
+		{url:'/bidoof.png', artName: "bidoof", artist: "Ankan Chakraborthy"},
+		{url:'/bidoof.png', artName: "bidoof", artist: "Ankan Chakraborthy"},
+		{url:'/bidoof.png', artName: "bidoof", artist: "Ankan Chakraborthy"},
+		{url:'/bidoof.png', artName: "bidoof", artist: "Ankan Chakraborthy"},
 	]
 	return (
-		<div className={styles["event-carousel"]}>
-			<Carousel Template={EventTemplate} showNavigator={true} numPerPage={1} discrete={false} data={eventData} />
+		<main>
+					<div className={styles["event-carousel"]}>
+			<Carousel Template={EventTemplate} showNavigator={true} numPerPage={1} discrete={false} maxWidth={'1000px'} data={eventData} />
 		</div>
+		<div className={styles["event-carousel"]}>
+			<Carousel Template={ArtTemplate} showNavigator={true} numPerPage={3} discrete={false} data={artData} maxWidth={'95vw'}/>
+		</div>
+		</main>
 	);
 }
