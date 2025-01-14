@@ -71,7 +71,7 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data, maxWidt
             </div>
             {showNavigator && <div className={style["navigator"]}>
                 {Array(data.length).keys().map(num => (
-                    num!=currentElement ? 
+                    !(num >= currentElement && num < currentElement+numPerPage) ? 
                     <div className={style["navigator-circle"]} key={num} onClick={() => moveHere(num)}></div> :
                     <div className={style["selected"]} key={num}></div>
                 ))}
