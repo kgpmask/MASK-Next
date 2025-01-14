@@ -5,19 +5,19 @@ import Image from "next/image";
 // takes in data objectz
 const ArtTemplate = ({ dataObj }) => {
 	return (
-        <main className={style["main"]}>
+        <div className={style["element"]}>
             <Image
                 src={dataObj.url}
                 width={558}
                 height={421}
-                alt="event image"
+                alt="art image"
                 className={style["image"]}
             />
             <div className={style["desc"]}>
                 <div className={style["title"]}>{dataObj.artName}</div>
                 <div className={style["artist"]}>{dataObj.artist}</div>
             </div>
-        </main>
+        </div>
 	);
 };
 
