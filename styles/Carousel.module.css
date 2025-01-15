@@ -50,8 +50,8 @@
     align-items: center;
     gap: 1rem;
     overflow: hidden;
-    width: 100vw;
-    max-width: 1000px;
+    /* width: 100vw; */
+    /* max-width: 1000px; */
     height: auto;
     margin: 0 auto;
 }
@@ -62,6 +62,7 @@
     gap: 1rem;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    height: fit-content;
 }
 
 .element-wrapper {
