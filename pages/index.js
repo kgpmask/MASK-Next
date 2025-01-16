@@ -6,7 +6,6 @@ import Example from "@/components/Example";
 import Carousel from "@/components/Carousel";
 import EventTemplate from "@/components/EventTemplate";
 import ArtTemplate from "@/components/ArtTemplate";
-import EventCarousel from "@/components/EventCarousel";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
