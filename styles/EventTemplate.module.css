@@ -8,12 +8,12 @@
 
 .title {
     font-weight: 700;
-    font-size: 3vw;
+    font-size: 40px;
     margin: 2vh;
 }
 
 .para {
-    font-size: 1.2vw;
+    font-size: 16px;
     margin: 2vh;
 }
 
@@ -44,6 +44,14 @@
         width: 60vw;
         max-width: 500px;
         height: auto;
+    }
+
+    .title {
+        font-size: 3vw;
+    }
+
+    .para {
+        font-size: 1.2vw;
     }
 }
 
