@@ -1,0 +1,9 @@
+.container-video {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 50px;
+    column-gap: 50px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
