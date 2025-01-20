@@ -4,7 +4,7 @@
     --black: #000000;
     --textwhite: #FFFFFF;
     --red: #E43332;
-    --gray:#444444;
+    --gray: #444444;
 }
 
 * {
@@ -14,27 +14,28 @@
     margin: 0;
 }
 
-body, html {
+body,
+html {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-body > div {
-	flex-grow: 1;
-	display: flex;
-	flex-direction: column;
+body>div {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .mainContent {
-	flex-grow: 1;
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(../public/assets/background.jpg);
+    flex-grow: 1;
+    background: linear-gradient(rgba(0, 0, 0, 0.71), rgba(0, 0, 0, 0.71)), url(../public/assets/background.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
