@@ -9,7 +9,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   width: 80%;
-  max-width: 1400px;
   margin: 2vh auto;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   gap: 2vw;
@@ -23,23 +22,21 @@
 }
 
 .imageWrapper {
-  flex: 1; /* Let the image take a proportional width */
+  flex: 1.2; /* Let the image take a proportional width */
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 50%;
-  width: 50%;
 }
 
 .eventImage{
-  max-width: 150%;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   object-fit: cover; 
   height: auto;
+  width: 100%;
 }
 .contentWrapper {
-  flex: 1;
+  flex: 1.8;
   padding: clamp(1rem, 2vw, 2.5rem);
   text-align: left;
   display: flex;
@@ -59,7 +56,7 @@
 }
 
 .eventMeta {
-  font-size: clamp(0.8rem, 1vw, 1rem);
+  font-size: clamp(0.5rem, 1vw, 1rem);
   color: #aaa;
   padding: 1vh 0;
 }
@@ -70,9 +67,10 @@
 }
 
 .eventDescription {
-  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  font-size: clamp(0.5rem, 1.2vw, 1rem);
   color: #ffffff;
   line-height: 1.5;
+  padding-bottom: clamp(1rem, 2vw, 2.5rem);
 }
 
 .textWrapper {
@@ -81,10 +79,16 @@
   gap: 1vh;
   padding-left: 1rem;
   padding-right: 1rem;
-  max-width: 50%;
 }
 
-
+@media screen and (min-width: 768px){
+  .textWrapper {
+    max-width: 50%;
+  }
+  .contentWrapper {
+    padding-bottom: 1vw;
+  }
+}
 @media screen and (max-width: 768px) {
   .eventCard {
     flex-direction: column;

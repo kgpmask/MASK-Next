@@ -12,10 +12,9 @@ export default function EventCard({ event }) {
   return (
     <div className={`${styles.eventCard} ${cabin.className}`}>
         <div className={styles.contentWrapper}>
-          <div className >
-          <Image src={event.image} alt={event.title} width={512} height={286} className = {styles.eventImage}/>
+          <div className = {styles.imageWrapper}>
+            <Image src={event.image} alt={event.title} width={512} height={286} className = {styles.eventImage}/>
           </div>
-
           <div className={styles.textWrapper}>
             <h3 className={styles.eventTitle}>{event.title}</h3>
             <div className={styles.eventMeta}>
