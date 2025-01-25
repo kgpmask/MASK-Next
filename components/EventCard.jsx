@@ -24,8 +24,10 @@ export default function EventCard({ event }) {
             </div>
             <p className={styles.eventDescription}>
               {event.description}
-            </p>
-            <Button text="Read More" url="/" type = "black" />
+            </p> 
+            <div class = {styles.buttonWrapper}>
+              <Button text="Read More" url="/" type = "black" />
+            </div>
           </div>
         </div>
     </div>
