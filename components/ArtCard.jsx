@@ -5,7 +5,7 @@ const ArtCard = ({ image, title, description, link }) => {
   const handleCardClick = () => {
     window.location.href = link;
   };
-
+  
   return (
     <div className={styles.card} onClick={handleCardClick}>
       <div className={styles.imagecontainer}>
@@ -19,31 +19,31 @@ const ArtCard = ({ image, title, description, link }) => {
   );
 };
 
-export default ArtCard;
+// export default ArtCard;
 
-// const ArtCardGallery = () => {
-//   return (
-//     <div className={styles.container}>
-//       <ArtCard
-//         image="/temporary_image.png"
-//         title="Bidoof"
-//         description="Ajayendra Kumar."
-//         link="https://example.com/march-2024-issue"
-//       />
-//       <ArtCard
-//         image="https://via.placeholder.com/350x250.png?text=Event+2"
-//         title="Event 2"
-//         description="This is a description for Event 2."
-//         link="https://example.com/march-2024-issue"
-//       />
-//       <ArtCard
-//         image="/temporary_image.png"
-//         title="Bidoof"
-//         description="Ajayendra Kumar."
-//         link="https://example.com/march-2024-issue"
-//       />
-//     </div>
-//   );
-// };
+const ArtCardGallery = () => {
+  return (
+    <div className={styles.container}>
+      <ArtCard
+        image="/temporary_image.png"
+        title="Bidoof"
+        description="Ajayendra Kumar fcndakvndkvm ndlvm mdavlma mvladvadlv,dalv,a. cnakcnakc "
+        link="https://example.com/march-2024-issue"
+      />
+      <ArtCard
+        image="https://via.placeholder.com/350x250.png?text=Event+2"
+        title="Event 2"
+        description="This is a description for Event 2."
+        link="https://example.com/march-2024-issue"
+      />
+      <ArtCard
+        image="/temporary_image.png"
+        title="Bidoof"
+        description="Ajayendra Kumar."
+        link="https://example.com/march-2024-issue"
+      />
+    </div>
+  );
+};
 
-// export default ArtCardGallery;
+export default ArtCardGallery;

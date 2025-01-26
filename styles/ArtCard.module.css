@@ -1,14 +1,19 @@
 .card {
   position: relative;
-  width: 90%;
-  max-width: 325px;
+  width: 100%; 
+  max-width: 220px; 
   height: auto;
-  aspect-ratio: 325 / 350;
+  aspect-ratio: 325 / 350; 
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+  margin: 1rem auto;
+  border-radius: 8px; 
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
 }
 
 .imagecontainer {
@@ -28,17 +33,18 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 25%;
-  background: rgba(0, 0, 0, 0.7);
+  height: 30%; 
+  background: rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding-left: 15px;
+  align-items: flex-start; 
+  padding: 10px;
   color: white;
   opacity: 0;
   transform: translateY(100%);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  overflow: hidden;
 }
 
 .card:hover .hovercontent {
@@ -47,50 +53,73 @@
 }
 
 .title {
-  font-size: 1.25rem;
+  font-size: 100%; 
   font-weight: bold;
   margin: 0;
+  line-height: 1.2; 
+  overflow: hidden; 
+  white-space: normal;
 }
 
-.subtitle {
-  font-size: 1rem;
-  margin-top: 5px;
+.description {
+  font-size: 60%; 
+  overflow: hidden; 
+  line-height: 1.4;
+  white-space: normal;
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    max-width: 180px; 
+  }
+
+  .title {
+    font-size: 100%; 
+  }
+
+  .description {
+    font-size: 55%;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .card {
-    width: 80%;
-    max-width: 275px;
-  }
-
-  .hovercontent {
-    height: 30%;
+    max-width: 160px; 
   }
 
   .title {
-    font-size: 1.125rem;
+    font-size: 70%; 
   }
 
-  .subtitle {
-    font-size: 0.875rem;
+  .description {
+    font-size: 40%; 
   }
 }
 
 @media screen and (max-width: 480px) {
   .card {
-    width: 95%;
-    max-width: 250px;
-  }
-
-  .hovercontent {
-    height: 35%;
+    max-width: 140px;
   }
 
   .title {
-    font-size: 1rem;
+    font-size: 10vw; 
   }
 
-  .subtitle {
-    font-size: 0.875rem;
+  .description {
+    font-size: 5vw;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .card {
+    max-width: 120px; 
+  }
+
+  .title {
+    font-size: 13vw; 
+  }
+
+  .description {
+    font-size: 9vw; 
   }
 }
