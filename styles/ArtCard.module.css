@@ -9,7 +9,6 @@
   background-color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
   margin: 1rem auto;
-  border-radius: 8px; 
 }
 
 .card:hover {
@@ -102,11 +101,7 @@
   }
 
   .title {
-    font-size: 10vw; 
-  }
-
-  .description {
-    font-size: 5vw;
+    font-size: 70%; 
   }
 }
 
@@ -116,10 +111,7 @@
   }
 
   .title {
-    font-size: 13vw; 
+    font-size: 20%; 
   }
 
-  .description {
-    font-size: 9vw; 
-  }
 }
