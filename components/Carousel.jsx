@@ -17,7 +17,6 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
             setCurrentElement(currentElement+1);
             sliderRef.current.scrollBy({ left: itemWidth, behavior: "smooth" })
         }
-        console.log(currentElement)
     }
     function movePrev() {
         const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
@@ -29,7 +28,6 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
             setCurrentElement(currentElement-1)
             sliderRef.current.scrollBy({ left: -itemWidth, behavior: "smooth" })
         }
-        console.log(currentElement)
     }
     function moveHere(targetNum) {
         const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
@@ -40,7 +38,6 @@ const Carousel = ({ Template, showNavigator, numPerPage, discrete, data }) => {
     function inheritWidth() {
         // inherits width of parent from child
         if(sliderRef != null && sliderRef.current != null) {
-            console.log(sliderRef)
             setSliderWidth((sliderRef.current.firstChild.offsetWidth + 16)*numPerPage-16);
         }
     }
