@@ -6,6 +6,7 @@ import Example from "@/components/Example";
 import Carousel from "@/components/Carousel";
 import EventTemplate from "@/components/EventTemplate";
 import ArtTemplate from "@/components/ArtTemplate";
+import SubheadTemplate from "@/components/SubheadTemplate";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -85,6 +86,16 @@ export default function Home() {
 		{url:'/bidoof.png', artName: "bidoof", artist: "Ankan Chakraborthy"},
 		{url:'/bidoof.png', artName: "bidoof", artist: "Ankan Chakraborthy"},
 	]
+	let subheadData = [
+		{id: 0, name: 'Piyush Agarwal', team: "AMV", position: "Head"},
+		{id: 1, name: 'Piyush Agarwal', team: "AMV", position: "Head"},
+		{id: 2, name: 'Piyush Agarwal', team: "AMV", position: "Head"},
+		{id: 3, name: 'Piyush Agarwal', team: "AMV", position: "Head"},
+		{id: 4, name: 'Piyush Agarwal', team: "AMV", position: "Head"},
+		{id: 5, name: 'Piyush Agarwal', team: "AMV", position: "Head"},
+		{id: 6, name: 'Piyush Agarwal', team: "AMV", position: "Head"},
+		{id: 7, name: 'Piyush Agarwal', team: "AMV", position: "Head"},
+	]
 	return (
 		<main>
 					<div className={styles["event-carousel"]}>
@@ -92,6 +103,9 @@ export default function Home() {
 		</div>
 		<div className={styles["event-carousel"]}>
 			<Carousel Template={ArtTemplate} showNavigator={true} numPerPage={3} discrete={false} data={artData} maxWidth={'95vw'}/>
+		</div>
+		<div className={styles["event-carousel"]}>
+			<Carousel Template={SubheadTemplate} showNavigator={true} numPerPage={5} discrete={false} data={artData} maxWidth={'95vw'}/>
 		</div>
 		</main>
 	);
