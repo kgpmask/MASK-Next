@@ -4,6 +4,7 @@
     justify-content: center;
     margin-left: 4vw;
     height: fit-content;
+    width: 500px;
 }
 
 .title {
@@ -18,7 +19,7 @@
 }
 
 .image {
-    width: 600px;
+    width: auto;
 }
 
 .button {
@@ -57,7 +58,7 @@
 
 @media screen and (max-width: 700px) {
     .image {
-        margin: 0px;
+        margin: auto;
         width: 90vw;
     }
 
@@ -73,6 +74,7 @@
 
     .right {
         max-width: 600px;
+        width: 90%;
     }
 
     .button {
