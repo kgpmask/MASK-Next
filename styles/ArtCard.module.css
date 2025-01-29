@@ -32,7 +32,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 30%; 
+  height: 30%; /* Reverted back to 30% */
   background: rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
@@ -51,67 +51,82 @@
   transform: translateY(0);
 }
 
+/* Title and Description Styles */
 .title {
-  font-size: 100%; 
+  font-size: 0.65rem;  /* Smaller font size for title */
   font-weight: bold;
-  margin: 0;
+  margin: 0; 
   line-height: 1.2; 
   overflow: hidden; 
   white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .description {
-  font-size: 60%; 
+  font-size: 0.55rem;  /* Smaller font size for description */
   overflow: hidden; 
-  line-height: 1.4;
+  line-height: 1.2;  
   white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
 }
 
+/* Media Query Adjustments */
 @media screen and (max-width: 1024px) {
   .card {
-    max-width: 180px; 
+    max-width: 200px; 
   }
 
   .title {
-    font-size: 100%; 
+    font-size: 0.75rem;  /* Slightly smaller font for title */
   }
 
   .description {
-    font-size: 55%;
+    font-size: 0.6rem;  /* Slightly smaller font for description */
   }
 }
 
 @media screen and (max-width: 768px) {
   .card {
-    max-width: 160px; 
+    max-width: 180px; 
   }
 
   .title {
-    font-size: 70%; 
+    font-size: 0.7rem;  /* Slightly smaller font for title */
   }
 
   .description {
-    font-size: 40%; 
+    font-size: 0.55rem;  /* Slightly smaller font for description */
   }
 }
 
 @media screen and (max-width: 480px) {
   .card {
-    max-width: 140px;
+    max-width: 160px; 
   }
 
   .title {
-    font-size: 70%; 
+    font-size: 0.6rem;  /* Smaller font for title */
+  }
+
+  .description {
+    font-size: 0.5rem;  /* Smaller font for description */
   }
 }
 
 @media screen and (max-width: 360px) {
   .card {
-    max-width: 120px; 
+    max-width: 140px; 
   }
 
   .title {
-    font-size: 20%; 
+    font-size: 0.55rem;  /* Smaller font for title */
   }
 
+  .description {
+    font-size: 0.45rem;  /* Smaller font for description */
+  }
 }

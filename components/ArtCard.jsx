@@ -27,7 +27,7 @@ const ArtCardGallery = () => {
       <ArtCard
         image="/temporary_image.png"
         title="Bidoof"
-        description="Ajayendra Kumar fcndakvndkvm ndlvm mdavlma mvladvadlv,dalv,a. cnakcnakc "
+        description="Ajayendra Kumar fcndakvndkvm ndlvm mdavlma mvladvadlv "
         link="https://example.com/march-2024-issue"
       />
       <ArtCard
