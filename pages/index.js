@@ -34,8 +34,8 @@ export default function Home() {
 	  ];
 
 	return (
-		<div className = {styles.container}>
-			<div className={styles.eventsContainer}>
+		<div className = {styles.container} style={{ display: 'flex', flexDirection: 'column', alignItems: "center" }}>
+			<div className={styles.eventsContainer} style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: "80%", justifyContent: "center" }}>
 			{sampleEvents.map((event, index) => (
 				<EventCard key={index} event={event} />
 			))}
