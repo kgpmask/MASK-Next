@@ -6,6 +6,8 @@
     opacity: 0; /* For fade-in effect */
     transform: scale(0.95); /* For initial scale animation */
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
 }
 
 .fadeIn {

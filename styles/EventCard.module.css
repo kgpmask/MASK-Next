@@ -3,7 +3,7 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: left;
-	gap: 3vh;
+	gap: clamp(1rem, 3vw, 2.5rem);
 	background-color: #1e1e1e;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 	overflow: hidden;
@@ -37,7 +37,7 @@
 .contentWrapper {
 	text-align: left;
 	justify-content: left;
-	gap: 3vh;
+	gap: 3rem;
 	display: flex;
 	flex-direction: row;
 }
@@ -60,24 +60,24 @@
 }
 
 .eventDescription {
-    font-size: 1rem;
-    color: #ffffff;
-    line-height: 1.5;
-    overflow-y: auto;  /* Allows text scrolling */
-    max-height: 250px; /* Ensures it doesn't exceed bounds */
+	font-size: 1rem;
+	color: #ffffff;
+	line-height: 1.5;
+	overflow-y: auto;
+	max-height: 250px;
 }
 
 
 .textContainer {
-    flex: 1.5;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: space-between;
-    max-height: 290px;
-    overflow-y: auto;  /* Enables vertical scrolling */
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-    padding-right: 10px; /* Adds spacing for better readability */
+	flex: 1.5;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	justify-content: space-between;
+	max-height: 290px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-right: 10px;
 }
 
 .textWrapper {
@@ -109,6 +109,7 @@
 	.eventCard {
 		flex-direction: column;
 		padding: 5vw;
+		gap: 4vw;
 		max-height: none;
 	}
 
@@ -138,6 +139,5 @@
 
 	.eventDescription {
 		font-size: 0.9rem;
-		padding-bottom: 1rem;
 	}
 }

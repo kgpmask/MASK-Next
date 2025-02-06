@@ -2,6 +2,9 @@ import Button from './Button';
 import styles from '../styles/HeroBanner.module.css';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { Cabin } from 'next/font/google';
+
+const cabin = Cabin({ subsets: ['latin'] });
 
 const HeroBanner = ({ heroTitle, heroContent, buttonContent, buttonURL }) => {
     const [animate, setAnimate] = useState(false);
@@ -13,7 +16,7 @@ const HeroBanner = ({ heroTitle, heroContent, buttonContent, buttonURL }) => {
     }, []);
 
     return (
-        <div className={`${styles.heroBanner} ${animate ? styles.fadeIn : ''}`}>
+        <div className={`${styles.heroBanner} ${animate ? styles.fadeIn : ''} ${cabin.className}`}>
             <div className={`${styles.heroContent} ${animate ? styles.slideUp : ''}`}>
                 <h1 className={styles.heroTitle}>{heroTitle}</h1>
                 <p className={styles.heroText}>{heroContent}</p>

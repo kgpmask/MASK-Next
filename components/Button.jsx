@@ -2,51 +2,55 @@ import React from 'react';
 import { FiArrowRight } from 'react-icons/fi'; // Import right arrow icon
 import styles from '../styles/Button.module.css';
 import { useRouter } from 'next/router';
+import { Cabin } from 'next/font/google';
 
-const Button = ({ text, color = 'red', icon: Icon, url }) => {
-  const router = useRouter();
+const cabin = Cabin({ subsets: ['latin'] });
 
-  const handleClick = () => {
-    if (url) {
-      router.push(url); // Route to the specified URL
-    }
-  };
+const Button = ({ text, color = 'red', icon: Icon, url, fullWidth }) => {
+	const router = useRouter();
 
-  const buttonStyles = {
-    red: {
-      backgroundColor: '#e43332',
-      color: '#fff',
-    },
-    black: {
-      backgroundColor: '#000000',
-      color: '#fff',
-    },
-    'trans-white': {
-      backgroundColor: 'transparent',
-      color: '#fff',
-      border: '1px solid #fff',
-    },
-    'trans-black': {
-      backgroundColor: 'transparent',
-      color: '#000',
-      border: '1px solid #000',
-    },
-  };
+	const handleClick = () => {
+		if (url) {
+			router.push(url); // Route to the specified URL
+		}
+	};
 
-  const style = buttonStyles[color?.toLowerCase()] || buttonStyles['red'];
+	const buttonStyles = {
+		red: {
+			backgroundColor: '#e43332',
+			color: '#fff',
+		},
+		black: {
+			backgroundColor: '#000000',
+			color: '#fff',
+		},
+		'trans-white': {
+			backgroundColor: 'transparent',
+			color: '#fff',
+			border: '1px solid #fff',
+		},
+		'trans-black': {
+			backgroundColor: 'transparent',
+			color: '#000',
+			border: '1px solid #000',
+		},
+	};
 
-  return (
-    <button className={styles.button} style={style} onClick={handleClick}>
-      <div className={styles.contentWrapper}>
-        <span className={styles.buttonText}>{text}</span>
-        {Icon ? (
-          <span className={styles.buttonIcon}><Icon /></span>
-        ) : (
-          <span className={styles.buttonIcon}><FiArrowRight /></span>
-        )}
-      </div>
-    </button>
-  );
+	const style = buttonStyles[color?.toLowerCase()] || buttonStyles['red'];
+	if (fullWidth) style.width = '100%';
+
+	return (
+		<button className={`${styles.button} ${cabin.className}`} style={style} onClick={handleClick}>
+			<div className={styles.contentWrapper}>
+				<span className={styles.buttonText}>{text}</span>
+				{Icon ? (
+					<span className={styles.buttonIcon}><Icon /></span>
+				) : (
+					<span className={styles.buttonIcon}><FiArrowRight /></span>
+				)}
+			</div>
+		</button>
+	);
 };
 
 export default Button;

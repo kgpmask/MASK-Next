@@ -28,7 +28,7 @@ export default function EventCard({ event }) {
 						</p>
 					</div>
 					<div className={styles.buttonWrapper}>
-						<Button text="Read More" url="/" type="black" />
+						<Button text="Read More" url="/" />
 					</div>
 				</div>
 			{/* </div> */}
