@@ -1,0 +1,57 @@
+.member-container {
+	display: flex;
+	flex-direction: column;
+	height: inherit;
+	min-height: 270px;
+	width: 195px;
+	justify-content: center;
+}
+
+.member-container>div {
+	overflow: hidden;
+	/* box-shadow: 0em 0.1em 0.2em rgba(0, 0, 0, 2); */
+}
+
+.profile-pic {
+	height: 195px;
+}
+
+.info-container {
+	display: flex;
+	flex-direction: column;
+	background-color: #E43332;
+	flex-grow: 1;
+	gap: 2px;
+	padding: 15px 1rem;
+	justify-content: space-between;
+	border-top-color: black;
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+
+.member-name {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: whitesmoke;
+}
+
+.profile-pic>img {
+	align-self: center;
+	justify-self: center;
+	height: auto;
+	width: 100%;
+}
+
+.member-position {
+	font-size: 0.8rem;
+	color: #e6e6e6;
+}
+.team-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: left;
+	font-size: 25px;
+	margin-top: 5px;
+	gap: 10px;
+	font-weight: 600;
+}

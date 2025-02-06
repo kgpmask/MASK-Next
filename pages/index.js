@@ -2,6 +2,7 @@ import React from "react";
 import EventCard from "../components/EventCard";
 import styles from "../styles/Home.module.css";
 import HeroBanner from "@/components/HeroBanner";
+import MemberCard from "@/components/MemberCard";
 export default function Home() {
 	const sampleEvents = [
 		{
@@ -35,6 +36,32 @@ export default function Home() {
 
 	return (
 		<div className={styles.container} style={{ display: 'flex', flexDirection: 'column', alignItems: "center" }}>
+			<div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
+				<MemberCard
+					profilePicture={"23_manideep.webp"}
+					name={"Manideep Dalli"}
+					teams={["w", "q"]}
+					position={"Associate"}
+				/>
+				<MemberCard
+					profilePicture={"23_thanush.webp"}
+					name={"Manideep Dalli"}
+					teams={["nH", "w", "q"]}
+					position={"Associate"}
+				/>
+				<MemberCard
+					profilePicture={"23_animesh.webp"}
+					name={"Manideep Dalli"}
+					teams={["n", "qS"]}
+					position={"Associate"}
+				/>
+				<MemberCard
+					profilePicture={"23_arnab.webp"}
+					name={"Manideep Dalli"}
+					teams={["wS"]}
+					position={"Associate"}
+				/>
+			</div>
 			<div className={styles.eventsContainer} style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: "80%", justifyContent: "center" }}>
 				{sampleEvents.map((event, index) => (
 					<EventCard key={index} event={event} />

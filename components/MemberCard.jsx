@@ -1,28 +1,107 @@
-import React from 'react';
-import Image from 'next/image';
-import { Cabin } from 'next/font/google';
-import styles from '../styles/MemberCard.module.css';
+import React from "react";
+import style from "@/styles/MemberCard.module.css"
 
+import { BiMoviePlay } from "react-icons/bi";
+import { FaPaintbrush } from "react-icons/fa6";
+import { TfiWrite } from "react-icons/tfi";
+import { PiListChecksBold } from "react-icons/pi";
+import { FaCode } from "react-icons/fa6";
+import Image from "next/image";
 
-export default function MemberCard({ member }) {
+const Icon = ({ icon, description, modifier }) => {
 	return (
-		<div className={styles.memberCard}>
-			<div className={styles.imageWrapper}>
-				<Image src={member.image} alt={member.name} width={512} height={512} className={styles.memberImage} />
-			</div>
-			<div className={styles.textWrapper}>
-				<h3 className={styles.memberName}>{member.name}</h3>
-				<p className={styles.memberRole}>{member.role}</p>
-			</div>
-			<div className={styles.socials}>
-				<a href={member.socials.email} target="_blank">
-					<Image src="/email.svg" alt="email" width={24} height={24} />
-				</a>
-				<a href={member.socials.insta} target="_blank">
-					<Image src="/instagram.svg" alt="instagram" width={24} height={24} />
-				</a>
-			</div>
-		</div>
+		<span title={description}>
+			{modifier ?
+				React.cloneElement(icon, { color: modifier === 'S' ? '#30b868' : '#e8ce3d' })
+				:
+				icon
+			}
+		</span>
 	);
+
 }
 
+const MemberCard = ({ profilePicture, name, teams, position }) => {
+	/* We assume that the teams is of the form ["nS", "w", "q"] */
+	const teamDict = {
+		"a": "AMV",
+		"d": "Design and Arts",
+		"n": "Media and Newsletter",
+		"q": "Quiz",
+		"w": "Web Development"
+	};
+
+	const iconMap = {
+		"a": <BiMoviePlay />,
+		"d": <FaPaintbrush />,
+		"n": <TfiWrite />,
+		"q": <PiListChecksBold />,
+		"w": <FaCode />
+	}
+
+	const posDict = {
+		"S": "Sub-Head",
+		"H": "Head"
+	};
+
+	// const teamRoleText = (teamStr, position) => {
+	// 	let ans = "";
+	// 	if (teamStr.length > 3) return "";
+
+	// 	Object.entries(teamDict).forEach(([key, value]) => {
+	// 		if (teamStr.includes(key)) ans += (value);
+	// 	});
+
+	// 	ans += (" ");
+
+	// 	let isPosIncluded = 1;
+
+	// 	Object.entries(posDict).forEach(([key, value]) => {
+	// 		if (teamStr.includes(key)) {
+	// 			ans += (value);
+	// 			isPosIncluded = 0;
+	// 		}
+	// 	})
+
+	// 	if (isPosIncluded) {
+	// 		ans += (position)
+	// 	}
+	// 	return ans;
+	// }
+
+	const roleText = () => {
+		if (position === "Governor") return "Governor";
+		else {
+			for (let team of teams) {
+				if (team.length === 2) {
+					if (team[1] === "H") return teamDict[team[0]] + " Head";
+					else if (team[1] === "S") return teamDict[team[0]] + " Sub-Head";
+				}
+			}
+			return position;
+		}
+	}
+
+	return (
+		<>
+			<div className={style["member-container"]}>
+				<div className={style["profile-pic"]}>
+					<Image src={`/assets/members/${profilePicture}`} alt={name} width={200} height={200} />
+				</div>
+				<div className={style["info-container"]}>
+					<div>
+						<div className={style["member-name"]}>{name}</div>
+						<div className={style["member-position"]}>{roleText()}</div>
+					</div>
+					<div className={style["team-list"]}>
+						{teams.map((team, index) => (
+							<Icon key={index} icon={iconMap[team[0]]} description={teamDict[team[0]]} modifier={team.length === 2 ? team[1] : false} />
+						))}
+					</div>
+				</div>
+			</div>
+		</>
+	);
+};
+
+export default MemberCard;
