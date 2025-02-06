@@ -1,7 +1,7 @@
 import React from "react";
 import style from "@/styles/Example.module.css"
 
-const Example = ({text }) => {
+const Example = ({ text }) => {
 	// states and stuff
 	// functions
 	// hooks, effects and api calls

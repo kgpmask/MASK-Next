@@ -1,69 +1,79 @@
 .heroBanner {
-    font-family: 'Cabin', sans-serif;
-    align-items: center;
-    align-self: center;
-    padding: 1rem 2rem 1rem 2rem;
-    opacity: 0; /* For fade-in effect */
-    transform: scale(0.95); /* For initial scale animation */
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+	font-family: 'Cabin', sans-serif;
+	align-items: center;
+	align-self: center;
+	padding: 1rem 2rem 1rem 2rem;
+	opacity: 0;
+	/* For fade-in effect */
+	transform: scale(0.95);
+	/* For initial scale animation */
+	transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 	margin-top: 2.5rem;
 	margin-bottom: 2.5rem;
 }
 
 .fadeIn {
-    opacity: 1; /* Fully visible */
-    transform: scale(1); /* Back to original size */
+	opacity: 1;
+	/* Fully visible */
+	transform: scale(1);
+	/* Back to original size */
 }
 
 .heroTitle {
-    font-size: 2rem;
-    font-weight: 700;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
+	font-size: 2rem;
+	font-weight: 700;
+	align-self: center;
+	align-items: center;
+	justify-content: center;
 }
 
 .heroContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    animation: slide-up 0.8s ease-out;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	animation: slide-up 0.8s ease-out;
 }
 
 .slideUp {
-    animation: slide-up 0.8s ease-out; /* Slide up effect */
+	animation: slide-up 0.8s ease-out;
+	/* Slide up effect */
 }
 
 .heroText {
-    padding: 1rem;
-    flex-wrap: wrap;
-    width: 579px;
+	padding: 1rem;
+	flex-wrap: wrap;
+	width: 579px;
 }
 
 @keyframes slide-up {
-    from {
-        transform: translateY(20px); /* Start from below */
-        opacity: 0; /* Invisible */
-    }
-    to {
-        transform: translateY(0); /* End at original position */
-        opacity: 1; /* Fully visible */
-    }
+	from {
+		transform: translateY(20px);
+		/* Start from below */
+		opacity: 0;
+		/* Invisible */
+	}
+
+	to {
+		transform: translateY(0);
+		/* End at original position */
+		opacity: 1;
+		/* Fully visible */
+	}
 }
 
 @media screen and (max-width: 768px) {
-    .heroBanner {
-        padding: 1rem;
-    }
+	.heroBanner {
+		padding: 1rem;
+	}
 
-    .heroTitle {
-        font-size: 1.5rem;
-    }
+	.heroTitle {
+		font-size: 1.5rem;
+	}
 
-    .heroText {
-        width: 85%;
-        text-align: justify;
-    }
+	.heroText {
+		width: 85%;
+		text-align: justify;
+	}
 }
