@@ -53,7 +53,7 @@ export default function Home() {
 					profilePicture={"23_animesh.webp"}
 					name={"Manideep Dalli"}
 					teams={["n", "qS"]}
-					position={"Associate"}
+					position={"Governor"}
 				/>
 				<MemberCard
 					profilePicture={"23_arnab.webp"}

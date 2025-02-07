@@ -38,37 +38,7 @@ const MemberCard = ({ profilePicture, name, teams, position }) => {
 		"q": <PiListChecksBold />,
 		"w": <FaCode />
 	}
-
-	const posDict = {
-		"S": "Sub-Head",
-		"H": "Head"
-	};
-
-	// const teamRoleText = (teamStr, position) => {
-	// 	let ans = "";
-	// 	if (teamStr.length > 3) return "";
-
-	// 	Object.entries(teamDict).forEach(([key, value]) => {
-	// 		if (teamStr.includes(key)) ans += (value);
-	// 	});
-
-	// 	ans += (" ");
-
-	// 	let isPosIncluded = 1;
-
-	// 	Object.entries(posDict).forEach(([key, value]) => {
-	// 		if (teamStr.includes(key)) {
-	// 			ans += (value);
-	// 			isPosIncluded = 0;
-	// 		}
-	// 	})
-
-	// 	if (isPosIncluded) {
-	// 		ans += (position)
-	// 	}
-	// 	return ans;
-	// }
-
+	
 	const roleText = () => {
 		if (position === "Governor") return "Governor";
 		else {
