@@ -7,7 +7,7 @@ import { Cabin } from 'next/font/google';
 
 const cabin = Cabin({ subsets: ['latin'] });
 
-const Button = ({ text, color = 'red', icon: Icon, url, fullWidth }) => {
+const Button = ({ text, color = 'red', icon: Icon, url, fullWidth, noIcon, styleOverrides }) => {
 	const router = useRouter();
 
 	const handleClick = () => {
@@ -40,15 +40,22 @@ const Button = ({ text, color = 'red', icon: Icon, url, fullWidth }) => {
 	const style = buttonStyles[color?.toLowerCase()] || buttonStyles['red'];
 	if (fullWidth) style.width = '100%';
 
+	if (styleOverrides) {
+		Object.assign(style, styleOverrides);
+	}
+
 	return (
 		<button className={`${styles.button} ${cabin.className}`} style={style} onClick={handleClick}>
 			<div className={styles.contentWrapper}>
 				<span className={styles.buttonText}>{text}</span>
-				{Icon ? (
-					<span className={styles.buttonIcon}><Icon /></span>
-				) : (
-					<span className={styles.buttonIcon}><FiArrowRight /></span>
-				)}
+				{noIcon ?
+					null
+					:
+					icon ? (
+						<span className={styles.buttonIcon}><Icon /></span>
+					) : (
+						<span className={styles.buttonIcon}><FiArrowRight /></span>
+					)}
 			</div>
 		</button>
 	);
