@@ -2,6 +2,7 @@ import React from 'react';
 import { FiArrowRight } from 'react-icons/fi'; // Import right arrow icon
 import styles from '../styles/Button.module.css';
 import { useRouter } from 'next/router';
+
 import { Cabin } from 'next/font/google';
 
 const cabin = Cabin({ subsets: ['latin'] });

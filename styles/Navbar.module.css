@@ -1,0 +1,229 @@
+.but {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbarFull {
+    background-color: var(--black);
+    height: 92px;
+    display: flex;
+    align-items: center;
+    padding: 0 110px;
+    z-index: 2;
+    overflow: visible; 
+}
+
+.navbarFull ul {
+    list-style-type: none;
+    background-color: var(--black);
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.navbarContainer {
+    display: flex;
+    flex-grow: 1;
+}
+
+.link {
+    font-family: Cabin;
+    font-size: 16px;
+    line-height: 19.44px;
+    padding: 14px 16px;
+    text-align: center;
+    color: var(--textwhite);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+
+.link::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: var(--red);
+    width: 0%;
+    transition: width 0.3s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.link:hover::after {
+    width: 50%;
+}
+
+.active::after {
+    width: 50%;
+}
+
+.navbarLogo {
+    width: 48px;
+    height: 48px;
+    border-radius: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+
+.dropdown {
+    display: inline-block; 
+}
+
+.dropdownContent {
+    display: none; 
+    position: absolute;
+    right: 85; 
+    background-color: var(--black);
+    min-width: 160px;
+    border-radius: 5px; 
+    z-index: 1;
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    box-sizing: border-box; 
+}
+
+.dropdown:hover .dropdownContent,
+.dropdownContent:hover {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    visibility: visible; 
+}
+
+.dropdownContent a {
+    color: var(--textwhite);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.dropdownContent a:hover {
+    background-color: var(--gray);
+}
+
+.burger {
+    background: var(--gray);
+    display: none;
+    height: 40px;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 31;
+    text-align: left;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    transition: .5s;
+    align-items: center;
+    justify-content: center;
+}
+
+.burger:hover {
+    background-color: var(--gray);
+}
+.patty {
+    width: 30px;
+    height: 3px;
+    background: var(--textwhite);
+    top: 50%;
+    transition: all .2s ease-in-out;
+    transform: translateY(-50%);
+}
+.patty:before {
+    top: -10px;
+}
+.patty:before, .patty:after {
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 3px;
+    transition: all .3s ease-in-out;
+    background: var(--textwhite);
+}
+.patty:after{
+    bottom: -10px;
+}
+
+.slidingMenu {
+    display: none;
+    position: fixed;
+    top: 92px; 
+    right: -100%; 
+    width: 100%;
+    height: calc(100vh - 92px);
+    background-color: var(--black);
+    transition: right 0.4s ease-in-out;
+    z-index: 1;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .menuOpen {
+    right: 0;
+  }
+  
+  .menuContent {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    flex: 1; 
+  }
+  
+  .menuLink {
+    color: var(--textwhite);
+    text-decoration: none;
+    font-family: 'Cabin', sans-serif;
+    font-size: 18px;
+    margin-bottom: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .menuLink:hover {
+    color: var(--red);
+  }
+  
+  .menuBottom {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .menuBottom .menuLink {
+    margin-bottom: 12px;
+  }
+  
+
+  
+@media (max-width: 900px) {
+    .but {
+        display: none;
+    }
+    .navbarContainer {
+        display: none;
+    }
+    .navbarFull{
+        padding: 0px 30px;
+    }
+    .navbarFull ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .burger{
+        display: flex;
+    }
+    .slidingMenu{
+        display: flex;
+    }
+}
