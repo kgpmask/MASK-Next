@@ -51,7 +51,7 @@ const Button = ({ text, color = 'red', icon: Icon, url, fullWidth, noIcon, style
 				{noIcon ?
 					null
 					:
-					icon ? (
+					Icon ? (
 						<span className={styles.buttonIcon}><Icon /></span>
 					) : (
 						<span className={styles.buttonIcon}><FiArrowRight /></span>
