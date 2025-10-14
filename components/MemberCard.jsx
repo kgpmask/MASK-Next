@@ -23,7 +23,14 @@ const Icon = ({ icon, description, modifier }) => {
 	);
 
 }
-
+/* Usage:
+ * <MemberCard 
+ * 		profilePicture="23_manideep.webp" : string
+ * 		name="Dalli Manideep" : string
+ * 		teams={["nH"]} : array
+ * 		position="Governor" : string (optional)
+ * 	/>
+ */
 const MemberCard = ({ profilePicture, name, teams, position }) => {
 	/* We assume that the teams is of the form ["nS", "w", "q"] */
 	const teamDict = {

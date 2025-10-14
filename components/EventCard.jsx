@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import Image from 'next/image';
 import { Cabin } from 'next/font/google';
@@ -7,7 +5,18 @@ import styles from '../styles/EventCard.module.css';
 import Button from './Button';
 
 const cabin = Cabin({ subsets: ['latin'] });
-
+/* Usage:
+ * <EventCard 
+ * 		event={{
+ * 			image: "/assets/events/event/n.webp",
+ * 			title: "title",
+ * 			date: "date",
+ * 			venue: "venue",
+ * 			author: "Pratyay"
+ * 			description: "lorem ipsem"
+ * 		}}
+ * />
+ */
 export default function EventCard({ event }) {
 	return (
 		<div className={`${styles.eventCard} ${cabin.className}`}>
