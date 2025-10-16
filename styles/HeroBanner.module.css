@@ -25,6 +25,7 @@
 	align-self: center;
 	align-items: center;
 	justify-content: center;
+	color: #ffffff;
 }
 
 .heroContent {
@@ -34,6 +35,7 @@
 	justify-content: center;
 	text-align: center;
 	animation: slide-up 0.8s ease-out;
+	color: #d9d9d9;
 }
 
 .slideUp {
