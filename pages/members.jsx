@@ -11,8 +11,13 @@ const members = {
 		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
 		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
 		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
 	],
 	"Team Heads": [
+		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'wH'] },
+		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
 		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
 		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
 		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
@@ -21,7 +26,7 @@ const members = {
 }
 
 const subTeamHeads = [
-	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 1', teams: ['a', 'w'] },
+	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 1', teams: ['a', 'wS'] },
 	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 2', teams: ['a', 'w'] },
 	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 3', teams: ['a', 'w'] },
 	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 4', teams: ['a', 'w'] },
@@ -30,8 +35,8 @@ const subTeamHeads = [
 	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 7', teams: ['a', 'w'] },
 	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 8', teams: ['a', 'w'] },
 ];
-
-export default function MembersPage() {
+ 
+export default function MembersPage(){
 	const [subTeamHeadsCourselIdx, setSubTeamHeadsCourselIdx] = useState(0);
 
 	return (
@@ -65,7 +70,7 @@ export default function MembersPage() {
 					>
 						{subTeamHeads.map(member => (
 							<div className={styles['team-sub-head-member-card']}>
-								<MemberCard {...member} position="Team Sub-Heads" />
+								<MemberCard {...member} position="Team Sub-Heads" isCarousel />
 							</div>
 						))}
 					</Carousel>

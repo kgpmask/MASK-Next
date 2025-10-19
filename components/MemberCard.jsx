@@ -29,9 +29,10 @@ const Icon = ({ icon, description, modifier }) => {
  * 		name="Dalli Manideep" : string
  * 		teams={["nH"]} : array
  * 		position="Governor" : string (optional)
+ *      isCarousel=false (optional)
  * 	/>
  */
-const MemberCard = ({ profilePicture, name, teams, position }) => {
+const MemberCard = ({ profilePicture, name, teams, position, isCarousel = false }) => {
 	/* We assume that the teams is of the form ["nS", "w", "q"] */
 	const teamDict = {
 		"a": "AMV",
@@ -48,7 +49,7 @@ const MemberCard = ({ profilePicture, name, teams, position }) => {
 		"q": <PiListChecksBold />,
 		"w": <FaCode />
 	}
-	
+
 	const roleText = () => {
 		if (position === "Governor") return "Governor";
 		else {
@@ -64,9 +65,9 @@ const MemberCard = ({ profilePicture, name, teams, position }) => {
 
 	return (
 		<>
-			<div className={`${style["member-container"]} ${cabin.className}`}>
+			<div className={`${style["member-container"]} ${cabin.className} ${isCarousel ? style["carousel-style"] : ""}`}>
 				<div className={style["profile-pic"]}>
-					<Image src={`/assets/members/${profilePicture}`} alt={name} width={200} height={200} />
+					<Image src={`/assets/members/${profilePicture}`} alt={name} width={250} height={250} />
 				</div>
 				<div className={style["info-container"]}>
 					<div className={style["member-info"]}>
