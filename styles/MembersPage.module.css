@@ -1,5 +1,5 @@
 .members {
-	padding: 70px 110px 70px 110px;
+	padding: 70px 110px;
 }
 
 .members > h2 {
@@ -12,6 +12,45 @@
 	display: flex;
 	flex-wrap: wrap;
 	row-gap: 47px;
-	column-gap: 50px;
+	column-gap: 45px;
 	margin-bottom: 50px;
+}
+
+.team-sub-heads-carousel > div {
+	width: 100%;
+	justify-content: space-between !important;
+	user-select: none;
+	position: relative;
+}
+
+.team-sub-heads-carousel > div > button {
+	width: 40;
+	height: 40;
+	display: flex;
+	align-items: center;
+	align-self: center;
+	position: absolute;
+	z-index: 20;
+	background: rgba(31, 31, 31, 0.82);
+	border: none;
+	font-size: 30px;
+	color: rgba(109, 109, 109, 1);
+}
+
+.team-sub-head-member-card {
+	margin: 0 10px !important;
+}
+
+@media (max-width: 900px) {
+	.members {
+		padding: 70px 30px;
+	}
+
+	.members-section {
+		justify-content: space-around;
+	}
+
+	.team-sub-heads-carousel > div > button {
+		display: none !important;
+	}
 }

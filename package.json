@@ -12,8 +12,9 @@
 		"next": "15.1.0",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
+		"react-icons": "^5.4.0",
 		"react-player": "^2.16.0",
-		"react-icons": "^5.4.0"
+		"react-simply-carousel": "^9.1.11"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3",
