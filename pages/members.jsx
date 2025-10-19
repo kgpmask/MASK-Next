@@ -4,77 +4,96 @@ import Carousel from 'react-simply-carousel';
 import styles from '@/styles/MembersPage.module.css';
 import MemberCard from '@/components/MemberCard';
 
-const members = {
-	"Governors": [
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
-	],
-	"Team Heads": [
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'wH'] },
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
-		{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+function getMembers() {
+	return [
+		{
+			position: "Governor",
+			members: [
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+			]
+		},
+		{
+			position: "Team Heads",
+			members: [
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'wH'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+			]
+		},
+		{
+			position: "Team Sub-Heads",
+			isCarousel: true,
+			members: [
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'wS'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'wS'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+				{ profilePicture: '24_joshua.webp', name: 'Joshua Raj', teams: ['a', 'w'] },
+			]
+		},
 	]
 }
-
-const subTeamHeads = [
-	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 1', teams: ['a', 'wS'] },
-	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 2', teams: ['a', 'w'] },
-	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 3', teams: ['a', 'w'] },
-	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 4', teams: ['a', 'w'] },
-	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 5', teams: ['a', 'w'] },
-	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 6', teams: ['a', 'w'] },
-	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 7', teams: ['a', 'w'] },
-	{ profilePicture: '24_joshua.webp', name: 'Joshua Raj 8', teams: ['a', 'w'] },
-];
  
 export default function MembersPage(){
 	const [subTeamHeadsCourselIdx, setSubTeamHeadsCourselIdx] = useState(0);
 
+	const positions = getMembers();
+
 	return (
 		<>
 			<div className={styles['members']}>
-				{Object.entries(members).map(([position, members]) => (
-					<>
-						<h2>{position}</h2>
-						<div className={styles['members-section']}>
-							{members.map(member => <MemberCard {...member} position={position} />)}
+				{positions.map((position) => (
+					<section key={position.position}>
+						<h2>{position.position}</h2>
+						{position.isCarousel ? <div className={styles['members-carousel']}>
+							<Carousel
+								activeSlideIndex={subTeamHeadsCourselIdx}
+								onRequestChange={setSubTeamHeadsCourselIdx}
+								forwardBtnProps={{
+									children: <FaChevronRight />,
+									style: {
+										right: 0,
+									}
+								}}
+								backwardBtnProps={{
+									children: <FaAngleLeft />
+								}}
+								infinite={false}
+								centerMode
+								speed={700}
+							>
+								{position.members.map((member, idx) => (
+									<div key={idx} className={styles['member-card-wrapper']}>
+										<MemberCard {...member} position={position.position} isCarousel />
+									</div>
+								))}
+							</Carousel>
 						</div>
-					</>
+						: <div className={styles['members-section']}>
+							{position.members.map((member, idx) => <MemberCard key={idx} {...member} position={position.position} />)}
+						</div>
+						}
+					</section>
 				))}
-				<h2>Team Sub-Heads</h2>
-				<div className={styles['team-sub-heads-carousel']}>
-					<Carousel
-						activeSlideIndex={subTeamHeadsCourselIdx}
-						onRequestChange={setSubTeamHeadsCourselIdx}
-						forwardBtnProps={{
-							children: <FaChevronRight />,
-							style: {
-								right: 0,
-							}
-						}}
-						backwardBtnProps={{
-							children: <FaAngleLeft />
-						}}
-						infinite={false}
-						centerMode
-						speed={700}
-					>
-						{subTeamHeads.map(member => (
-							<div className={styles['team-sub-head-member-card']}>
-								<MemberCard {...member} position="Team Sub-Heads" isCarousel />
-							</div>
-						))}
-					</Carousel>
-				</div>
 			</div>
 		</>
 	);

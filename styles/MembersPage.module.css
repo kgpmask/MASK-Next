@@ -2,7 +2,7 @@
 	padding: 70px 110px;
 }
 
-.members > h2 {
+.members > section > h2 {
 	color: var(--textwhite);
 	font-size: 2rem;
 	margin-bottom: 20px;
@@ -17,14 +17,14 @@
 	justify-content: space-around;
 }
 
-.team-sub-heads-carousel > div {
+.members-carousel > div {
 	width: 100%;
 	justify-content: space-between !important;
 	user-select: none;
 	position: relative;
 }
 
-.team-sub-heads-carousel > div > button {
+.members-carousel > div > button {
 	width: 40;
 	height: 40;
 	display: flex;
@@ -38,16 +38,16 @@
 	color: rgba(109, 109, 109, 1);
 }
 
-.team-sub-head-member-card {
+.member-card-wrapper {
 	margin: 0 10px !important;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
 	.members {
 		padding: 70px 30px;
 	}
 
-	.team-sub-heads-carousel > div > button {
+	.members-carousel > div > button {
 		display: none !important;
 	}
 }
