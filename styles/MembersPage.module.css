@@ -1,0 +1,17 @@
+.members {
+	padding: 70px 110px 70px 110px;
+}
+
+.members > h2 {
+	color: var(--textwhite);
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+.members-section {
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 47px;
+	column-gap: 50px;
+	margin-bottom: 50px;
+}
