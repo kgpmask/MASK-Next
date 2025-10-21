@@ -1,0 +1,6 @@
+.arts-page {
+  display: flex;
+  flex-direction: column;
+  flex-grow: inherit;
+  background-color: var(--black);
+}
