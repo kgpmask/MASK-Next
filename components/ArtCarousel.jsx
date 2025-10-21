@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "@/styles/Carousel.module.css";
 
 // takes in parameters, Template , showNavigator, numPerPage, discrete
+
 const Carousel = ({
   Template = {},
   showNavigator,
@@ -13,6 +14,49 @@ const Carousel = ({
   const [currentElement, setCurrentElement] = useState(0);
   const [sliderWidth, setSliderWidth] = useState("1000px");
   const sliderRef = useRef(null);
+  const hasSwiped = useRef(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+
+  const handleDragStart = (e) => {
+    setIsDragging(true);
+    hasSwiped.current = false;
+    setStartX(e.type === "mousedown" ? e.pageX : e.touches[0].pageX);
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+  };
+  const handleDragMove = (e) => {
+    if (!isDragging || hasSwiped.current) return;
+    e.preventDefault();
+    const swipeThreshold = 100;
+    const x = e.type === "mousemove" ? e.pageX : e.touches[0].pageX;
+    const walk = x - startX;
+
+    // Check if the drag distance exceeds the threshold
+    if (walk < -swipeThreshold) {
+      // Swiped Left
+      setCurrentElement((prev) => (prev + 1) % data.length);
+      hasSwiped.current = true;
+    } else if (walk > swipeThreshold) {
+      // Swiped Right
+      setCurrentElement((prev) => (prev - 1 + data.length) % data.length);
+      hasSwiped.current = true;
+    }
+  };
+
+  useEffect(() => {
+    if (sliderRef.current) {
+      const itemWidth = sliderRef.current.firstChild.offsetWidth + 16; // 16 for margin/gap
+      const newScrollPosition = itemWidth * currentElement;
+
+      sliderRef.current.scrollTo({
+        left: newScrollPosition,
+        behavior: "smooth",
+      });
+    }
+  }, [currentElement]); // This effect runs whenever currentElement changes
 
   useEffect(() => {
     if (sliderRef.current && sliderRef.current.firstChild) {
@@ -80,7 +124,18 @@ const Carousel = ({
         <div
           className={styles.slider}
           ref={sliderRef}
-          style={{ maxWidth: sliderWidth, width: sliderWidth }}
+          style={{
+            maxWidth: sliderWidth,
+            width: sliderWidth,
+            cursor: isDragging ? "grabbing" : "grab",
+          }}
+          onMouseDown={handleDragStart}
+          onMouseMove={handleDragMove}
+          onMouseUp={handleDragEnd}
+          onMouseLeave={handleDragEnd}
+          onTouchStart={handleDragStart}
+          onTouchMove={handleDragMove}
+          onTouchEnd={handleDragEnd}
         >
           {data.map((dataObj, idx) => (
             <div
