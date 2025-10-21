@@ -1,0 +1,370 @@
+[
+  {
+    "id": 1,
+    "src": "/assets/art/202303-01.webp",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "year": "2023",
+    "season": "spring"
+  },
+  {
+    "id": 2,
+    "src": "/assets/art/202303-02.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 3,
+    "src": "/assets/art/202303-03.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 4,
+    "src": "/assets/art/202304-01.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 5,
+    "src": "/assets/art/202305-01.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 6,
+    "src": "/assets/art/202305-02.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 7,
+    "src": "/assets/art/202305-03.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 8,
+    "src": "/assets/art/202305-04.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 9,
+    "src": "/assets/art/202307-01.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "summer"
+  },
+  {
+    "id": 10,
+    "src": "/assets/art/202307-02.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "summer"
+  },
+  {
+    "id": 11,
+    "src": "/assets/art/202307-03.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "summer"
+  },
+  {
+    "id": 12,
+    "src": "/assets/art/202308-01.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "summer"
+  },
+  {
+    "id": 13,
+    "src": "/assets/art/202308-02.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 14,
+    "src": "/assets/art/202308-03.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 15,
+    "src": "/assets/art/202309-01.webp",
+    "year": "2023",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "fall"
+  },
+  {
+    "id": 16,
+    "src": "/assets/art/202401-01.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "winter"
+  },
+  {
+    "id": 17,
+    "src": "/public/assets/art/202402-01.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "winter"
+  },
+  {
+    "id": 18,
+    "src": "/assets/art/202402-02.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "winter"
+  },
+  {
+    "id": 19,
+    "src": "/assets/art/202402-03.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "winter"
+  },
+  {
+    "id": 20,
+    "src": "/assets/art/202403-01.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 21,
+    "src": "/assets/art/202403-02.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 22,
+    "src": "/assets/art/202403-03.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 23,
+    "src": "/assets/art/202403-04.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 24,
+    "src": "/assets/art/202404-01.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 25,
+    "src": "/assets/art/202404-02.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 26,
+    "src": "/assets/art/202405-01.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "spring"
+  },
+  {
+    "id": 27,
+    "src": "/assets/art/202406-01.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 28,
+    "src": "/assets/art/202407-01.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 29,
+    "src": "/assets/art/202407-02.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 30,
+    "src": "/assets/art/202407-03.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 31,
+    "src": "/assets/art/202407-04.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 32,
+    "src": "/assets/art/202407-05.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 33,
+    "src": "/assets/art/202407-06.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 34,
+    "src": "/assets/art/202407-07.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 35,
+    "src": "/assets/art/202407-08.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 36,
+    "src": "/assets/art/202407-09.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 37,
+    "src": "/assets/art/202407-10.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 38,
+    "src": "/assets/art/202407-11.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 39,
+    "src": "/assets/art/202407-12.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 40,
+    "src": "/assets/art/202407-13.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 41,
+    "src": "/assets/art/202407-14.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 42,
+    "src": "/assets/art/202407-15.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 43,
+    "src": "/assets/art/202407-16.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 44,
+    "src": "/assets/art/202407-17.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 45,
+    "src": "/assets/art/202407-18.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  },
+  {
+    "id": 46,
+    "src": "/assets/art/202407-19.webp",
+    "year": "2024",
+    "title": "I luv Kurisu",
+    "description": "This is the choice of Steins;Gate!",
+    "season": "Summer"
+  }
+]
