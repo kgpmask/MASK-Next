@@ -1,0 +1,127 @@
+.card {
+  position: relative;
+  aspect-ratio: 342 / 467;
+  width: clamp(150px, 80%, 342px);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: box-shadow 0.3s ease, transform 0.4s ease;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+.imagecontainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000000d1;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px 12px;
+  color: white;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  width: 100%;
+  max-height: fit-content; /* Added max-height */
+}
+
+.card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.card:hover .content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.4;
+  width: 100%; /* Updated to 100% */
+}
+
+.description {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  width: 100%; /* Updated to 100% */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  width: 65%;
+  height: auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 0.95rem;
+  }
+  .description {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 0.9rem;
+  }
+  .description {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 0.85rem;
+  }
+  .description {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .title {
+    font-size: 0.8rem;
+  }
+  .description {
+    font-size: 0.6rem;
+  }
+}

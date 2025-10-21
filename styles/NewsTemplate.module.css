@@ -1,0 +1,95 @@
+.content {
+  display: flex;
+  flex-grow: inherit;
+  gap: 2rem;
+}
+
+.news-poster {
+  width: 376px;
+  height: 532px;
+  margin-bottom: 1.5rem;
+}
+
+.content-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 437px;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.description {
+  text-align: left;
+  font-weight: 600;
+  color: #d9d9d9;
+  font-size: 0.8rem;
+}
+
+.cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000;
+  padding: 1rem 2rem 1rem 2rem;
+  width: 200px;
+  height: 40px;
+  border-radius: 41px;
+}
+
+.cta-button:hover {
+  cursor: pointer;
+}
+
+.cta-text {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: 2.875rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    height: 55px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-content {
+    width: 70%;
+  }
+
+  .cta-button {
+    width: 300px;
+    gap: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-content {
+    width: 70%;
+  }
+
+  .cta-button {
+    width: 366px;
+    gap: 2rem;
+  }
+}
