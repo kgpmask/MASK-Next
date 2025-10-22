@@ -48,35 +48,42 @@
 .members-section {
 	display: flex;
 	flex-wrap: wrap;
-	row-gap: 47px;
+	row-gap: 20px;
 	column-gap: 20px;
 	margin-bottom: 50px;
-	justify-content: space-around;
 }
 
-.members-carousel-container {
-	width: 100%;
-	justify-content: space-between !important;
-	user-select: none;
+.members-section-horizontal-wrapper {
 	position: relative;
+	display: flex;
 }
 
-.members-carousel-button {
+.members-section-horizontal {
+	overflow-x: hidden;
+	overflow-y: hidden;
+	white-space: nowrap;
+	flex-wrap: nowrap;
+	scroll-behavior: smooth;
+}
+
+.members-section-horizontal > * {
+	flex: 0 0 auto;
+}
+
+.members-scroll-button {
+	position: absolute;
+	align-self: center;
+	color: rgba(109, 109, 109, 1);
+	background: rgba(31, 31, 31, 0.82);
 	width: 40;
 	height: 40;
+	font-size: 30px;
+	border: none;
 	display: flex;
 	align-items: center;
 	align-self: center;
-	position: absolute;
-	z-index: 20;
-	background: rgba(31, 31, 31, 0.82);
-	border: none;
-	font-size: 30px;
-	color: rgba(109, 109, 109, 1);
-}
-
-.member-card-wrapper {
-	margin: 0 10px !important;
+	padding: 10px;
+	transform: translateY(-50%);
 }
 
 @media (max-width: 800px) {
@@ -86,5 +93,13 @@
 
 	.members-carousel > div > button {
 		display: none !important;
+	}
+
+	.members-scroll-button {
+		display: none;
+	}
+
+	.members-section-horizontal {
+		overflow-x: auto;
 	}
 }

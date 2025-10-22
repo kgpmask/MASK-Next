@@ -1,7 +1,6 @@
-import { useState } from 'react';
-import { FaChevronRight, FaAngleLeft } from 'react-icons/fa6';
+import { useRef } from 'react';
+import { FaChevronRight, FaChevronLeft } from 'react-icons/fa6';
 import { FaCaretDown } from 'react-icons/fa';
-import Carousel from 'react-simply-carousel';
 import styles from '@/styles/MembersPage.module.css';
 import MemberCard from '@/components/MemberCard';
 
@@ -12,25 +11,15 @@ function getMembers() {
 		teams,
 	});
 
-	return [
-		{
-			position: 'Governor',
-			members: Array.from({ length: 7 }, () => createMember()),
-		},
-		{
-			position: 'Team Heads',
-			members: Array.from({ length: 7 }, (_, i) =>
-				createMember(i === 0 ? ['a', 'wH'] : ['a', 'w'])
-			),
-		},
-		{
-			position: 'Team Sub-Heads',
-			isCarousel: true,
-			members: Array.from({ length: 14 }, (_, i) =>
-				createMember(i === 0 || i === 7 ? ['a', 'wS'] : ['a', 'w'])
-			),
-		},
-	];
+	return {
+		Governor: Array.from({ length: 7 }, () => createMember()),
+		'Team Heads': Array.from({ length: 7 }, (_, i) =>
+			createMember(i === 0 ? ['a', 'wH'] : ['a', 'w'])
+		),
+		'Team Sub-Heads': Array.from({ length: 17 }, (_, i) =>
+			createMember(i === 0 || i === 7 ? ['a', 'wS'] : ['a', 'w'])
+		),
+	};
 }
 
 const getYearOptions = (start, end) =>
@@ -40,10 +29,20 @@ const getYearOptions = (start, end) =>
 	});
 
 export default function MembersPage() {
-	const [subTeamHeadsCourselIdx, setSubTeamHeadsCourselIdx] = useState(0);
-
+	const teamSubHeadSectionRef = useRef(null);
 	const positions = getMembers();
 	const membersYearOptions = getYearOptions(2025, 2020);
+
+	const scroll = (direction) => {
+		if (teamSubHeadSectionRef.current) {
+			const container = teamSubHeadSectionRef.current;
+			const scrollAmount = 220;
+			container.scrollBy({
+				left: direction === 'right' ? scrollAmount : -scrollAmount,
+				behavior: 'smooth',
+			});
+		}
+	};
 
 	return (
 		<>
@@ -56,48 +55,48 @@ export default function MembersPage() {
 						))}
 					</select>
 				</div>
-				{positions.map((position) => (
-					<section key={position.position}>
-						<h2>{position.position}</h2>
-						{position.isCarousel ? (
-							<div className={styles['members-carousel']}>
-								<Carousel
-									containerProps={{
-										className: styles['members-carousel-container'],
-									}}
-									activeSlideIndex={subTeamHeadsCourselIdx}
-									onRequestChange={setSubTeamHeadsCourselIdx}
-									forwardBtnProps={{
-										children: <FaChevronRight />,
-										className: styles['members-carousel-button'],
-										style: {
-											right: 0,
-										},
-									}}
-									backwardBtnProps={{
-										children: <FaAngleLeft />,
-										className: styles['members-carousel-button'],
-									}}
-									infinite={false}
-									centerMode
-									speed={700}
-								>
-									{position.members.map((member, idx) => (
-										<div key={idx} className={styles['member-card-wrapper']}>
-											<MemberCard {...member} position={position.position} isCarousel />
-										</div>
-									))}
-								</Carousel>
-							</div>
-						) : (
-							<div className={styles['members-section']}>
-								{position.members.map((member, idx) => (
-									<MemberCard key={idx} {...member} position={position.position} />
-								))}
-							</div>
-						)}
-					</section>
-				))}
+				<section>
+					<h2>Governor</h2>
+
+					<div className={styles['members-section']}>
+						{positions['Governor'].map((member, idx) => (
+							<MemberCard key={idx} {...member} position="Governor" />
+						))}
+					</div>
+				</section>
+				<section>
+					<h2>Team Heads</h2>
+
+					<div className={styles['members-section']}>
+						{positions['Team Heads'].map((member, idx) => (
+							<MemberCard key={idx} {...member} position="Team Head" />
+						))}
+					</div>
+				</section>
+				<section>
+					<h2>Team Sub-Heads</h2>
+
+					<div className={styles['members-section-horizontal-wrapper']}>
+						<button className={styles['members-scroll-button']} onClick={() => scroll('left')}>
+							<FaChevronLeft />
+						</button>
+						<div
+							className={`${styles['members-section']} ${styles['members-section-horizontal']}`}
+							ref={teamSubHeadSectionRef}
+						>
+							{positions['Team Sub-Heads'].map((member, idx) => (
+								<MemberCard key={idx} {...member} position="Team Sub-Head" isCompact />
+							))}
+						</div>
+						<button
+							className={styles['members-scroll-button']}
+							style={{ right: '0' }}
+							onClick={() => scroll('right')}
+						>
+							<FaChevronRight />
+						</button>
+					</div>
+				</section>
 			</div>
 		</>
 	);

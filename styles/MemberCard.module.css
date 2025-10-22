@@ -2,7 +2,7 @@
 	height: inherit;
 	width: 200px;
 	justify-content: center;
-	background-color: #E43332;
+	background-color: #e43332;
 }
 
 .member-container > div {
@@ -40,7 +40,7 @@
 	color: whitesmoke;
 }
 
-.profile-pic>img {
+.profile-pic > img {
 	align-self: center;
 	justify-self: center;
 	height: auto;
@@ -64,6 +64,10 @@
 	stroke-width: 1;
 }
 
+.compact-style {
+	width: 150px;
+}
+
 @media screen and (max-width: 900px) {
 	.member-container {
 		width: 170px;
@@ -74,8 +78,4 @@
 	.member-container {
 		width: 100%;
 	}
-}
-
-.carousel-style {
-	width: 150px;
 }
