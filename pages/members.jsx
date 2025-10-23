@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, createRef } from 'react';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa6';
 import { FaCaretDown } from 'react-icons/fa';
 import styles from '@/styles/MembersPage.module.css';
@@ -20,13 +20,29 @@ function getMembers() {
 	});
 
 	return {
-		Governor: Array.from({ length: 9 }, () => createMember(['a', 'w'], true)),
-		'Team Heads': Array.from({ length: 9 }, (_, i) =>
-			createMember(i === 0 ? ['a', 'wH'] : ['a', 'w'])
-		),
-		'Team Sub-Heads': Array.from({ length: 17 }, (_, i) =>
-			createMember(i === 0 || i === 7 ? ['a', 'wS'] : ['a', 'w'])
-		),
+		vertical: {
+			Governor: Array.from({ length: 9 }, () => createMember(['a', 'w'], true)),
+			'Team Head': Array.from({ length: 9 }, (_, i) =>
+				createMember(i === 0 ? ['a', 'wH'] : ['a', 'w'])
+			),
+		},
+		horizontal: {
+			'Team Sub-Head': Array.from({ length: 17 }, (_, i) =>
+				createMember(i === 0 || i === 7 ? ['a', 'wS'] : ['a', 'w'])
+			),
+			Executive: Array.from({ length: 17 }, (_, i) =>
+				createMember(i === 0 || i === 7 ? ['a', 'wS'] : ['a', 'w'])
+			),
+			Associate: Array.from({ length: 17 }, (_, i) =>
+				createMember(i === 0 || i === 7 ? ['a', 'wS'] : ['a', 'w'])
+			),
+			Fresher: Array.from({ length: 17 }, (_, i) =>
+				createMember(i === 0 || i === 7 ? ['a', 'wS'] : ['a', 'w'])
+			),
+			'Former member': Array.from({ length: 17 }, (_, i) =>
+				createMember(i === 0 || i === 7 ? ['a', 'wS'] : ['a', 'w'])
+			),
+		},
 	};
 }
 
@@ -37,24 +53,27 @@ const getYearOptions = (start, end) =>
 	});
 
 export default function MembersPage() {
-	const teamSubHeadSectionRef = useRef(null);
 	const positions = getMembers();
 	const membersYearOptions = getYearOptions(2025, 2020);
+	const horizontalRefs = useRef(
+		Object.keys(positions.horizontal).reduce((acc, key) => {
+			acc[key] = createRef();
+			return acc;
+		}, {})
+	);
 
-	const scroll = (direction) => {
-		if (teamSubHeadSectionRef.current) {
-			const container = teamSubHeadSectionRef.current;
+	const scroll = (position, direction) => {
+		const container = horizontalRefs.current[position]?.current;
+		if (!container) return;
 
-			const firstChild = container.children[0];
-			if (!firstChild) return;
+		const firstChild = container.children[0];
+		if (!firstChild) return;
 
-			const scrollAmount = firstChild.offsetWidth * 2;
-
-			container.scrollBy({
-				left: direction === 'right' ? scrollAmount : -scrollAmount,
-				behavior: 'smooth',
-			});
-		}
+		const scrollAmount = firstChild.offsetWidth * 2;
+		container.scrollBy({
+			left: direction === 'right' ? scrollAmount : -scrollAmount,
+			behavior: 'smooth',
+		});
 	};
 
 	return (
@@ -68,48 +87,46 @@ export default function MembersPage() {
 						))}
 					</select>
 				</div>
-				<section>
-					<h2>Governor</h2>
+				{Object.entries(positions.vertical).map(([position, members]) => (
+					<section>
+						<h2>{position}s</h2>
 
-					<div className={styles['members-section']}>
-						{positions['Governor'].map((member, idx) => (
-							<MemberCard key={idx} {...member} position="Governor" />
-						))}
-					</div>
-				</section>
-				<section>
-					<h2>Team Heads</h2>
-
-					<div className={styles['members-section']}>
-						{positions['Team Heads'].map((member, idx) => (
-							<MemberCard key={idx} {...member} position="Team Head" />
-						))}
-					</div>
-				</section>
-				<section>
-					<h2>Team Sub-Heads</h2>
-
-					<div className={styles['members-section-horizontal-wrapper']}>
-						<button className={styles['members-scroll-button']} onClick={() => scroll('left')}>
-							<FaChevronLeft />
-						</button>
-						<div
-							className={`${styles['members-section']} ${styles['members-section-horizontal']}`}
-							ref={teamSubHeadSectionRef}
-						>
-							{positions['Team Sub-Heads'].map((member, idx) => (
-								<MemberCard key={idx} {...member} position="Team Sub-Head" isCompact />
+						<div className={styles['members-section']}>
+							{members.map((member, idx) => (
+								<MemberCard key={idx} {...member} position={position} />
 							))}
 						</div>
-						<button
-							className={styles['members-scroll-button']}
-							style={{ right: '0' }}
-							onClick={() => scroll('right')}
-						>
-							<FaChevronRight />
-						</button>
-					</div>
-				</section>
+					</section>
+				))}
+				{Object.entries(positions.horizontal).map(([position, members]) => (
+					<section>
+						<h2>{position}s</h2>
+
+						<div className={styles['members-section-horizontal-wrapper']}>
+							<button
+								className={styles['members-scroll-button']}
+								onClick={() => scroll(position, 'left')}
+							>
+								<FaChevronLeft />
+							</button>
+							<div
+								className={`${styles['members-section']} ${styles['members-section-horizontal']}`}
+								ref={horizontalRefs.current[position]}
+							>
+								{members.map((member, idx) => (
+									<MemberCard key={idx} {...member} position={position} isCompact />
+								))}
+							</div>
+							<button
+								className={styles['members-scroll-button']}
+								style={{ right: '0' }}
+								onClick={() => scroll(position, 'right')}
+							>
+								<FaChevronRight />
+							</button>
+						</div>
+					</section>
+				))}
 			</div>
 		</>
 	);
