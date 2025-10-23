@@ -4,6 +4,7 @@ import { FaCaretDown } from 'react-icons/fa';
 import styles from '@/styles/MembersPage.module.css';
 import MemberCard from '@/components/MemberCard';
 
+// TODO: Populate getMembers() with real member data instead of placeholder entries
 function getMembers() {
 	const createMember = (teams = ['a', 'w'], governor = false) => ({
 		profilePicture: '24_joshua.webp',
@@ -13,6 +14,7 @@ function getMembers() {
 			? {
 					email: 'example@example.com',
 					instagram: 'example',
+					github: 'example',
 			  }
 			: undefined,
 	});

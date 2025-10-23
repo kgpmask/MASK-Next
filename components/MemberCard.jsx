@@ -3,7 +3,7 @@ import style from '@/styles/MemberCard.module.css';
 import Image from 'next/image';
 import { Cabin } from 'next/font/google';
 import { MdOutlineEmail } from 'react-icons/md';
-import { FaInstagram } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 import { BiMoviePlay } from 'react-icons/bi';
 import { FaPaintbrush } from 'react-icons/fa6';
@@ -30,14 +30,21 @@ const Icon = ({ icon, description, modifier }) => {
  * 		position="Governor" : string (optional)
  *		contacts={
  *			email: "example@example.com",
- *			instagram: "arpitchakladar"
- *		} : only first two contact information will be taken (optional)
+ *			instagram: "arpitchakladar",
+ *			linkedin: "arpitchakladar",
+ *			github: "arpitchakladar",
+ *		} : (optional)
  *      isCompact=false (optional)
  * 	/>
  */
 const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact = false }) => {
+	const contactInformation =
+		position === 'Governor' && contacts && Object.keys(contacts).length > 0 ? contacts : null;
+
+	const positionNames = { H: 'Head', S: 'Sub-Head' };
+
 	/* We assume that the teams is of the form ["nS", "w", "q"] */
-	const teamDict = {
+	const teamNames = {
 		a: 'AMV',
 		d: 'DNA',
 		n: 'MN',
@@ -45,7 +52,17 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 		w: 'WebD',
 	};
 
-	const iconMap = {
+	const positionFull =
+		position === 'Governor'
+			? 'Governor'
+			: (() => {
+					const teamWithRole = teams.find((team) => team.length === 2 && positionNames[team[1]]);
+					return teamWithRole
+						? `${teamNames[teamWithRole[0]]} ${positionNames[teamWithRole[1]]}`
+						: position;
+			  })();
+
+	const positionIcons = {
 		a: <BiMoviePlay />,
 		d: <FaPaintbrush />,
 		n: <TfiWrite />,
@@ -53,17 +70,11 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 		w: <FaCode />,
 	};
 
-	const roleText = () => {
-		if (position === 'Governor') return 'Governor';
-		else {
-			for (let team of teams) {
-				if (team.length === 2) {
-					if (team[1] === 'H') return teamDict[team[0]] + ' Head';
-					else if (team[1] === 'S') return teamDict[team[0]] + ' Sub-Head';
-				}
-			}
-			return position;
-		}
+	const contactIcons = {
+		email: <MdOutlineEmail />,
+		instagram: <FaInstagram />,
+		linkedin: <FaLinkedin />,
+		github: <FaGithub />,
 	};
 
 	const getContactInfoLink = (type, value) => {
@@ -72,18 +83,12 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 				return `mailto:${value}`;
 			case 'instagram':
 				return `https://www.instagram.com/${value}`;
+			case 'github':
+				return `https://github.com/${value}`;
+			case 'linkedin':
+				return `https://www.linkedin.com/in/${value}`;
 			default:
 				return '';
-		}
-	};
-	const getContactInfoIcon = (type) => {
-		switch (type) {
-			case 'email':
-				return <MdOutlineEmail />;
-			case 'instagram':
-				return <FaInstagram />;
-			default:
-				return <></>;
 		}
 	};
 
@@ -91,7 +96,7 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 		<>
 			<div
 				className={`${style['member-container']} ${cabin.className} ${
-					position === 'Governor' && contacts ? style['with-contact-info'] : ''
+					contactInformation ? style['with-contact-info'] : ''
 				} ${isCompact ? style['compact-style'] : ''}`}
 			>
 				<div className={style['profile-pic']}>
@@ -100,20 +105,20 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 				<div className={style['info-container']}>
 					<div className={style['member-info']}>
 						<div className={style['member-name']}>{name}</div>
-						<div className={style['member-position']}>{roleText()}</div>
+						<div className={style['member-position']}>{positionFull}</div>
 					</div>
 					<div className={style['team-list']}>
 						{teams.map((team, index) => (
 							<Icon
 								key={index}
-								icon={iconMap[team[0]]}
-								description={teamDict[team[0]]}
+								icon={positionIcons[team[0]]}
+								description={teamNames[team[0]]}
 								modifier={team.length === 2 ? team[1] : false}
 							/>
 						))}
 					</div>
 				</div>
-				{position === 'Governor' && contacts && (
+				{contactInformation && (
 					<div className={style['contact-info-container']}>
 						{Object.entries(contacts).map(([type, value]) => (
 							<a
@@ -121,7 +126,7 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 								key={type}
 								className={style['contact-info']}
 							>
-								{getContactInfoIcon(type)}
+								{contactIcons[type]}
 							</a>
 						))}
 					</div>
