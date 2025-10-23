@@ -1,6 +1,6 @@
 .member-container {
 	height: inherit;
-	width: 200px;
+	width: auto;
 	justify-content: center;
 	background-color: #e43332;
 	overflow: hidden;
@@ -94,18 +94,6 @@
 .member-container.with-contact-info:hover > .info-container,
 .member-container.with-contact-info:hover > .contact-info-container {
 	transform: translateY(-50px);
-}
-
-@media screen and (max-width: 900px) {
-	.member-container {
-		width: 170px;
-	}
-}
-
-@media screen and (max-width: 430px) {
-	.member-container {
-		width: 120px;
-	}
 }
 
 .compact-style {

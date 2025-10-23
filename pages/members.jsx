@@ -18,8 +18,8 @@ function getMembers() {
 	});
 
 	return {
-		Governor: Array.from({ length: 7 }, () => createMember(['a', 'w'], true)),
-		'Team Heads': Array.from({ length: 7 }, (_, i) =>
+		Governor: Array.from({ length: 9 }, () => createMember(['a', 'w'], true)),
+		'Team Heads': Array.from({ length: 9 }, (_, i) =>
 			createMember(i === 0 ? ['a', 'wH'] : ['a', 'w'])
 		),
 		'Team Sub-Heads': Array.from({ length: 17 }, (_, i) =>
