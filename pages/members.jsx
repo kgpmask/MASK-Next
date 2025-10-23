@@ -48,7 +48,7 @@ export default function MembersPage() {
 			const firstChild = container.children[0];
 			if (!firstChild) return;
 
-			const scrollAmount = firstChild.offsetWidth + 20;
+			const scrollAmount = firstChild.offsetWidth * 2;
 
 			container.scrollBy({
 				left: direction === 'right' ? scrollAmount : -scrollAmount,
