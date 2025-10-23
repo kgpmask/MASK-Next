@@ -7,11 +7,7 @@
 }
 
 .member-container.with-contact-info {
-	height: 310px;
-}
-
-.member-container > div {
-	overflow: hidden;
+	position: relative;
 }
 
 .profile-pic > img {
@@ -70,6 +66,8 @@
 	display: flex;
 	flex-direction: row;
 	width: 100%;
+	position: absolute;
+	bottom: -50px;
 }
 
 .contact-info-container > .contact-info {
@@ -102,17 +100,11 @@
 	.member-container {
 		width: 170px;
 	}
-	.member-container.with-contact-info {
-		height: 280px;
-	}
 }
 
 @media screen and (max-width: 430px) {
 	.member-container {
 		width: 120px;
-	}
-	.member-container.with-contact-info {
-		height: 230px;
 	}
 }
 

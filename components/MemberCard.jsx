@@ -116,7 +116,11 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 				{position === 'Governor' && contacts && (
 					<div className={style['contact-info-container']}>
 						{Object.entries(contacts).map(([type, value]) => (
-							<a href={getContactInfoLink(type, value)} className={style['contact-info']}>
+							<a
+								href={getContactInfoLink(type, value)}
+								key={type}
+								className={style['contact-info']}
+							>
 								{getContactInfoIcon(type)}
 							</a>
 						))}

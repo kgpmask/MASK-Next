@@ -42,7 +42,12 @@ export default function MembersPage() {
 	const scroll = (direction) => {
 		if (teamSubHeadSectionRef.current) {
 			const container = teamSubHeadSectionRef.current;
-			const scrollAmount = 220;
+
+			const firstChild = container.children[0];
+			if (!firstChild) return;
+
+			const scrollAmount = firstChild.offsetWidth + 20;
+
 			container.scrollBy({
 				left: direction === 'right' ? scrollAmount : -scrollAmount,
 				behavior: 'smooth',
@@ -57,7 +62,7 @@ export default function MembersPage() {
 					<FaCaretDown className={styles['members-batch-down']} />
 					<select className={styles['members-batch-select']}>
 						{membersYearOptions.map((option) => (
-							<option>{`Members: ${option}`}</option>
+							<option key={option}>{`Members: ${option}`}</option>
 						))}
 					</select>
 				</div>
