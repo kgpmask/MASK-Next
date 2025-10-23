@@ -5,14 +5,20 @@ import styles from '@/styles/MembersPage.module.css';
 import MemberCard from '@/components/MemberCard';
 
 function getMembers() {
-	const createMember = (teams = ['a', 'w']) => ({
+	const createMember = (teams = ['a', 'w'], governor = false) => ({
 		profilePicture: '24_joshua.webp',
 		name: 'Joshua Raj',
 		teams,
+		contacts: governor
+			? {
+					email: 'example@example.com',
+					instagram: 'example',
+			  }
+			: undefined,
 	});
 
 	return {
-		Governor: Array.from({ length: 7 }, () => createMember()),
+		Governor: Array.from({ length: 7 }, () => createMember(['a', 'w'], true)),
 		'Team Heads': Array.from({ length: 7 }, (_, i) =>
 			createMember(i === 0 ? ['a', 'wH'] : ['a', 'w'])
 		),

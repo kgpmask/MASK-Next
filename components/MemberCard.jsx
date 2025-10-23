@@ -2,6 +2,8 @@ import React from 'react';
 import style from '@/styles/MemberCard.module.css';
 import Image from 'next/image';
 import { Cabin } from 'next/font/google';
+import { MdOutlineEmail } from 'react-icons/md';
+import { FaInstagram } from 'react-icons/fa';
 
 import { BiMoviePlay } from 'react-icons/bi';
 import { FaPaintbrush } from 'react-icons/fa6';
@@ -26,10 +28,14 @@ const Icon = ({ icon, description, modifier }) => {
  * 		name="Dalli Manideep" : string
  * 		teams={["nH"]} : array
  * 		position="Governor" : string (optional)
+ *		contacts={
+ *			email: "example@example.com",
+ *			instagram: "arpitchakladar"
+ *		} : only first two contact information will be taken (optional)
  *      isCompact=false (optional)
  * 	/>
  */
-const MemberCard = ({ profilePicture, name, teams, position, isCompact = false }) => {
+const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact = false }) => {
 	/* We assume that the teams is of the form ["nS", "w", "q"] */
 	const teamDict = {
 		a: 'AMV',
@@ -60,12 +66,33 @@ const MemberCard = ({ profilePicture, name, teams, position, isCompact = false }
 		}
 	};
 
+	const getContactInfoLink = (type, value) => {
+		switch (type) {
+			case 'email':
+				return `mailto:${value}`;
+			case 'instagram':
+				return `https://www.instagram.com/${value}`;
+			default:
+				return '';
+		}
+	};
+	const getContactInfoIcon = (type) => {
+		switch (type) {
+			case 'email':
+				return <MdOutlineEmail />;
+			case 'instagram':
+				return <FaInstagram />;
+			default:
+				return <></>;
+		}
+	};
+
 	return (
 		<>
 			<div
 				className={`${style['member-container']} ${cabin.className} ${
-					isCompact ? style['compact-style'] : ''
-				}`}
+					position === 'Governor' && contacts ? style['with-contact-info'] : ''
+				} ${isCompact ? style['compact-style'] : ''}`}
 			>
 				<div className={style['profile-pic']}>
 					<Image src={`/assets/members/${profilePicture}`} alt={name} width={250} height={250} />
@@ -86,6 +113,15 @@ const MemberCard = ({ profilePicture, name, teams, position, isCompact = false }
 						))}
 					</div>
 				</div>
+				{position === 'Governor' && contacts && (
+					<div className={style['contact-info-container']}>
+						{Object.entries(contacts).map(([type, value]) => (
+							<a href={getContactInfoLink(type, value)} className={style['contact-info']}>
+								{getContactInfoIcon(type)}
+							</a>
+						))}
+					</div>
+				)}
 			</div>
 		</>
 	);

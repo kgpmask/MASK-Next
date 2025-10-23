@@ -3,14 +3,15 @@
 	width: 200px;
 	justify-content: center;
 	background-color: #e43332;
+	overflow: hidden;
+}
+
+.member-container.with-contact-info {
+	height: 310px;
 }
 
 .member-container > div {
 	overflow: hidden;
-}
-
-.profile-pic {
-	height: inherit;
 }
 
 .profile-pic > img {
@@ -51,6 +52,7 @@
 	font-size: 0.8rem;
 	color: #e6e6e6;
 }
+
 .team-list {
 	display: flex;
 	flex-wrap: wrap;
@@ -64,18 +66,56 @@
 	stroke-width: 1;
 }
 
-.compact-style {
-	width: 150px;
+.contact-info-container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+.contact-info-container > .contact-info {
+	flex: 1;
+	text-align: center;
+	padding: 10px;
+	height: 50px;
+	color: #fff;
+	background: rgba(139, 0, 0, 1);
+	font-size: 24px;
+}
+
+.contact-info:nth-child(odd) {
+	background: rgba(176, 44, 43, 1);
+}
+
+.member-container.with-contact-info > .profile-pic,
+.member-container.with-contact-info > .info-container,
+.member-container.with-contact-info > .contact-info-container {
+	transition: transform 300ms ease-in-out;
+}
+
+.member-container.with-contact-info:hover > .profile-pic,
+.member-container.with-contact-info:hover > .info-container,
+.member-container.with-contact-info:hover > .contact-info-container {
+	transform: translateY(-50px);
 }
 
 @media screen and (max-width: 900px) {
 	.member-container {
 		width: 170px;
 	}
+	.member-container.with-contact-info {
+		height: 280px;
+	}
 }
 
 @media screen and (max-width: 430px) {
 	.member-container {
-		width: 100%;
+		width: 120px;
 	}
+	.member-container.with-contact-info {
+		height: 230px;
+	}
+}
+
+.compact-style {
+	width: 150px;
 }
