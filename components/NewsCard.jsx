@@ -30,6 +30,17 @@ const NewsletterCardGallery = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.heading}>
+        <p>
+          Check out our other <strong>Newsletters</strong>
+        </p>
+      </div>
+      <div className={styles.subheading}>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
       <div className={styles.grid}>
         {newsContent.map((news, idx) => (
           <div key={news.id}>

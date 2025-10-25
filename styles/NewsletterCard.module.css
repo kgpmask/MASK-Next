@@ -1,7 +1,7 @@
 .card {
   position: relative;
   aspect-ratio: 342 / 467;
-  width: clamp(150px, 80%, 342px);
+  width: clamp(150px, 90%, 342px);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -77,9 +77,35 @@
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 3rem;
   width: 100%;
+}
+
+.heading {
+  color: #eee;
+  margin-bottom: 1rem;
+  font-family: Cabin;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 36px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+.subheading {
+  color: #ccc;
+  margin-bottom: 0.5rem;
+  font-family: Cabin;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
 }
 
 .grid {
