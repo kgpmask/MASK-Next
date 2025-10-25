@@ -9,6 +9,7 @@ const NewsCarousel = ({
   numPerPage,
   discrete,
   data = [],
+  onSlideChange,
 }) => {
   const [currentElement, setCurrentElement] = useState(0);
   const [sliderWidth, setSliderWidth] = useState("1000px");
@@ -28,17 +29,23 @@ const NewsCarousel = ({
 
   const moveNext = useCallback(() => {
     const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
+    let newElement;
     if (currentElement + numPerPage > data.length - 1) {
+      newElement = 0;
       setCurrentElement(0);
       sliderRef.current.scrollBy({
         left: -itemWidth * (data.length - 1),
         behavior: "smooth",
       });
     } else {
-      setCurrentElement(currentElement + 1);
+      newElement = currentElement + 1;
+      setCurrentElement(newElement);
       sliderRef.current.scrollBy({ left: itemWidth, behavior: "smooth" });
     }
-  }, [currentElement, data.length, numPerPage]);
+    if (onSlideChange) {
+      onSlideChange(newElement);
+    }
+  }, [currentElement, data.length, numPerPage, onSlideChange]);
 
   useEffect(() => {
     if (isHovering | (data.length === 0)) return;
@@ -51,15 +58,21 @@ const NewsCarousel = ({
 
   function movePrev() {
     const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
+    let newElement;
     if (currentElement <= 0) {
-      setCurrentElement(data.length - 1);
+      newElement = data.length - 1;
+      setCurrentElement(newElement);
       sliderRef.current.scrollBy({
         left: itemWidth * (data.length - 1),
         behavior: "smooth",
       });
     } else {
-      setCurrentElement(currentElement - 1);
+      newElement = currentElement - 1;
+      setCurrentElement(newElement);
       sliderRef.current.scrollBy({ left: -itemWidth, behavior: "smooth" });
+    }
+    if (onSlideChange) {
+      onSlideChange(newElement);
     }
   }
   function moveHere(targetNum) {
@@ -70,6 +83,9 @@ const NewsCarousel = ({
       behavior: "smooth",
     });
     setCurrentElement(targetNum);
+    if (onSlideChange) {
+      onSlideChange(targetNum);
+    }
   }
   function inheritWidth() {
     // inherits width of parent from child
