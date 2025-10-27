@@ -1,33 +1,20 @@
 import React from 'react';
 import EventCard from '@/components/EventCard';
 import styles from '@/styles/EventCard.module.css';
-	
+import events from '@/pages/Events.json';
+
 export default function EventsPage() {
     return (
         <div className={styles.eventCardContainer}>
-            <EventCard 
-  		        event={{
-  			        image: "/assets/events/gear-5/4.webp",
-  			        title: "Gear-5 Screening",
-  			        date: "date",
-  			        venue: "venue",
-  			        author: "Pratyay",
-  			        description: `lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-					Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris`
- 		        }}
-            />
 
-            <EventCard 
-  		        event={{
-  			        image: "/assets/events/ocaq-2023/3.webp",
-  			        title: "Open Campus Anime Quiz 2023",
-  			        date: "January 1, 2023",
-  			        venue: "Nehru museum",
-  			        author: "Pratyay",
-  			        description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
- 		        }}
-            />
+			{Object.values(events).map((event, index) => {
+				return (
+					<EventCard
+						key = {index}
+						event={event}
+					/>
+				);
+			})}
 
         </div>
     );
