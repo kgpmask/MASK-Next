@@ -3,7 +3,8 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 70vh;
+  height: 72vh;
+  min-height: fit-content;
   background-size: cover;
   background-position: center 70%;
   background-repeat: no-repeat;
@@ -18,6 +19,7 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  padding: 1rem 1rem 1rem 1rem;
 }
 
 @media (min-width: 768px) {

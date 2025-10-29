@@ -1,10 +1,11 @@
 .content {
   display: flex;
-  flex-grow: inherit;
+  /* flex-grow: inherit; */
   gap: 2rem;
 }
 
 .news-poster {
+  position: relative;
   width: 376px;
   height: 532px;
   margin-bottom: 1.5rem;
@@ -25,6 +26,7 @@
 
 .main-screen-mobile {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 
@@ -32,11 +34,13 @@
   width: 160px;
   height: 230px;
   flex-shrink: 0;
+  position: relative;
+  align-self: flex-end;
 }
 
 .text-content-mobile {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 1rem;
 }
 
@@ -116,6 +120,10 @@
     min-height: fit-content;
     flex-direction: column;
     gap: 1.5rem;
+  }
+  .title {
+    text-align: center;
+    font-size: 2rem;
   }
 }
 

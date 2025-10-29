@@ -7,13 +7,9 @@ const NewsTemplate = ({ dataObj }) => {
   return (
     <>
       <div className={styles["content"]}>
-        <Image
-          src={dataObj.src}
-          width={376}
-          height={532}
-          alt="news poster"
-          className={styles["news-poster"]}
-        />
+        <div className={styles["news-poster"]}>
+          <Image src={dataObj.src} fill alt="news poster" />
+        </div>
         <div className={styles["content-column"]}>
           <div className={styles["text-content"]}>
             <p className={styles["title"]}>{dataObj.title}</p>
@@ -44,17 +40,13 @@ const NewsTemplate = ({ dataObj }) => {
         {/* Mobile Content */}
         <div className={styles["content-mobile"]}>
           <div className={styles["main-screen-mobile"]}>
-            <Image
-              src={dataObj.src}
-              width={376}
-              height={532}
-              alt="news poster"
-              className={styles["mobile-news-poster"]}
-            />
+            <p className={styles["title"]}>{dataObj.title}</p>
             <div className={styles["text-content-mobile"]}>
-              <p className={styles["title"]}>{dataObj.title}</p>
+              <div className={styles["mobile-news-poster"]}>
+                <Image src={dataObj.src} fill alt="news poster" />
+              </div>
               <p className={styles["description"]}>
-                {dataObj.description.slice(0, 335)}...
+                {dataObj.description.slice(0, 310)}...
               </p>
             </div>
           </div>
