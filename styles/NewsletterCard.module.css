@@ -82,6 +82,7 @@
   align-items: center;
   margin-top: 3rem;
   width: 100%;
+  padding: 1rem 1rem 1rem 1rem;
 }
 
 .heading {
@@ -94,6 +95,7 @@
   line-height: 100%;
   letter-spacing: 0%;
   vertical-align: middle;
+  text-align: center;
 }
 
 .subheading {
@@ -131,6 +133,16 @@
   }
   .description {
     font-size: 0.72rem;
+  }
+  .heading {
+    font-size: 28px;
+  }
+  .subheading {
+    display: none;
+  }
+  .grid {
+    width: 90%;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
-import styles from "@/styles/Carousel.module.css";
+import styles from "@/styles/NewsCarousel.module.css";
 
 // takes in parameters, Template , showNavigator, numPerPage, discrete
 const NewsCarousel = ({
