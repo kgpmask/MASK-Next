@@ -13,23 +13,13 @@
 .header-content {
   color: white;
   text-align: center;
-  width: 95%;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 2rem;
   padding: 1rem 1rem 1rem 1rem;
-}
-
-@media (min-width: 768px) {
-  .header-content {
-    width: 70%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .header-content {
-    width: 70%;
-  }
 }

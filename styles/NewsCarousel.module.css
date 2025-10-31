@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: inherit;
+  width: 100%;
 }
 
 .carousel-wrapper {
@@ -12,6 +13,7 @@
   overflow: hidden;
   height: auto;
   margin: 0 auto;
+  width: 100%;
 }
 
 .arrow {
@@ -40,6 +42,8 @@
 
 .item-wrapper {
   height: fit-content;
+  flex: 0 0 100%;
+  width: 100%;
 }
 
 .item-content {

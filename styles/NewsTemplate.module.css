@@ -1,23 +1,31 @@
 .content {
-  display: flex;
+  display: grid;
   /* flex-grow: inherit; */
   gap: 2rem;
+  width: 100%;
+  grid-template-columns: 376px 1fr;
 }
 
 .news-poster {
   position: relative;
-  width: 376px;
-  height: 532px;
+  width: 100%;
   margin-bottom: 1.5rem;
+}
+
+.news-poster > img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto !important;
+  height: auto !important;
 }
 
 .content-column {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 437px;
   padding-bottom: 1rem;
   margin-bottom: 1.5rem;
+  gap: 10px;
 }
 
 .content-mobile {

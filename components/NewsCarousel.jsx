@@ -12,40 +12,12 @@ const NewsCarousel = ({
   onSlideChange,
 }) => {
   const [currentElement, setCurrentElement] = useState(0);
-  const [sliderWidth, setSliderWidth] = useState("1000px");
   const sliderRef = useRef(null);
 
-  useEffect(() => {
-    if (sliderRef.current && sliderRef.current.firstChild) {
-      const itemWidth = sliderRef.current.firstChild.offsetWidth;
-      const gap = 16;
-      const newSliderWidth = itemWidth * numPerPage + gap * (numPerPage - 1);
-      setSliderWidth(`${newSliderWidth}px`);
-    }
-  }, [numPerPage, data]);
-
-  const AUTO_SCROLL_DELAY = 4000;
+  const AUTO_SCROLL_DELAY = 4000000;
   const [isHovering, setIsHovering] = useState(false);
 
-  const moveNext = useCallback(() => {
-    const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
-    let newElement;
-    if (currentElement + numPerPage > data.length - 1) {
-      newElement = 0;
-      setCurrentElement(0);
-      sliderRef.current.scrollBy({
-        left: -itemWidth * (data.length - 1),
-        behavior: "smooth",
-      });
-    } else {
-      newElement = currentElement + 1;
-      setCurrentElement(newElement);
-      sliderRef.current.scrollBy({ left: itemWidth, behavior: "smooth" });
-    }
-    if (onSlideChange) {
-      onSlideChange(newElement);
-    }
-  }, [currentElement, data.length, numPerPage, onSlideChange]);
+  const getScrollOffset = (num) => sliderRef.current.children[num].offsetLeft;
 
   useEffect(() => {
     if (isHovering | (data.length === 0)) return;
@@ -56,45 +28,21 @@ const NewsCarousel = ({
     return () => clearInterval(slideInterval);
   });
 
-  function movePrev() {
-    const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
-    let newElement;
-    if (currentElement <= 0) {
-      newElement = data.length - 1;
-      setCurrentElement(newElement);
-      sliderRef.current.scrollBy({
-        left: itemWidth * (data.length - 1),
-        behavior: "smooth",
-      });
-    } else {
-      newElement = currentElement - 1;
-      setCurrentElement(newElement);
-      sliderRef.current.scrollBy({ left: -itemWidth, behavior: "smooth" });
-    }
-    if (onSlideChange) {
-      onSlideChange(newElement);
-    }
-  }
-  function moveHere(targetNum) {
-    const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
-    const shiftCount = targetNum - currentElement;
-    sliderRef.current.scrollBy({
-      left: itemWidth * shiftCount,
+  useEffect(() => {
+    sliderRef.current.scrollTo({
+      left: getScrollOffset(currentElement),
       behavior: "smooth",
     });
-    setCurrentElement(targetNum);
     if (onSlideChange) {
-      onSlideChange(targetNum);
+      onSlideChange(currentElement);
     }
-  }
-  function inheritWidth() {
-    // inherits width of parent from child
-    if (sliderRef != null && sliderRef.current != null) {
-      setSliderWidth(
-        (sliderRef.current.firstChild.offsetWidth + 16) * numPerPage - 16
-      );
-    }
-  }
+  }, [currentElement]);
+
+  const moveNext = () => setCurrentElement((cur) => (cur + 1) % data.length);
+  const movePrev = () =>
+    setCurrentElement((cur) => (cur - 1 + data.length) % data.length);
+  const moveHere = (num) => setCurrentElement(num);
+
   return (
     <div
       className={styles.container}
@@ -110,26 +58,15 @@ const NewsCarousel = ({
           className={styles.arrow}
           onClick={movePrev}
         />
-        <div
-          className={styles.slider}
-          ref={sliderRef}
-          style={{ maxWidth: sliderWidth, width: sliderWidth }}
-        >
+        <div className={styles.slider} ref={sliderRef}>
           {data.map((dataObj, idx) => (
             <div
               style={{ height: "fit-content" }}
-              onLoad={inheritWidth}
               key={`item-${idx}`}
               className={styles["item-wrapper"]}
             >
               {dataObj ? (
-                <div
-                  className={styles["item-content"]}
-                  key={dataObj.id}
-                  style={{
-                    flex: `0 0 calc((100% - 32px) / ${numPerPage})`,
-                  }}
-                >
+                <div className={styles["item-content"]} key={dataObj.id}>
                   <Template dataObj={dataObj} key={dataObj.id} />
                 </div>
               ) : (
