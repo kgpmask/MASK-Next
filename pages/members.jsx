@@ -88,7 +88,7 @@ export default function MembersPage() {
 					</select>
 				</div>
 				{Object.entries(positions.vertical).map(([position, members]) => (
-					<section>
+					<section key={position}>
 						<h2>{position}s</h2>
 
 						<div className={styles['members-section']}>
@@ -99,7 +99,7 @@ export default function MembersPage() {
 					</section>
 				))}
 				{Object.entries(positions.horizontal).map(([position, members]) => (
-					<section>
+					<section key={position}>
 						<h2>{position}s</h2>
 
 						<div className={styles['members-section-horizontal-wrapper']}>
