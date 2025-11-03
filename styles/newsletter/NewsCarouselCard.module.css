@@ -2,6 +2,7 @@
   display: grid;
   /* flex-grow: inherit; */
   gap: 2rem;
+  justify-items: center;
   width: 100%;
   grid-template-columns: 376px 1fr;
 }

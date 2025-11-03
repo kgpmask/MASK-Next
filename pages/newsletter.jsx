@@ -2,7 +2,7 @@ import NewsletterCardGallery from "@/components/newsletter/NewsCard";
 import styles from "@/styles/newsletter/News.module.css";
 import newsContent from "@/data/news.json";
 import NewsCarousel from "@/components/newsletter/NewsCarousel";
-import NewsTemplate from "@/components/newsletter/NewsTemplate";
+import NewsCarouselCard from "@/components/newsletter/NewsCarouselCard";
 import { useState } from "react";
 
 function NewsHeaderCarousel() {
@@ -21,7 +21,7 @@ function NewsHeaderCarousel() {
       >
         <div className={styles["header-content"]}>
           <NewsCarousel
-            Template={NewsTemplate}
+            Template={NewsCarouselCard}
             showNavigator={true}
             numPerPage={1}
             discrete={false}

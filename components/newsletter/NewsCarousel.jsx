@@ -129,24 +129,6 @@ const NewsCarousel = ({
           onClick={moveNext}
         />
       </div>
-      {showNavigator && (
-        <div className={styles["navigation-dots"]}>
-          {Array.from({ length: data.length }).map((_, num) =>
-            !(num >= currentElement && num < currentElement + numPerPage) ? (
-              <div
-                className={styles.dot}
-                key={num}
-                onClick={() => moveHere(num)}
-              ></div>
-            ) : (
-              <div
-                className={`${styles.dot} ${styles["active-dot"]}`}
-                key={num}
-              ></div>
-            )
-          )}
-        </div>
-      )}
     </div>
   );
 };

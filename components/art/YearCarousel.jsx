@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SeasonFilter from "./SeasonFilter";
 import Carousel from "./ArtCarousel";
 import artworks from "../../data/artworks.json";
-import ArtTemplate from "./ArtTemplate";
+import ArtCarouselCard from "./ArtCarosuelCard";
 import styles from "@/styles/art/YearCarousel.module.css";
 
 // custom hook to get window size
@@ -69,7 +69,7 @@ function YearCarousel({ year }) {
       </div>
 
       <Carousel
-        Template={ArtTemplate}
+        Template={ArtCarouselCard}
         showNavigator={true}
         numPerPage={itemsPerPage}
         discrete={false}

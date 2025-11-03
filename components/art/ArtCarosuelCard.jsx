@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import styles from "@/styles/art/ArtsTemplate.module.css";
+import styles from "@/styles/art/ArtsCarouselCard.module.css";
 
 // takes in data object
-const ArtTemplate = ({ dataObj }) => {
+const ArtCarouselCard = ({ dataObj }) => {
   return (
     <div className={styles["art-container"]}>
       <Image
@@ -22,4 +22,4 @@ const ArtTemplate = ({ dataObj }) => {
   );
 };
 
-export default ArtTemplate;
+export default ArtCarouselCard;
