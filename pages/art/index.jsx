@@ -1,6 +1,6 @@
 import ArtHeader from "./header";
-import YearCarouselGroup from "@/components/YearCarousel";
-import styles from "@/styles/Arts.module.css";
+import YearCarouselGroup from "@/components/art/YearCarousel";
+import styles from "@/styles/art/Arts.module.css";
 
 export default function Art() {
   return (

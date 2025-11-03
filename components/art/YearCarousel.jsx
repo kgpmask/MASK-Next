@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import SeasonFilter from "./SeasonFilter";
 import Carousel from "./ArtCarousel";
-import artworks from "../data/artworks.json";
+import artworks from "../../data/artworks.json";
 import ArtTemplate from "./ArtTemplate";
-import styles from "@/styles/YearCarousel.module.css";
+import styles from "@/styles/art/YearCarousel.module.css";
 
 // custom hook to get window size
 function useWindowSize() {

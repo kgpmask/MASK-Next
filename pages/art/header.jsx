@@ -1,4 +1,4 @@
-import styles from "@/styles/ArtsHeader.module.css";
+import styles from "@/styles/art/ArtsHeader.module.css";
 import { useEffect, useState } from "react";
 
 export default function ArtHeader() {

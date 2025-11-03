@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/styles/NewsletterCard.module.css";
+import styles from "@/styles/newsletter/NewsletterCard.module.css";
 import newsContent from "@/data/news.json";
 
 const NewsletterCard = ({ image, title, description, link, onCardClick }) => {

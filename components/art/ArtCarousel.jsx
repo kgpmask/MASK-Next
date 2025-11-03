@@ -1,52 +1,23 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import styles from "@/styles/NewsCarousel.module.css";
+import styles from "@/styles/art/Carousel.module.css";
 
 // takes in parameters, Template , showNavigator, numPerPage, discrete
-const NewsCarousel = ({
+
+const Carousel = ({
   Template = {},
   showNavigator,
   numPerPage,
   discrete,
   data = [],
-  onSlideChange,
 }) => {
   const [currentElement, setCurrentElement] = useState(0);
+  const [sliderWidth, setSliderWidth] = useState("1000px");
   const sliderRef = useRef(null);
   const hasSwiped = useRef(false);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
 
-  const AUTO_SCROLL_DELAY = 4000000;
-  const [isHovering, setIsHovering] = useState(false);
-
-  const getScrollOffset = (num) => sliderRef.current.children[num].offsetLeft;
-
-  useEffect(() => {
-    if (isHovering | (data.length === 0)) return;
-    const slideInterval = setInterval(() => {
-      moveNext();
-    }, AUTO_SCROLL_DELAY);
-
-    return () => clearInterval(slideInterval);
-  });
-
-  useEffect(() => {
-    sliderRef.current.scrollTo({
-      left: getScrollOffset(currentElement),
-      behavior: "smooth",
-    });
-    if (onSlideChange) {
-      onSlideChange(currentElement);
-    }
-  }, [currentElement]);
-
-  const moveNext = () => setCurrentElement((cur) => (cur + 1) % data.length);
-  const movePrev = () =>
-    setCurrentElement((cur) => (cur - 1 + data.length) % data.length);
-  const moveHere = (num) => setCurrentElement(num);
-
-  // Drag Handlers
   const handleDragStart = (e) => {
     setIsDragging(true);
     hasSwiped.current = false;
@@ -56,7 +27,6 @@ const NewsCarousel = ({
   const handleDragEnd = () => {
     setIsDragging(false);
   };
-
   const handleDragMove = (e) => {
     if (!isDragging || hasSwiped.current) return;
     e.preventDefault();
@@ -64,21 +34,84 @@ const NewsCarousel = ({
     const x = e.type === "mousemove" ? e.pageX : e.touches[0].pageX;
     const walk = x - startX;
 
+    // Check if the drag distance exceeds the threshold
     if (walk < -swipeThreshold) {
-      moveNext();
+      // Swiped Left
+      setCurrentElement((prev) => (prev + 1) % data.length);
       hasSwiped.current = true;
     } else if (walk > swipeThreshold) {
-      movePrev();
+      // Swiped Right
+      setCurrentElement((prev) => (prev - 1 + data.length) % data.length);
       hasSwiped.current = true;
     }
   };
 
+  useEffect(() => {
+    if (sliderRef.current) {
+      const itemWidth = sliderRef.current.firstChild.offsetWidth + 16; // 16 for margin/gap
+      const newScrollPosition = itemWidth * currentElement;
+
+      sliderRef.current.scrollTo({
+        left: newScrollPosition,
+        behavior: "smooth",
+      });
+    }
+  }, [currentElement]); // This effect runs whenever currentElement changes
+
+  useEffect(() => {
+    if (sliderRef.current && sliderRef.current.firstChild) {
+      const itemWidth = sliderRef.current.firstChild.offsetWidth;
+      const gap = 16;
+      const newSliderWidth = itemWidth * numPerPage + gap * (numPerPage - 1);
+      setSliderWidth(`${newSliderWidth}px`);
+    }
+  }, [numPerPage, data]);
+
+  function moveNext() {
+    const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
+    if (currentElement + numPerPage > data.length - 1) {
+      setCurrentElement(0);
+      sliderRef.current.scrollBy({
+        left: -itemWidth * (data.length - 1),
+        behavior: "smooth",
+      });
+    } else {
+      setCurrentElement(currentElement + 1);
+      sliderRef.current.scrollBy({ left: itemWidth, behavior: "smooth" });
+    }
+  }
+  function movePrev() {
+    const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
+    if (currentElement <= 0) {
+      setCurrentElement(data.length - 1);
+      sliderRef.current.scrollBy({
+        left: itemWidth * (data.length - 1),
+        behavior: "smooth",
+      });
+    } else {
+      setCurrentElement(currentElement - 1);
+      sliderRef.current.scrollBy({ left: -itemWidth, behavior: "smooth" });
+    }
+  }
+  function moveHere(targetNum) {
+    const itemWidth = sliderRef.current.firstChild.offsetWidth + 16;
+    const shiftCount = targetNum - currentElement;
+    sliderRef.current.scrollBy({
+      left: itemWidth * shiftCount,
+      behavior: "smooth",
+    });
+    setCurrentElement(targetNum);
+  }
+  function inheritWidth() {
+    // inherits width of parent from child
+    if (sliderRef != null && sliderRef.current != null) {
+      setSliderWidth(
+        (sliderRef.current.firstChild.offsetWidth + 16) * numPerPage - 16
+      );
+    }
+  }
   return (
-    <div
-      className={styles.container}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-    >
+    <div className={styles.container}>
       <div className={styles["carousel-wrapper"]}>
         <Image
           src="/assets/icons/left-arrow.svg"
@@ -92,6 +125,8 @@ const NewsCarousel = ({
           className={styles.slider}
           ref={sliderRef}
           style={{
+            maxWidth: sliderWidth,
+            width: sliderWidth,
             cursor: isDragging ? "grabbing" : "grab",
           }}
           onMouseDown={handleDragStart}
@@ -105,11 +140,18 @@ const NewsCarousel = ({
           {data.map((dataObj, idx) => (
             <div
               style={{ height: "fit-content" }}
+              onLoad={inheritWidth}
               key={`item-${idx}`}
               className={styles["item-wrapper"]}
             >
               {dataObj ? (
-                <div className={styles["item-content"]} key={dataObj.id}>
+                <div
+                  className={styles["item-content"]}
+                  key={dataObj.id}
+                  style={{
+                    flex: `0 0 calc((100% - 32px) / ${numPerPage})`,
+                  }}
+                >
                   <Template dataObj={dataObj} key={dataObj.id} />
                 </div>
               ) : (
@@ -151,4 +193,4 @@ const NewsCarousel = ({
   );
 };
 
-export default NewsCarousel;
+export default Carousel;

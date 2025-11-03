@@ -1,7 +1,7 @@
-import styles from "@/styles/NewsHeaderCarousel.module.css";
+import styles from "@/styles/newsletter/NewsHeaderCarousel.module.css";
 import newsContent from "@/data/news.json";
-import NewsCarousel from "@/components/NewsCarousel";
-import NewsTemplate from "@/components/NewsTemplate";
+import NewsCarousel from "@/components/newsletter/NewsCarousel";
+import NewsTemplate from "@/components/newsletter/NewsTemplate";
 import { useState } from "react";
 
 export default function NewsHeaderCarousel() {

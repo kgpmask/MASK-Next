@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import styles from "@/styles/ArtsTemplate.module.css";
+import styles from "@/styles/art/ArtsTemplate.module.css";
 
 // takes in data object
 const ArtTemplate = ({ dataObj }) => {
