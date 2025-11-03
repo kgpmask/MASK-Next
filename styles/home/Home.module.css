@@ -124,14 +124,14 @@
   max-width: 1150px;
   align-self: center;
   margin: 7rem 0 7rem 0;
-  padding: 1.5rem 0rem 1.5rem 0rem;
+  padding: 1.5rem 1.25rem 1.5rem 1.25rem;
   border-radius: 10px;
 }
 
 .div1 {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem 1rem 1.5rem 2.5rem;
+  padding: 1.5rem 1rem 1.5rem 1.25rem;
   gap: 1rem;
   border-right: white solid 1.5px;
 }
@@ -139,16 +139,21 @@
 .events {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+  padding: 1.5rem 1.25rem 1.5rem 1.25rem;
   gap: 0.5rem;
 }
 .active-event {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+  padding: 1.5rem 1.25rem 1.5rem 1.25rem;
   gap: 0.5rem;
   background: #b02c2b;
   border-radius: 10px;
+}
+
+.events:hover,
+.active-event:hover {
+  cursor: pointer;
 }
 
 /* Tablet Screens */

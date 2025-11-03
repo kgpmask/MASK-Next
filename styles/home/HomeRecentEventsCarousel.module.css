@@ -169,7 +169,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .title {
     text-align: center;
     font-size: 2rem;

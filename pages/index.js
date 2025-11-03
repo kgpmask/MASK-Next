@@ -48,7 +48,7 @@ function Hero() {
   );
 }
 
-function RecentEvents() {
+function RecentEvents({ content = [], currentItemIndex, onClickItem }) {
   return (
     <div className={styles["recent-events"]}>
       <div className={styles.div1}>
@@ -58,7 +58,12 @@ function RecentEvents() {
           primis nisi imperdiet adipiscing facilisis enim sociosqu.
         </p>
       </div>
-      <div className={styles.events}>
+      <div
+        className={
+          currentItemIndex !== 0 ? styles.events : styles["active-event"]
+        }
+        onClick={() => onClickItem(0)}
+      >
         <div>
           <svg
             width="29"
@@ -76,13 +81,18 @@ function RecentEvents() {
             />
           </svg>
         </div>
-        <h2>Recent Events</h2>
+        <h2>{content[0]?.title}</h2>
         <p>
           Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis
           primis
         </p>
       </div>
-      <div className={styles["active-event"]}>
+      <div
+        className={
+          currentItemIndex !== 1 ? styles.events : styles["active-event"]
+        }
+        onClick={() => onClickItem(1)}
+      >
         <div>
           <svg
             width="29"
@@ -100,13 +110,18 @@ function RecentEvents() {
             />
           </svg>
         </div>
-        <h2>Recent Events</h2>
+        <h2>{content[1]?.title}</h2>
         <p>
           Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis
           primis
         </p>
       </div>
-      <div className={styles.events}>
+      <div
+        className={
+          currentItemIndex !== 2 ? styles.events : styles["active-event"]
+        }
+        onClick={() => onClickItem(2)}
+      >
         <div>
           <svg
             width="29"
@@ -124,7 +139,7 @@ function RecentEvents() {
             />
           </svg>
         </div>
-        <h2>Recent Events</h2>
+        <h2>{content[2]?.title}</h2>
         <p>
           Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis
           primis
@@ -135,22 +150,26 @@ function RecentEvents() {
 }
 
 export default function Home() {
-  const newsItems = recentContent.slice(0, 5);
-  const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
-
+  const recentItems = recentContent.slice(0, 5);
+  const [currentItemIndex, setCurrentItemIndex] = useState(0);
   return (
     <div className={styles.home}>
       <Hero />
-      <RecentEvents />
+      <RecentEvents
+        content={recentItems}
+        currentItemIndex={currentItemIndex}
+        onClickItem={setCurrentItemIndex}
+      />
       <div className={styles["header-content"]}>
         <RecentCarousel
           Template={RecentEventsCarouselCard}
           showNavigator={true}
           numPerPage={1}
           discrete={false}
-          data={newsItems}
+          data={recentItems}
           maxWidth={"65vw"}
-          onSlideChange={setCurrentNewsIndex}
+          onSlideChange={setCurrentItemIndex}
+          currentElement={currentItemIndex}
         />
       </div>
     </div>

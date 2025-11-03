@@ -2,16 +2,13 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import styles from "@/styles/home/HomeRecentEventsCarousel.module.css";
 
-// takes in parameters, Template , showNavigator, numPerPage, discrete
+// takes in parameters, Template
 const RecentCarousel = ({
   Template = {},
-  showNavigator,
-  numPerPage,
-  discrete,
   data = [],
   onSlideChange,
+  currentElement,
 }) => {
-  const [currentElement, setCurrentElement] = useState(0);
   const sliderRef = useRef(null);
   const hasSwiped = useRef(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -41,10 +38,10 @@ const RecentCarousel = ({
     }
   }, [currentElement]);
 
-  const moveNext = () => setCurrentElement((cur) => (cur + 1) % data.length);
+  const moveNext = () => onSlideChange((cur) => (cur + 1) % data.length);
   const movePrev = () =>
-    setCurrentElement((cur) => (cur - 1 + data.length) % data.length);
-  // const moveHere = (num) => setCurrentElement(num);
+    onSlideChange((cur) => (cur - 1 + data.length) % data.length);
+  // const moveHere = (num) => onSlideChange(num);
 
   // Drag Handlers
   const handleDragStart = (e) => {
