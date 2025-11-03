@@ -13,6 +13,9 @@ const NewsCarousel = ({
 }) => {
   const [currentElement, setCurrentElement] = useState(0);
   const sliderRef = useRef(null);
+  const hasSwiped = useRef(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
 
   const AUTO_SCROLL_DELAY = 4000000;
   const [isHovering, setIsHovering] = useState(false);
@@ -43,6 +46,33 @@ const NewsCarousel = ({
     setCurrentElement((cur) => (cur - 1 + data.length) % data.length);
   const moveHere = (num) => setCurrentElement(num);
 
+  // Drag Handlers
+  const handleDragStart = (e) => {
+    setIsDragging(true);
+    hasSwiped.current = false;
+    setStartX(e.type === "mousedown" ? e.pageX : e.touches[0].pageX);
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+  };
+
+  const handleDragMove = (e) => {
+    if (!isDragging || hasSwiped.current) return;
+    e.preventDefault();
+    const swipeThreshold = 100;
+    const x = e.type === "mousemove" ? e.pageX : e.touches[0].pageX;
+    const walk = x - startX;
+
+    if (walk < -swipeThreshold) {
+      moveNext();
+      hasSwiped.current = true;
+    } else if (walk > swipeThreshold) {
+      movePrev();
+      hasSwiped.current = true;
+    }
+  };
+
   return (
     <div
       className={styles.container}
@@ -58,7 +88,20 @@ const NewsCarousel = ({
           className={styles.arrow}
           onClick={movePrev}
         />
-        <div className={styles.slider} ref={sliderRef}>
+        <div
+          className={styles.slider}
+          ref={sliderRef}
+          style={{
+            cursor: isDragging ? "grabbing" : "grab",
+          }}
+          onMouseDown={handleDragStart}
+          onMouseMove={handleDragMove}
+          onMouseUp={handleDragEnd}
+          onMouseLeave={handleDragEnd}
+          onTouchStart={handleDragStart}
+          onTouchMove={handleDragMove}
+          onTouchEnd={handleDragEnd}
+        >
           {data.map((dataObj, idx) => (
             <div
               style={{ height: "fit-content" }}
