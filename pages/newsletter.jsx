@@ -35,7 +35,7 @@ function NewsHeaderCarousel() {
   );
 }
 
-export default function Art() {
+export default function NewsletterPage() {
   return (
     <>
       <NewsHeaderCarousel />
