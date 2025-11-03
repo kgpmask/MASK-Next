@@ -3,6 +3,8 @@ import RecentCarousel from "../components/home/RecentCarousel";
 import recentContent from "@/data/recentEvents.json";
 import { useState } from "react";
 import RecentEventsCarouselCard from "@/components/home/RecentEventsCarouselCard";
+import FanartCarousel from "@/components/home/FanartCarousel";
+import FanartCarouselCard from "@/components/home/FanartCarouselCard";
 
 function Hero() {
   return (
@@ -149,6 +151,37 @@ function RecentEvents({ content = [], currentItemIndex, onClickItem }) {
   );
 }
 
+function FanartSection() {
+  const fanartItems = recentContent.slice(0, 5);
+  const [currentFanartIndex, setCurrentFanartIndex] = useState(0);
+  return (
+    <div
+      className={styles["fanart-section"]}
+      style={{
+        backgroundImage: `linear-gradient(#e43332d9, #e43332d9), url('${
+          fanartItems[currentFanartIndex]?.src || "/assets/news/header.png"
+        }')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center 70%",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className={styles["fanart-header-content"]}>
+        <FanartCarousel
+          Template={FanartCarouselCard}
+          showNavigator={true}
+          numPerPage={1}
+          discrete={false}
+          data={fanartItems}
+          maxWidth={"65vw"}
+          onSlideChange={setCurrentFanartIndex}
+          currentElement={currentFanartIndex}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const recentItems = recentContent.slice(0, 5);
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
@@ -163,7 +196,6 @@ export default function Home() {
       <div className={styles["header-content"]}>
         <RecentCarousel
           Template={RecentEventsCarouselCard}
-          showNavigator={true}
           numPerPage={1}
           discrete={false}
           data={recentItems}
@@ -172,6 +204,7 @@ export default function Home() {
           currentElement={currentItemIndex}
         />
       </div>
+      <FanartSection />
     </div>
   );
 }
