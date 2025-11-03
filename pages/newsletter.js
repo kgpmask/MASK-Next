@@ -1,10 +1,11 @@
-import styles from "@/styles/newsletter/NewsHeaderCarousel.module.css";
+import NewsletterCardGallery from "@/components/newsletter/NewsCard";
+import styles from "@/styles/newsletter/News.module.css";
 import newsContent from "@/data/news.json";
 import NewsCarousel from "@/components/newsletter/NewsCarousel";
 import NewsTemplate from "@/components/newsletter/NewsTemplate";
 import { useState } from "react";
 
-export default function NewsHeaderCarousel() {
+function NewsHeaderCarousel() {
   const newsItems = newsContent.slice(0, 5);
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
 
@@ -30,6 +31,15 @@ export default function NewsHeaderCarousel() {
           />
         </div>
       </header>
+    </>
+  );
+}
+
+export default function Art() {
+  return (
+    <>
+      <NewsHeaderCarousel />
+      <NewsletterCardGallery />
     </>
   );
 }

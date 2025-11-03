@@ -1,7 +1,8 @@
-import styles from "@/styles/art/ArtsHeader.module.css";
+import YearCarouselGroup from "@/components/art/YearCarousel";
+import styles from "@/styles/art/Arts.module.css";
 import { useEffect, useState } from "react";
 
-export default function ArtHeader() {
+function ArtHeader() {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
@@ -52,6 +53,17 @@ export default function ArtHeader() {
           </div>
         </div>
       </header>
+    </>
+  );
+}
+
+export default function Art() {
+  return (
+    <>
+      <div className={styles["arts-page"]}>
+        <ArtHeader />
+        <YearCarouselGroup />
+      </div>
     </>
   );
 }
