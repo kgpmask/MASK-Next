@@ -3,47 +3,53 @@ import { FaChevronRight, FaChevronLeft } from 'react-icons/fa6';
 import { FaCaretDown } from 'react-icons/fa';
 import styles from '@/styles/MembersPage.module.css';
 import MemberCard from '@/components/MemberCard';
+import membersData from '@/public/assets/members/members.json';
 
 // TODO: Populate getMembers() with real member data instead of placeholder entries
 function getMembers() {
-	const createMember = (teams = ['a', 'w'], governor = false) => ({
-		profilePicture: '24_joshua.webp',
-		name: 'Joshua Raj',
-		teams,
-		contacts: governor
-			? {
-					email: 'example@example.com',
-					instagram: 'example',
-					github: 'example',
-			  }
-			: undefined,
-	});
-
-	return {
-		vertical: {
-			Governor: Array.from({ length: 9 }, () => createMember(['a', 'w'], true)),
-			'Team Head': Array.from({ length: 9 }, (_, i) =>
-				createMember(i === 0 ? ['a', 'wH'] : ['a', 'w'])
-			),
+	const structure = {
+		Governor: {
+			type: 'vertical',
+			members: [],
 		},
-		horizontal: {
-			'Team Sub-Head': Array.from({ length: 17 }, (_, i) =>
-				createMember(i === 0 || i === 7 ? ['a', 'wS'] : ['a', 'w'])
-			),
-			Executive: Array.from({ length: 17 }, (_, i) =>
-				createMember(i === 0 || i === 7 ? ['a', 'wS'] : ['a', 'w'])
-			),
-			Associate: Array.from({ length: 17 }, (_, i) =>
-				createMember(i === 0 || i === 7 ? ['a', 'wS'] : ['a', 'w'])
-			),
-			Fresher: Array.from({ length: 17 }, (_, i) =>
-				createMember(i === 0 || i === 7 ? ['a', 'wS'] : ['a', 'w'])
-			),
-			'Former member': Array.from({ length: 17 }, (_, i) =>
-				createMember(i === 0 || i === 7 ? ['a', 'wS'] : ['a', 'w'])
-			),
+		'Team Head': {
+			type: 'vertical',
+			members: [],
+		},
+		Executive: {
+			type: 'horizontal',
+			members: [],
+		},
+		'Team Sub-Head': {
+			type: 'horizontal',
+			members: [],
+		},
+		Associate: {
+			type: 'horizontal',
+			members: [],
+		},
+		Fresher: {
+			type: 'horizontal',
+			members: [],
+		},
+		'Former member': {
+			type: 'vertical',
+			members: [],
 		},
 	};
+
+	for (const member of membersData) {
+		if (member.records.length < 1) continue;
+		const { position, teams, contacts } = member.records[member.records.length - 1];
+		structure[position].members.push({
+			profilePicture: member.image,
+			name: member.name,
+			teams,
+			contacts,
+		});
+	}
+
+	return structure;
 }
 
 const getYearOptions = (start, end) =>
@@ -56,10 +62,13 @@ export default function MembersPage() {
 	const positions = getMembers();
 	const membersYearOptions = getYearOptions(2025, 2020);
 	const horizontalRefs = useRef(
-		Object.keys(positions.horizontal).reduce((acc, key) => {
-			acc[key] = createRef();
-			return acc;
-		}, {})
+		Object.entries(positions)
+			.filter(([_position, data]) => data.type === 'horizontal')
+			.map(([position, _data]) => position)
+			.reduce((acc, key) => {
+				acc[key] = createRef();
+				return acc;
+			}, {})
 	);
 
 	const scroll = (position, direction) => {
@@ -87,46 +96,47 @@ export default function MembersPage() {
 						))}
 					</select>
 				</div>
-				{Object.entries(positions.vertical).map(([position, members]) => (
-					<section key={position}>
-						<h2>{position}s</h2>
+				{Object.entries(positions).map(([position, data]) =>
+					data.type === 'vertical' ? (
+						<section key={position}>
+							<h2>{position}s</h2>
 
-						<div className={styles['members-section']}>
-							{members.map((member, idx) => (
-								<MemberCard key={idx} {...member} position={position} />
-							))}
-						</div>
-					</section>
-				))}
-				{Object.entries(positions.horizontal).map(([position, members]) => (
-					<section key={position}>
-						<h2>{position}s</h2>
-
-						<div className={styles['members-section-horizontal-wrapper']}>
-							<button
-								className={styles['members-scroll-button']}
-								onClick={() => scroll(position, 'left')}
-							>
-								<FaChevronLeft />
-							</button>
-							<div
-								className={`${styles['members-section']} ${styles['members-section-horizontal']}`}
-								ref={horizontalRefs.current[position]}
-							>
-								{members.map((member, idx) => (
-									<MemberCard key={idx} {...member} position={position} isCompact />
+							<div className={styles['members-section']}>
+								{data.members.map((member, idx) => (
+									<MemberCard key={idx} {...member} position={position} />
 								))}
 							</div>
-							<button
-								className={styles['members-scroll-button']}
-								style={{ right: '0' }}
-								onClick={() => scroll(position, 'right')}
-							>
-								<FaChevronRight />
-							</button>
-						</div>
-					</section>
-				))}
+						</section>
+					) : (
+						<section key={position}>
+							<h2>{position}s</h2>
+
+							<div className={styles['members-section-horizontal-wrapper']}>
+								<button
+									className={styles['members-scroll-button']}
+									onClick={() => scroll(position, 'left')}
+								>
+									<FaChevronLeft />
+								</button>
+								<div
+									className={`${styles['members-section']} ${styles['members-section-horizontal']}`}
+									ref={horizontalRefs.current[position]}
+								>
+									{data.members.map((member, idx) => (
+										<MemberCard key={idx} {...member} position={position} isCompact />
+									))}
+								</div>
+								<button
+									className={styles['members-scroll-button']}
+									style={{ right: '0' }}
+									onClick={() => scroll(position, 'right')}
+								>
+									<FaChevronRight />
+								</button>
+							</div>
+						</section>
+					)
+				)}
 			</div>
 		</>
 	);

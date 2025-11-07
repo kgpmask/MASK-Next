@@ -1,0 +1,177 @@
+[
+	{
+		"image": "22_ankan.webp",
+		"name": "Ankan Saha",
+		"roll": "22EE10008",
+		"records": [
+			{
+				"year": 2022,
+				"position": "Fresher",
+				"teams": ["q", "w"]
+			},
+			{
+				"year": 2023,
+				"position": "Associate",
+				"teams": ["wS", "q"]
+			},
+			{
+				"year": 2024,
+				"position": "Executive",
+				"teams": ["wH", "q"]
+			}
+		]
+	},
+	{
+		"image": "22_sahil.webp",
+		"name": "Sahil Patel",
+		"roll": "22NA30028",
+		"records": [
+			{
+				"year": 2022,
+				"position": "Fresher",
+				"teams": ["d"]
+			},
+			{
+				"year": 2023,
+				"position": "Associate",
+				"teams": ["d", "w"]
+			},
+			{
+				"year": 2024,
+				"position": "Governor",
+				"teams": ["d"],
+				"contacts": {
+					"email": "example@example.com",
+					"instagram": "example",
+					"github": "example"
+				}
+			}
+		]
+	},
+	{
+		"image": "22_sharanya.webp",
+		"name": "Sharanya Chakraborty",
+		"roll": "22CS10088",
+		"records": [
+			{
+				"year": 2023,
+				"position": "Associate",
+				"teams": ["w"]
+			},
+			{
+				"year": 2024,
+				"position": "Executive",
+				"teams": ["w"]
+			}
+		]
+	},
+	{
+		"image": "22_saroja.webp",
+		"name": "Saroja Bamra",
+		"roll": "22HS10048",
+		"records": [
+			{
+				"year": 2022,
+				"position": "Fresher",
+				"teams": ["d"]
+			},
+			{
+				"year": 2023,
+				"position": "Associate",
+				"teams": ["d", "w"]
+			},
+			{
+				"year": 2024,
+				"position": "Executive",
+				"teams": ["d", "w"]
+			}
+		]
+	},
+	{
+		"image": "23_arnab.webp",
+		"name": "Arnab Jena",
+		"roll": "23AE10007",
+		"records": [
+			{
+				"year": 2023,
+				"position": "Fresher",
+				"teams": ["n"]
+			},
+			{
+				"year": 2024,
+				"position": "Associate",
+				"teams": ["n", "wS"]
+			}
+		]
+	},
+	{
+		"image": "23_animesh.webp",
+		"name": "Animesh Raj",
+		"roll": "23IE10004",
+		"records": [
+			{
+				"year": 2023,
+				"position": "Fresher",
+				"teams": ["w"]
+			},
+			{
+				"year": 2024,
+				"position": "Associate",
+				"teams": ["wS"]
+			}
+		]
+	},
+	{
+		"image": "23_manideep.webp",
+		"name": "Dalli Manideep",
+		"roll": "23EE30007",
+		"records": [
+			{
+				"year": 2023,
+				"position": "Fresher",
+				"teams": ["n"]
+			},
+			{
+				"year": 2024,
+				"position": "Associate",
+				"teams": ["nS", "q", "w"]
+			}
+		]
+	},
+	{
+		"image": "23_pratyay.webp",
+		"name": "Pratyay Ganguly",
+		"roll": "23IE10033",
+		"records": [
+			{
+				"year": 2024,
+				"position": "Associate",
+				"teams": ["w"]
+			}
+		]
+	},
+	{
+		"image": "24_joshua.webp",
+		"name": "Tadi Joshua Raj",
+		"roll": "24MA10065",
+		"records": [
+			{
+				"year": 2024,
+				"position": "Fresher",
+				"teams": ["w"]
+			}
+		]
+	},
+	{
+		"image": "24_uday.webp",
+		"name": "Uday Kalyan S",
+		"roll": "24AI10014",
+		"records": [
+			{
+				"year": 2024,
+				"position": "Fresher",
+				"teams": ["w"]
+			}
+		]
+	}
+]

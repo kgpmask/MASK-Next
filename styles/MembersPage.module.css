@@ -48,10 +48,14 @@
 
 .members-section {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	justify-content: space-between;
 	gap: 20px;
 	margin-bottom: 50px;
+}
+
+.members-section > * {
+	max-width: 250px;
 }
 
 @media screen and (max-width: 900px) {
@@ -63,6 +67,10 @@
 @media screen and (max-width: 630px) {
 	.members-section {
 		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	}
+
+	.members-section > * {
+		max-width: unset;
 	}
 }
 
