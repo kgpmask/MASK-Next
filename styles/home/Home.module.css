@@ -121,9 +121,10 @@
   background-color: #e43332;
   width: 100%;
   height: 260px;
+  width: calc(100% - 2rem);
   max-width: 1150px;
   align-self: center;
-  margin: 7rem 0 7rem 0;
+  margin: 7rem 0;
   padding: 1.5rem 1.25rem 1.5rem 1.25rem;
   border-radius: 10px;
 }
@@ -180,8 +181,6 @@
     gap: 1.5rem;
     padding: 2rem 1.5rem;
     margin-top: 4rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
     height: auto;
   }
 
@@ -298,22 +297,6 @@
   background-color: var(--red);
 }
 
-@media (max-width: 800px) {
-  .about-box1 {
-    flex: 1 1 200px !important;
-  }
-
-  .about-col1:last-child .about-box1:last-child {
-    flex: 0 1 calc(50% - 1rem) !important;
-  }
-}
-
-@media (max-width: 528px) {
-  .about-col1:last-child .about-box1:last-child {
-    flex: 0 1 100% !important;
-  }
-}
-
 .about-team-name {
   font-family: Cabin;
   font-weight: 700;
@@ -337,5 +320,21 @@
   }
   .about-box1 {
     flex: 1 1 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .about-box1 {
+    flex: 1 1 200px !important;
+  }
+
+  .about-col1:last-child .about-box1:last-child {
+    flex: 0 1 calc(50% - 1rem) !important;
+  }
+}
+
+@media (max-width: 528px) {
+  .about-col1:last-child .about-box1:last-child {
+    flex: 0 1 100% !important;
   }
 }

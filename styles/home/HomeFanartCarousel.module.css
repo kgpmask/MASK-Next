@@ -14,6 +14,7 @@
   height: auto;
   margin: 0 auto;
   width: 100%;
+  user-select: none;
 }
 
 .arrow {
@@ -31,10 +32,16 @@
   }
 }
 
+.slider-container {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  height: fit-content;
+}
+
 .slider {
   display: flex;
   overflow-x: hidden;
-  gap: 1rem;
+  gap: 2rem;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   height: fit-content;
@@ -78,7 +85,6 @@
   /* flex-grow: inherit; */
   gap: 2rem;
   width: 100%;
-  grid-template-columns: 1fr 550px;
 }
 
 .fanart-poster {
@@ -155,6 +161,7 @@
 .navigation-dots {
   display: flex;
   gap: 10px;
+  justify-content: center;
 }
 
 .dot {

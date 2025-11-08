@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import styles from "@/styles/home/HomeFanartCarousel.module.css";
+import Button from "../Button";
 
 // takes in parameters, Template
 const FanartCarousel = ({
@@ -80,6 +81,23 @@ const FanartCarousel = ({
       onMouseLeave={() => setIsHovering(false)}
     >
       <div className={styles["carousel-wrapper"]}>
+        <div className={styles["content-column"]}>
+          <div className={styles["text-content"]}>
+            <p className={styles["title"]}>
+              <strong>Fanart</strong> Submissions
+            </p>
+            <p className={styles["description"]}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <Button text="Our Artwork" href={"#"} color="black" />
+          </div>
+        </div>
         <Image
           src="/assets/icons/left-arrow.svg"
           alt="left arrow"
@@ -88,37 +106,59 @@ const FanartCarousel = ({
           className={styles.arrow}
           onClick={movePrev}
         />
-        <div
-          className={styles.slider}
-          ref={sliderRef}
-          style={{
-            cursor: isDragging ? "grabbing" : "grab",
-          }}
-          onMouseDown={handleDragStart}
-          onMouseMove={handleDragMove}
-          onMouseUp={handleDragEnd}
-          onMouseLeave={handleDragEnd}
-          onTouchStart={handleDragStart}
-          onTouchMove={handleDragMove}
-          onTouchEnd={handleDragEnd}
-        >
-          {data.map((dataObj, idx) => (
-            <div
-              style={{ height: "fit-content" }}
-              key={`item-${idx}`}
-              className={styles["item-wrapper"]}
-            >
-              {dataObj ? (
-                <div className={styles["item-content"]} key={dataObj.id}>
-                  <Template dataObj={dataObj} key={dataObj.id} />
-                </div>
-              ) : (
-                <div className={styles["empty-item"]}>
-                  <div className={styles["empty-content"]}>No Image</div>
-                </div>
+        <div className={styles["slider-container"]}>
+          <div
+            className={styles.slider}
+            ref={sliderRef}
+            style={{
+              cursor: isDragging ? "grabbing" : "grab",
+            }}
+            onMouseDown={handleDragStart}
+            onMouseMove={handleDragMove}
+            onMouseUp={handleDragEnd}
+            onMouseLeave={handleDragEnd}
+            onTouchStart={handleDragStart}
+            onTouchMove={handleDragMove}
+            onTouchEnd={handleDragEnd}
+          >
+            {data.map((dataObj, idx) => (
+              <div
+                style={{ height: "fit-content" }}
+                key={`item-${idx}`}
+                className={styles["item-wrapper"]}
+              >
+                {dataObj ? (
+                  <div className={styles["item-content"]} key={dataObj.id}>
+                    <Template dataObj={dataObj} key={dataObj.id} />
+                  </div>
+                ) : (
+                  <div className={styles["empty-item"]}>
+                    <div className={styles["empty-content"]}>No Image</div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          {showNavigator && (
+            <div className={styles["navigation-dots"]}>
+              {Array.from({ length: data.length }).map((_, num) =>
+                !(
+                  num >= currentElement && num < currentElement + numPerPage
+                ) ? (
+                  <div
+                    className={styles.dot}
+                    key={num}
+                    onClick={() => moveHere(num)}
+                  ></div>
+                ) : (
+                  <div
+                    className={`${styles.dot} ${styles["active-dot"]}`}
+                    key={num}
+                  ></div>
+                )
               )}
             </div>
-          ))}
+          )}
         </div>
         <Image
           src="/assets/icons/right-arrow.svg"
@@ -129,24 +169,6 @@ const FanartCarousel = ({
           onClick={moveNext}
         />
       </div>
-      {showNavigator && (
-        <div className={styles["navigation-dots"]}>
-          {Array.from({ length: data.length }).map((_, num) =>
-            !(num >= currentElement && num < currentElement + numPerPage) ? (
-              <div
-                className={styles.dot}
-                key={num}
-                onClick={() => moveHere(num)}
-              ></div>
-            ) : (
-              <div
-                className={`${styles.dot} ${styles["active-dot"]}`}
-                key={num}
-              ></div>
-            )
-          )}
-        </div>
-      )}
     </div>
   );
 };

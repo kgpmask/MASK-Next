@@ -9,7 +9,7 @@ const RecentEventsCarouselCard = ({ dataObj }) => {
     <>
       <div className={styles["content"]}>
         <div className={styles["event-poster"]}>
-          <Image src={dataObj.src} fill alt="event poster" />
+          <Image draggable={false} src={dataObj.src} fill alt="event poster" />
         </div>
         <div className={styles["content-column"]}>
           <div className={styles["text-content"]}>
