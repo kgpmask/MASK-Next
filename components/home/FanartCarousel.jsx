@@ -16,6 +16,7 @@ const FanartCarousel = ({
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
 
+  // TODO: Reduce this on prod
   const AUTO_SCROLL_DELAY = 4000000;
   const [isHovering, setIsHovering] = useState(false);
 

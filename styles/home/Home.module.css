@@ -298,6 +298,22 @@
   background-color: var(--red);
 }
 
+@media (max-width: 800px) {
+  .about-box1 {
+    flex: 1 1 200px !important;
+  }
+
+  .about-col1:last-child .about-box1:last-child {
+    flex: 0 1 calc(50% - 1rem) !important;
+  }
+}
+
+@media (max-width: 528px) {
+  .about-col1:last-child .about-box1:last-child {
+    flex: 0 1 100% !important;
+  }
+}
+
 .about-team-name {
   font-family: Cabin;
   font-weight: 700;
@@ -317,5 +333,9 @@
   .about-col1 {
     width: 90%;
     flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .about-box1 {
+    flex: 1 1 0;
   }
 }
