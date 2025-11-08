@@ -49,7 +49,6 @@
 
 .item-wrapper {
   height: fit-content;
-  flex: 0 0 100%;
   width: 100%;
 }
 
@@ -204,6 +203,17 @@
   }
   .fanart-poster {
     min-height: 300px;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    flex-direction: column;
+  }
+
+  .fanart-poster {
+    width: calc(100vw - 2rem);
     aspect-ratio: 16 / 9;
   }
 }
