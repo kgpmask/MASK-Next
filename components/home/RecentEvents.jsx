@@ -15,51 +15,30 @@ export default function RecentEvents({
           primis nisi imperdiet adipiscing facilisis enim sociosqu.
         </p>
       </div>
-      <div
-        className={
-          currentItemIndex !== 0 ? styles.events : styles["active-event"]
-        }
-        onClick={() => onClickItem(0)}
-      >
-        <div>
-          <Image src="/assets/icons/calendar.svg" height={30} width={30} />
+      {content.map((event, idx) => (
+        <div
+          key={event.title}
+          className={
+            currentItemIndex === idx
+              ? styles["active-event"]
+              : idx === content.length - 1 && currentItemIndex > idx
+              ? styles["last-deactive-element"]
+              : styles.events
+          }
+          onClick={() => onClickItem(idx)}
+        >
+          <div>
+            <Image
+              alt="calendar"
+              src="/assets/icons/calendar.svg"
+              height={30}
+              width={30}
+            />
+          </div>
+          <h2>{event.title}</h2>
+          <p>{event.description}</p>
         </div>
-        <h2>{content[0]?.title}</h2>
-        <p>
-          Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis
-          primis
-        </p>
-      </div>
-      <div
-        className={
-          currentItemIndex !== 1 ? styles.events : styles["active-event"]
-        }
-        onClick={() => onClickItem(1)}
-      >
-        <div>
-          <Image src="/assets/icons/calendar.svg" height={30} width={30} />
-        </div>
-        <h2>{content[1]?.title}</h2>
-        <p>
-          Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis
-          primis
-        </p>
-      </div>
-      <div
-        className={
-          currentItemIndex !== 2 ? styles.events : styles["active-event"]
-        }
-        onClick={() => onClickItem(2)}
-      >
-        <div>
-          <Image src="/assets/icons/calendar.svg" height={30} width={30} />
-        </div>
-        <h2>{content[2]?.title}</h2>
-        <p>
-          Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis
-          primis
-        </p>
-      </div>
+      ))}
     </div>
   );
 }

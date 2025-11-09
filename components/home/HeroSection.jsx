@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FiArrowRight } from "react-icons/fi";
 import styles from "@/styles/home/Home.module.css";
 
 export default function HeroSection() {
@@ -22,11 +22,7 @@ export default function HeroSection() {
         <div className={styles.button1}>About us</div>
         <div className={styles.button2}>
           Checkout our latest newsletter
-          <Image
-            src="/assets/icons/right-arrow-tail.svg"
-            height={15}
-            width={15}
-          />
+          <FiArrowRight />
         </div>
       </div>
     </div>

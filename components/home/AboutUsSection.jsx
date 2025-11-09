@@ -2,6 +2,53 @@ import Image from "next/image";
 import Button from "@/components/Button";
 import styles from "@/styles/home/Home.module.css";
 
+const teams = [
+  {
+    title: "AMV Team",
+    icon: "/assets/icons/amv.svg",
+    description:
+      "Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis primis nisi imperd",
+  },
+  {
+    title: "WebD Team",
+    icon: "/assets/icons/webdev.svg",
+    description:
+      "Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis primis nisi imperd",
+  },
+  {
+    title: "DNA Team",
+    icon: "/assets/icons/design.svg",
+    description:
+      "Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis primis nisi imperd",
+  },
+  {
+    title: "MN Team",
+    icon: "/assets/icons/newsletter.svg",
+    description:
+      "Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis primis nisi imperd",
+  },
+  {
+    title: "Music Team",
+    icon: "/assets/icons/music.svg",
+    description:
+      "Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis primis nisi imperd",
+  },
+];
+
+const remainder = teams.length % 3;
+
+const teamChunks = remainder
+  ? [
+      teams.slice(0, remainder),
+      ...Array.from(
+        { length: Math.floor((teams.length - remainder) / 3) },
+        (_, i) => teams.slice(remainder + i * 3, remainder + i * 3 + 3)
+      ),
+    ]
+  : Array.from({ length: arr.length / 3 }, (_, i) =>
+      teams.slice(i * 3, i * 3 + 3)
+    );
+
 export default function AboutUsSection() {
   return (
     <div className={styles["header-content"]}>
@@ -29,50 +76,22 @@ export default function AboutUsSection() {
             fullWidth={true}
           />
         </div>
-        <div className={styles["about-col1"]}>
-          <div className={styles["about-box1"]}>
-            <Image src="/assets/icons/amv.svg" height={45} width={45} />
-            <p className={styles["about-team-name"]}>AMV Team</p>
-            <p>
-              Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis
-              primis nisi imperd
-            </p>
+        {teamChunks.map((teams, idx) => (
+          <div className={styles["about-col1"]} key={idx}>
+            {teams.map((team) => (
+              <div key={team.title} className={styles["about-box1"]}>
+                <Image
+                  alt={team.title}
+                  src={team.icon}
+                  height={45}
+                  width={45}
+                />
+                <p className={styles["about-team-name"]}>{team.title}</p>
+                <p>{team.description}</p>
+              </div>
+            ))}
           </div>
-          <div className={styles["about-box1"]}>
-            <Image src="/assets/icons/amv.svg" height={45} width={45} />
-            <p className={styles["about-team-name"]}>AMV Team</p>
-            <p>
-              Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis
-              primis nisi imperd
-            </p>
-          </div>
-        </div>
-        <div className={styles["about-col1"]}>
-          <div className={styles["about-box1"]}>
-            <Image src="/assets/icons/amv.svg" height={45} width={45} />
-            <p className={styles["about-team-name"]}>AMV Team</p>
-            <p>
-              Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis
-              primis nisi imperd
-            </p>
-          </div>
-          <div className={styles["about-box1"]}>
-            <Image src="/assets/icons/amv.svg" height={45} width={45} />
-            <p className={styles["about-team-name"]}>AMV Team</p>
-            <p>
-              Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis
-              primis nisi imperd
-            </p>
-          </div>
-          <div className={styles["about-box1"]}>
-            <Image src="/assets/icons/amv.svg" height={45} width={45} />
-            <p className={styles["about-team-name"]}>AMV Team</p>
-            <p>
-              Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis
-              primis nisi imperd
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

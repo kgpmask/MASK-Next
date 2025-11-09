@@ -15,7 +15,12 @@ export default function Home() {
     <div className={styles.home}>
       <HeroSection />
       <RecentEvents
-        content={recentItems}
+        content={recentItems.slice(0, 3).map((recentItem) => ({
+          ...recentItem,
+          description:
+            recentItem.description.slice(0, 100) +
+            (recentItem.description.length > 100 ? "..." : ""),
+        }))}
         currentItemIndex={currentItemIndex}
         onClickItem={setCurrentItemIndex}
       />
