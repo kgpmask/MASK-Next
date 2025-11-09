@@ -18,7 +18,7 @@ export default function RecentEventsSection() {
   return (
     <>
       <div className={styles["recent-events"]}>
-        <div className={styles.div1}>
+        <div className={styles["recent-events-content"]}>
           <h2>Recent Events</h2>
           <p>
             Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis

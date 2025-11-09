@@ -65,7 +65,7 @@ export default function AboutUsSection() {
           <Button
             text={"Meet the teams"}
             color={"trans-white"}
-            fullWidth={true}
+            fullWidth={false}
           />
         </div>
         <div className={styles["about-teams"]}>

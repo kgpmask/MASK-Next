@@ -4,7 +4,7 @@ import styles from "@/styles/home/Home.module.css";
 export default function HeroSection() {
   return (
     <div className={styles.hero}>
-      <p className={styles.p1}>
+      <p className={styles["hero-greetings"]}>
         <span style={{ color: "#E43332" }}>Welcome</span> to the official
         website of
       </p>
@@ -18,9 +18,9 @@ export default function HeroSection() {
         We create content ranging from AMVs and reels to artwork and sketches,
         and hold crowd events like anime quizzes.
       </p>
-      <div className={styles.buttons}>
-        <div className={styles.button1}>About us</div>
-        <div className={styles.button2}>
+      <div className={styles["hero-buttons"]}>
+        <div className={styles["hero-about-us-button"]}>About us</div>
+        <div className={styles["hero-check-out-newsletter-button"]}>
           Checkout our latest newsletter
           <FiArrowRight />
         </div>
