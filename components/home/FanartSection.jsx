@@ -3,8 +3,9 @@ import styles from "@/styles/home/Home.module.css";
 import FanartCarousel from "@/components/home/FanartCarousel";
 import recentContent from "@/data/recentEvents.json";
 
+const fanartItems = recentContent.slice(0, 5);
+
 export default function FanartSection() {
-  const fanartItems = recentContent.slice(0, 5);
   const [currentFanartIndex, setCurrentFanartIndex] = useState(0);
   return (
     <div
