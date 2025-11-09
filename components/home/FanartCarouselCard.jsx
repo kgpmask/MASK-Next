@@ -1,4 +1,3 @@
-import Button from "../Button";
 import React from "react";
 import Image from "next/image";
 import styles from "@/styles/home/HomeFanartCarousel.module.css";
