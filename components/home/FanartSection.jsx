@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styles from "@/styles/home/Home.module.css";
 import FanartCarousel from "@/components/home/FanartCarousel";
-import FanartCarouselCard from "@/components/home/FanartCarouselCard";
 import recentContent from "@/data/recentEvents.json";
 
 export default function FanartSection() {
@@ -21,14 +20,9 @@ export default function FanartSection() {
     >
       <div className={styles["fanart-header-content"]}>
         <FanartCarousel
-          Template={FanartCarouselCard}
-          showNavigator={true}
-          numPerPage={1}
-          discrete={false}
-          data={fanartItems}
-          maxWidth={"65vw"}
-          onSlideChange={setCurrentFanartIndex}
-          currentElement={currentFanartIndex}
+          fanartItems={fanartItems}
+          currentFanartIndex={currentFanartIndex}
+          setCurrentFanartIndex={setCurrentFanartIndex}
         />
       </div>
     </div>

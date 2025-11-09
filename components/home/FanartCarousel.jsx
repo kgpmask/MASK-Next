@@ -1,16 +1,12 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import styles from "@/styles/home/HomeFanartCarousel.module.css";
 import Button from "../Button";
+import styles from "@/styles/home/HomeFanartCarousel.module.css";
 
-// takes in parameters, Template
 const FanartCarousel = ({
-  Template = {},
-  data = [],
-  onSlideChange,
-  currentElement,
-  showNavigator,
-  numPerPage,
+  fanartItems = [],
+  currentFanartIndex,
+  setCurrentFanartIndex,
 }) => {
   const sliderRef = useRef(null);
   const hasSwiped = useRef(false);
@@ -18,14 +14,17 @@ const FanartCarousel = ({
   const [startX, setStartX] = useState(0);
 
   // TODO: Reduce this on prod
-  const AUTO_SCROLL_DELAY = 4000000;
-  const [isHovering, setIsHovering] = useState(false);
+  const AUTO_SCROLL_DELAY = 4000;
 
   const getScrollOffset = (num) => sliderRef.current.children[num].offsetLeft;
 
   useEffect(() => {
-    if (isHovering || data.length === 0) return;
     const slideInterval = setInterval(() => {
+      if (
+        (sliderRef.current && sliderRef.current.matches(":hover")) ||
+        fanartItems.length === 0
+      )
+        return;
       moveNext();
     }, AUTO_SCROLL_DELAY);
 
@@ -34,18 +33,21 @@ const FanartCarousel = ({
 
   useEffect(() => {
     sliderRef.current.scrollTo({
-      left: getScrollOffset(currentElement),
+      left: getScrollOffset(currentFanartIndex),
       behavior: "smooth",
     });
-    if (onSlideChange) {
-      onSlideChange(currentElement);
+    if (setCurrentFanartIndex) {
+      setCurrentFanartIndex(currentFanartIndex);
     }
-  }, [currentElement]);
+  }, [currentFanartIndex]);
 
-  const moveNext = () => onSlideChange((cur) => (cur + 1) % data.length);
+  const moveNext = () =>
+    setCurrentFanartIndex((cur) => (cur + 1) % fanartItems.length);
   const movePrev = () =>
-    onSlideChange((cur) => (cur - 1 + data.length) % data.length);
-  const moveHere = (num) => onSlideChange(num);
+    setCurrentFanartIndex(
+      (cur) => (cur - 1 + fanartItems.length) % fanartItems.length
+    );
+  const moveHere = (num) => setCurrentFanartIndex(num);
 
   // Drag Handlers
   const handleDragStart = (e) => {
@@ -75,11 +77,7 @@ const FanartCarousel = ({
   };
 
   return (
-    <div
-      className={styles.container}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-    >
+    <div className={styles.container}>
       <div className={styles["carousel-wrapper"]}>
         <div className={styles["content-column"]}>
           <div className={styles["text-content"]}>
@@ -121,15 +119,24 @@ const FanartCarousel = ({
             onTouchMove={handleDragMove}
             onTouchEnd={handleDragEnd}
           >
-            {data.map((dataObj, idx) => (
+            {fanartItems.map((fanartItem, idx) => (
               <div
                 style={{ height: "fit-content" }}
                 key={`item-${idx}`}
                 className={styles["item-wrapper"]}
               >
-                {dataObj ? (
-                  <div className={styles["item-content"]} key={dataObj.id}>
-                    <Template dataObj={dataObj} key={dataObj.id} />
+                {fanartItem ? (
+                  <div className={styles["item-content"]} key={fanartItem.id}>
+                    <div className={styles["content"]}>
+                      <div className={styles["fanart-poster"]}>
+                        <Image
+                          draggable={false}
+                          src={fanartItem.src}
+                          fill
+                          alt="fanart poster"
+                        />
+                      </div>
+                    </div>
                   </div>
                 ) : (
                   <div className={styles["empty-item"]}>
@@ -139,26 +146,22 @@ const FanartCarousel = ({
               </div>
             ))}
           </div>
-          {showNavigator && (
-            <div className={styles["navigation-dots"]}>
-              {Array.from({ length: data.length }).map((_, num) =>
-                !(
-                  num >= currentElement && num < currentElement + numPerPage
-                ) ? (
-                  <div
-                    className={styles.dot}
-                    key={num}
-                    onClick={() => moveHere(num)}
-                  ></div>
-                ) : (
-                  <div
-                    className={`${styles.dot} ${styles["active-dot"]}`}
-                    key={num}
-                  ></div>
-                )
-              )}
-            </div>
-          )}
+          <div className={styles["navigation-dots"]}>
+            {Array.from({ length: fanartItems.length }).map((_, num) =>
+              !(num >= currentFanartIndex && num < currentFanartIndex + 1) ? (
+                <div
+                  className={styles.dot}
+                  key={num}
+                  onClick={() => moveHere(num)}
+                ></div>
+              ) : (
+                <div
+                  className={`${styles.dot} ${styles["active-dot"]}`}
+                  key={num}
+                ></div>
+              )
+            )}
+          </div>
         </div>
         <Image
           src="/assets/icons/right-arrow.svg"
