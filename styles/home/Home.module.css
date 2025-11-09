@@ -230,6 +230,75 @@
   padding: 1rem 1rem 1rem 1rem;
 }
 
+/* AMV Section */
+.amv-section {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.amv-section > h1 {
+  font-size: 2.875rem;
+  margin-bottom: 30px;
+}
+
+.amv-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+  align-items: center;
+}
+
+.amv-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #1e1e1e;
+  border-radius: 5px;
+  flex: 0 0 100%;
+}
+
+.amv-video-carousel {
+  max-width: 800px;
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  gap: 1rem;
+  scroll-behavior: smooth;
+}
+
+.amv-nav-arrow {
+  justify-self: center;
+  background-color: rgba(31, 31, 31, 0.82);
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+  .amv-nav-arrow {
+    display: none;
+  }
+}
+
+.amv-navigation-dots {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 10px;
+  background-color: #aaaaaa;
+}
+
+.active-dot {
+  background-color: white;
+}
+
 /* ABOUT US SECTION */
 
 .about-container {
@@ -237,7 +306,7 @@
   /* flex-direction: column; */
   gap: 2rem;
   width: 100%;
-  margin: 7rem 0rem 7rem 0rem;
+  margin: 4rem 0rem;
   padding: 4rem 0rem;
   justify-content: space-between;
 }
@@ -310,14 +379,5 @@
   .about-teams {
     width: 100%;
     justify-content: center;
-  }
-  .about-team {
-    flex: 0 0 240px;
-  }
-}
-
-@media (max-width: 800px) {
-  .about-team {
-    flex: 1 1 240px !important;
   }
 }
