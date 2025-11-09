@@ -1,5 +1,5 @@
+import Image from "next/image";
 import styles from "@/styles/home/Home.module.css";
-import CalendarIcon from "../icons/CalendarIcon";
 
 export default function RecentEvents({
   content = [],
@@ -22,7 +22,7 @@ export default function RecentEvents({
         onClick={() => onClickItem(0)}
       >
         <div>
-          <CalendarIcon />
+          <Image src="/assets/icons/calendar.svg" height={30} width={30} />
         </div>
         <h2>{content[0]?.title}</h2>
         <p>
@@ -37,7 +37,7 @@ export default function RecentEvents({
         onClick={() => onClickItem(1)}
       >
         <div>
-          <CalendarIcon />
+          <Image src="/assets/icons/calendar.svg" height={30} width={30} />
         </div>
         <h2>{content[1]?.title}</h2>
         <p>
@@ -52,7 +52,7 @@ export default function RecentEvents({
         onClick={() => onClickItem(2)}
       >
         <div>
-          <CalendarIcon />
+          <Image src="/assets/icons/calendar.svg" height={30} width={30} />
         </div>
         <h2>{content[2]?.title}</h2>
         <p>

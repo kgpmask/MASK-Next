@@ -1,4 +1,4 @@
-import RightArrowIcon from "@/components/icons/RightArrowIcon";
+import Image from "next/image";
 import styles from "@/styles/home/Home.module.css";
 
 export default function HeroSection() {
@@ -22,9 +22,11 @@ export default function HeroSection() {
         <div className={styles.button1}>About us</div>
         <div className={styles.button2}>
           Checkout our latest newsletter
-          <div>
-            <RightArrowIcon />
-          </div>
+          <Image
+            src="/assets/icons/right-arrow-tail.svg"
+            height={15}
+            width={15}
+          />
         </div>
       </div>
     </div>

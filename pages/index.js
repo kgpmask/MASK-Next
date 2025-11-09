@@ -1,5 +1,5 @@
 import styles from "@/styles/home/Home.module.css";
-import RecentCarousel from "../components/home/RecentCarousel";
+import RecentEventsCarousel from "../components/home/RecentEventsCarousel";
 import recentContent from "@/data/recentEvents.json";
 import { useState } from "react";
 import HeroSection from "@/components/home/HeroSection";
@@ -20,19 +20,18 @@ export default function Home() {
         onClickItem={setCurrentItemIndex}
       />
       <div className={styles["header-content"]}>
-        <RecentCarousel
+        <RecentEventsCarousel
           Template={RecentEventsCarouselCard}
           numPerPage={1}
           discrete={false}
           data={recentItems}
-          maxWidth={"65vw"}
           onSlideChange={setCurrentItemIndex}
           currentElement={currentItemIndex}
         />
       </div>
       <FanartSection />
       <div className={styles["header-content"]}>
-        <RecentCarousel
+        <RecentEventsCarousel
           Template={RecentEventsCarouselCard}
           numPerPage={1}
           discrete={false}

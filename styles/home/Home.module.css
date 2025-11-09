@@ -90,6 +90,10 @@
   cursor: pointer;
 }
 
+.button2 img {
+  align-self: center;
+}
+
 @media (max-width: 900px) {
   .hero {
     display: flex;
@@ -290,6 +294,10 @@
   gap: 1rem;
   padding: 2rem;
   text-align: start;
+}
+
+.about-box1 img {
+  filter: brightness(0) invert(1);
 }
 
 .about-box1:hover {

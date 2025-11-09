@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "@/styles/home/HomeRecentEventsCarousel.module.css";
 
 // takes in parameters, Template
-const RecentCarousel = ({
+const RecentEventsCarousel = ({
   Template = {},
   data = [],
   onSlideChange,
@@ -131,4 +131,4 @@ const RecentCarousel = ({
   );
 };
 
-export default RecentCarousel;
+export default RecentEventsCarousel;
