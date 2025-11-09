@@ -52,7 +52,7 @@ export default function AMVSection() {
 
   return (
     <div className={styles["amv-section"]}>
-      <h1>AMVs</h1>
+      <h1>Anime Music Videos</h1>
       <div className={styles["amv-container"]}>
         <Image
           src="/assets/icons/left-arrow.svg"
