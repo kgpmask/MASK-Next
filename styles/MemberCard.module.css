@@ -12,7 +12,7 @@
 
 .profile-pic > img {
 	border-bottom-color: black;
-	border-bottom-width: 1px;
+	border-bottom-width: 0px;
 	border-bottom-style: solid;
 }
 
@@ -38,6 +38,7 @@
 }
 
 .profile-pic > img {
+	display: block;
 	align-self: center;
 	justify-self: center;
 	height: auto;
@@ -97,5 +98,5 @@
 }
 
 .compact-style {
-	width: 150px;
+	width: 260px;
 }
