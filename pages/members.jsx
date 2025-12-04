@@ -38,7 +38,7 @@ function getMembers(selectedYear) {
 			members: [],
 		},
 		'Former Member': {
-			type: 'vertical',
+			type: 'horizontal',
 			members: [],
 		},
 	};
@@ -158,7 +158,7 @@ export default function MembersPage() {
 									<FaChevronLeft />
 								</button>
 								<div
-									className={`${styles['members-section']} ${styles['members-section-horizontal']}`}
+									className={`${styles['members-section-horizontal']}`}
 									ref={horizontalRefs.current[position]}
 								>
 									{data.members.map((member, idx) => (
