@@ -7,9 +7,10 @@ import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 import { BiMoviePlay } from 'react-icons/bi';
 import { FaPaintbrush } from 'react-icons/fa6';
-import { TfiWrite } from 'react-icons/tfi';
+import { FiEdit } from "react-icons/fi";
 import { PiListChecksBold } from 'react-icons/pi';
 import { FaCode } from 'react-icons/fa6';
+import { IoMusicalNotes } from "react-icons/io5";
 
 const cabin = Cabin({ subsets: ['latin'] });
 
@@ -50,6 +51,7 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 		n: 'MN',
 		q: 'Quiz',
 		w: 'WebD',
+		m: 'Music',
 	};
 
 	const positionFull =
@@ -65,9 +67,11 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 	const positionIcons = {
 		a: <BiMoviePlay />,
 		d: <FaPaintbrush />,
-		n: <TfiWrite />,
+		n: <FiEdit />,
 		q: <PiListChecksBold />,
 		w: <FaCode />,
+		m: <IoMusicalNotes />,
+		c: <FaPaintbrush/>,
 	};
 
 	const contactIcons = {
