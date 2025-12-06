@@ -1,32 +1,28 @@
 .member-container {
-	display: flex;
-	flex-direction: column;
 	height: inherit;
-	min-height: 270px;
-	width: 195px;
+	width: auto;
 	justify-content: center;
-}
-
-.member-container>div {
+	background-color: #e43332;
 	overflow: hidden;
-	/* box-shadow: 0em 0.1em 0.2em rgba(0, 0, 0, 2); */
 }
 
-.profile-pic {
-	height: 195px;
+.member-container.with-contact-info {
+	position: relative;
+}
+
+.profile-pic > img {
+	border-bottom-color: black;
+	border-bottom-width: 0px;
+	border-bottom-style: solid;
 }
 
 .info-container {
 	display: flex;
 	flex-direction: column;
-	background-color: #E43332;
 	flex-grow: 1;
 	gap: 5px;
 	padding: 15px 1rem;
 	justify-content: space-between;
-	border-top-color: black;
-	border-top-width: 1px;
-	border-top-style: solid;
 }
 
 .member-info {
@@ -41,7 +37,8 @@
 	color: whitesmoke;
 }
 
-.profile-pic>img {
+.profile-pic > img {
+	display: block;
 	align-self: center;
 	justify-self: center;
 	height: auto;
@@ -52,6 +49,7 @@
 	font-size: 0.8rem;
 	color: #e6e6e6;
 }
+
 .team-list {
 	display: flex;
 	flex-wrap: wrap;
@@ -61,29 +59,40 @@
 	gap: 10px;
 }
 
-.team-list svg {
-	stroke-width: 1;
+.contact-info-container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	position: absolute;
+	bottom: -50px;
 }
 
-@media screen and (max-width: 768px) {
-	.member-container {
-		min-height: 240px;
-		width: 150px;
-		justify-content: center;
-	}
-	.profile-pic {
-		height: 150px;
-	}
-	.team-list {
-		font-size: 20px;
-	}
-	.member-name {
-		font-size: 1rem;
-	}
-	.member-position {
-		font-size: 0.7rem;
-	}
-	.info-container {
-		padding: 10px 0.8rem;
-	}
+.contact-info-container > .contact-info {
+	flex: 1;
+	text-align: center;
+	padding: 10px;
+	height: 50px;
+	color: #fff;
+	background: rgba(139, 0, 0, 1);
+	font-size: 24px;
+}
+
+.contact-info:nth-child(odd) {
+	background: rgba(176, 44, 43, 1);
+}
+
+.member-container.with-contact-info > .profile-pic,
+.member-container.with-contact-info > .info-container,
+.member-container.with-contact-info > .contact-info-container {
+	transition: transform 300ms ease-in-out;
+}
+
+.member-container.with-contact-info:hover > .profile-pic,
+.member-container.with-contact-info:hover > .info-container,
+.member-container.with-contact-info:hover > .contact-info-container {
+	transform: translateY(-50px);
+}
+
+.compact-style {
+	width: 260px;
 }

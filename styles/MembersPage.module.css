@@ -1,0 +1,144 @@
+.members {
+	padding: 70px 110px;
+}
+
+.members > section > h2 {
+	color: var(--textwhite);
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+.members-batch-container {
+	text-align: right;
+	position: relative;
+}
+
+.members-batch-down {
+	color: rgba(109, 109, 109, 1);
+	position: absolute;
+	right: 10px;
+	height: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.members-batch-select {
+	padding: 10px 40px 10px 15px;
+	background: rgba(30, 30, 30, 1);
+	color: rgba(109, 109, 109, 1);
+	border: none;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	outline: none;
+}
+
+.members-batch-select:focus {
+	outline: none;
+	box-shadow: none;
+	border: none;
+}
+
+.members-batch-select > option {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border: none;
+}
+
+.members-section {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 260px);
+	justify-content: start;
+	gap: 20px;
+	margin-bottom: 50px;
+}
+
+.members-section > * {
+	max-width: 260px;
+}
+
+@media screen and (max-width: 900px) {
+	.members-section {
+		grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+	}
+}
+
+@media screen and (max-width: 630px) {
+	.members-section {
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	}
+
+	.members-section > * {
+		max-width: unset;
+	}
+}
+
+.members-section-horizontal > * {
+	width: 260px;
+	display: inline-block;
+	margin-right: 20px;
+	white-space: normal;
+}
+
+.members-section-horizontal > *:last-child {
+	margin-right: 0;
+}
+
+.members-section-horizontal {
+	display: block;
+	overflow-y: hidden;
+	flex-wrap: nowrap;
+	white-space: nowrap;
+	scroll-behavior: smooth;
+	margin-bottom: 50px;
+	scrollbar-width: thin;
+	scrollbar-color: #888 transparent;
+}
+
+.members-section-horizontal::-webkit-scrollbar {
+	height: 4px;
+}
+
+.members-section-horizontal::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.members-section-horizontal::-webkit-scrollbar-button:horizontal:decrement {
+	color: transparent;
+}
+
+.members-section-horizontal-wrapper {
+	position: relative;
+	display: flex;
+}
+
+.members-scroll-button {
+	position: absolute;
+	align-self: center;
+	color: rgba(109, 109, 109, 1);
+	background: rgba(31, 31, 31, 0.82);
+	width: 40px;
+	height: 40px;
+	font-size: 30px;
+	border: none;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	bottom: 50%;
+	transform: translateY(-50% - 5px);
+}
+
+@media (max-width: 800px) {
+	.members {
+		padding: 70px 30px;
+	}
+
+	.members-scroll-button {
+		display: none;
+	}
+
+	.members-section-horizontal {
+		overflow-x: auto;
+	}
+}
