@@ -3185,7 +3185,7 @@
                 "position": "Executive",
                 "teams": [
                     "n",
-                    "w"
+                    "wH"
                 ]
             }
         ]
@@ -3575,7 +3575,7 @@
                 "year": 2025,
                 "position": "Associate",
                 "teams": [
-                    "a"
+                    "aS"
                 ]
             }
         ]
@@ -3599,7 +3599,7 @@
                 "year": 2025,
                 "position": "Associate",
                 "teams": [
-                    "q"
+                    "qS"
                 ]
             }
         ]
@@ -3625,7 +3625,7 @@
                 "position": "Associate",
                 "teams": [
                     "n",
-                    "q"
+                    "qS"
                 ]
             }
         ]
@@ -3806,7 +3806,7 @@
                 "year": 2025,
                 "position": "Executive",
                 "teams": [
-                    "a",
+                    "aH",
                     "q"
                 ]
             }
@@ -3872,7 +3872,7 @@
                 "year": 2025,
                 "position": "Executive",
                 "teams": [
-                    "n"
+                    "nH"
                 ]
             }
         ]
@@ -4062,7 +4062,11 @@
                 "teams": [
                     "d",
                     "q"
-                ]
+                ],
+                "contacts": {
+					"email": "example@example.com",
+					"instagram": "example"
+				}
             }
         ]
     },
@@ -4198,7 +4202,12 @@
                 "teams": [
                     "n",
                     "q"
-                ]
+                ],
+                "contacts": {
+					"email": "example@example.com",
+					"instagram": "example",
+					"github": "example"
+				}
             }
         ]
     },
@@ -4360,7 +4369,7 @@
                 "year": 2025,
                 "position": "Executive",
                 "teams": [
-                    "q"
+                    "qH"
                 ]
             }
         ]
@@ -4425,7 +4434,7 @@
                 "year": 2025,
                 "position": "Executive",
                 "teams": [
-                    "d"
+                    "dH"
                 ]
             }
         ]
@@ -4518,7 +4527,7 @@
                 "year": 2025,
                 "position": "Associate",
                 "teams": [
-                    "n",
+                    "nS",
                     "q"
                 ]
             }
@@ -4543,7 +4552,7 @@
                 "year": 2025,
                 "position": "Associate",
                 "teams": [
-                    "a"
+                    "aS"
                 ]
             }
         ]
@@ -4569,7 +4578,7 @@
         "_id": {
             "$oid": "671cbca04a5059ecd9dcf607"
         },
-        "image": "24_sarthak.webp",
+        "image": "blank.webp",
         "name": "Sarthak Jhanwar",
         "roll": "24AG10066",
         "records": [
@@ -4626,7 +4635,7 @@
                 "year": 2025,
                 "position": "Associate",
                 "teams": [
-                    "d"
+                    "dS"
                 ]
             }
         ]
@@ -4667,7 +4676,7 @@
                 "year": 2025,
                 "position": "Associate",
                 "teams": [
-                    "w"
+                    "wS"
                 ]
             }
         ]
@@ -4676,7 +4685,7 @@
         "_id": {
             "$oid": "671cbca04a5059ecd9dcf5fd"
         },
-        "image": "24_ayush.webp",
+        "image": "blank.webp",
         "name": "Ayush Thawkar",
         "roll": "24HS10003",
         "records": [
@@ -4691,7 +4700,7 @@
                 "year": 2025,
                 "position": "Associate",
                 "teams": [
-                    "n"
+                    "nS"
                 ]
             }
         ]
@@ -4797,13 +4806,13 @@
                 "year": 2025,
                 "position": "Associate",
                 "teams": [
-                    "m"
+                    "mS"
                 ]
             }
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "Oindrila Mandal",
         "records": [
@@ -4811,13 +4820,13 @@
                 "year": 2025,
                 "position": "Associate",
                 "teams": [
-                    "d"
+                    "dS"
                 ]
             }
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "Aditya Anand",
         "records": [
@@ -4831,7 +4840,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "25_aryan.webp",
         "roll": "",
         "name": "Aryan Singh",
         "records": [
@@ -4889,7 +4898,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "Shubham Krishan",
         "records": [
@@ -4917,7 +4926,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "Vinayak Bhadra",
         "records": [
@@ -4959,7 +4968,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "Appana JSNV Sai Bhargav",
         "records": [
@@ -4974,8 +4983,8 @@
         ]
     },
     {
-        "image": "",
-        "roll": "",
+        "image": "25_arpit.webp",
+        "roll": "25CS10002",
         "name": "Arpit Chakladar",
         "records": [
             {
@@ -4988,7 +4997,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "Arth Goel",
         "records": [
@@ -5002,7 +5011,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "Garima Singh",
         "records": [
@@ -5045,7 +5054,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "M. Tarun Prasad",
         "records": [
@@ -5073,7 +5082,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "Marapally Jagruth",
         "records": [
@@ -5101,7 +5110,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "Pushkar Dev",
         "records": [
@@ -5130,7 +5139,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "Rudraksh sharma",
         "records": [
@@ -5188,7 +5197,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "Tanishq Singh Adhikari",
         "records": [
@@ -5216,7 +5225,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "25_vedant.webp",
         "roll": "",
         "name": "Vedant sanap",
         "records": [
@@ -5230,7 +5239,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "Venkat Pavan",
         "records": [
@@ -5244,7 +5253,7 @@
         ]
     },
     {
-        "image": "",
+        "image": "blank.webp",
         "roll": "",
         "name": "Vidhan Bhardwaj",
         "records": [
@@ -5268,20 +5277,6 @@
                 "position": "Fresher",
                 "teams": [
                     "d"
-                ]
-            }
-        ]
-    },
-    {
-        "image": "25_arpit.webp",
-        "roll": "25CS10002",
-        "name": "Arpit Chakladar",
-        "records": [
-            {
-                "year": 2025,
-                "position": "Fresher",
-                "teams": [
-                    "w"
                 ]
             }
         ]
