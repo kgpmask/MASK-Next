@@ -1,0 +1,69 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.year-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #eee;
+}
+
+@media (min-width: 640px) {
+  .year-title {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .year-title {
+    align-self: flex-start;
+  }
+}
+
+.season-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.chip-base {
+  width: 70px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: #333;
+  border-radius: 37px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #ffffff8a;
+  border: 2px solid #ffffff00;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.chip-base:hover {
+  border-color: #e4333260;
+}
+
+@media (min-width: 640px) {
+  .chip-base {
+    width: 94px;
+  }
+}
+
+.chip-selected {
+  background-color: #e43332;
+  font-weight: 700;
+  color: white;
+}
