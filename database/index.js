@@ -24,7 +24,9 @@ async function initializeDatabase() {
 	}
 
 	try {
+		console.log("Establishing connection to database");
 		cached.conn = await cached.promise;
+		console.log("Successfully connected to database");
 		return cached.conn;
 	} catch (err) {
 		cached = global.mongoose = { conn: null, promise: null };
@@ -33,6 +35,7 @@ async function initializeDatabase() {
 	}
 }
 
+// Wrap handlers that use the database in this to ensure database is connected
 export function withDatabase(handler) {
   return async (req, res) => {
     await initializeDatabase();
