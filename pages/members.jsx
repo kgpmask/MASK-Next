@@ -4,10 +4,16 @@ import { FaCaretDown } from 'react-icons/fa';
 import { useState } from 'react';
 import styles from '@/styles/MembersPage.module.css';
 import MemberCard from '@/components/MemberCard';
-import membersData from '@/public/assets/members/members.json';
+import { connectDatabase } from "@/database/database";
+import Member from "@/database/schemas/Member";
 
-// TODO: Populate getMembers() with real member data instead of placeholder entries
-function getMembers(selectedYear) {
+export async function getServerSideProps() {
+  await connectDatabase();
+  const membersData = await Member.find({}, { _id: 0 }).lean();
+  return { props: { membersData } };
+}
+
+function getMembers(membersData, selectedYear) {
 	const structure = {
 		Governor: {
 			type: 'vertical',
@@ -77,7 +83,7 @@ const getYearOptions = (start, end) =>
 		return `${year}-${(year + 1).toString().slice(-2)}`;
 	});
 
-export default function MembersPage() {
+export default function MembersPage({membersData}) {
 
 	const allYears = membersData.flatMap(member => member.records.map(r => r.year));
 	const minYear = Math.min(...allYears);
@@ -90,7 +96,7 @@ export default function MembersPage() {
         setSelectedYear(year);
     };
 	
-	const positions = getMembers(selectedYear);
+	const positions = getMembers(membersData, selectedYear);
 	
 	const horizontalRefs = useRef(
 		Object.entries(positions)

@@ -6,7 +6,7 @@ if (!cached) {
   cached = global.mongoose = { conn: null, promise: null };
 }
 
-async function connectDatabase() {
+export async function connectDatabase() {
   if (!process.env.MONGO_URL) {
     throw new Error("Couldn't find MONGO_URL in environment variables");
   }

@@ -13,7 +13,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-player": "^2.16.0",
-    "react-icons": "^5.4.0"
+    "react-icons": "^5.4.0",
+    "mongoose": "^9.0.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
