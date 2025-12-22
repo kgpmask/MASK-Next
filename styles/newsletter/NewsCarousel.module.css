@@ -1,0 +1,90 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: inherit;
+  width: 100%;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  overflow: hidden;
+  height: auto;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.arrow {
+  background-color: rgba(31, 31, 31, 0.82);
+  margin: 5px;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1080px) {
+  .arrow {
+    display: none;
+  }
+}
+
+.slider {
+  display: flex;
+  overflow-x: hidden;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  height: fit-content;
+}
+
+.item-wrapper {
+  height: fit-content;
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.item-content {
+  scroll-snap-align: start;
+  height: fit-content;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: auto;
+}
+
+.empty-item {
+  display: flex;
+  width: 328px;
+  height: 425px;
+}
+
+.empty-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 328px;
+  height: 351px;
+  background-color: #1e1e1e;
+  text-align: center;
+  color: #d9d9d9;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.navigation-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 10px;
+  background-color: #aaaaaa;
+}
+
+.active-dot {
+  background-color: white;
+}

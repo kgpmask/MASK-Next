@@ -1,24 +1,26 @@
 {
-	"name": "mask-next",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev --turbopack",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
-	},
-	"dependencies": {
-		"mongoose": "^9.0.2",
-		"next": "15.1.0",
-		"react": "^19.0.0",
-		"react-dom": "^19.0.0",
-		"react-icons": "^5.4.0",
-		"react-player": "^2.16.0"
-	},
-	"devDependencies": {
-		"@eslint/eslintrc": "^3",
-		"eslint": "^9",
-		"eslint-config-next": "15.1.0"
-	}
+  "name": "mask-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-player": "^2.16.0",
+    "react-icons": "^5.4.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.0"
+  },
+  "volta": {
+    "node": "22.20.0"
+  }
 }

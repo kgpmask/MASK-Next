@@ -1,0 +1,19 @@
+{
+    "Gear-5 Screening": {
+  		"image": "/assets/events/gear-5/4.webp",
+  		"title": "Gear-5 Screening",
+  		"date": "date",
+  		"venue": "venue",
+  		"author": "Pratyay",
+  		"description": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+    },
+    
+    "Open Campus Anime Quiz 2023": {
+  		"image": "/assets/events/ocaq-2023/3.webp",
+  		"title": "Open Campus Anime Quiz 2023",
+  		"date": "January 1, 2023",
+  		"venue": "Nehru museum",
+  		"author": "Pratyay",
+  		"description": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+    }
+}
