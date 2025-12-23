@@ -1,10 +1,40 @@
 import HeroBanner from "@/components/HeroBanner";
 import React, { useEffect, useState } from "react";
 import SeasonFilter from "@/components/art/SeasonFilter";
-import Carousel from "@/components/art/ArtCarousel";
-import artworks from "@/data/artworks.json";
+import Carousel from "@/components/art/ArtCarousel"
 import ArtCarouselCard from "@/components/art/ArtCarosuelCard";
 import styles from "@/styles/art/Arts.module.css";
+import { connectDatabase } from "@/database/database";
+import Post from "@/database/schemas/Post";
+
+function getSeason(month) {
+  if (month >= 2 && month <= 4) return "spring";   // Mar–May
+  if (month >= 5 && month <= 7) return "summer";   // Jun–Aug
+  if (month >= 8 && month <= 10) return "autumn";  // Sep–Nov
+  return "winter";                                 // Dec–Feb
+}
+
+export async function getServerSideProps() {
+  await connectDatabase();
+  let artworksRaw = await Post.find({ type: 'art' }, { _id: 0, metadata: 0, type: 0, page:0, hype: 0, __v: 0}).sort({ date: -1 }).lean();
+  artworksRaw = artworksRaw.map(item => ({
+    ...item,
+    date: item.date instanceof Date ? item.date.toISOString() : item.date,
+  }));
+
+  const artworks = artworksRaw.map(item => {
+    const d = new Date(item.date);
+
+    return {
+      src: `/assets/art/${item.link}`,
+      year: String(d.getFullYear()),
+      title: item.attr?.join(", ") || "",
+      description: item.name,
+      season: getSeason(d.getMonth()),
+    };
+  });
+  return { props: { artworks } };
+}
 
 // custom hook to get window size
 function useWindowSize() {
@@ -29,7 +59,7 @@ function useWindowSize() {
   return windowSize;
 }
 
-function YearCarousel({ year }) {
+function YearCarousel({ year, artworks }) {
   const [selectedSeason, setSelectedSeason] = useState("spring");
   const { width } = useWindowSize();
   const [itemsPerPage, setItemsPerPage] = useState(() => {
@@ -81,7 +111,7 @@ function YearCarousel({ year }) {
   );
 }
 
-function YearCarouselGroup() {
+function YearCarouselGroup({ artworks }) {
   // Extract unique years from artworks data
   const years = [...new Set(artworks.map((art) => art.year))].sort(
     (a, b) => b - a
@@ -90,13 +120,13 @@ function YearCarouselGroup() {
   return (
     <div>
       {years.map((year) => (
-        <YearCarousel key={year} year={year} />
+        <YearCarousel key={year} year={year} artworks={artworks}/>
       ))}
     </div>
   );
 }
 
-export default function ArtPage() {
+export default function ArtPage({ artworks }) {
   return (
     <>
       <div>
@@ -108,7 +138,7 @@ export default function ArtPage() {
           buttonContent={"Checkout our content on Instagram"}
           buttonURL={"https://www.instagram.com/maskiitkgp"}
         />
-        <YearCarouselGroup />
+        <YearCarouselGroup artworks={artworks}/>
       </div>
     </>
   );
