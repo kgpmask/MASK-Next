@@ -15,7 +15,7 @@ const ArtCarouselCard = ({ dataObj }) => {
       />
 
       <div className={styles["art-overlay"]}>
-        <h3 className={styles["art-title"]}>{dataObj.title}</h3>
+        <h3 className={styles["art-title"]}>{dataObj.author}</h3>
         <div>{dataObj.description}</div>
       </div>
     </div>

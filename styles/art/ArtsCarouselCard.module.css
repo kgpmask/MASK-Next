@@ -12,11 +12,11 @@
   height: 328px;
   object-fit: cover;
   z-index: 0;
-  transition: border 500ms ease-in-out;
+  transition: border 50ms ease-in-out;
 }
 
 .art-image:hover {
-  border: 3px solid #e4333200;
+  border: 2px solid #e4333200;
 }
 
 .art-overlay {
@@ -29,7 +29,7 @@
   transform: translateY(-100%);
   color: white;
   opacity: 0;
-  transition: opacity 500ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
 }
 
 .art-container:hover .art-overlay {
@@ -40,5 +40,4 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: white;
-  padding: 0.5rem;
 }

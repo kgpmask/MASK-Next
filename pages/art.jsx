@@ -21,7 +21,7 @@ export async function getServerSideProps() {
 		return {
 			src: `/assets/art/${item.link}`,
 			year: String(d.getFullYear()),
-			title: item.attr?.join(", ") || "",
+			author: item.attr?.join(", ") || "",
 			description: item.name,
 			season: getSeason(d.getMonth()),
 		};
