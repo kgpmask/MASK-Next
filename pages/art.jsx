@@ -1,5 +1,5 @@
 import HeroBanner from "@/components/HeroBanner";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 import SeasonFilter from "@/components/art/SeasonFilter";
 import Carousel from "@/components/art/ArtCarousel"
 import ArtCarouselCard from "@/components/art/ArtCarosuelCard";
@@ -61,24 +61,8 @@ function getSeason(month) {
 
 function YearCarousel({ year, artworks }) {
 	const { width } = useWindowSize();
-	const [itemsPerPage, setItemsPerPage] = useState(() => {
-		if (typeof window !== "undefined") {
-			if (width >= 1024) return 3;
-			if (width >= 640) return 2;
-			return 1;
-		}
-		return 1;
-	});
-	useEffect(() => {
-		if (typeof width !== "number") return;
-		if (width >= 1024) {
-			setItemsPerPage(3);
-		} else if (width >= 640) {
-			setItemsPerPage(2);
-		} else {
-			setItemsPerPage(1);
-		}
-	}, [width]);
+	const itemsPerPage =
+  		width >= 1024 ? 3 : (width >= 640 ? 2 : 1);
 
 	const filteredArtworksByYear = artworks.filter(
 		(art) => art.year === year
@@ -143,7 +127,10 @@ function YearCarousel({ year, artworks }) {
 
 	const carouselItems = [...filteredArtworks];
 
-	return (
+	// gate rendering: to prevent browser from painting this element before we get width.
+	if (typeof width !== "number") {
+		return null;
+	} else return (
 		<div className={styles.container}>
 			<div className={styles["filter-container"]}>
 				<SeasonFilter
