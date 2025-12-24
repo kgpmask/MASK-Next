@@ -7,37 +7,41 @@ const teams = [
 		title: 'Quiz Team',
 		icon: '/assets/icons/quiz.svg',
 		description:
-      'The Quiz team works on making engaging anime quizzes and puzzles for various events, competition and newsletter. They also work on handling the schematics of the event.'
+			`The Quiz team works on making engaging anime quizzes and puzzles for various events, competition and newsletter. 
+			They also work on handling the schematics of the event.`
 	},
 	{
 		title: 'AMV Team',
 		icon: '/assets/icons/amv.svg',
 		description:
-      'They work on making AMVs, be it full-fledged 3-minute videos or small 30-second reels. They also make the promotional videos of the events as well as live coverage videos.'
+			`They work on making AMVs, be it full-fledged 3-minute videos or small 30-second reels. 
+			They also make the promotional videos of the events as well as live coverage videos.`
 	},
 	{
 		title: 'WebD Team',
 		icon: '/assets/icons/webdev.svg',
 		description:
-      'WebDev team ensures the smooth digital experiences, managing our website and making it easy for everyone to connect.'
+			`WebDev team ensures the smooth digital experiences, managing our website and making it easy for everyone to connect.`
 	},
 	{
 		title: 'DNA Team',
 		icon: '/assets/icons/design.svg',
 		description:
-      'The Design and Arts team is involved in making fan arts, be it traditional or digital. They also work on making the designs of the posters, merchandise and even the website.'
+			`The Design and Arts team is involved in making fan arts, be it traditional or digital. 
+			They also work on making the designs of the posters, merchandise and even the website.`
 	},
 	{
 		title: 'MN Team',
 		icon: '/assets/icons/newsletter.svg',
 		description:
-      'They are in charge of handling our social media and responsible for releasing newsletters. Check them out for interesting articles and puzzles.'
+			`They are in charge of handling our social media and responsible for releasing newsletters. 
+			Check them out for interesting articles and puzzles.`
 	},
 	{
 		title: 'Music Team',
 		icon: '/assets/icons/music.svg',
 		description:
-      'Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis primis nisi imperd'
+			`Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis primis nisi imperd`
 	}
 ];
 

@@ -2,6 +2,8 @@ import styles from '@/styles/Navbar.module.css';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Button from './Button';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => {
 	const router = useRouter();
@@ -27,19 +29,21 @@ const Navbar = () => {
 			<nav className={styles.navbarFull}>
 				<ul>
 					<div>
-						<a href="/" className={styles.logo}>
-							<img
+						<Link href="/" className={styles.logo}>
+							<Image
+								height={48}
+								width={48}
 								src="/assets/logo.jpeg"
 								alt="Logo"
 								className={styles.navbarLogo}
 							/>
-						</a>
+						</Link>
 					</div>
 
 					<div className={styles.navbarContainer}>
 						{menuItems.map((item) =>
 							<li key={item.name}>
-								<a
+								<Link
 									href={item.href}
 									className={`${styles.link} ${
 										active === item.href ? styles.active : ''
@@ -50,25 +54,19 @@ const Navbar = () => {
 									}}
 								>
 									{item.name}
-								</a>
+								</Link>
 							</li>
 						)}
 					</div>
 					<div className={styles.but}>
-						<div className={styles.dropdown}>
-							<Button
-								text="About Us"
-								url="/aboutus"
-								type="red"
-								icon="null"
-								styleOverrides={{ height: 36, minWidth: 20 }}
-								noIcon
-							/>
-							<div className={styles.dropdownContent}>
-								<a href="/aboutus/about">Our Society</a>
-								<a href="/aboutus/members">Our Members</a>
-							</div>
-						</div>
+						<Button
+							text="About Us"
+							url="/about"
+							type="red"
+							icon="null"
+							styleOverrides={{ height: 36, minWidth: 20 }}
+							noIcon
+						/>
 					</div>
 					<div
 						className={styles.burger}
@@ -84,7 +82,7 @@ const Navbar = () => {
 			>
 				<div className={styles.menuContent}>
 					{menuItems.map((item) =>
-						<a
+						<Link
 							key={item.name}
 							href={item.href}
 							className={styles.menuLink}
@@ -95,16 +93,8 @@ const Navbar = () => {
 							}}
 						>
 							{item.name}
-						</a>
+						</Link>
 					)}
-				</div>
-				<div className={styles.menuBottom}>
-					<a href="/aboutus/members" className={styles.menuLink}>
-            Our Members
-					</a>
-					<a href="/aboutus/about" className={styles.menuLink}>
-            Our Society
-					</a>
 				</div>
 			</div>
 		</>

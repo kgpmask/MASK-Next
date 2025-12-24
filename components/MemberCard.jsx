@@ -62,7 +62,7 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 				return teamWithRole
 					? `${teamNames[teamWithRole[0]]} ${positionNames[teamWithRole[1]]}`
 					: position;
-			  })();
+			})();
 
 	const positionIcons = {
 		a: <BiMoviePlay />,

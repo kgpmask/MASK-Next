@@ -104,7 +104,7 @@ const Carousel = ({
 	}
 	function inheritWidth () {
 		// inherits width of parent from child
-		if (sliderRef != null && sliderRef.current != null) {
+		if (sliderRef !== null && sliderRef.current !== null) {
 			setSliderWidth(
 				(sliderRef.current.firstChild.offsetWidth + 16) * numPerPage - 16
 			);
@@ -177,22 +177,22 @@ const Carousel = ({
 				/>
 			</div>
 			{showNavigator &&
-        <div className={styles['navigation-dots']}>
-        	{Array.from({ length: data.length }).map((_, num) =>
-        		!(num >= currentElement && num < currentElement + numPerPage) ?
-        			<div
-        				className={styles.dot}
-        				key={num}
-        				onClick={() => moveHere(num)}
-        			></div>
-        			:
-        			<div
-        				className={`${styles.dot} ${styles['active-dot']}`}
-        				key={num}
-        			></div>
+				<div className={styles['navigation-dots']}>
+					{Array.from({ length: data.length }).map((_, num) =>
+						!(num >= currentElement && num < currentElement + numPerPage) ?
+							<div
+								className={styles.dot}
+								key={num}
+								onClick={() => moveHere(num)}
+							></div>
+							:
+							<div
+								className={`${styles.dot} ${styles['active-dot']}`}
+								key={num}
+							></div>
 
-        	)}
-        </div>
+					)}
+				</div>
 			}
 		</div>
 	);

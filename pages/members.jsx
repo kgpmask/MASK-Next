@@ -53,11 +53,12 @@ function getMembers (membersData, selectedYear) {
 		if (member.records.length < 1) continue;
 		const record = member.records.find(r => r.year === selectedYear);
 		if (!record) continue;
-		let { position, teams, contacts } = record;
+		let { position } = record;
+		const { teams, contacts } = record;
 
 		if (position === 'Advisor') continue;
 
-		if (teams.some(t => t.endsWith('H')) && position != 'Governor') position = 'Team Head';
+		if (teams.some(t => t.endsWith('H')) && position !== 'Governor') position = 'Team Head';
 		if (teams.some(t => t.endsWith('S'))) position = 'Team Sub-Head';
 
 		structure[position].members.push({
@@ -152,7 +153,7 @@ export default function MembersPage ({ membersData }) {
 									)}
 								</div>
 							</section>
-					 :
+							:
 							<section key={position}>
 								<h2>{position}s</h2>
 
@@ -180,7 +181,6 @@ export default function MembersPage ({ membersData }) {
 									</button>
 								</div>
 							</section>
-
 					)}
 			</div>
 		</>
