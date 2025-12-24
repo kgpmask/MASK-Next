@@ -155,8 +155,13 @@ const Carousel = ({
                   <Template dataObj={dataObj} key={dataObj.id} />
                 </div>
               ) : (
-                <div className={styles["empty-item"]}>
-                  <div className={styles["empty-content"]}>No Artwork</div>
+                <div
+                  className={styles["item-content"]}
+                  style={{
+                    flex: `0 0 calc((100% - 32px) / ${numPerPage})`,
+                  }}
+                >
+                  <div className={styles["empty-content"]}></div>
                 </div>
               )}
             </div>

@@ -9,7 +9,7 @@
 
 .art-image {
   width: 328px;
-  height: 351px;
+  height: 328px;
   object-fit: cover;
   z-index: 0;
   transition: border 500ms ease-in-out;

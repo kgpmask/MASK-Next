@@ -5,24 +5,26 @@ export default function SeasonFilter({
   year,
   selectedSeason,
   setSelectedSeason,
+  seasons,
 }) {
-  const seasons = ["winter", "spring", "summer", "fall"];
-
+  // setSelectedSeason(seasons[0]);
   return (
     <>
       <div className={styles.container}>
         <h2 className={styles["year-title"]}>{year}</h2>
         <div className={styles["season-container"]}>
           {seasons.map((season) => (
-            <button
-              key={season}
-              className={`${styles["chip-base"]} ${
-                selectedSeason === season ? styles["chip-selected"] : ""
-              }`}
-              onClick={() => setSelectedSeason(season)}
-            >
-              {season}
-            </button>
+            (season != "year") && (
+              <button
+                key={season}
+                className={`${styles["chip-base"]} ${
+                  selectedSeason === season ? styles["chip-selected"] : ""
+                }`}
+                onClick={() => setSelectedSeason(season)}
+              >
+                {season}
+              </button>
+            )
           ))}
         </div>
       </div>
