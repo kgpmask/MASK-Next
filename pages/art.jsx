@@ -9,7 +9,10 @@ import Post from '@/database/schemas/Post';
 
 export async function getServerSideProps () {
 	await connectDatabase();
-	let artworksRaw = await Post.find({ type: 'art' }, { _id: 0, metadata: 0, type: 0, page: 0, hype: 0, __v: 0 }).sort({ date: -1 }).lean();
+	let artworksRaw = await Post.find(
+		{ type: 'art' },
+		{ _id: 0, metadata: 0, type: 0, page: 0, hype: 0, __v: 0 }
+	).sort({ date: -1 }).lean();
 	artworksRaw = artworksRaw.map(item => ({
 		...item,
 		date: item.date instanceof Date ? item.date.toISOString() : item.date
@@ -62,7 +65,7 @@ function getSeason (month) {
 function YearCarousel ({ year, artworks }) {
 	const { width } = useWindowSize();
 	const itemsPerPage =
-  		width >= 1024 ? 3 : width >= 640 ? 2 : 1;
+		width >= 1024 ? 3 : width >= 640 ? 2 : 1;
 
 	const filteredArtworksByYear = artworks.filter(
 		(art) => art.year === year
@@ -175,7 +178,8 @@ export default function ArtPage ({ artworks }) {
 				<HeroBanner
 					heroTitle={'Checkout Our Talented Artists'}
 					heroContent={
-						'We feature a diverse range of work from talented artists within our society. From traditional to digital art, each piece reflects unique creativity and vision.'
+						`We feature a diverse range of work from talented artists within our society. 
+						From traditional to digital art, each piece reflects unique creativity and vision.`
 					}
 					buttonContent={'Checkout our content on Instagram'}
 					buttonURL={'https://www.instagram.com/maskiitkgp'}
