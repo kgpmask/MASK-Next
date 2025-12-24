@@ -19,22 +19,22 @@ const Button = ({ text, color = 'red', icon: Icon, url, fullWidth, noIcon, style
 	const buttonStyles = {
 		red: {
 			backgroundColor: '#e43332',
-			color: '#fff',
+			color: '#fff'
 		},
 		black: {
 			backgroundColor: '#000000',
-			color: '#fff',
+			color: '#fff'
 		},
 		'trans-white': {
 			backgroundColor: 'transparent',
 			color: '#fff',
-			border: '1px solid #fff',
+			border: '1px solid #fff'
 		},
 		'trans-black': {
 			backgroundColor: 'transparent',
 			color: '#000',
-			border: '1px solid #000',
-		},
+			border: '1px solid #000'
+		}
 	};
 
 	const style = buttonStyles[color?.toLowerCase()] || buttonStyles['red'];
@@ -51,11 +51,11 @@ const Button = ({ text, color = 'red', icon: Icon, url, fullWidth, noIcon, style
 				{noIcon ?
 					null
 					:
-					Icon ? (
+					Icon ?
 						<span className={styles.buttonIcon}><Icon /></span>
-					) : (
+					 :
 						<span className={styles.buttonIcon}><FiArrowRight /></span>
-					)}
+				}
 			</div>
 		</button>
 	);

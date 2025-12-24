@@ -4,49 +4,49 @@ import { FaCaretDown } from 'react-icons/fa';
 import { useState } from 'react';
 import styles from '@/styles/MembersPage.module.css';
 import MemberCard from '@/components/MemberCard';
-import { connectDatabase } from "@/database/database";
-import Member from "@/database/schemas/Member";
+import { connectDatabase } from '@/database/database';
+import Member from '@/database/schemas/Member';
 
-export async function getServerSideProps() {
-  await connectDatabase();
-  const membersData = await Member.find({}, { _id: 0 }).lean();
-  return { props: { membersData } };
+export async function getServerSideProps () {
+	await connectDatabase();
+	const membersData = await Member.find({}, { _id: 0 }).lean();
+	return { props: { membersData } };
 }
 
-function getMembers(membersData, selectedYear) {
+function getMembers (membersData, selectedYear) {
 	const structure = {
 		Governor: {
 			type: 'vertical',
-			members: [],
+			members: []
 		},
 		'Team Head': {
 			type: 'vertical',
-			members: [],
+			members: []
 		},
 		'Team Sub-Head': {
 			type: 'horizontal',
-			members: [],
+			members: []
 		},
 		'Research Associate': {
 			type: 'horizontal',
-			members: [],
+			members: []
 		},
 		Executive: {
 			type: 'horizontal',
-			members: [],
+			members: []
 		},
 		Associate: {
 			type: 'horizontal',
-			members: [],
+			members: []
 		},
 		Fresher: {
 			type: 'horizontal',
-			members: [],
+			members: []
 		},
 		'Former Member': {
 			type: 'horizontal',
-			members: [],
-		},
+			members: []
+		}
 	};
 
 	for (const member of membersData) {
@@ -55,16 +55,16 @@ function getMembers(membersData, selectedYear) {
 		if (!record) continue;
 		let { position, teams, contacts } = record;
 
-		if (position === "Advisor") continue;
+		if (position === 'Advisor') continue;
 
-		if (teams.some(t => t.endsWith("H")) && position != 'Governor') position = 'Team Head';
-		if (teams.some(t => t.endsWith("S"))) position = 'Team Sub-Head';
+		if (teams.some(t => t.endsWith('H')) && position != 'Governor') position = 'Team Head';
+		if (teams.some(t => t.endsWith('S'))) position = 'Team Sub-Head';
 
 		structure[position].members.push({
 			profilePicture: member.image,
 			name: member.name,
 			teams,
-			contacts,
+			contacts
 		});
 	}
 
@@ -83,21 +83,21 @@ const getYearOptions = (start, end) =>
 		return `${year}-${(year + 1).toString().slice(-2)}`;
 	});
 
-export default function MembersPage({membersData}) {
+export default function MembersPage ({ membersData }) {
 
 	const allYears = membersData.flatMap(member => member.records.map(r => r.year));
 	const minYear = Math.min(...allYears);
 	const maxYear = Math.max(...allYears);
-	const [selectedYear, setSelectedYear] = useState(maxYear)
+	const [selectedYear, setSelectedYear] = useState(maxYear);
 	const membersYearOptionsDecorated = getYearOptions(maxYear, minYear);
 
 	const handleYearChange = (e) => {
 		const year = Number(e.target.value);
-        setSelectedYear(year);
-    };
-	
+		setSelectedYear(year);
+	};
+
 	const positions = getMembers(membersData, selectedYear);
-	
+
 	const horizontalRefs = useRef(
 		Object.entries(positions)
 			.filter(([_position, data]) => data.type === 'horizontal')
@@ -118,7 +118,7 @@ export default function MembersPage({membersData}) {
 		const scrollAmount = firstChild.offsetWidth * 2;
 		container.scrollBy({
 			left: direction === 'right' ? scrollAmount : -scrollAmount,
-			behavior: 'smooth',
+			behavior: 'smooth'
 		});
 	};
 
@@ -128,60 +128,60 @@ export default function MembersPage({membersData}) {
 				<div className={styles['members-batch-container']}>
 					<FaCaretDown className={styles['members-batch-down']} />
 					<select
-						className={styles["members-batch-select"]}
+						className={styles['members-batch-select']}
 						value={selectedYear}
 						onChange={handleYearChange}
 					>
-						{membersYearOptionsDecorated.map((option) => (
-							<option key={option} value={Number(option.split("-")[0])}>
+						{membersYearOptionsDecorated.map((option) =>
+							<option key={option} value={Number(option.split('-')[0])}>
 								{`Members: ${option}`}
 							</option>
-						))}
+						)}
 					</select>
 				</div>
 				{Object.entries(positions)
 					.filter(([_position, data]) => data.members.length > 0)
 					.map(([position, data]) =>
-					data.type === 'vertical' ? (
-						<section key={position}>
-							<h2>{position}s</h2>
+						data.type === 'vertical' ?
+							<section key={position}>
+								<h2>{position}s</h2>
 
-							<div className={styles['members-section']}>
-								{data.members.map((member, idx) => (
-									<MemberCard key={idx} {...member} position={position} />
-								))}
-							</div>
-						</section>
-					) : (
-						<section key={position}>
-							<h2>{position}s</h2>
-
-							<div className={styles['members-section-horizontal-wrapper']}>
-								<button
-									className={styles['members-scroll-button']}
-									onClick={() => scroll(position, 'left')}
-								>
-									<FaChevronLeft />
-								</button>
-								<div
-									className={`${styles['members-section-horizontal']}`}
-									ref={horizontalRefs.current[position]}
-								>
-									{data.members.map((member, idx) => (
-										<MemberCard key={idx} {...member} position={position} isCompact />
-									))}
+								<div className={styles['members-section']}>
+									{data.members.map((member, idx) =>
+										<MemberCard key={idx} {...member} position={position} />
+									)}
 								</div>
-								<button
-									className={styles['members-scroll-button']}
-									style={{ right: '0' }}
-									onClick={() => scroll(position, 'right')}
-								>
-									<FaChevronRight />
-								</button>
-							</div>
-						</section>
-					)
-				)}
+							</section>
+					 :
+							<section key={position}>
+								<h2>{position}s</h2>
+
+								<div className={styles['members-section-horizontal-wrapper']}>
+									<button
+										className={styles['members-scroll-button']}
+										onClick={() => scroll(position, 'left')}
+									>
+										<FaChevronLeft />
+									</button>
+									<div
+										className={`${styles['members-section-horizontal']}`}
+										ref={horizontalRefs.current[position]}
+									>
+										{data.members.map((member, idx) =>
+											<MemberCard key={idx} {...member} position={position} isCompact />
+										)}
+									</div>
+									<button
+										className={styles['members-scroll-button']}
+										style={{ right: '0' }}
+										onClick={() => scroll(position, 'right')}
+									>
+										<FaChevronRight />
+									</button>
+								</div>
+							</section>
+
+					)}
 			</div>
 		</>
 	);
