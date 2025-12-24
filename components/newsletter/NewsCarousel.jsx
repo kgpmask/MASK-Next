@@ -39,7 +39,7 @@ const NewsCarousel = ({
 		if (onSlideChange) {
 			onSlideChange(currentElement);
 		}
-	}, [currentElement]);
+	}, [currentElement, onSlideChange]);
 
 	const moveNext = () => setCurrentElement((cur) => (cur + 1) % data.length);
 	const movePrev = () =>

@@ -39,7 +39,7 @@ const FanartCarousel = ({
 		if (setCurrentFanartIndex) {
 			setCurrentFanartIndex(currentFanartIndex);
 		}
-	}, [currentFanartIndex]);
+	}, [currentFanartIndex, setCurrentFanartIndex]);
 
 	const moveNext = () =>
 		setCurrentFanartIndex((cur) => (cur + 1) % fanartItems.length);

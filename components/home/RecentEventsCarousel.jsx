@@ -37,7 +37,7 @@ const RecentEventsCarousel = ({
 		if (onSlideChange) {
 			onSlideChange(currentElement);
 		}
-	}, [currentElement]);
+	}, [currentElement, onSlideChange]);
 
 	const moveNext = () => onSlideChange((cur) => (cur + 1) % data.length);
 	const movePrev = () =>
