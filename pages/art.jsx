@@ -1,5 +1,5 @@
 import HeroBanner from "@/components/HeroBanner";
-import React, { useEffect, useState, useLayoutEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SeasonFilter from "@/components/art/SeasonFilter";
 import Carousel from "@/components/art/ArtCarousel"
 import ArtCarouselCard from "@/components/art/ArtCarosuelCard";
