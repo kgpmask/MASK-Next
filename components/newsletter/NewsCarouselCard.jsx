@@ -2,14 +2,18 @@ import React from 'react';
 import Image from 'next/image';
 import styles from '@/styles/newsletter/NewsCarouselCard.module.css';
 import Button from '../Button';
+import { useState } from 'react';
 
 // takes in data object
 const NewsCarouselCard = ({ dataObj }) => {
+	const [src, setSrc] = useState(
+			`/assets/releases/${dataObj.link}/cover.webp`
+		);
 	return (
 		<>
 			<div className={styles['content']}>
 				<div className={styles['news-poster']}>
-					<Image src={dataObj.src} fill alt="news poster" />
+					<Image src={src} fill alt="news poster" onError={() => setSrc('/assets/releases/no-cover.webp')} />
 				</div>
 				<div className={styles['content-column']}>
 					<div className={styles['text-content']}>
@@ -28,7 +32,7 @@ const NewsCarouselCard = ({ dataObj }) => {
 								<Image src={dataObj.src} fill alt="news poster" />
 							</div>
 							<p className={styles['description']}>
-								{dataObj.description.slice(0, 310)}...
+								{dataObj.desc.slice(0, 310)}...
 							</p>
 						</div>
 					</div>

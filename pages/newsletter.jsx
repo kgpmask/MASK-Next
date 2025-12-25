@@ -1,6 +1,6 @@
 import NewsletterCard from '@/components/newsletter/NewsCard';
 import styles from '@/styles/newsletter/News.module.css';
-import newsContent from '@/data/news.json';
+import newsContent from '@/public/assets/releases/newsletter_desc.json';
 import NewsCarousel from '@/components/newsletter/NewsCarousel';
 import NewsCarouselCard from '@/components/newsletter/NewsCarouselCard';
 import { useState } from 'react';
@@ -24,13 +24,13 @@ const NewsletterCardGallery = () => {
 				</p>
 			</div>
 			<div className={styles.grid}>
-				{newsContent.map((news, idx) =>
+				{newsContent.map((news, _idx) =>
 					<div key={news.id}>
 						<NewsletterCard
-							image={news.src}
+							image={news.link}
 							title={news.title}
-							description={news.description.slice(0, 100) + '...'}
-							link={news.link}
+							description={news.desc.slice(0, 100) + '...'}
+							link={'https://www.animenewsnetwork.com/'}
 							onCardClick={handleCustomCardClick}
 						/>
 					</div>
@@ -42,7 +42,8 @@ const NewsletterCardGallery = () => {
 
 function NewsHeaderCarousel () {
 	const newsItems = newsContent.slice(0, 5);
-	const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
+	const [currentNewsIndex, setCurrentNewsIndex] = useState(1);
+	console.log(newsItems);
 
 	return (
 		<>
@@ -50,7 +51,7 @@ function NewsHeaderCarousel () {
 				className={styles['header']}
 				style={{
 					backgroundImage: `linear-gradient(#e43332d9, #e43332d9), url('${
-						newsItems[currentNewsIndex]?.src || '/assets/news/header.png'
+						`/assets/releases/${newsItems[currentNewsIndex]?.link}/cover.webp` || '/assets/releases/no-cover.webp'
 					}')`
 				}}
 			>

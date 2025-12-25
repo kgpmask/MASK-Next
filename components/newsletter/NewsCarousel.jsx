@@ -22,14 +22,14 @@ const NewsCarousel = ({
 
 	const getScrollOffset = (num) => sliderRef.current.children[num].offsetLeft;
 
-	useEffect(() => {
-		if (isHovering | data.length === 0) return;
-		const slideInterval = setInterval(() => {
-			moveNext();
-		}, AUTO_SCROLL_DELAY);
+	// useEffect(() => {
+	// 	if (isHovering | data.length === 0) return;
+	// 	const slideInterval = setInterval(() => {
+	// 		moveNext();
+	// 	}, AUTO_SCROLL_DELAY);
 
-		return () => clearInterval(slideInterval);
-	});
+	// 	return () => clearInterval(slideInterval);
+	// });
 
 	useEffect(() => {
 		sliderRef.current.scrollTo({
@@ -72,7 +72,7 @@ const NewsCarousel = ({
 			hasSwiped.current = true;
 		}
 	};
-
+	console.log(data);
 	return (
 		<div
 			className={styles.container}
