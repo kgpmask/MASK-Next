@@ -6,7 +6,7 @@ import Button from './Button';
 
 const cabin = Cabin({ subsets: ['latin'] });
 /* Usage:
- * <EventCard 
+ * <EventCard
  * 		event={{
  * 			image: "/assets/events/event/n.webp",
  * 			title: "title",
@@ -17,7 +17,7 @@ const cabin = Cabin({ subsets: ['latin'] });
  * 		}}
  * />
  */
-export default function EventCard({ event }) {
+export default function EventCard ({ event }) {
 	return (
 		<div className={`${styles.eventCard} ${cabin.className}`}>
 			{/* <div className={styles.contentWrapper}> */}

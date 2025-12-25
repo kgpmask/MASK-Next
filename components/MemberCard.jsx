@@ -7,10 +7,10 @@ import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 import { BiMoviePlay } from 'react-icons/bi';
 import { FaPaintbrush } from 'react-icons/fa6';
-import { FiEdit } from "react-icons/fi";
+import { FiEdit } from 'react-icons/fi';
 import { PiListChecksBold } from 'react-icons/pi';
 import { FaCode } from 'react-icons/fa6';
-import { IoMusicalNotes } from "react-icons/io5";
+import { IoMusicalNotes } from 'react-icons/io5';
 
 const cabin = Cabin({ subsets: ['latin'] });
 
@@ -51,18 +51,18 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 		n: 'MN',
 		q: 'Quiz',
 		w: 'WebD',
-		m: 'Music',
+		m: 'Music'
 	};
 
 	const positionFull =
 		position === 'Governor'
 			? 'Governor'
 			: (() => {
-					const teamWithRole = teams.find((team) => team.length === 2 && positionNames[team[1]]);
-					return teamWithRole
-						? `${teamNames[teamWithRole[0]]} ${positionNames[teamWithRole[1]]}`
-						: position;
-			  })();
+				const teamWithRole = teams.find((team) => team.length === 2 && positionNames[team[1]]);
+				return teamWithRole
+					? `${teamNames[teamWithRole[0]]} ${positionNames[teamWithRole[1]]}`
+					: position;
+			})();
 
 	const positionIcons = {
 		a: <BiMoviePlay />,
@@ -71,14 +71,14 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 		q: <PiListChecksBold />,
 		w: <FaCode />,
 		m: <IoMusicalNotes />,
-		c: <FaPaintbrush/>,
+		c: <FaPaintbrush/>
 	};
 
 	const contactIcons = {
 		email: <MdOutlineEmail />,
 		instagram: <FaInstagram />,
 		linkedin: <FaLinkedin />,
-		github: <FaGithub />,
+		github: <FaGithub />
 	};
 
 	const getContactInfoLink = (type, value) => {
@@ -112,19 +112,19 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 						<div className={style['member-position']}>{positionFull}</div>
 					</div>
 					<div className={style['team-list']}>
-						{teams.map((team, index) => (
+						{teams.map((team, index) =>
 							<Icon
 								key={index}
 								icon={positionIcons[team[0]]}
 								description={teamNames[team[0]]}
 								modifier={team.length === 2 ? team[1] : false}
 							/>
-						))}
+						)}
 					</div>
 				</div>
-				{contactInformation && (
+				{contactInformation &&
 					<div className={style['contact-info-container']}>
-						{Object.entries(contacts).map(([type, value]) => (
+						{Object.entries(contacts).map(([type, value]) =>
 							<a
 								href={getContactInfoLink(type, value)}
 								key={type}
@@ -132,9 +132,9 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 							>
 								{contactIcons[type]}
 							</a>
-						))}
+						)}
 					</div>
-				)}
+				}
 			</div>
 		</>
 	);
