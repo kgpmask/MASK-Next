@@ -7,7 +7,7 @@ import MemberCard from '@/components/MemberCard';
 import { connectDatabase } from '@/database/database';
 import Member from '@/database/schemas/Member';
 
-export async function getStaticProps() {
+export async function getStaticProps () {
 	await connectDatabase();
 	const membersData = await Member.find({}, { _id: 0 }).lean();
 	return {
