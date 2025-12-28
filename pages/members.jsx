@@ -15,7 +15,7 @@ export async function getStaticProps () {
 
 		revalidate: process.env.NODE_ENV === 'production'
 			? 60 * 60 // Once per hour
-			: 1 // every second for development
+			: 60 // every second for development
 	};
 }
 
