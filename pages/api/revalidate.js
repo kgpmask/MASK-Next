@@ -1,21 +1,16 @@
-const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
-const rateLimitMap = new Map();
+let lastRevalidateAt = 0;
+const RATE_LIMIT_MS = 60 * 1000; // 1 minute
 
 export default async function handler (req, res) {
-	const ip =
-		req.headers['x-forwarded-for']?.split(',')[0] ||
-		req.socket.remoteAddress;
-
 	const now = Date.now();
-	const lastHit = rateLimitMap.get(ip);
 
-	if (lastHit && now - lastHit < RATE_LIMIT_WINDOW) {
+	if (now - lastRevalidateAt < RATE_LIMIT_MS) {
 		return res.status(429).json({
-			message: 'Too many requests. Try again in a minute.'
+			message: 'Revalidation already triggered recently. Try again later.'
 		});
 	}
 
-	rateLimitMap.set(ip, now);
+	lastRevalidateAt = now;
 
 	try {
 		await Promise.all([
@@ -25,6 +20,8 @@ export default async function handler (req, res) {
 
 		return res.json({ revalidated: true });
 	} catch (err) {
-		return res.status(500).json({ message: 'Revalidation failed' });
+		return res.status(500).json({
+			message: 'Revalidation failed'
+		});
 	}
 }
