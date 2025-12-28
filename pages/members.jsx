@@ -7,10 +7,16 @@ import MemberCard from '@/components/MemberCard';
 import { connectDatabase } from '@/database/database';
 import Member from '@/database/schemas/Member';
 
-export async function getServerSideProps () {
+export async function getStaticProps() {
 	await connectDatabase();
 	const membersData = await Member.find({}, { _id: 0 }).lean();
-	return { props: { membersData } };
+	return {
+		props: { membersData },
+
+		revalidate: process.env.NODE_ENV === 'production'
+			? 60 * 60 // Once per hour
+			: undefined
+	};
 }
 
 function getMembers (membersData, selectedYear) {
@@ -85,7 +91,6 @@ const getYearOptions = (start, end) =>
 	});
 
 export default function MembersPage ({ membersData }) {
-
 	const allYears = membersData.flatMap(member => member.records.map(r => r.year));
 	const minYear = Math.min(...allYears);
 	const maxYear = Math.max(...allYears);
