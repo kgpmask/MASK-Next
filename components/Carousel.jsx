@@ -38,6 +38,7 @@ const Carousel = ({
             const width = entries[0].contentRect.width;
 
             cardWidthRef.current = width;
+            console.log(width);
             setSliderWidth(`${width * numPerPage}px`);
 
             // keep scroll position consistent after resize
