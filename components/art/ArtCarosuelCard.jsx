@@ -12,6 +12,7 @@ const ArtCarouselCard = ({ dataObj }) => {
 				height={421}
 				alt="art image"
 				className={styles['art-image']}
+				draggable={false}
 			/>
 
 			<div className={styles['art-overlay']}>
