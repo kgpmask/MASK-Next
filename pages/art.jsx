@@ -7,7 +7,7 @@ import styles from '@/styles/art/Arts.module.css';
 import { connectDatabase } from '@/database/database';
 import Post from '@/database/schemas/Post';
 
-export async function getServerSideProps () {
+export async function getStaticProps () {
 	await connectDatabase();
 	let artworksRaw = await Post.find(
 		{ type: 'art' },
@@ -29,7 +29,14 @@ export async function getServerSideProps () {
 			season: getSeason(d.getMonth())
 		};
 	});
-	return { props: { artworks } };
+
+	return {
+		props: { artworks },
+
+		revalidate: process.env.NODE_ENV === 'production'
+			? 60 * 60 // Once per hour
+			: 1 // every second for development
+	};
 }
 
 // custom hook to get window size

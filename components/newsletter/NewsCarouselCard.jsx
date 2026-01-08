@@ -7,8 +7,8 @@ import { useState } from 'react';
 // takes in data object
 const NewsCarouselCard = ({ dataObj }) => {
 	const [src, setSrc] = useState(
-			`/assets/releases/${dataObj.link}/cover.webp`
-		);
+		`/assets/releases/${dataObj.link}/cover.webp`
+	);
 	return (
 		<>
 			<div className={styles['content']}>
