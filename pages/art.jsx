@@ -1,7 +1,7 @@
 import HeroBanner from '@/components/HeroBanner';
 import React, { useEffect, useState } from 'react';
 import SeasonFilter from '@/components/art/SeasonFilter';
-import Carousel from '@/components/art/ArtCarousel';
+import Carousel from '@/components/Carousel';
 import ArtCarouselCard from '@/components/art/ArtCarosuelCard';
 import styles from '@/styles/art/Arts.module.css';
 import { connectDatabase } from '@/database/database';
@@ -152,12 +152,11 @@ function YearCarousel ({ year, artworks }) {
 			</div>
 
 			<Carousel
-				Template={ArtCarouselCard}
-				showNavigator={true}
-				numPerPage={itemsPerPage}
-				discrete={false}
 				data={carouselItems}
-				maxWidth={'95vw'}
+				Card={ArtCarouselCard}
+				numPerPage={itemsPerPage}
+				showNavigator={true}
+				autoscroll={true}
 			/>
 		</div>
 	);
