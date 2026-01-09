@@ -22,7 +22,7 @@ afterAll(async () => {
 	await new Promise((resolve) => appServer.close(resolve));
 });
 
-const pages = [""];
+const pages = ["", "events", "members", "newsletter", "videos", "art"];
 
 describe("Server", () => {
 	describe("Database", () => {
@@ -37,7 +37,7 @@ describe("Server", () => {
 	});
 
 	pages.forEach(page => {
-		test(`should serve page (${page || "/"})`, { timeout: 5000 }, async () => {
+		test(`should serve page (${page || "/"})`, async () => {
 			const response = await fetch(`http://localhost:${PORT}/${page}`);
 			expect(response.ok).toBe(true);
 			expect(response.status).toBe(200);
