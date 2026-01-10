@@ -34,8 +34,7 @@ const FanArtCarouselCard = ({ dataObj }) => {
 			width={600}
 			height={400}
 			style={{
-				objectFit: 'cover',
-				paddingBottom: 20
+				objectFit: 'cover'
 			}}
 			alt="event poster"
 		/>

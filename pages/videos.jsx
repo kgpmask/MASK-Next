@@ -39,7 +39,7 @@ export default function VideoPage () {
 			/>
 			<div className={styles['container-video']}>
 				{videos.map((video, idx) =>
-					<VideoCard key={idx} url={video.url} />
+					<VideoCard key={idx} dataObj={video} />
 				)}
 			</div>
 		</>
