@@ -5,14 +5,14 @@ import styles from '@/styles/Carousel.module.css';
 const Carousel = ({
 	data = [],
 	Card = {},
-	numPerPage,
-	showNavigator,
+	numPerPage = 1,
+	showNavigator = true,
 	SideProp = {},
-	showSideProp,
+	showSideProp = false,
 	sidePropVertical = true,
 	showBackground = false,
-	autoscroll,
-	isNewsletter
+	autoscroll = true,
+	isNewsletter = false
 }) => {
 	const sliderRef = useRef(null);
 	const bgSliderRef = useRef(null);
@@ -31,7 +31,7 @@ const Carousel = ({
 		currentElementRef.current = currentElement;
 	}, [currentElement]);
 
-	// Get height and width of the slider
+	// Get width of the slider and also handle resizing
 	useEffect(() => {
 		const slider = sliderRef.current;
 		if (!slider || !slider.children.length) return;
@@ -42,7 +42,6 @@ const Carousel = ({
 			const width = entries[0].contentRect.width;
 
 			cardWidthRef.current = width;
-			console.log(width);
 			setSliderWidth(`${width * numPerPage}px`);
 
 			// keep scroll position consistent after resize
@@ -53,6 +52,22 @@ const Carousel = ({
 		});
 
 		observer.observe(firstCard);
+		return () => observer.disconnect();
+	}, [numPerPage, data]);
+
+	// this is for when we resize it moves the slider to the correct position
+	useEffect(() => {
+		const bgSlider = bgSliderRef.current;
+		if (!bgSlider || !bgSlider.children.length) return;
+
+		const observer = new ResizeObserver(() => {
+			bgSlider.scrollTo({
+				left: bgSlider.clientWidth * currentElementRef.current,
+				behavior: 'auto'
+			});
+		});
+
+		observer.observe(bgSlider);
 		return () => observer.disconnect();
 	}, [numPerPage, data]);
 
