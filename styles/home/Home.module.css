@@ -212,6 +212,27 @@
 }
 
 /* FANART SECTION */
+
+.text-content {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 20px;
+  text-align: left;
+}
+
+.fanart {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+}
+.wrapper {
+  width: 1250px;
+  padding: 16px;
+}
+
 .fanart-section {
   display: flex;
   gap: 2rem;

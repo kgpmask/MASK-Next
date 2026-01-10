@@ -9,11 +9,13 @@ const Carousel = ({
 	showNavigator,
 	SideProp = {},
 	showSideProp,
-	showBackground,
+	sidePropVertical = true,
+	showBackground = false,
 	autoscroll,
 	isNewsletter
 }) => {
 	const sliderRef = useRef(null);
+	const bgSliderRef = useRef(null);
 	const cardWidthRef = useRef(0);
 	const [sliderWidth, setSliderWidth] = useState('1000px');
 	const hasSwiped = useRef(false);
@@ -107,6 +109,7 @@ const Carousel = ({
 	// This effect runs whenever currentElement changes
 	useEffect(() => {
 		const slider = sliderRef.current;
+
 		if (!slider) return;
 
 		slider.scrollTo({
@@ -114,6 +117,18 @@ const Carousel = ({
 			behavior: 'smooth'
 		});
 	}, [currentElement]);
+
+	// This effect scrolls the bg slider
+	useEffect(() => {
+		const bgSlider = bgSliderRef.current;
+		if (!showBackground || !bgSlider) return;
+
+		bgSlider.scrollTo({
+			left: bgSlider.clientWidth * currentElement,
+			behavior: 'smooth'
+		});
+
+	});
 
 	// Autoscroll
 	useEffect(() => {
@@ -131,7 +146,36 @@ const Carousel = ({
 			className={styles['container']}
 			onMouseEnter={() => setIsHovering(true)}
 			onMouseLeave={() => setIsHovering(false)}
+			style={{
+				flexDirection: sidePropVertical ? 'column' : 'row',
+				padding: showBackground ? '70px' : '',
+				margin: showBackground ? '50px 0' : ''
+			}}
 		>
+			{showBackground &&
+				<>
+					<div className={styles['bg-carousel-container']}>
+						<div
+							ref={bgSliderRef}
+							className={styles['bg-slider']}
+						>
+							{data.map((dataObj, idx) =>
+								<div key={idx}>
+									<Image
+										draggable={false}
+										src={dataObj.src}
+										width={1920}
+										height={1080}
+										className={styles['bg-image']}
+										alt='bg image'
+									/>
+								</div>
+							)}
+						</div>
+					</div>
+					<div className={styles['bg-overlay']}></div>
+				</>
+			}
 			{showSideProp &&
 				<SideProp
 					currentElement={currentElement}
