@@ -16,10 +16,10 @@ function RecentEventsSideProp ({ currentElement, setCurrentElement }) {
 	return (
 		<div className={styles['recent-events']}>
 			<div className={styles['recent-events-content']}>
-				<h2>Recent Events</h2>
+				<h1>Recent Events</h1>
 				<p>
-				Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis
-				primis nisi imperdiet adipiscing facqdilisis enim sociosqu.
+					Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis
+					primis nisi imperdiet adipiscing facqdilisis enim sociosqu.
 				</p>
 			</div>
 			{recentEventsSummaries.map((event, idx) =>
