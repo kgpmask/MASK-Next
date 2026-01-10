@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import Image from 'next/image';
-import RecentEventsCarousel from '@/components/home/RecentEventsCarousel';
 import RecentEventsCarouselCard from '@/components/home/RecentEventsCarouselCard';
 import Carousel from '@/components/Carousel';
 import recentContent from '@/data/recentEvents.json';
@@ -30,8 +28,7 @@ function RecentEventsSideProp ({ currentElement, setCurrentElement }) {
 					className={
 						currentElement === idx
 							? styles['active-event']
-							: idx === recentEventsSummaries.length - 1 &&
-								currentElement > idx
+							: idx === recentEventsSummaries.length - 1 && currentElement > idx
 								? styles['last-deactive-element']
 								: styles.events
 					}
@@ -54,19 +51,9 @@ function RecentEventsSideProp ({ currentElement, setCurrentElement }) {
 }
 
 export default function RecentEventsSection () {
-	const [currentElement, setCurrentElement] = useState(0);
 	return (
 		<>
-			{/* <RecentEventsSideProp /> */}
 			<div className={styles['header-content']}>
-				{/* <RecentEventsCarousel
-					Template={RecentEventsCarouselCard}
-					numPerPage={1}
-					discrete={false}
-					data={recentEvents}
-					onSlideChange={setCurrentElement}
-					currentElement={currentElement}
-				/> */}
 				<Carousel
 					data={recentEvents}
 					Card={RecentEventsCarouselCard}
