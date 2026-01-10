@@ -4,6 +4,15 @@
   align-items: center;
   gap: inherit;
   width: 100%;
+  user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .carousel-wrapper {

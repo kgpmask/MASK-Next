@@ -156,6 +156,7 @@ function YearCarousel ({ year, artworks }) {
 				Card={ArtCarouselCard}
 				numPerPage={itemsPerPage}
 				showNavigator={true}
+				showSideProp={false}
 				autoscroll={true}
 			/>
 		</div>

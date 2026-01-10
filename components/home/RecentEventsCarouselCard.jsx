@@ -11,7 +11,7 @@ const RecentEventsCarouselCard = ({ dataObj }) => {
 				<div className={styles['event-poster']}>
 					<Image draggable={false} src={dataObj.src} fill alt="event poster" />
 				</div>
-				<div className={styles['content-column']}>
+				<div className={styles['content-column']} style={{ width: 500 }}>
 					<div className={styles['text-content']}>
 						<p className={styles['title']}>{dataObj.title}</p>
 						<p className={styles['description']}>{dataObj.description}</p>
