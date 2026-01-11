@@ -13,8 +13,6 @@ export default function VideoCard ({ dataObj }) {
 				width='100%'
 				height='100%'
 				controls={true}
-				light={true}
-				playing={true}
 			/>
 		</div>
 	);
