@@ -164,7 +164,6 @@ const Carousel = ({
 			style={{
 				flexDirection: sidePropVertical ? 'column' : 'row',
 				padding: showBackground ? '70px' : '',
-				margin: showBackground ? '50px 0' : ''
 			}}
 		>
 			{showBackground &&
