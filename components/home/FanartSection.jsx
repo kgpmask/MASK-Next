@@ -3,12 +3,13 @@ import recentContent from '@/data/recentEvents.json';
 import Carousel from '@/components/Carousel';
 import Button from '../Button';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 const fanartItems = recentContent.slice(0, 5);
 
 function FanArtSideProp () {
 	return (
-		<div className={styles['text-content']} style={{ width: 400, color: 'white' }}>
+		<div className={styles['text-content']} >
 			<h1>
 				<strong>Fanart</strong> Submissions
 			</h1>
@@ -33,15 +34,38 @@ const FanArtCarouselCard = ({ dataObj }) => {
 			src={dataObj.src}
 			width={600}
 			height={400}
-			style={{
-				objectFit: 'cover'
-			}}
+			className={styles['fanart-image']}
 			alt="event poster"
 		/>
 	);
 };
 
+function useWindowSize () {
+	const [windowSize, setWindowSize] = useState({
+		width: undefined,
+		height: undefined
+	});
+
+	useEffect(() => {
+		function handleResize () {
+			setWindowSize({
+				width: window.innerWidth,
+				height: window.innerHeight
+			});
+		}
+		window.addEventListener('resize', handleResize);
+
+		handleResize();
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
+	return windowSize;
+}
+
 export default function FanartSection () {
+	const { width } = useWindowSize();
+	const sidePropVertical = width <= 1024;
+	
 	return (
 		<div className={styles['fanart']}>
 			<Carousel
@@ -51,7 +75,7 @@ export default function FanartSection () {
 				showNavigator={true}
 				SideProp={FanArtSideProp}
 				showSideProp={true}
-				sidePropVertical={false}
+				sidePropVertical={sidePropVertical}
 				showBackground={true}
 				autoscroll={true}
 			/>

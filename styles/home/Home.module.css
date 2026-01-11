@@ -220,6 +220,25 @@
   flex-wrap: nowrap;
   gap: 20px;
   text-align: left;
+  color: white;
+}
+
+.fanart-image {
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .fanart-image {
+    width: 90vw;
+    height: 51vw;
+  }
+  
+  .text-content {
+    width: 90vw;
+  }
+  .text-content p {
+    display: none;
+  }
 }
 
 .fanart {
