@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest"
+    "lint:fix": "next lint --fix",
+    "test": "vitest",
+    "prepare": "husky"
   },
   "dependencies": {
     "mongoose": "^9.0.2",
@@ -21,6 +23,7 @@
     "@eslint/eslintrc": "^3",
     "eslint": "^9",
     "eslint-config-next": "15.1.0",
+    "husky": "^9.1.7",
     "vitest": "^4.0.16"
   },
   "volta": {

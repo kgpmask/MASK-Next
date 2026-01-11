@@ -26,11 +26,11 @@ const pages = ["", "events", "members", "newsletter", "videos", "art"];
 
 describe("Server", () => {
 	describe("Database", () => {
-		test("should connect without throwing an error", { timeout: 5000 }, async () => {
+		test("should connect without throwing an error", async () => {
 			await expect(connectDatabase()).resolves.not.toThrow();
 		});
 
-		test("should find the MASK user", { timeout: 10000 }, async () => {
+		test("should find the MASK user", async () => {
 			const member = await Member.findOne({ name: "Tadi Joshua Raj" });
 			expect(member?.name).toBe("Tadi Joshua Raj");
 		});
