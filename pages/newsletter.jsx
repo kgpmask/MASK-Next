@@ -4,27 +4,27 @@ import newsContent from '@/public/assets/releases/newsletter_desc.json';
 import NewsCarousel from '@/components/newsletter/NewsCarousel';
 import NewsCarouselCard from '@/components/newsletter/NewsCarouselCard';
 import { useState } from 'react';
+import Carousel from '@/components/Carousel';
+import HeroBanner from '@/components/HeroBanner';
 
-const NewsletterCardGallery = () => {
+const NewsletterCardGallery = ({newsletterData}) => {
 	const handleCustomCardClick = () => {
 		console.log('Custom click handler for the card');
 	};
 
 	return (
 		<div className={styles.container}>
-			<div className={styles.heading}>
-				<p>
-          Check out our other <strong>Newsletters</strong>
-				</p>
-			</div>
-			<div className={styles.subheading}>
-				<p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				</p>
-			</div>
+			<HeroBanner 
+				heroTitle={'Check out our other Newsletters'}
+				heroContent={
+					`Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+					sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.`
+				}
+				buttonContent={'Check out our Meduim page'}
+				buttonURL={'https://meduim@kgpmask.com'}
+			/>
 			<div className={styles.grid}>
-				{newsContent.map((news, _idx) =>
+				{newsletterData.map((news, _idx) =>
 					<div key={news.id}>
 						<NewsletterCard
 							image={news.link}
@@ -40,42 +40,28 @@ const NewsletterCardGallery = () => {
 	);
 };
 
-function NewsHeaderCarousel () {
-	const newsItems = newsContent.slice(0, 5);
-	const [currentNewsIndex, setCurrentNewsIndex] = useState(1);
-	console.log(newsItems);
-
-	return (
-		<>
-			<header
-				className={styles['header']}
-				style={{
-					backgroundImage: `linear-gradient(#e43332d9, #e43332d9), url('${
-						`/assets/releases/${newsItems[currentNewsIndex]?.link}/cover.webp` || '/assets/releases/no-cover.webp'
-					}')`
-				}}
-			>
-				<div className={styles['header-content']}>
-					<NewsCarousel
-						Template={NewsCarouselCard}
-						showNavigator={true}
-						numPerPage={1}
-						discrete={false}
-						data={newsItems}
-						maxWidth={'65vw'}
-						onSlideChange={setCurrentNewsIndex}
-					/>
-				</div>
-			</header>
-		</>
-	);
-}
 
 export default function NewsletterPage () {
+	
+	const newsletterData = newsContent.map(item => ({
+		...item,
+		src: `/assets/releases/${item.link}/cover.webp`
+	}))
+	.reverse();
+
 	return (
 		<>
-			<NewsHeaderCarousel />
-			<NewsletterCardGallery />
+			<Carousel 
+				data={newsletterData}
+				Card={NewsCarouselCard}
+				numPerPage={1}
+				showBackground={true}
+				showNavigator={false}
+				autoscroll={true}
+			/>
+			<NewsletterCardGallery 
+				newsletterData={newsletterData}
+			/>
 		</>
 	);
 }
