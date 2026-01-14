@@ -1,6 +1,6 @@
 import NewsletterCard from '@/components/NewsletterCard';
 import styles from '@/styles/NewsletterPage.module.css';
-import newsContent from '@/public/assets/releases/newsletter_desc.json';
+import newsContent from '@/data/newsletter_desc.json';
 import NewsletterCarouselCard from '@/components/NewsletterCarouselCard';
 import Carousel from '@/components/Carousel';
 import HeroBanner from '@/components/HeroBanner';
