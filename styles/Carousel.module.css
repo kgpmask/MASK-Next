@@ -2,6 +2,60 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: inherit;
+  width: 100%;
+  user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+  position: relative;
+  z-index: 2;
+}
+
+.bg-carousel-container {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.bg-image {
+  
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  /* filter: grayscale(100%) */
+}
+
+.bg-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(197, 9, 9, 0.746);
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  inset: 0;
+	/* backdrop-filter: blur(2px);
+	-webkit-backdrop-filter: blur(2px); */
+}
+
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .carousel-wrapper {
@@ -18,6 +72,10 @@
   margin: 5px;
 }
 
+.arrow:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 1080px) {
   .arrow {
     display: none;
@@ -27,7 +85,6 @@
 .slider {
   display: flex;
   overflow-x: hidden;
-  gap: 1rem;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   height: fit-content;
@@ -67,6 +124,7 @@
 .navigation-dots {
   display: flex;
   gap: 10px;
+  padding-top: 20px;
 }
 
 .dot {

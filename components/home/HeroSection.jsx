@@ -1,5 +1,5 @@
 import { FiArrowRight } from 'react-icons/fi';
-import styles from '@/styles/home/Home.module.css';
+import styles from '@/styles/home/HomePage.module.css';
 
 export default function HeroSection () {
 	return (

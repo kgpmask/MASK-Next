@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import styles from '@/styles/art/ArtsCarouselCard.module.css';
+import styles from '@/styles/ArtCarouselCard.module.css';
 
 // takes in data object
 const ArtCarouselCard = ({ dataObj }) => {
@@ -12,6 +12,7 @@ const ArtCarouselCard = ({ dataObj }) => {
 				height={421}
 				alt="art image"
 				className={styles['art-image']}
+				draggable={false}
 			/>
 
 			<div className={styles['art-overlay']}>

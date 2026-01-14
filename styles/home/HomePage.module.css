@@ -48,7 +48,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin: 7rem 0rem 0rem 7rem;
+  margin: 7rem;
   color: white;
 }
 
@@ -112,8 +112,9 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin: 7rem 1rem 0rem 1rem;
+    margin: 5rem 0;
     color: white;
+    padding: 0 30px;
   }
 
   .hero-buttons {
@@ -133,14 +134,16 @@
   width: calc(100% - 2rem);
   max-width: 1150px;
   align-self: center;
-  margin: 7rem 0;
+  margin: 3rem 0;
   padding: 1.5rem 1.25rem 1.5rem 1.25rem;
   border-radius: 10px;
+  text-align: left;
 }
 
 .recent-events-content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 1.5rem 1rem 1.5rem 1.25rem;
   gap: 1rem;
   border-right: white solid 1.5px;
@@ -210,6 +213,47 @@
 }
 
 /* FANART SECTION */
+
+.text-content {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 20px;
+  text-align: left;
+  color: white;
+}
+
+.fanart-image {
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .fanart-image {
+    width: 90vw;
+    height: 51vw;
+  }
+  
+  .text-content {
+    width: 90vw;
+  }
+  .text-content p {
+    display: none;
+  }
+}
+
+.fanart {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  margin: 50px 0;
+}
+.wrapper {
+  width: 1250px;
+  padding: 16px;
+}
+
 .fanart-section {
   display: flex;
   gap: 2rem;
@@ -238,66 +282,31 @@
   color: white;
 }
 
-.amv-section > h1 {
-  font-size: 2.875rem;
-  margin-bottom: 30px;
+.amv-section h1 {
+  padding-bottom: 20px;
 }
 
-.amv-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 0 10px;
-  align-items: center;
+.player-wrapper {
+    position: relative;
+    width: 800px;
+    height: 450px;
+    background-color: #1E1E1E;
+    border-radius: 5px;
+    padding-bottom: 50px;
 }
 
-.amv-video {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background-color: #1e1e1e;
-  border-radius: 5px;
-  flex: 0 0 100%;
+.react-player {
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-.amv-video-carousel {
-  max-width: 800px;
-  flex: 1;
-  display: flex;
-  overflow: hidden;
-  gap: 1rem;
-  scroll-behavior: smooth;
-}
-
-.amv-nav-arrow {
-  justify-self: center;
-  background-color: rgba(31, 31, 31, 0.82);
-  cursor: pointer;
-  margin: 0 5px;
-}
-
-@media (max-width: 768px) {
-  .amv-nav-arrow {
-    display: none;
-  }
-}
-
-.amv-navigation-dots {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 10px;
-  background-color: #aaaaaa;
-}
-
-.active-dot {
-  background-color: white;
+@media (max-width: 850px) {
+    .player-wrapper {
+        width: 85vw;
+        height: 50vw;
+    }
 }
 
 /* ABOUT US SECTION */

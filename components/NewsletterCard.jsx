@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@/styles/newsletter/NewsletterCard.module.css';
+import styles from '@/styles/NewsletterCard.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -24,7 +24,6 @@ const NewsletterCard = ({ image, title, description, link, onCardClick }) => {
 					className={styles.image}
 					height={400}
 					width={300}
-					onError={() => setSrc('/assets/releases/no-cover.webp')}
 				/>
 				<div className={styles.content}>
 					<h3 className={styles.title}>{title}</h3>
