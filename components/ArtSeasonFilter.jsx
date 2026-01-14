@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@/styles/art/SeasonalFilter.module.css';
+import styles from '@/styles/ArtSeasonFilter.module.css';
 
 export default function SeasonFilter ({
 	year,

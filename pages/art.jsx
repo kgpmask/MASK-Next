@@ -1,9 +1,9 @@
 import HeroBanner from '@/components/HeroBanner';
 import React, { useEffect, useState } from 'react';
-import SeasonFilter from '@/components/art/SeasonFilter';
+import SeasonFilter from '@/components/ArtSeasonFilter';
 import Carousel from '@/components/Carousel';
-import ArtCarouselCard from '@/components/art/ArtCarosuelCard';
-import styles from '@/styles/art/Arts.module.css';
+import ArtCarouselCard from '@/components/ArtCarosuelCard';
+import styles from '@/styles/ArtPage.module.css';
 import { connectDatabase } from '@/database/database';
 import Post from '@/database/schemas/Post';
 
