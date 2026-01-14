@@ -3,12 +3,12 @@
 	"tabWidth": 1,
 	"printWidth": 80,
 	"singleAttributePerLine": true,
-	"singleQuote": true,
+	"singleQuote": false,
 	"trailingComma": "none",
 	"bracketSpacing": true,
 	"semi": true,
 	"arrowParens": "always",
-	"jsxSingleQuote": true,
+	"jsxSingleQuote": false,
 	"endOfLine": "lf",
 	"quoteProps": "as-needed"
 }
