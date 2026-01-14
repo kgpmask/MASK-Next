@@ -36,13 +36,13 @@
   width: 100vw;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(100%)
+  /* filter: grayscale(100%) */
 }
 
 .bg-overlay {
   height: 100%;
   width: 100%;
-  background-color: rgba(255, 20, 20, 0.7);
+  background-color: rgba(197, 9, 9, 0.746);
   z-index: -1;
   position: absolute;
   top: 0;
