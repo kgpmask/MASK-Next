@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@/styles/newsletter/NewsletterCard.module.css';
+import styles from '@/styles/NewsletterCard.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
 

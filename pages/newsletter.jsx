@@ -1,20 +1,18 @@
-import NewsletterCard from '@/components/newsletter/NewsCard';
-import styles from '@/styles/newsletter/News.module.css';
+import NewsletterCard from '@/components/NewsletterCard';
+import styles from '@/styles/NewsletterPage.module.css';
 import newsContent from '@/public/assets/releases/newsletter_desc.json';
-import NewsCarousel from '@/components/newsletter/NewsCarousel';
-import NewsCarouselCard from '@/components/newsletter/NewsCarouselCard';
-import { useState } from 'react';
+import NewsletterCarouselCard from '@/components/NewsletterCarouselCard';
 import Carousel from '@/components/Carousel';
 import HeroBanner from '@/components/HeroBanner';
 
-const NewsletterCardGallery = ({newsletterData}) => {
+const NewsletterCardGallery = ({ newsletterData }) => {
 	const handleCustomCardClick = () => {
 		console.log('Custom click handler for the card');
 	};
 
 	return (
 		<div className={styles.container}>
-			<HeroBanner 
+			<HeroBanner
 				heroTitle={'Check out our other Newsletters'}
 				heroContent={
 					`Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -42,24 +40,24 @@ const NewsletterCardGallery = ({newsletterData}) => {
 
 
 export default function NewsletterPage () {
-	
+
 	const newsletterData = newsContent.map(item => ({
 		...item,
 		src: `/assets/releases/${item.link}/cover.webp`
 	}))
-	.reverse();
+		.reverse();
 
 	return (
 		<>
-			<Carousel 
+			<Carousel
 				data={newsletterData}
-				Card={NewsCarouselCard}
+				Card={NewsletterCarouselCard}
 				numPerPage={1}
 				showBackground={true}
 				showNavigator={false}
 				autoscroll={true}
 			/>
-			<NewsletterCardGallery 
+			<NewsletterCardGallery
 				newsletterData={newsletterData}
 			/>
 		</>

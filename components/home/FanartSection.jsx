@@ -65,7 +65,7 @@ function useWindowSize () {
 export default function FanartSection () {
 	const { width } = useWindowSize();
 	const sidePropVertical = width <= 1024;
-	
+
 	return (
 		<div className={styles['fanart']}>
 			<Carousel

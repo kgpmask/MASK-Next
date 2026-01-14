@@ -163,7 +163,7 @@ const Carousel = ({
 			onMouseLeave={() => setIsHovering(false)}
 			style={{
 				flexDirection: sidePropVertical ? 'column' : 'row',
-				padding: showBackground ? '70px' : '',
+				padding: showBackground ? '70px' : ''
 			}}
 		>
 			{showBackground &&
