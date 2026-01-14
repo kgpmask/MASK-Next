@@ -25,6 +25,10 @@ afterAll(async () => {
 const pages = ["", "events", "members", "newsletter", "videos", "art"];
 
 describe("Server", () => {
+	beforeAll(async () => {
+		await connectDatabase();
+	});
+
 	describe("Database", () => {
 		test("should connect without throwing an error", async () => {
 			await expect(connectDatabase()).resolves.not.toThrow();
