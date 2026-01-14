@@ -1,4 +1,4 @@
-import styles from '@/styles/home/Home.module.css';
+import styles from '@/styles/home/HomePage.module.css';
 import HeroSection from '@/components/home/HeroSection';
 import RecentEventsSection from '@/components/home/RecentEventsSection';
 import FanartSection from '@/components/home/FanartSection';

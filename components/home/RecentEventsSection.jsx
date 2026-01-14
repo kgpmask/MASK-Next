@@ -2,7 +2,7 @@ import Image from 'next/image';
 import RecentEventsCarouselCard from '@/components/home/RecentEventsCarouselCard';
 import Carousel from '@/components/Carousel';
 import recentContent from '@/data/recentEvents.json';
-import styles from '@/styles/home/Home.module.css';
+import styles from '@/styles/home/HomePage.module.css';
 
 const recentEvents = recentContent.slice(0, 5);
 const recentEventsSummaries = recentEvents.slice(0, 3).map((recentEvent) => ({

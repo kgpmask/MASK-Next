@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import styles from '@/styles/home/Home.module.css';
+import styles from '@/styles/home/HomePage.module.css';
 import dynamic from 'next/dynamic';
 import Carousel from '../Carousel';
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
