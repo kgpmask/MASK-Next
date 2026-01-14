@@ -11,7 +11,7 @@ const NewsletterCardGallery = ({ newsletterData }) => {
 	};
 
 	return (
-		<div className={styles.container}>
+		<div className={styles['container']}>
 			<HeroBanner
 				heroTitle={'Check out our other Newsletters'}
 				heroContent={
@@ -21,7 +21,7 @@ const NewsletterCardGallery = ({ newsletterData }) => {
 				buttonContent={'Check out our Meduim page'}
 				buttonURL={'https://meduim@kgpmask.com'}
 			/>
-			<div className={styles.grid}>
+			<div className={styles['card-container']}>
 				{newsletterData.map((news, _idx) =>
 					<div key={news.id}>
 						<NewsletterCard

@@ -24,7 +24,6 @@ const NewsletterCard = ({ image, title, description, link, onCardClick }) => {
 					className={styles.image}
 					height={400}
 					width={300}
-					onError={() => setSrc('/assets/releases/no-cover.webp')}
 				/>
 				<div className={styles.content}>
 					<h3 className={styles.title}>{title}</h3>
