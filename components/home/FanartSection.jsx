@@ -1,4 +1,4 @@
-import styles from '@/styles/home/Home.module.css';
+import styles from '@/styles/home/HomePage.module.css';
 import recentContent from '@/data/recentEvents.json';
 import Carousel from '@/components/Carousel';
 import Button from '../Button';
