@@ -6,10 +6,6 @@ import Carousel from '@/components/Carousel';
 import HeroBanner from '@/components/HeroBanner';
 
 const NewsletterCardGallery = ({ newsletterData }) => {
-	const handleCustomCardClick = () => {
-		console.log('Custom click handler for the card');
-	};
-
 	return (
 		<div className={styles['container']}>
 			<HeroBanner
@@ -27,9 +23,8 @@ const NewsletterCardGallery = ({ newsletterData }) => {
 						<NewsletterCard
 							image={news.link}
 							title={news.title}
+							link={news.link}
 							description={news.desc.slice(0, 100) + '...'}
-							link={'https://www.animenewsnetwork.com/'}
-							onCardClick={handleCustomCardClick}
 						/>
 					</div>
 				)}
@@ -44,8 +39,7 @@ export default function NewsletterPage () {
 	const newsletterData = newsContent.map(item => ({
 		...item,
 		src: `/assets/releases/${item.link}/cover.webp`
-	}))
-		.reverse();
+	})).reverse();
 
 	return (
 		<>

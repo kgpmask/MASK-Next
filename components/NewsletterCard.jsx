@@ -2,13 +2,16 @@ import React from 'react';
 import styles from '@/styles/NewsletterCard.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const NewsletterCard = ({ image, title, description, link, onCardClick }) => {
+	
+	const router = useRouter();
 	const handleCardClick = () => {
 		if (onCardClick) {
 			onCardClick();
 		}
-		window.open(link, '_blank');
+		router.push(`/newsletters/${link}`);
 	};
 
 	const [src, setSrc] = useState(
