@@ -1,0 +1,49 @@
+.article {
+    width: 80vw;
+    height: 90vh;
+    color: white;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    background-color: #1e1e1e;
+    padding: 50px;
+    font-size: large;
+    line-height: 1.6;
+    text-align: justify;
+    touch-action: pan-y; /* this only catches vertical scroll */
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: white
+}
+
+.text-content h2 {
+    font-size: 40px;
+}
+
+.text-content p {
+    font-size: 18px;
+}
+
+@media (max-width: 700px) {
+    .article {
+        width: 100vw;
+        height: 100vh;
+        padding: 20px;
+    }
+}
+
+.article a {
+    color: white;
+}
+
+.article p {
+    padding-bottom: 20px;
+}
+
+.article h2 {
+    line-height: 2;
+}
