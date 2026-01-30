@@ -214,12 +214,12 @@ const Carousel = ({
 									className={styles['box']}
 									key={num}
 									onClick={() => moveHere(num)}
-								><p>{num+1}</p></div>
+								><p>{num + 1}</p></div>
 								:
 								<div
 									className={`${styles['box']} ${styles['active-box']}`}
 									key={num}
-								><p>{num+1}</p></div>
+								><p>{num + 1}</p></div>
 						)}
 						<Image
 							src="/assets/icons/right-arrow.svg"
@@ -227,10 +227,10 @@ const Carousel = ({
 							width={30}
 							height={30}
 							style={{
-									backgroundColor: currentElement !== data.length-1 ? 'red' : '#505050',
+								backgroundColor: currentElement !== data.length - 1 ? 'red' : '#505050',
 								borderRadius: '3px'
 							}}
-							onClick={() => currentElement !== data.length-1 && moveNext()}
+							onClick={() => currentElement !== data.length - 1 && moveNext()}
 						/>
 					</div>
 				}
@@ -330,12 +330,12 @@ const Carousel = ({
 									className={styles['box']}
 									key={num}
 									onClick={() => moveHere(num)}
-								><p>{num+1}</p></div>
+								><p>{num + 1}</p></div>
 								:
 								<div
 									className={`${styles['box']} ${styles['active-box']}`}
 									key={num}
-								><p>{num+1}</p></div>
+								><p>{num + 1}</p></div>
 						)}
 						<Image
 							src="/assets/icons/right-arrow.svg"
@@ -343,10 +343,10 @@ const Carousel = ({
 							width={30}
 							height={30}
 							style={{
-									backgroundColor: currentElement !== data.length-1 ? 'red' : '#505050',
+								backgroundColor: currentElement !== data.length - 1 ? 'red' : '#505050',
 								borderRadius: '3px'
 							}}
-							onClick={() => currentElement !== data.length-1 && moveNext()}
+							onClick={() => currentElement !== data.length - 1 && moveNext()}
 						/>
 					</div>
 				}

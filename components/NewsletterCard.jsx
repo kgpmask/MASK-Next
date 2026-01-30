@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 const NewsletterCard = ({ image, title, description, link, onCardClick }) => {
-	
 	const router = useRouter();
 	const handleCardClick = () => {
 		if (onCardClick) {
