@@ -13,7 +13,7 @@ const Navbar = () => {
 	const menuItems = [
 		{ name: 'Home', href: '/' },
 		{ name: 'Art', href: '/art' },
-		{ name: 'Newsletters', href: '/newsletter' },
+		{ name: 'Newsletters', href: '/newsletters' },
 		{ name: 'Videos', href: '/videos' },
 		{ name: 'Events', href: '/events' },
 		{ name: 'Members', href: '/members' }
