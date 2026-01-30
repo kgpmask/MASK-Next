@@ -76,7 +76,7 @@ const Carousel = ({
 	const handleDragStart = (e) => {
 		setIsDragging(true);
 		hasSwiped.current = false;
-		setStartX(e.type === 'mousedown' ? e.pageX : e.touches[0].pageX);
+		setStartX(e.clientX);
 	};
 
 	const handleDragEnd = () => {
@@ -85,10 +85,8 @@ const Carousel = ({
 
 	const handleDragMove = (e) => {
 		if (!isDragging || hasSwiped.current) return;
-		e.preventDefault();
-		const swipeThreshold = 100;
-		const x = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
-		const walk = x - startX;
+		const swipeThreshold = 70;
+		const walk = e.clientX - startX;
 
 		// Check if the drag distance exceeds the threshold
 		if (walk < -swipeThreshold) {
@@ -197,6 +195,45 @@ const Carousel = ({
 				/>
 			}
 			<div className={styles['carousel-container']}>
+				{isNewsletter &&
+					<div className={styles['navigation-boxes']}>
+						<Image
+							src="/assets/icons/left-arrow.svg"
+							alt="left arrow"
+							width={30}
+							height={30}
+							style={{
+								backgroundColor: currentElement ? 'red' : '#505050',
+								borderRadius: '3px'
+							}}
+							onClick={() => currentElement !== 0 && movePrev()}
+						/>
+						{Array.from({ length: data.length }).map((_, num) =>
+							!(num >= currentElement && num < currentElement + numPerPage) ?
+								<div
+									className={styles['box']}
+									key={num}
+									onClick={() => moveHere(num)}
+								><p>{num+1}</p></div>
+								:
+								<div
+									className={`${styles['box']} ${styles['active-box']}`}
+									key={num}
+								><p>{num+1}</p></div>
+						)}
+						<Image
+							src="/assets/icons/right-arrow.svg"
+							alt="left arrow"
+							width={30}
+							height={30}
+							style={{
+									backgroundColor: currentElement !== data.length-1 ? 'red' : '#505050',
+								borderRadius: '3px'
+							}}
+							onClick={() => currentElement !== data.length-1 && moveNext()}
+						/>
+					</div>
+				}
 				<div className={styles['carousel-wrapper']}>
 					<Image
 						src="/assets/icons/left-arrow.svg"
@@ -214,13 +251,10 @@ const Carousel = ({
 							width: sliderWidth,
 							cursor: isDragging ? 'grabbing' : 'grab'
 						}}
-						onMouseDown={handleDragStart}
-						onMouseMove={handleDragMove}
-						onMouseUp={handleDragEnd}
-						onMouseLeave={handleDragEnd}
-						onTouchStart={handleDragStart}
-						onTouchMove={handleDragMove}
-						onTouchEnd={handleDragEnd}
+						onPointerDown={handleDragStart}
+						onPointerMove={handleDragMove}
+						onPointerUp={handleDragEnd}
+						onPointerLeave={handleDragEnd}
 					>
 						{data.map((dataObj, idx) =>
 							<div
@@ -275,6 +309,45 @@ const Carousel = ({
 									key={num}
 								></div>
 						)}
+					</div>
+				}
+				{isNewsletter &&
+					<div className={styles['navigation-boxes']}>
+						<Image
+							src="/assets/icons/left-arrow.svg"
+							alt="left arrow"
+							width={30}
+							height={30}
+							style={{
+								backgroundColor: currentElement ? 'red' : '#505050',
+								borderRadius: '3px'
+							}}
+							onClick={() => currentElement !== 0 && movePrev()}
+						/>
+						{Array.from({ length: data.length }).map((_, num) =>
+							!(num >= currentElement && num < currentElement + numPerPage) ?
+								<div
+									className={styles['box']}
+									key={num}
+									onClick={() => moveHere(num)}
+								><p>{num+1}</p></div>
+								:
+								<div
+									className={`${styles['box']} ${styles['active-box']}`}
+									key={num}
+								><p>{num+1}</p></div>
+						)}
+						<Image
+							src="/assets/icons/right-arrow.svg"
+							alt="left arrow"
+							width={30}
+							height={30}
+							style={{
+									backgroundColor: currentElement !== data.length-1 ? 'red' : '#505050',
+								borderRadius: '3px'
+							}}
+							onClick={() => currentElement !== data.length-1 && moveNext()}
+						/>
 					</div>
 				}
 			</div>
