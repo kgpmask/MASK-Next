@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import styles from '@/styles/NewsletterArticle.module.css';
+import styles from '@/styles/EventsPage.module.css';
 import { useRouter } from 'next/router';
 
 export async function getStaticPaths () {
@@ -71,14 +71,14 @@ export default function EventPage ({ slug, title, html, prevSlug, nextSlug, rand
 			</div>
 			<div style={{ display: 'flex', justifyContent: 'center' }}>
 				<div
-					className={styles.article}
+					className={styles['event-article']}
 					style={{
 						overflowY: 'scroll'
 					}}
 					dangerouslySetInnerHTML={{ __html: html }}
 				/>
 			</div>
-			<div className={styles['newsletter-nav']}>
+			<div className={styles['event-nav']}>
 				<button
 					onClick={() => router.push(`/events/${prevSlug}`)}
 					disabled={prevSlug === null}
