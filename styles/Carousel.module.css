@@ -164,3 +164,15 @@
   color: red;
   border-color: red;
 }
+
+.dots {
+	display: flex;
+	align-items: center;
+  justify-content: center;
+	user-select: none;
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  border-radius: 3px;
+  border: 1px solid;
+}

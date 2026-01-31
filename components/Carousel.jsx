@@ -154,6 +154,78 @@ const Carousel = ({
 		return () => clearInterval(id);
 	}, [autoscroll, isHovering, isDragging, data.length, numPerPage, moveNext, currentElement]);
 
+	const renderPaginationBoxes = () => {
+		const total = data.length;
+
+		const getVisiblePages = (total, current) => {
+			if (total <= 7) return [...Array(total).keys()];
+
+			const pages = new Set();
+			pages.add(0); // first
+			pages.add(total - 1); // last
+
+			for (let i = current - 1; i <= current + 1; i++) {
+				if (i > 0 && i < total - 1) pages.add(i);
+			}
+
+			return [...pages].sort((a, b) => a - b);
+		};
+
+		const pages = getVisiblePages(total, currentElement);
+
+		return (
+			<div className={styles['navigation-boxes']}>
+				<Image
+					src="/assets/icons/left-arrow.svg"
+					alt="left arrow"
+					width={30}
+					height={30}
+					style={{
+						backgroundColor: currentElement ? 'red' : '#505050',
+						borderRadius: '3px'
+					}}
+					onClick={() => currentElement !== 0 && movePrev()}
+				/>
+
+				{pages.map((num, i) => {
+					const prev = pages[i - 1];
+
+					return (
+						<React.Fragment key={num}>
+							{i > 0 && num - prev > 1 && <span className={styles['dots']}>...</span>}
+
+							<div
+								className={
+									num === currentElement
+										? `${styles['box']} ${styles['active-box']}`
+										: styles['box']
+								}
+								onClick={() => moveHere(num)}
+							>
+								<p>{num + 1}</p>
+							</div>
+						</React.Fragment>
+					);
+				})}
+
+				<Image
+					src="/assets/icons/right-arrow.svg"
+					alt="right arrow"
+					width={30}
+					height={30}
+					style={{
+						backgroundColor:
+							currentElement !== total - 1 ? 'red' : '#505050',
+						borderRadius: '3px'
+					}}
+					onClick={() =>
+						currentElement !== total - 1 && moveNext()
+					}
+				/>
+			</div>
+		);
+	};
+
 	return (
 		<div
 			className={styles['container']}
@@ -195,45 +267,7 @@ const Carousel = ({
 				/>
 			}
 			<div className={styles['carousel-container']}>
-				{isNewsletter &&
-					<div className={styles['navigation-boxes']}>
-						<Image
-							src="/assets/icons/left-arrow.svg"
-							alt="left arrow"
-							width={30}
-							height={30}
-							style={{
-								backgroundColor: currentElement ? 'red' : '#505050',
-								borderRadius: '3px'
-							}}
-							onClick={() => currentElement !== 0 && movePrev()}
-						/>
-						{Array.from({ length: data.length }).map((_, num) =>
-							!(num >= currentElement && num < currentElement + numPerPage) ?
-								<div
-									className={styles['box']}
-									key={num}
-									onClick={() => moveHere(num)}
-								><p>{num + 1}</p></div>
-								:
-								<div
-									className={`${styles['box']} ${styles['active-box']}`}
-									key={num}
-								><p>{num + 1}</p></div>
-						)}
-						<Image
-							src="/assets/icons/right-arrow.svg"
-							alt="left arrow"
-							width={30}
-							height={30}
-							style={{
-								backgroundColor: currentElement !== data.length - 1 ? 'red' : '#505050',
-								borderRadius: '3px'
-							}}
-							onClick={() => currentElement !== data.length - 1 && moveNext()}
-						/>
-					</div>
-				}
+				{isNewsletter && renderPaginationBoxes()}
 				<div className={styles['carousel-wrapper']}>
 					<Image
 						src="/assets/icons/left-arrow.svg"
@@ -311,45 +345,7 @@ const Carousel = ({
 						)}
 					</div>
 				}
-				{isNewsletter &&
-					<div className={styles['navigation-boxes']}>
-						<Image
-							src="/assets/icons/left-arrow.svg"
-							alt="left arrow"
-							width={30}
-							height={30}
-							style={{
-								backgroundColor: currentElement ? 'red' : '#505050',
-								borderRadius: '3px'
-							}}
-							onClick={() => currentElement !== 0 && movePrev()}
-						/>
-						{Array.from({ length: data.length }).map((_, num) =>
-							!(num >= currentElement && num < currentElement + numPerPage) ?
-								<div
-									className={styles['box']}
-									key={num}
-									onClick={() => moveHere(num)}
-								><p>{num + 1}</p></div>
-								:
-								<div
-									className={`${styles['box']} ${styles['active-box']}`}
-									key={num}
-								><p>{num + 1}</p></div>
-						)}
-						<Image
-							src="/assets/icons/right-arrow.svg"
-							alt="left arrow"
-							width={30}
-							height={30}
-							style={{
-								backgroundColor: currentElement !== data.length - 1 ? 'red' : '#505050',
-								borderRadius: '3px'
-							}}
-							onClick={() => currentElement !== data.length - 1 && moveNext()}
-						/>
-					</div>
-				}
+				{isNewsletter && renderPaginationBoxes()}
 			</div>
 		</div>
 	);
