@@ -12,6 +12,7 @@ export default function EventsPage () {
 					<EventCard
 						key = {index}
 						event={event}
+						readMoreUrl={event.slug ? `/events/${event.slug}` : '/'}
 					/>
 				);
 			})}

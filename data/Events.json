@@ -1,19 +1,110 @@
 {
-    "Gear-5 Screening": {
-  		"image": "/assets/events/gear-5/4.webp",
-  		"title": "Gear-5 Screening",
-  		"date": "date",
-  		"venue": "venue",
-  		"author": "Pratyay",
-  		"description": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
-    },
-    
-    "Open Campus Anime Quiz 2023": {
-  		"image": "/assets/events/ocaq-2023/3.webp",
-  		"title": "Open Campus Anime Quiz 2023",
-  		"date": "January 1, 2023",
-  		"venue": "Nehru museum",
-  		"author": "Pratyay",
-  		"description": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
-    }
+	"Bidoof Day Art Competition": {
+		"slug": "bidoof-art",
+		"title": "Bidoof Day Art Competition",
+		"date": "June 20, 2024",
+		"venue": "Online",
+		"author": "Markio",
+		"description": "Event description placeholder.",
+		"image": "/assets/events/bidoof-art.jpg"
+	},
+	"Cosplay 2023 Coverage": {
+		"slug": "cosplay23",
+		"title": "Cosplay 2023 Coverage",
+		"date": "April 28, 2023",
+		"venue": "In front of Main Academic Building, IIT Kharagpur",
+		"author": "Nishkal Prakash",
+		"description": "Event description placeholder.",
+		"image": "/assets/events/cosplay23.jpg"
+	},
+	"One Piece: Gear 5 Screening": {
+		"slug": "gear-5-screening",
+		"title": "One Piece: Gear 5 Screening",
+		"date": "August 13, 2023",
+		"venue": "Netaji Auditorium, Main Building",
+		"author": "Nishkal Prakash",
+		"description": "Event description placeholder.",
+		"image": "/assets/events/gear-5-screening.jpg"
+	},
+	"Intra-Soc Anime Quiz 2024": {
+		"slug": "intrasoc-2024",
+		"title": "Intra-Soc Anime Quiz 2024",
+		"date": "January 13, 2024",
+		"venue": "Somewhere in Za Warudo",
+		"author": "Markio",
+		"description": "Event description placeholder.",
+		"image": "/assets/events/intrasoc-2024.jpg"
+	},
+	"Intra-Soc Anime Quiz Extravaganza": {
+		"slug": "intrasoc",
+		"title": "Intra-Soc Anime Quiz Extravaganza",
+		"date": "April 28, 2023",
+		"venue": "Classified",
+		"author": "Gargi Raj",
+		"description": "Event description placeholder.",
+		"image": "/assets/events/intrasoc.jpg"
+	},
+	"Open Campus Anime Quiz 2023": {
+		"slug": "ocaq-2023",
+		"title": "Open Campus Anime Quiz 2023",
+		"date": "September 03, 2023",
+		"venue": "Raman Auditorium, Main Building",
+		"author": "NPC",
+		"description": "Event description placeholder.",
+		"image": "/assets/events/ocaq-2023.jpg"
+	},
+	"Open Campus Anime Quiz 2024": {
+		"slug": "ocaq-2024",
+		"title": "Open Campus Anime Quiz 2024",
+		"date": "August 18, 2024",
+		"venue": "V-3, Vikranshila",
+		"author": "Rishabh Dehariya",
+		"description": "Event description placeholder.",
+		"image": "/assets/events/ocaq-2024.jpg"
+	},
+	"Quad Anime Trivia Quiz": {
+		"slug": "qatq",
+		"title": "Quad Anime Trivia Quiz",
+		"date": "March 12, 2023",
+		"venue": "V4, Vikramshila",
+		"author": "Ayush Parmar",
+		"description": "Event description placeholder.",
+		"image": "/assets/events/qatq.jpg"
+	},
+	"Anime Seekers' Quest": {
+		"slug": "seekers-quest",
+		"title": "Anime Seekers' Quest",
+		"date": "April 1, 2023",
+		"venue": "2.2 (around the lake)",
+		"author": "Dio Brando",
+		"description": "Event description placeholder.",
+		"image": "/assets/events/seekers-quest.jpg"
+	},
+	"Suzume no Tojimari Trip": {
+		"slug": "suzumetrip",
+		"title": "Suzume no Tojimari Trip",
+		"date": "April 30, 2023",
+		"venue": "South City Mall, Kolkata",
+		"author": "Dio Brando",
+		"description": "Event description placeholder.",
+		"image": "/assets/events/suzume.jpg"
+	},
+	"The Anime Seekers' Quest 2024": {
+		"slug": "treasure-hunt",
+		"title": "The Anime Seekers' Quest 2024",
+		"date": "March 17th, 2024",
+		"venue": "Gymkhana Premises and 2.2 Road",
+		"author": "Dalli Manideep",
+		"description": "Event description placeholder.",
+		"image": "/assets/events/treasure-hunt.jpg"
+	},
+	"Your Name Screening": {
+		"slug": "your-name-screening",
+		"title": "Your Name Screening",
+		"date": "12th August, 2024",
+		"venue": "Netaji Auditorium, Main Building",
+		"author": "Varun Ponnekanti",
+		"description": "Event description placeholder.",
+		"image": "/assets/events/your-name-screening.jpg"
+	}
 }
