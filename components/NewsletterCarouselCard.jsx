@@ -34,7 +34,7 @@ const NewsCarouselCard = ({ dataObj }) => {
 					text={'Read More'}
 					color={'black'}
 					fullWidth={true}
-					url={'https://kgpmask.com'}
+					url={`/newsletters/${dataObj.link}`}
 				/>
 			</div>
 		</div>
