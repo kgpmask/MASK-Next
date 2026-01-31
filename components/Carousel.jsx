@@ -76,7 +76,7 @@ const Carousel = ({
 	const handleDragStart = (e) => {
 		setIsDragging(true);
 		hasSwiped.current = false;
-		setStartX(e.type === 'mousedown' ? e.pageX : e.touches[0].pageX);
+		setStartX(e.clientX);
 	};
 
 	const handleDragEnd = () => {
@@ -85,10 +85,8 @@ const Carousel = ({
 
 	const handleDragMove = (e) => {
 		if (!isDragging || hasSwiped.current) return;
-		e.preventDefault();
-		const swipeThreshold = 100;
-		const x = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
-		const walk = x - startX;
+		const swipeThreshold = 70;
+		const walk = e.clientX - startX;
 
 		// Check if the drag distance exceeds the threshold
 		if (walk < -swipeThreshold) {
@@ -156,6 +154,78 @@ const Carousel = ({
 		return () => clearInterval(id);
 	}, [autoscroll, isHovering, isDragging, data.length, numPerPage, moveNext, currentElement]);
 
+	const renderPaginationBoxes = () => {
+		const total = data.length;
+
+		const getVisiblePages = (total, current) => {
+			if (total <= 7) return [...Array(total).keys()];
+
+			const pages = new Set();
+			pages.add(0); // first
+			pages.add(total - 1); // last
+
+			for (let i = current - 1; i <= current + 1; i++) {
+				if (i > 0 && i < total - 1) pages.add(i);
+			}
+
+			return [...pages].sort((a, b) => a - b);
+		};
+
+		const pages = getVisiblePages(total, currentElement);
+
+		return (
+			<div className={styles['navigation-boxes']}>
+				<Image
+					src="/assets/icons/left-arrow.svg"
+					alt="left arrow"
+					width={30}
+					height={30}
+					style={{
+						backgroundColor: currentElement ? 'red' : '#505050',
+						borderRadius: '3px'
+					}}
+					onClick={() => currentElement !== 0 && movePrev()}
+				/>
+
+				{pages.map((num, i) => {
+					const prev = pages[i - 1];
+
+					return (
+						<React.Fragment key={num}>
+							{i > 0 && num - prev > 1 && <span className={styles['dots']}>...</span>}
+
+							<div
+								className={
+									num === currentElement
+										? `${styles['box']} ${styles['active-box']}`
+										: styles['box']
+								}
+								onClick={() => moveHere(num)}
+							>
+								<p>{num + 1}</p>
+							</div>
+						</React.Fragment>
+					);
+				})}
+
+				<Image
+					src="/assets/icons/right-arrow.svg"
+					alt="right arrow"
+					width={30}
+					height={30}
+					style={{
+						backgroundColor:
+							currentElement !== total - 1 ? 'red' : '#505050',
+						borderRadius: '3px'
+					}}
+					onClick={() =>
+						currentElement !== total - 1 && moveNext()
+					}
+				/>
+			</div>
+		);
+	};
+
 	return (
 		<div
 			className={styles['container']}
@@ -197,6 +267,7 @@ const Carousel = ({
 				/>
 			}
 			<div className={styles['carousel-container']}>
+				{isNewsletter && renderPaginationBoxes()}
 				<div className={styles['carousel-wrapper']}>
 					<Image
 						src="/assets/icons/left-arrow.svg"
@@ -214,13 +285,10 @@ const Carousel = ({
 							width: sliderWidth,
 							cursor: isDragging ? 'grabbing' : 'grab'
 						}}
-						onMouseDown={handleDragStart}
-						onMouseMove={handleDragMove}
-						onMouseUp={handleDragEnd}
-						onMouseLeave={handleDragEnd}
-						onTouchStart={handleDragStart}
-						onTouchMove={handleDragMove}
-						onTouchEnd={handleDragEnd}
+						onPointerDown={handleDragStart}
+						onPointerMove={handleDragMove}
+						onPointerUp={handleDragEnd}
+						onPointerLeave={handleDragEnd}
 					>
 						{data.map((dataObj, idx) =>
 							<div
@@ -277,6 +345,7 @@ const Carousel = ({
 						)}
 					</div>
 				}
+				{isNewsletter && renderPaginationBoxes()}
 			</div>
 		</div>
 	);
