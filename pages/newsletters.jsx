@@ -10,23 +10,18 @@ const NewsletterCardGallery = ({ newsletterData }) => {
 		<div className={styles['container']}>
 			<HeroBanner
 				heroTitle={'Check out our other Newsletters'}
-				heroContent={
-					`Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-					sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.`
-				}
 				buttonContent={'Check out our Meduim page'}
-				buttonURL={'https://meduim@kgpmask.com'}
+				buttonURL={'https://mask-iitkgp.medium.com'}
 			/>
 			<div className={styles['card-container']}>
 				{newsletterData.map((news, _idx) =>
-					<div key={news.id}>
-						<NewsletterCard
-							image={news.link}
-							title={news.title}
-							link={news.link}
-							description={news.desc.slice(0, 100) + '...'}
-						/>
-					</div>
+					<NewsletterCard
+						key={news.id}
+						image={news.link}
+						title={news.title}
+						link={news.link}
+						description={news.desc.slice(0, 100) + '...'}
+					/>
 				)}
 			</div>
 		</div>

@@ -2,20 +2,37 @@ import fs from 'fs';
 import path from 'path';
 import Carousel from '@/components/Carousel';
 import styles from '@/styles/NewsletterArticle.module.css';
+import { useRouter } from 'next/router';
 
 export async function getStaticProps ({ params }) {
+
 	const { dateSlug } = params;
 
-	const baseDir = path.join(process.cwd(), 'data/newsletters', dateSlug);
+	const rootDir = path.join(process.cwd(), 'data/newsletters');
+
+	// get all newsletter folders
+	const allDates = fs.readdirSync(rootDir).sort();
+
+	// find current index
+	const currentDate = allDates.indexOf(dateSlug);
+
+	const prevDate = allDates[currentDate - 1] ?? null;
+	const nextDate = allDates[currentDate + 1] ?? null;
+
+	// random (avoid current page)
+	const others = allDates.filter(d => d !== dateSlug);
+	const randomDate =
+    others.length > 0 ? others[Math.floor(Math.random() * others.length)] : null;
+
+	// read articles
+	const baseDir = path.join(rootDir, dateSlug);
 
 	const files = fs.readdirSync(baseDir);
 
 	const articles = files.map((file) => {
-		const slug = file.replace('.html', '');
 		const content = fs.readFileSync(path.join(baseDir, file), 'utf-8');
 
 		return {
-			slug,
 			html: content
 		};
 	});
@@ -23,7 +40,10 @@ export async function getStaticProps ({ params }) {
 	return {
 		props: {
 			dateSlug,
-			articles
+			articles,
+			prevDate,
+			nextDate,
+			randomDate
 		}
 	};
 }
@@ -56,7 +76,10 @@ const articlepage = ({ dataObj }) => {
 };
 
 
-export default function NewsDatePage ({ dateSlug, articles }) {
+export default function NewsDatePage ({ dateSlug, articles, prevDate, nextDate, randomDate }) {
+
+	const router = useRouter();
+
 	const months = [
 		'January',
 		'February',
@@ -93,10 +116,28 @@ export default function NewsDatePage ({ dateSlug, articles }) {
 			/>
 			<div
 				className={styles['text-content']}
-				style={{ padding: '0px 0px 50px 0px' }}
 			>
 				<p>Swipe left/right or use arrow keys to scroll.</p>
 				<p>Best viewed on Desktop.</p>
+			</div>
+			<div className={styles['newsletter-nav']}>
+				<button
+					onClick={() => router.push(`/newsletters/${prevDate}`)}
+					disabled={prevDate === null}
+				>
+                    Previous Newsletter
+				</button>
+				<button
+					onClick={() => router.push(`/newsletters/${randomDate}`)}
+				>
+                    Random
+				</button>
+				<button
+					onClick={() => router.push(`/newsletters/${nextDate}`)}
+					disabled={nextDate === null}
+				>
+                    Next Newsletter
+				</button>
 			</div>
 		</>
 	);
