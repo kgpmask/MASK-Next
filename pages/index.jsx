@@ -4,6 +4,8 @@ import RecentEventsSection from '@/components/home/RecentEventsSection';
 import FanartSection from '@/components/home/FanartSection';
 import AMVSection from '@/components/home/AMVSection';
 import AboutUsSection from '@/components/home/AboutUsSection';
+import { connectDatabase } from '@/database/database';
+import Post from "@/database/schemas/Post";
 
 export async function getStaticProps () {
 	await connectDatabase();
@@ -15,11 +17,7 @@ export async function getStaticProps () {
 	const artworks = artworksRaw.map(item => {
 		const d = item.date instanceof Date ? item.date : new Date(item.date);
 		return {
-			src: `/assets/art/${item.link}`,
-			year: String(d.getFullYear()),
-			author: item.attr?.join(', ') || '',
-			description: item.name,
-			season: getSeason(d.getMonth())
+			src: `/assets/art/${item.link}`
 		};
 	});
 
