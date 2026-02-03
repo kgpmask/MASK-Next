@@ -6,6 +6,8 @@ import AMVSection from '@/components/home/AMVSection';
 import AboutUsSection from '@/components/home/AboutUsSection';
 import { connectDatabase } from '@/database/database';
 import Post from "@/database/schemas/Post";
+// TODO: Move this to database
+import events from '@/data/recentEvents.json';
 
 export async function getStaticProps () {
 	await connectDatabase();
@@ -22,7 +24,7 @@ export async function getStaticProps () {
 	});
 
 	return {
-		props: { artworks },
+		props: { artworks, events },
 
 		revalidate: process.env.NODE_ENV === 'production'
 			? 60 * 60
@@ -30,11 +32,11 @@ export async function getStaticProps () {
 	};
 }
 
-export default function Home ({ artworks }) {
+export default function Home ({ artworks, events }) {
 	return (
 		<div className={styles.home}>
 			<HeroSection />
-			<RecentEventsSection />
+			<RecentEventsSection events={events} />
 			<FanartSection artworks={artworks} />
 			<AMVSection />
 			<AboutUsSection />

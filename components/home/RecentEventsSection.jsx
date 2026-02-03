@@ -1,18 +1,9 @@
 import Image from 'next/image';
 import RecentEventsCarouselCard from '@/components/home/RecentEventsCarouselCard';
 import Carousel from '@/components/Carousel';
-import recentContent from '@/data/recentEvents.json';
 import styles from '@/styles/home/HomePage.module.css';
 
-const recentEvents = recentContent.slice(0, 5);
-const recentEventsSummaries = recentEvents.slice(0, 3).map((recentEvent) => ({
-	...recentEvent,
-	description:
-    recentEvent.description.slice(0, 100) +
-    (recentEvent.description.length > 100 ? '...' : '')
-}));
-
-function RecentEventsSideProp ({ currentElement, setCurrentElement }) {
+function RecentEventsSideProp ({ recentEventsSummaries, currentElement, setCurrentElement }) {
 	return (
 		<div className={styles['recent-events']}>
 			<div className={styles['recent-events-content']}>
@@ -50,16 +41,28 @@ function RecentEventsSideProp ({ currentElement, setCurrentElement }) {
 	);
 }
 
-export default function RecentEventsSection () {
+export default function RecentEventsSection ({ events }) {
+	const recentEventsSummaries = (events.length >= 3 ? events.slice(0, 3) : events).map((recentEvent) => ({
+		...recentEvent,
+		description:
+		recentEvent.description.slice(0, 100) +
+		(recentEvent.description.length > 100 ? '...' : '')
+	}));
+
 	return (
 		<>
 			<div className={styles['header-content']}>
 				<Carousel
-					data={recentEvents}
+					data={events}
 					Card={RecentEventsCarouselCard}
 					numPerPage={1}
 					showNavigator={true}
-					SideProp={RecentEventsSideProp}
+					SideProp={
+						({ ...other }) => <RecentEventsSideProp
+							recentEventsSummaries={recentEventsSummaries}
+							{...other}
+						/>
+					}
 					showSideProp={true}
 					autoscroll={true}
 				/>
