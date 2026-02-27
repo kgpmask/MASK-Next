@@ -7,7 +7,7 @@ import AboutUsSection from '@/components/home/AboutUsSection';
 import { connectDatabase } from '@/database/database';
 import Post from "@/database/schemas/Post";
 // TODO: Move this to database
-import events from '@/data/recentEvents.json';
+import events from '@/data/Events.json';
 
 export async function getStaticProps () {
 	await connectDatabase();

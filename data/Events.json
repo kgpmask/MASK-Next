@@ -1,110 +1,122 @@
-{
-	"Bidoof Day Art Competition": {
+[
+	{
 		"slug": "bidoof-art",
 		"title": "Bidoof Day Art Competition",
 		"date": "June 20, 2024",
 		"venue": "Online",
 		"author": "Markio",
-		"description": "Event description placeholder.",
+		"description": "The Intra-Society Anime Quiz was an EPIC showdown, and the results? Mind-blowing! From jaw-dropping trivia to intense battles of otaku knowledge, we witnessed friendships forged and rivalries born!",
+		"subdescription" : "",
 		"image": "/assets/events/bidoof-art.jpg"
 	},
-	"Cosplay 2023 Coverage": {
+	{
 		"slug": "cosplay23",
 		"title": "Cosplay 2023 Coverage",
 		"date": "April 28, 2023",
 		"venue": "In front of Main Academic Building, IIT Kharagpur",
 		"author": "Nishkal Prakash",
-		"description": "Event description placeholder.",
+		"description": "The memories of college life condensed over long years, come to an explosive close, with the graduating batch cosplaying as their favourite characters.",
+		"subdescription" : "",
 		"image": "/assets/events/cosplay23.jpg"
 	},
-	"One Piece: Gear 5 Screening": {
+	{
 		"slug": "gear-5-screening",
 		"title": "One Piece: Gear 5 Screening",
 		"date": "August 13, 2023",
 		"venue": "Netaji Auditorium, Main Building",
 		"author": "Nishkal Prakash",
-		"description": "Event description placeholder.",
+		"description": "The first-ever anime screening event at the Indian Institute of Technology Kharagpur (IIT Kharagpur) took place with electrifying enthusiasm and excitement on Sunday, 9:00 pm 13th August, 2023.",
+		"subdescription" : "",
 		"image": "/assets/events/gear-5-screening.jpg"
 	},
-	"Intra-Soc Anime Quiz 2024": {
+	{
 		"slug": "intrasoc-2024",
 		"title": "Intra-Soc Anime Quiz 2024",
 		"date": "January 13, 2024",
 		"venue": "Somewhere in Za Warudo",
 		"author": "Markio",
-		"description": "Event description placeholder.",
+		"description": "A quiz event held by the Fresher Quiz members, exclusively for the members of MASK, held at an undisclosed location.",
+		"subdescription" : "",
 		"image": "/assets/events/intrasoc-2024.jpg"
 	},
-	"Intra-Soc Anime Quiz Extravaganza": {
+	{
 		"slug": "intrasoc",
 		"title": "Intra-Soc Anime Quiz Extravaganza",
 		"date": "April 28, 2023",
 		"venue": "Classified",
 		"author": "Gargi Raj",
-		"description": "Event description placeholder.",
+		"description": "The Intra-Society Anime Quiz was an EPIC showdown, and the results? Mind-blowing! From jaw-dropping trivia to intense battles of otaku knowledge, we witnessed friendships forged and rivalries born!",
+		"subdescription" : "",
 		"image": "/assets/events/intrasoc.jpg"
 	},
-	"Open Campus Anime Quiz 2023": {
+	{
 		"slug": "ocaq-2023",
 		"title": "Open Campus Anime Quiz 2023",
 		"date": "September 03, 2023",
 		"venue": "Raman Auditorium, Main Building",
 		"author": "NPC",
-		"description": "Event description placeholder.",
+		"description": "MASK's Open Campus Anime Quiz was back, and it did not disappoint! The atmosphere crackled with energy as questions flew back and forth, with each answer met by cheers and groans.",
+		"subdescription" : "",
 		"image": "/assets/events/ocaq-2023.jpg"
 	},
-	"Open Campus Anime Quiz 2024": {
+	{
 		"slug": "ocaq-2024",
 		"title": "Open Campus Anime Quiz 2024",
 		"date": "August 18, 2024",
 		"venue": "V-3, Vikranshila",
 		"author": "Rishabh Dehariya",
-		"description": "Event description placeholder.",
+		"description": "MASK's Open Campus Anime Quiz was back, and it did not disappoint! The atmosphere crackled with energy as questions flew back and forth, with each answer met by cheers and groans.",
+		"subdescription" : "",
 		"image": "/assets/events/ocaq-2024.jpg"
 	},
-	"Quad Anime Trivia Quiz": {
+	{
 		"slug": "qatq",
 		"title": "Quad Anime Trivia Quiz",
 		"date": "March 12, 2023",
 		"venue": "V4, Vikramshila",
 		"author": "Ayush Parmar",
-		"description": "Event description placeholder.",
+		"description": "Anime enthusiasts recently united for an electrifying quiz event, showcasing their knowledge and competing for exclusive merch and enticing prizes. Relive the excitement of this unforgettable celebration, where fans celebrated their shared love for anime in a thrilling clash of wits and passion.",
+		"subdescription" : "",
 		"image": "/assets/events/qatq.jpg"
 	},
-	"Anime Seekers' Quest": {
+	{
 		"slug": "seekers-quest",
 		"title": "Anime Seekers' Quest",
 		"date": "April 1, 2023",
 		"venue": "2.2 (around the lake)",
 		"author": "Dio Brando",
-		"description": "Event description placeholder.",
+		"description": "With nothing but clues, anime knowledge, friendships and wits, search around the campus for the treasure of the fans before the sun goes down. The Anime Seekers’ Quest was our first hands-on event, covering the campus with our clues and with prizes worth the search.",
+		"subdescription" : "",
 		"image": "/assets/events/seekers-quest.jpg"
 	},
-	"Suzume no Tojimari Trip": {
+	{
 		"slug": "suzumetrip",
 		"title": "Suzume no Tojimari Trip",
 		"date": "April 30, 2023",
 		"venue": "South City Mall, Kolkata",
 		"author": "Dio Brando",
-		"description": "Event description placeholder.",
+		"description": "To watch the new Makoto Shinkai movie, Suzume no Tojimari, we went to South City Mall. From toto races, early sunday morning trains, bus rides full of jokes, and a wonderful cinematic experience, this trip was our last big thing for this semester.",
+		"subdescription" : "",
 		"image": "/assets/events/suzume.jpg"
 	},
-	"The Anime Seekers' Quest 2024": {
+	{
 		"slug": "treasure-hunt",
 		"title": "The Anime Seekers' Quest 2024",
 		"date": "March 17th, 2024",
 		"venue": "Gymkhana Premises and 2.2 Road",
 		"author": "Dalli Manideep",
-		"description": "Event description placeholder.",
+		"description": "A thrilling treasure hunt blending anime knowledge, teamwork, and adventurous spirits in the heart of KGP campus!",
+		"subdescription" : "",
 		"image": "/assets/events/treasure-hunt.jpg"
 	},
-	"Your Name Screening": {
+	{
 		"slug": "your-name-screening",
 		"title": "Your Name Screening",
 		"date": "12th August, 2024",
 		"venue": "Netaji Auditorium, Main Building",
 		"author": "Varun Ponnekanti",
-		"description": "Event description placeholder.",
+		"description": "The much anticipated anime movie screening of Your Name (Kimi no Na Wa) after a very successful One Piece: Gear 5 screening the previous year took place on an unusually enthusiastic Monday night of 12th August, 2024.",
+		"subdescription" : "",
 		"image": "/assets/events/your-name-screening.jpg"
 	}
-}
+]

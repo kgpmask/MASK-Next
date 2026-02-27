@@ -10,7 +10,7 @@ const RecentEventsCarouselCard = ({ dataObj }) => {
 			<div>
 				<Image
 					draggable={false}
-					src={dataObj.src}
+					src={dataObj.image}
 					width={600}
 					height={400}
 					className={styles['image']}
