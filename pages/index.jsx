@@ -5,13 +5,13 @@ import FanartSection from '@/components/home/FanartSection';
 import AMVSection from '@/components/home/AMVSection';
 import AboutUsSection from '@/components/home/AboutUsSection';
 import { connectDatabase } from '@/database/database';
-import Post from "@/database/schemas/Post";
+import Post from '@/database/schemas/Post';
 // TODO: Move this to database
 import events from '@/data/Events.json';
 
 export async function getStaticProps () {
 	await connectDatabase();
-	let artworksRaw = await Post.find(
+	const artworksRaw = await Post.find(
 		{ type: 'art' },
 		{ _id: 0, metadata: 0, type: 0, page: 0, hype: 0, __v: 0 }
 	).sort({ date: -1 }).limit(6).lean();
@@ -39,7 +39,9 @@ export default function Home ({ artworks, events }) {
 			<RecentEventsSection events={events} />
 			<FanartSection artworks={artworks} />
 			<AMVSection />
-			<AboutUsSection />
+			<div id="about">
+				<AboutUsSection />
+			</div>
 		</div>
 	);
 }

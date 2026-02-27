@@ -70,6 +70,7 @@ export default function AboutUsSection () {
 						text={'Meet the teams'}
 						color={'trans-white'}
 						fullWidth={false}
+						url={'/members'}
 					/>
 				</div>
 				<div className={styles['about-teams']}>

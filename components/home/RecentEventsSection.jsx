@@ -24,14 +24,14 @@ function RecentEventsSideProp ({ recentEventsSummaries, currentElement, setCurre
 								: styles.events
 					}
 					style={{
-						display: "flex",
-						justifyContent: "center"	
+						display: 'flex',
+						justifyContent: 'center'
 					}}
 					onClick={() => setCurrentElement(idx)}
 				>
 					<div style={{
-						fontSize: "22px",
-						fontWeight: "bold",
+						fontSize: '22px',
+						fontWeight: 'bold'
 					}}>
 						<Image
 							alt="calendar"
@@ -39,7 +39,7 @@ function RecentEventsSideProp ({ recentEventsSummaries, currentElement, setCurre
 							height={20}
 							width={20}
 						/>
-						{" "}
+						{' '}
 						{event.title}
 					</div>
 					<p>{event.description}</p>

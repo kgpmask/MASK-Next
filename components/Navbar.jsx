@@ -61,7 +61,7 @@ const Navbar = () => {
 					<div className={styles.but}>
 						<Button
 							text="About Us"
-							url="/about"
+							url="/#about"
 							type="red"
 							icon="null"
 							styleOverrides={{ height: 36, minWidth: 20 }}
