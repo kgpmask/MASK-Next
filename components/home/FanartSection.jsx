@@ -5,7 +5,7 @@ import Button from '../Button';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
-const fanartItems = recentContent.slice(0, 5);
+// const fanartItems = recentContent.slice(0, 5);
 
 function FanArtSideProp () {
 	return (
@@ -22,7 +22,7 @@ function FanArtSideProp () {
 				nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 				sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
-			<Button text="Our Artwork" href={'#'} color="black" />
+			<Button text="Our Artwork" url={'/art'} color="black" />
 		</div>
 	);
 }
@@ -62,14 +62,14 @@ function useWindowSize () {
 	return windowSize;
 }
 
-export default function FanartSection () {
+export default function FanartSection ({ artworks }) {
 	const { width } = useWindowSize();
 	const sidePropVertical = width <= 1024;
 
 	return (
 		<div className={styles['fanart']}>
 			<Carousel
-				data={fanartItems}
+				data={artworks}
 				Card={FanArtCarouselCard}
 				numPerPage={1}
 				showNavigator={true}
