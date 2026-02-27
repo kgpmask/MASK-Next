@@ -17,7 +17,7 @@ const cabin = Cabin({ subsets: ['latin'] });
  * 		}}
  * />
  */
-export default function EventCard ({ event }) {
+export default function EventCard ({ event, readMoreUrl }) {
 	return (
 		<div className={`${styles.eventCard} ${cabin.className}`}>
 			{/* <div className={styles.contentWrapper}> */}
@@ -37,7 +37,7 @@ export default function EventCard ({ event }) {
 					</p>
 				</div>
 				<div className={styles.buttonWrapper}>
-					<Button text="Read More" url="/" />
+					<Button text="Read More" url={readMoreUrl ?? '/'} />
 				</div>
 			</div>
 			{/* </div> */}

@@ -1,0 +1,178 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+  width: 100%;
+  user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+  position: relative;
+  z-index: 2;
+}
+
+.bg-carousel-container {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.bg-image {
+  
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  /* filter: grayscale(100%) */
+}
+
+.bg-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(197, 9, 9, 0.746);
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  inset: 0;
+	/* backdrop-filter: blur(2px);
+	-webkit-backdrop-filter: blur(2px); */
+}
+
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  overflow: hidden;
+  height: auto;
+  margin: 0 auto;
+}
+
+.arrow {
+  background-color: rgba(31, 31, 31, 0.82);
+  margin: 5px;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1080px) {
+  .arrow {
+    display: none;
+  }
+}
+
+.slider {
+  display: flex;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  height: fit-content;
+}
+
+.item-wrapper {
+  height: fit-content;
+}
+
+.item-content {
+  scroll-snap-align: start;
+  height: fit-content;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: auto;
+}
+
+.empty-item {
+  display: flex;
+  width: 425px;
+  height: 425px;
+}
+
+.empty-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 328px;
+  height: 328px;
+  background-color: #1e1e1e;
+  text-align: center;
+  color: #d9d9d9;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.navigation-dots {
+  display: flex;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 10px;
+  background-color: #aaaaaa;
+}
+
+.active-dot {
+  background-color: white;
+}
+
+.navigation-boxes {
+  display: flex;
+  gap: 10px;
+  padding: 30px;
+}
+
+.box {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+}
+
+.box p {
+  text-align: center;
+}
+
+.active-box {
+  background-color: white;
+  color: red;
+  border-color: red;
+}
+
+.dots {
+	display: flex;
+	align-items: center;
+  justify-content: center;
+	user-select: none;
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  border-radius: 3px;
+  border: 1px solid;
+}

@@ -13,7 +13,7 @@ const Navbar = () => {
 	const menuItems = [
 		{ name: 'Home', href: '/' },
 		{ name: 'Art', href: '/art' },
-		{ name: 'Newsletters', href: '/newsletter' },
+		{ name: 'Newsletters', href: '/newsletters' },
 		{ name: 'Videos', href: '/videos' },
 		{ name: 'Events', href: '/events' },
 		{ name: 'Members', href: '/members' }
@@ -61,7 +61,7 @@ const Navbar = () => {
 					<div className={styles.but}>
 						<Button
 							text="About Us"
-							url="/about"
+							url="/#about"
 							type="red"
 							icon="null"
 							styleOverrides={{ height: 36, minWidth: 20 }}

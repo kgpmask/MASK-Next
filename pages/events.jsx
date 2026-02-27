@@ -1,7 +1,7 @@
 import React from 'react';
 import EventCard from '@/components/EventCard';
 import styles from '@/styles/EventCard.module.css';
-import events from '@/pages/Events.json';
+import events from '@/data/Events.json';
 
 export default function EventsPage () {
 	return (
@@ -12,6 +12,7 @@ export default function EventsPage () {
 					<EventCard
 						key = {index}
 						event={event}
+						readMoreUrl={event.slug ? `/events/${event.slug}` : '/'}
 					/>
 				);
 			})}

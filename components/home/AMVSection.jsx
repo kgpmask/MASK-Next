@@ -1,7 +1,7 @@
-import { useRef, useState, useEffect } from 'react';
-import Image from 'next/image';
-import styles from '@/styles/home/Home.module.css';
+import React, { useEffect, useState, useRef } from 'react';
+import styles from '@/styles/home/HomePage.module.css';
 import dynamic from 'next/dynamic';
+import Carousel from '../Carousel';
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
 const AMVVideoItems = [
@@ -16,92 +16,58 @@ const AMVVideoItems = [
 	}
 ];
 
-export default function AMVSection () {
-	const sliderRef = useRef(null);
-	const [currentAMVVideoIndex, setCurrentAMVVideoIndex] = useState(0);
-	const [playingStates, setPlayingStates] = useState(
-		AMVVideoItems.map(() => false)
-	);
+const VideoCarouselCard = ({ dataObj }) => {
 
-	const setPlayingState = (idx, state) => {
-		setPlayingStates((playingStates) => {
-			playingStates[idx] = state;
-			return playingStates;
-		});
-	};
+	return (
+		<div className={styles['player-wrapper']}>
+			<ReactPlayer
+				className={styles['react-player']}
+				url={dataObj.url}
+				width='100%'
+				height='100%'
+				controls={true}
+				// light={true}
+				// playing={true}
+			/>
+		</div>
+	);
+};
+
+export default function AMVSection () {
+	const [autoscroll, setAutoscroll] = useState(true);
+	const playingCountRef = useRef(0);
 
 	useEffect(() => {
-		const target = sliderRef.current.children[currentAMVVideoIndex];
-		sliderRef.current.scrollTo({
-			left: target.offsetLeft - sliderRef.current.offsetLeft,
-			behavior: 'smooth'
-		});
-		setPlayingStates((playingStates) => playingStates.map(() => false));
-		if (setCurrentAMVVideoIndex) {
-			setCurrentAMVVideoIndex(currentAMVVideoIndex);
-		}
-	}, [currentAMVVideoIndex]);
+		const onMessage = (event) => {
+			if (event.origin !== 'https://www.youtube.com') return;
+			if (typeof event.data !== 'string') return;
 
-	const moveNext = () =>
-		setCurrentAMVVideoIndex((cur) => (cur + 1) % AMVVideoItems.length);
-	const movePrev = () =>
-		setCurrentAMVVideoIndex(
-			(cur) => (cur - 1 + AMVVideoItems.length) % AMVVideoItems.length
-		);
-	const moveHere = (num) => setCurrentAMVVideoIndex(num);
+			if (event.data.includes('infoDelivery') && event.data.includes('"playerState":1')) {
+				playingCountRef.current += 1;
+				setAutoscroll(false);
+			}
+
+			if (event.data.includes('"playerState":2') || event.data.includes('"playerState":0')) {
+				playingCountRef.current = Math.max(playingCountRef.current - 1, 0);
+
+				if (playingCountRef.current === 0) {
+					setAutoscroll(true);
+				}
+			}
+		};
+
+		window.addEventListener('message', onMessage);
+		return () => window.removeEventListener('message', onMessage);
+	}, []);
 
 	return (
 		<div className={styles['amv-section']}>
 			<h1>Anime Music Videos</h1>
-			<div className={styles['amv-container']}>
-				<Image
-					src="/assets/icons/left-arrow.svg"
-					alt="left arrow"
-					width={45}
-					height={45}
-					className={styles['amv-nav-arrow']}
-					onClick={movePrev}
-				/>
-				<div className={styles['amv-video-carousel']} ref={sliderRef}>
-					{AMVVideoItems.map((amvVideo, idx) =>
-						<div key={idx} className={styles['amv-video']}>
-							<ReactPlayer
-								url={amvVideo.url}
-								width="100%"
-								height="100%"
-								controls={true}
-								playing={playingStates[idx]}
-								onPlay={() => setPlayingState(idx, true)}
-								onPause={() => setPlayingState(idx, false)}
-							/>
-						</div>
-					)}
-				</div>
-				<Image
-					src="/assets/icons/right-arrow.svg"
-					alt="right arrow"
-					width={45}
-					height={45}
-					className={styles['amv-nav-arrow']}
-					onClick={moveNext}
-				/>
-			</div>
-			<div className={styles['amv-navigation-dots']}>
-				{Array.from({ length: AMVVideoItems.length }).map((_, num) =>
-					!(num >= currentAMVVideoIndex && num < currentAMVVideoIndex + 1) ?
-						<div
-							className={styles.dot}
-							key={num}
-							onClick={() => moveHere(num)}
-						></div>
-						:
-						<div
-							className={`${styles.dot} ${styles['active-dot']}`}
-							key={num}
-						></div>
-
-				)}
-			</div>
+			<Carousel
+				data={AMVVideoItems}
+				Card={VideoCarouselCard}
+				autoscroll={autoscroll}
+			/>
 		</div>
 	);
 }
