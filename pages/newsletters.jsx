@@ -16,7 +16,7 @@ const NewsletterCardGallery = ({ newsletterData }) => {
 			<div className={styles['card-container']}>
 				{newsletterData.map((news, _idx) =>
 					<NewsletterCard
-						key={news.id}
+						key={news.link}
 						image={news.link}
 						title={news.title}
 						link={news.link}

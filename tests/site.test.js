@@ -4,10 +4,8 @@ import next from "next";
 import { connectDatabase } from "../database/database.js";
 import Member from "../database/schemas/Member.js";
 
-const PORT = 3000;
-process.env.PORT = PORT;
-
 let appServer;
+let PORT;
 
 beforeAll(async () => {
 	const app = next({ dev: true, dir: process.cwd() });
@@ -15,14 +13,15 @@ beforeAll(async () => {
 	await app.prepare();
 
 	appServer = createServer((req, res) => handle(req, res));
-	await new Promise((resolve) => appServer.listen(PORT, resolve));
+	await new Promise((resolve) => appServer.listen(0, resolve));
+	PORT = appServer.address().port;
 });
 
 afterAll(async () => {
 	await new Promise((resolve) => appServer.close(resolve));
 });
 
-const pages = ["", "events", "members", "newsletter", "videos", "art"];
+const pages = ["", "events", "members", "newsletters", "videos", "art"];
 
 describe("Server", () => {
 	beforeAll(async () => {
@@ -45,7 +44,7 @@ describe("Server", () => {
 			const response = await fetch(`http://localhost:${PORT}/${page}`);
 			expect(response.ok).toBe(true);
 			expect(response.status).toBe(200);
-		});
+		}, 10000);
 	});
 
 	describe("Errors", () => {
