@@ -1,0 +1,394 @@
+.home {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-content {
+  color: white;
+  text-align: center;
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+/* COMMON */
+.title {
+  font-size: 48px;
+}
+
+.description {
+  width: 547px;
+  font-family: Cabin;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+  .description {
+    width: 100%;
+    font-family: Cabin;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    vertical-align: middle;
+  }
+}
+
+/* HERO SECTION */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 7rem;
+  color: white;
+}
+
+.hero-greetings {
+  font-size: 18px;
+}
+
+.hero-buttons {
+  display: flex;
+  margin: 1rem 0rem 1rem 0rem;
+  gap: 0.75rem;
+}
+
+.hero-about-us-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 3rem 1rem 3rem;
+  background-color: #e43332;
+  width: auto;
+  height: auto;
+  max-width: 326px;
+  border-radius: 41px;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.hero-about-us-button:hover {
+  cursor: pointer;
+}
+
+.hero-check-out-newsletter-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 3rem 1rem 3rem;
+  /* background-color: #e43332; */
+  width: auto;
+  height: auto;
+  max-width: 356px;
+  border: 1.5px solid white;
+  border-radius: 41px;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.hero-check-out-newsletter-button:hover {
+  cursor: pointer;
+}
+
+.hero-check-out-newsletter-button img {
+  align-self: center;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 5rem 0;
+    color: white;
+    padding: 0 30px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
+
+/* RECENT EVENTS */
+.recent-events {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5re;
+  color: white;
+  background-color: #e43332;
+  width: 100%;
+  height: 260px;
+  width: calc(100% - 2rem);
+  max-width: 1150px;
+  align-self: center;
+  margin: 3rem 0;
+  padding: 1.5rem 1.25rem 1.5rem 1.25rem;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.recent-events-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem 1rem 1.5rem 1.25rem;
+  gap: 1rem;
+  border-right: white solid 1.5px;
+}
+
+.events,
+.last-deactive-element,
+.active-event {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.25rem 1.5rem 1.25rem;
+  gap: 0.5rem;
+}
+.active-event {
+  background: #b02c2b;
+  border-radius: 10px;
+}
+
+.events:hover,
+.active-event:hover,
+.last-deactive-element:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .recent-events {
+    height: auto;
+    padding: 1.5rem 1rem;
+  }
+
+  .recent-events-content {
+    padding: 1rem 1rem 1rem 1.5rem;
+  }
+
+  .events {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .recent-events {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    margin-top: 4rem;
+    height: auto;
+  }
+
+  .recent-events-content {
+    border-right: none;
+    border-bottom: white solid 1.5px;
+    padding: 0 0 1.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .recent-events {
+    padding: 1.5rem 1rem;
+    margin-top: 3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .recent-events-content {
+    padding: 0 0 1rem 0;
+  }
+}
+
+/* FANART SECTION */
+
+.text-content {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 20px;
+  text-align: left;
+  color: white;
+}
+
+.fanart-image {
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .fanart-image {
+    width: 90vw;
+    height: 51vw;
+  }
+  
+  .text-content {
+    width: 90vw;
+  }
+  .text-content p {
+    display: none;
+  }
+}
+
+.fanart {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  margin: 50px 0;
+}
+.wrapper {
+  width: 1250px;
+  padding: 16px;
+}
+
+.fanart-section {
+  display: flex;
+  gap: 2rem;
+  margin: 7rem 0rem 7rem 0rem;
+  padding: 4rem 0rem;
+}
+
+.fanart-header-content {
+  color: white;
+  text-align: center;
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+/* AMV Section */
+.amv-section {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.amv-section h1 {
+  padding-bottom: 20px;
+}
+
+.player-wrapper {
+    position: relative;
+    width: 800px;
+    height: 450px;
+    background-color: #1E1E1E;
+    border-radius: 5px;
+    padding-bottom: 50px;
+}
+
+.react-player {
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@media (max-width: 850px) {
+    .player-wrapper {
+        width: 85vw;
+        height: 50vw;
+    }
+}
+
+/* ABOUT US SECTION */
+.about-container {
+  display: flex;
+  /* flex-direction: column; */
+  gap: 2rem;
+  width: 100%;
+  margin: 4rem 0rem;
+  padding: 4rem 0rem;
+  justify-content: space-between;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex: 1 0 400px;
+  text-align: start;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.about-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+}
+
+.about-subtitle {
+  font-family: Cabin;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 24px;
+}
+
+.about-teams {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  justify-content: end;
+}
+
+.about-team {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: start;
+}
+
+.about-team img {
+  filter: brightness(0) invert(1);
+}
+
+.about-team:hover {
+  cursor: pointer;
+  background-color: var(--red);
+}
+
+.about-team-name {
+  font-family: Cabin;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 26px;
+}
+
+@media (max-width: 1000px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-content {
+    padding: 0 2rem;
+    align-items: center;
+  }
+
+  .about-teams {
+    width: 100%;
+    justify-content: center;
+  }
+}
