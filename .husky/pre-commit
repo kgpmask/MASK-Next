@@ -10,4 +10,4 @@ npm run lint:fix || exit 1
 echo "▶ Running lint check..."
 npm run lint || exit 1
 
-echo "✅ Pre-commit checks passed"
+echo "Pre-commit checks passed"
