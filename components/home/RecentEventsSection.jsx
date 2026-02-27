@@ -23,17 +23,25 @@ function RecentEventsSideProp ({ recentEventsSummaries, currentElement, setCurre
 								? styles['last-deactive-element']
 								: styles.events
 					}
+					style={{
+						display: "flex",
+						justifyContent: "center"	
+					}}
 					onClick={() => setCurrentElement(idx)}
 				>
-					<div>
+					<div style={{
+						fontSize: "22px",
+						fontWeight: "bold",
+					}}>
 						<Image
 							alt="calendar"
 							src="/assets/icons/calendar.svg"
-							height={30}
-							width={30}
+							height={20}
+							width={20}
 						/>
+						{" "}
+						{event.title}
 					</div>
-					<h2>{event.title}</h2>
 					<p>{event.description}</p>
 				</div>
 			)}
