@@ -30,7 +30,7 @@ const Carousel = ({
 	useEffect(() => {
 		currentElementRef.current = currentElement;
 	}, [currentElement]);
-	
+
 	// Reset carousel when data changes
 	useEffect(() => {
 		setCurrentElement(0);
