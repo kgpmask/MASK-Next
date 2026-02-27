@@ -21,7 +21,7 @@ const RecentEventsCarouselCard = ({ dataObj }) => {
 				<h1>{dataObj.title}</h1>
 				<p>{dataObj.description}</p>
 				<p>{dataObj.subdescription}</p>
-				<Button text="Read More" href={'#'} />
+				<Button text="Read More" url={`/events/${dataObj.slug}`} />
 			</div>
 		</div>
 	);
