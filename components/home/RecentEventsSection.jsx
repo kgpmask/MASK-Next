@@ -9,7 +9,8 @@ function RecentEventsSideProp ({ recentEventsSummaries, currentElement, setCurre
 			<div className={styles['recent-events-content']}>
 				<h1>Recent Events</h1>
 				<p>
-					MASK organizes a handful of anime-related events such as the Open Campus Anime Quiz, Doodle Dojo, Maskerade and some others when possible.
+					MASK organizes a handful of anime-related events such as the Open Campus Anime Quiz,
+					Doodle Dojo, Maskerade and some others when possible.
 				</p>
 			</div>
 			{recentEventsSummaries.map((event, idx) =>

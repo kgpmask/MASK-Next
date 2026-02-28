@@ -58,7 +58,7 @@ export default function AboutUsSection () {
 					<p className={styles['about-description']}>
 						MASK if the passionate anime and manga community of IIT Kharagpur, dedicated to celebrating anime,
 						manga, manwha, and otaku culture. We organise a variety of events throughout the year, including anime
-						screenings, quizzes, and treasure hunts, creating a fun and engaging space for fans on campus. 
+						screenings, quizzes, and treasure hunts, creating a fun and engaging space for fans on campus.
 						<br />
 						<br />
 						Beyond on-campus activities, MASK maintains an active online presence on Instagram, YouTube, Medium and
