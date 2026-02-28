@@ -58,17 +58,7 @@
 	max-width: 260px;
 }
 
-@media screen and (max-width: 900px) {
-	.members-section {
-		grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-	}
-}
-
 @media screen and (max-width: 630px) {
-	.members-section {
-		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-	}
-
 	.members-section > * {
 		max-width: unset;
 	}
