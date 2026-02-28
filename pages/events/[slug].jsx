@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import styles from '@/styles/EventsPage.module.css';
 import { useRouter } from 'next/router';
-import events from '@/data/Events.json'
+import events from '@/data/Events.json';
 
 export async function getStaticPaths () {
 	const baseDir = path.join(process.cwd(), 'data/events');

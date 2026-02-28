@@ -11,7 +11,7 @@ function FanArtSideProp () {
 				<strong>Fanart</strong> Submissions
 			</h1>
 			<p>
-				We feature a diverse range of work from talented artists within our society. 
+				We feature a diverse range of work from talented artists within our society.
 				From traditional to digital art, each piece reflects unique creativity and vision.
 			</p>
 			<Button text="Our Artwork" url={'/art'} color="black" />
