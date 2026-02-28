@@ -1,16 +1,10 @@
-{% extends '_event.njk' %}
-
-{% set pagetitle = "The Anime Seekers' Quest 2024" %}
-{% set pagedesc = "A thrilling treasure hunt blending anime knowledge, teamwork, and adventurous spirits in the heart of KGP campus!" %}
-
-{% block eventContent %}
 <div class="event-info">
 	<span class="heading">Date:</span> March 17th, 2024 <br>
 	<span class="heading">Location:</span> Gymkhana Premises and 2.2 Road <br>
 	<span class="heading">Author:</span> Dalli Manideep <br>
 </div>
 
-<div class="highlight">
+<div class="highlight" style="font-style: italic;">
 	<p>
 		The Anime Seekers’ Quest was a treasure hunt like no other, combining anime fandom and the thrill of adventure. Participants from all years joined forces, solved riddles, and unlocked locations in a race to claim the ultimate treasure of anime-themed prizes.
 	</p>
@@ -25,10 +19,10 @@
 </p>
 
 <div class="image-container">
-	<div class="slideshow-container">
-		{{ slide('treasure-hunt', '1.webp') }}
-		{{ slide('treasure-hunt', '2.webp') }}
-		{{ slide('treasure-hunt', '3.webp') }}
+	<div class="slideshow-container" style="display: flex; gap: 16px; overflow-x: auto; overflow-x: scroll; scroll-behavior: smooth; padding-bottom: 16px;">
+		<img src="/assets/events/treasure-hunt/1.webp" alt="" height="400">
+		<img src="/assets/events/treasure-hunt/2.webp" alt="" height="400">
+		<img src="/assets/events/treasure-hunt/3.webp" alt="" height="400">
 	</div>
 	<p><i><b> Event proceedings </b></i></p>
 </div>
@@ -49,10 +43,10 @@
 <p>The participants realised that they had gained a bigger treasure that day.</p>
 
 <div class="image-container">
-	<div class="slideshow-container">
-		{{ slide('treasure-hunt', '4.webp') }}
-		{{ slide('treasure-hunt', '5.webp') }}
-		{{ slide('treasure-hunt', '6.webp') }}
+	<div class="slideshow-container" style="display: flex; gap: 16px; overflow-x: auto; overflow-x: scroll; scroll-behavior: smooth; padding-bottom: 16px;">
+		<img src="/assets/events/treasure-hunt/4.webp" alt="" height="400">
+		<img src="/assets/events/treasure-hunt/5.webp" alt="" height="400">
+		<img src="/assets/events/treasure-hunt/6.webp" alt="" height="400">
 	</div>
 	<p><i><b> As a wise man once said, "The real treasure was the friends they made along the way" </b></i></p>
 </div>
@@ -68,18 +62,7 @@
 	As the sun set on 17th March, the event concluded with smiles, laughter, and memories to cherish. Truly, the real treasure was the friendships forged along the way.
 </p>
 
-<div class="image-container">
-	<img src="/assets/events/treasure-hunt/7.webp">
-	<p>The team behind the event. Kudos to all!</p>
+<div class="image-container" style="width: 100%; display: flex; justify-content: center;">
+	<img src="/assets/events/treasure-hunt/7.webp" height="400">
 </div>
-{% endblock %}
-
-{% block eventCSS %}
-<style>
-	.highlight {
-		margin: 10px;
-		font-style: italic;
-		color: var(--off-white);
-	}
-</style>
-{% endblock %}
+<p>The team behind the event. Kudos to all!</p>
