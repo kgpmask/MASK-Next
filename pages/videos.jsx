@@ -9,8 +9,8 @@ export default function VideoPage () {
 			<HeroBanner
 				heroTitle={'Check out our Anime Music Videos'}
 				heroContent={
-					`We feature a diverse range of work from talented artists within our society.
-					From traditional  to digital art, each piece reflects unique creativity and vision.`
+					`Experience the thrill of captivating AMVs created by our talented team. Immerse yourself
+					 in a world of dynamic video editing, mesmerizing soundtracks, and breathtaking visuals.`
 				}
 				buttonContent={'Check out our Youtube Channel'}
 				buttonURL={'https://www.youtube.com/@maskiitkgp'}

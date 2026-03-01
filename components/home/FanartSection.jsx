@@ -1,11 +1,8 @@
 import styles from '@/styles/home/HomePage.module.css';
-import recentContent from '@/data/recentEvents.json';
 import Carousel from '@/components/Carousel';
 import Button from '../Button';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-
-// const fanartItems = recentContent.slice(0, 5);
 
 function FanArtSideProp () {
 	return (
@@ -14,13 +11,8 @@ function FanArtSideProp () {
 				<strong>Fanart</strong> Submissions
 			</h1>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-				enim ad minim veniam, quis nostrud exercitation ullamco laboris
-				nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-				reprehenderit in voluptate velit esse cillum dolore eu fugiat
-				nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-				sunt in culpa qui officia deserunt mollit anim id est laborum.
+				We feature a diverse range of work from talented artists within our society.
+				From traditional to digital art, each piece reflects unique creativity and vision.
 			</p>
 			<Button text="Our Artwork" url={'/art'} color="black" />
 		</div>

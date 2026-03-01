@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import styles from '@/styles/EventsPage.module.css';
 import { useRouter } from 'next/router';
+import events from '@/data/Events.json';
 
 export async function getStaticPaths () {
 	const baseDir = path.join(process.cwd(), 'data/events');
@@ -41,15 +42,9 @@ export async function getStaticProps ({ params }) {
 	const filePath = path.join(rootDir, `${slug}.html`);
 	const html = fs.readFileSync(filePath, 'utf-8');
 
-	const titleMatch = html.match(/pagetitle\s*=\s*['"]([^'"]+)['"]/);
-	const title = titleMatch
-		? titleMatch[1]
-		: slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-
 	return {
 		props: {
 			slug,
-			title,
 			html,
 			prevSlug,
 			nextSlug,
@@ -58,9 +53,9 @@ export async function getStaticProps ({ params }) {
 	};
 }
 
-export default function EventPage ({ slug, title, html, prevSlug, nextSlug, randomSlug }) {
+export default function EventPage ({ slug, html, prevSlug, nextSlug, randomSlug }) {
 	const router = useRouter();
-
+	const title = events.find(e => e.slug === slug).title;
 	return (
 		<>
 			<div

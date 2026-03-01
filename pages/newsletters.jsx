@@ -20,7 +20,7 @@ const NewsletterCardGallery = ({ newsletterData }) => {
 						image={news.link}
 						title={news.title}
 						link={news.link}
-						description={news.desc.slice(0, 100) + '...'}
+						description={news.desc}
 					/>
 				)}
 			</div>

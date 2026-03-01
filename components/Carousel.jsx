@@ -31,6 +31,11 @@ const Carousel = ({
 		currentElementRef.current = currentElement;
 	}, [currentElement]);
 
+	// Reset carousel when data changes
+	useEffect(() => {
+		setCurrentElement(0);
+	}, [data]);
+
 	// Get width of the slider and also handle resizing
 	useEffect(() => {
 		const slider = sliderRef.current;

@@ -41,7 +41,8 @@ const teams = [
 		title: 'Music Team',
 		icon: '/assets/icons/music.svg',
 		description:
-			`Lorem ipsum odor amet, consectetuer adipiscing elit. Odio iaculis primis nisi imperd`
+			`The music team engages primarily in performing at MASK events, adding a flavour in some of
+			our events. They plan to release some song covers in the future.`
 	}
 ];
 
@@ -55,16 +56,15 @@ export default function AboutUsSection () {
             OUR SOCIETY CONSISTS OF FIVE TEAMS.
 					</p>
 					<p className={styles['about-description']}>
-            Lorem ipsum odor amet, consectetuer adipiscing elit. Dui volutpat
-            torquent netus est augue. Commodo risus vel adipiscing, est
-            convallis nostra. Class fringilla etiam dis tellus suscipit
-            adipiscing fusce curabitur. Proin pellentesque nascetur consectetur
-            convallis, varius quisque. Fermentum ac libero et maximus primis
-            litora massa orci. Fames auctor maecenas . <br />
+						MASK if the passionate anime and manga community of IIT Kharagpur, dedicated to celebrating anime,
+						manga, manwha, and otaku culture. We organise a variety of events throughout the year, including anime
+						screenings, quizzes, and treasure hunts, creating a fun and engaging space for fans on campus.
 						<br />
-            Sagittis himenaeos magna parturient himenaeos dictumst ligula. Amet
-            maximus per diam tempor, egestas ullamcorper. Etiam penatibus urna
-            nulla praesent volutpat hac. Morbi
+						<br />
+						Beyond on-campus activities, MASK maintains an active online presence on Instagram, YouTube, Medium and
+						on this website. Through these platforms, we share artwork, reviews, articles, and event updates, to connect
+						with enthusiasts both within and beyond IIT Kharagpur, MASK aims to build a vibrant, inclusive, community where
+						members can explore and share their love for anime and manga.
 					</p>
 					<Button
 						text={'Meet the teams'}
