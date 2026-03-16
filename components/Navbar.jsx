@@ -1,5 +1,6 @@
 import styles from '@/styles/Navbar.module.css';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Button from './Button';
 import Link from 'next/link';
@@ -10,6 +11,17 @@ const Navbar = () => {
 	const [active, setActive] = useState(router.pathname);
 	const [menuOpen, setMenuOpen] = useState(false);
 
+	useEffect(() => {
+		if (menuOpen) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = 'auto';
+		}
+
+		return () => {
+			document.body.style.overflow = 'auto';
+		};
+	}, [menuOpen]);
 	const menuItems = [
 		{ name: 'Home', href: '/' },
 		{ name: 'Art', href: '/art' },
