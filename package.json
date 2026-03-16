@@ -1,21 +1,34 @@
 {
-	"name": "mask-next",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev --turbopack",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
-	},
-	"dependencies": {
-		"react": "^19.0.0",
-		"react-dom": "^19.0.0",
-		"next": "15.1.0"
-	},
-	"devDependencies": {
-		"eslint": "^9",
-		"eslint-config-next": "15.1.0",
-		"@eslint/eslintrc": "^3"
-	}
+  "name": "mask-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prettier": "prettier . --write",
+    "lint:fix": "next lint --fix",
+    "test": "vitest",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "mongoose": "^9.0.2",
+    "next": "^15.5.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0",
+    "react-player": "^2.16.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.0",
+    "prettier": "^3.7.4",
+    "husky": "^9.1.7",
+    "vitest": "^4.0.16"
+  },
+  "volta": {
+    "node": "22.20.0"
+  }
 }

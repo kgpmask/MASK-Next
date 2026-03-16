@@ -1,0 +1,97 @@
+.member-container {
+	height: inherit;
+	width: auto;
+	justify-content: center;
+	background-color: #e43332;
+	overflow: hidden;
+}
+
+.member-container.with-contact-info {
+	position: relative;
+}
+
+.profile-pic > img {
+	border-bottom-color: black;
+	border-bottom-width: 0px;
+	border-bottom-style: solid;
+}
+
+.info-container {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	gap: 5px;
+	padding: 15px 1rem;
+	justify-content: space-between;
+}
+
+.member-info {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.member-name {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: whitesmoke;
+}
+
+.profile-pic > img {
+	display: block;
+	align-self: center;
+	justify-self: center;
+	width: 100%;
+}
+
+.member-position {
+	font-size: 0.8rem;
+	color: #e6e6e6;
+}
+
+.team-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: left;
+	align-items: center;
+	font-size: 25px;
+	gap: 10px;
+}
+
+.contact-info-container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	position: absolute;
+	bottom: -50px;
+}
+
+.contact-info-container > .contact-info {
+	flex: 1;
+	text-align: center;
+	padding: 10px;
+	height: 50px;
+	color: #fff;
+	background: rgba(139, 0, 0, 1);
+	font-size: 24px;
+}
+
+.contact-info:nth-child(odd) {
+	background: rgba(176, 44, 43, 1);
+}
+
+.member-container.with-contact-info > .profile-pic,
+.member-container.with-contact-info > .info-container,
+.member-container.with-contact-info > .contact-info-container {
+	transition: transform 300ms ease-in-out;
+}
+
+.member-container.with-contact-info:hover > .profile-pic,
+.member-container.with-contact-info:hover > .info-container,
+.member-container.with-contact-info:hover > .contact-info-container {
+	transform: translateY(-50px);
+}
+
+.compact-style {
+	width: 260px;
+}

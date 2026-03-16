@@ -1,0 +1,172 @@
+.eventCardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+  padding: 16px;
+  max-width: 1300px;
+  margin: 0 auto;     
+}
+
+.eventCard {
+	font-family: 'Cabin', sans-serif;
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	gap: clamp(1rem, 3vw, 2.5rem);
+	background-color: #1e1e1e;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	overflow: hidden;
+	padding: 30px 25px;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	
+	min-height: 30vh;
+	max-height: 350px;
+	
+	flex-wrap: wrap;
+	box-sizing: border-box;
+
+	border-radius: 10px;
+}
+
+.eventCard:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 16px rgba(5, 5, 5, 0.15);
+}
+
+.buttonWrapper {
+	width: fit-content;
+}
+
+.imageWrapper {
+	flex: 1;
+	max-height: 290px;
+}
+
+.eventImage {
+	/*
+	object-fit: cover;
+	width: 100%;
+	*/
+
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	display: block;
+
+
+
+}
+
+.contentWrapper {
+	text-align: left;
+	justify-content: left;
+	gap: 3rem;
+	display: flex;
+	flex-direction: row;
+}
+
+.eventTitle {
+	font-size: clamp(1.5rem, 2vw, 2rem);
+	font-weight: 700;
+	color: #dfdfdf;
+	text-align: left;
+}
+
+.eventMeta {
+	font-size: 1rem;
+	color: #aaa;
+}
+
+.eventMeta strong {
+	font-weight: 600;
+	color: #fff;
+}
+
+.eventDescription {
+	font-size: 1rem;
+	color: #ffffff;
+	line-height: 1.5;
+	overflow-y: auto;
+	max-height: 250px;
+}
+
+
+.textContainer {
+	flex: 1.5;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	justify-content: space-between;
+	max-height: 290px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-right: 10px;
+}
+
+.textWrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+@media screen and (max-width: 1536px) {
+	.textContainer {
+		flex: 1.3;
+	}
+}
+
+@media screen and (max-width: 1280px) {
+	.textContainer {
+		flex: 1.2;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.textContainer {
+		flex: 1;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.eventCard {
+		flex-direction: column;
+		padding: 5vw;
+		gap: 4vw;
+		max-height: none;
+
+		align-items: flex-start; /*image started to flow into the text without this*/
+		flex-wrap: nowrap;
+	}
+
+	.imageWrapper {
+		width: 100%;
+		align-self: center;
+
+		max-height: none;
+		min-width: 250px;
+	}
+
+	.eventImage {
+		width: 100%;
+		height: auto;
+	}
+
+	.contentWrapper {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.eventMeta {
+		font-size: 0.8rem;
+	}
+
+	.eventTitle {
+		font-size: 1.3rem;
+	}
+
+	.eventDescription {
+		font-size: 0.9rem;
+	}
+}

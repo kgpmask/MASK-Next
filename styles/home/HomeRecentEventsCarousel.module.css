@@ -1,0 +1,37 @@
+.content {
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.text-content {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 20px;
+  text-align: left;
+}
+
+@media (max-width: 1200px) {
+  .content {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 786px) {
+  .image {
+    width: 90vw;
+    height: 51vw;
+  }
+  .text-content {
+    width: 90vw;
+  }
+}
