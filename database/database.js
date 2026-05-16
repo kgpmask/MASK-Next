@@ -1,5 +1,11 @@
 import mongoose from "mongoose";
 
+const MONGO_URL = process.env.MONGO_URL;
+
+if (!MONGO_URL && process.env.NODE_ENV === "production") {
+  throw new Error("MONGO_URL missing in production");
+}
+
 let cached = global.mongoose;
 
 if (!cached) {
@@ -7,8 +13,9 @@ if (!cached) {
 }
 
 export async function connectDatabase() {
-  if (!process.env.MONGO_URL) {
-    throw new Error("Couldn't find MONGO_URL in environment variables");
+  if (!MONGO_URL) {
+    console.log("Skipping mongo connection.");
+    return null;
   }
 
   // Prevent reconnecting to mongoose on every request
@@ -17,7 +24,7 @@ export async function connectDatabase() {
   }
 
   if (!cached.promise) {
-    cached.promise = mongoose.connect(process.env.MONGO_URL, {
+    cached.promise = mongoose.connect(MONGO_URL, {
       // Prevent queries from hanging when mongodb isn't connected
       bufferCommands: false,
     });
