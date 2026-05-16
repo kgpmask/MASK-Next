@@ -7,8 +7,9 @@ import AboutUsSection from '@/components/home/AboutUsSection';
 // TODO: Move this to database
 import events from '@/data/Events.json';
 
-export async function getServerSideProps () {
-	const res = await fetch('http://localhost:3000/api/artworks?limit=6');
+export async function getServerSideProps (context) {
+	const host = context.req.headers.host;
+	const res = await fetch(`http://${host}/api/artworks?limit=6`);
 	const artworksRaw = await res.json();
 
 	const artworks = artworksRaw.map(item => {

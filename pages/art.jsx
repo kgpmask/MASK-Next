@@ -5,8 +5,9 @@ import Carousel from '@/components/Carousel';
 import ArtCarouselCard from '@/components/ArtCarosuelCard';
 import styles from '@/styles/ArtPage.module.css';
 
-export async function getServerSideProps () {
-	const res = await fetch('http://localhost:3000/api/artworks');
+export async function getServerSideProps (context) {
+	const host = context.req.headers.host;
+	const res = await fetch(`http://${host}/api/artworks`);
 	const artworksRaw = await res.json();
 
 	const artworks = artworksRaw.map(item => {

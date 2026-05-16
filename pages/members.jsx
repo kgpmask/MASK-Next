@@ -5,8 +5,9 @@ import { useState } from 'react';
 import styles from '@/styles/MembersPage.module.css';
 import MemberCard from '@/components/MemberCard';
 
-export async function getServerSideProps () {
-	const res = await fetch('http://localhost:3000/api/members');
+export async function getServerSideProps (context) {
+	const host = context.req.headers.host;
+	const res = await fetch(`http://${host}/api/members`);
 	const membersData = await res.json();
 
 	return {
