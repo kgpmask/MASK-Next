@@ -2,9 +2,6 @@ import mongoose from "mongoose";
 
 const MONGO_URL = process.env.MONGO_URL;
 
-if (!MONGO_URL && process.env.NODE_ENV === "production") {
-  throw new Error("MONGO_URL missing in production");
-}
 
 let cached = global.mongoose;
 
