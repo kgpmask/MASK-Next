@@ -29,15 +29,15 @@ function getMembers (membersData, selectedYear) {
 			type: 'vertical',
 			members: []
 		},
-		'Team Sub-Head': {
-			type: 'horizontal',
-			members: []
-		},
 		'Research Associate': {
 			type: 'horizontal',
 			members: []
 		},
 		Executive: {
+			type: 'horizontal',
+			members: []
+		},
+		'Team Sub-Head': {
 			type: 'horizontal',
 			members: []
 		},

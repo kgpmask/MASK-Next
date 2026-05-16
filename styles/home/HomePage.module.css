@@ -322,7 +322,7 @@
 
 .about-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   flex: 1 0 400px;
   text-align: start;
