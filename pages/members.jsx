@@ -4,19 +4,16 @@ import { FaCaretDown } from 'react-icons/fa';
 import { useState } from 'react';
 import styles from '@/styles/MembersPage.module.css';
 import MemberCard from '@/components/MemberCard';
-import { connectDatabase } from '@/database/database';
-import Member from '@/database/schemas/Member';
 
-export async function getStaticProps () {
-	await connectDatabase();
-	const membersData = await Member.find({}, { _id: 0 }).lean();
+export async function getServerSideProps (context) {
+	const host = context.req.headers.host;
+	const res = await fetch(`http://${host}/api/members`);
+	const membersData = await res.json();
+
 	return {
-		props: { membersData },
-
-		revalidate: process.env.NODE_ENV === 'production'
-			? 60 * 60 // Once per hour
-			: 1 // every second for development
+		props: { membersData }
 	};
+
 }
 
 function getMembers (membersData, selectedYear) {
