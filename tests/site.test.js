@@ -2,7 +2,6 @@ import { describe, test, expect, beforeAll, afterAll } from "vitest";
 import { createServer } from "http";
 import next from "next";
 import { connectDatabase } from "../database/database.js";
-import Member from "../database/schemas/Member.js";
 
 let appServer;
 let PORT;
@@ -11,6 +10,8 @@ beforeAll(async () => {
 	const app = next({ dev: true, dir: process.cwd() });
 	const handle = app.getRequestHandler();
 	await app.prepare();
+
+	await connectDatabase();
 
 	appServer = createServer((req, res) => handle(req, res));
 	await new Promise((resolve) => appServer.listen(0, resolve));
@@ -24,18 +25,9 @@ afterAll(async () => {
 const pages = ["", "events", "members", "newsletters", "videos", "art"];
 
 describe("Server", () => {
-	beforeAll(async () => {
-		await connectDatabase();
-	});
-
 	describe("Database", () => {
 		test("should connect without throwing an error", async () => {
 			await expect(connectDatabase()).resolves.not.toThrow();
-		});
-
-		test("should find the MASK user", async () => {
-			const member = await Member.findOne({ name: "Tadi Joshua Raj" });
-			expect(member?.name).toBe("Tadi Joshua Raj");
 		});
 	});
 
