@@ -51,7 +51,8 @@ const MemberCard = ({ profilePicture, name, teams, position, contacts, isCompact
 		n: 'MN',
 		q: 'Quiz',
 		w: 'WebD',
-		m: 'Music'
+		m: 'Music',
+		c: 'Creative'
 	};
 
 	const positionFull =

@@ -5,7 +5,9 @@ import '@/styles/globals.css';
 export default function App ({ Component, pageProps }) {
 	return (
 		<div className="container">
-			<Navbar />
+			<div style={{ zIndex: 9000 }}>
+				<Navbar />
+			</div>
 			<main className="mainContent">
 				<Component {...pageProps} />
 			</main>
